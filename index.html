@@ -18,7 +18,7 @@
     <meta property="og:type" content="website"/>
     <meta property="og:title" content=""/>
     <meta property="og:description" content=""/>
-    <meta property="og:locale" content="en" />
+    <meta property="og:locale" content="cn,ja,default" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="http://example.com/index.html" />
     <meta property="og:site_name" content="Jake Ma" />
@@ -39,6 +39,8 @@
 
     
 
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="a69c4200a5f23d8b486530cfba54065d" data-index-name="hexo">
     
 
     
@@ -69,7 +71,7 @@
             
         }
         window.aomori_logo_typed_animated = true
-        window.aomori_search_algolia = false
+        window.aomori_search_algolia = true
 
     </script>
 
@@ -99,9 +101,15 @@
                 
                 <a href="/archives">Archives</a>
                 
+                <a href="/CV">CV</a>
+                
             </div>
             <div class="header-menu-social">
                 
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='code' name='github'></box-icon>
+    </a>
+
             </div>
         </div>
 
@@ -124,6 +132,8 @@
                     <a href="/">Home</a>
                     
                     <a href="/archives">Archives</a>
+                    
+                    <a href="/CV">CV</a>
                     
                 </div>
             </div>
@@ -156,6 +166,25 @@ class="article article-type-post"
     <div class="article-entry post-inner-html">
         
         <h1 id="第一篇文章"><a href="#第一篇文章" class="headerlink" title="第一篇文章"></a>第一篇文章</h1><p>第一篇文章</p>
+<pre><code class="javascript">function replaceTable(node) &#123;
+  let tableList = Array.from(node.getElementsByTagName(&quot;table&quot;));Array.from(node.getElementsByTagName(&quot;table&quot;));Array.from(node.getElementsByTagName(&quot;table&quot;));
+  if (tableList.length === 0) return;
+  tableList.forEach((table) =&gt; &#123;
+    // if (table.querySelectorAll(&quot;img&quot;).length == 0) &#123;
+    //     return;
+    // &#125;
+    let div1 = document.createElement(&quot;div&quot;);
+    let bigdiv = document.createElement(&quot;div&quot;);
+    bigdiv.setAttribute(&quot;cms-style&quot;, &quot;scroll&quot;);
+    div1.setAttribute(&quot;cms-style&quot;, &quot;maxWidth&quot;);
+    let clonetable = table.cloneNode(true);
+    div1.appendChild(clonetable);
+    bigdiv.appendChild(div1);
+    table.parentNode.insertBefore(bigdiv, table);
+    table.parentNode.removeChild(table);
+  &#125;);
+&#125;
+</code></pre>
 
         
     </div>
@@ -190,8 +219,18 @@ class="article article-type-post"
             </section>
 
             
-            <aside class="sidebar ">
+            <aside class="sidebar sidebar-search-fix">
                 
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
 
 
 <div class="widget" id="widget">

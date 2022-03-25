@@ -19,6 +19,8 @@
     
 
     
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="a69c4200a5f23d8b486530cfba54065d" data-index-name="hexo">
+    
 
     
 
@@ -48,7 +50,7 @@
             
         }
         window.aomori_logo_typed_animated = true
-        window.aomori_search_algolia = false
+        window.aomori_search_algolia = true
 
     </script>
 
@@ -78,9 +80,15 @@
                 
                 <a href="/archives">Archives</a>
                 
+                <a href="/CV">CV</a>
+                
             </div>
             <div class="header-menu-social">
                 
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='code' name='github'></box-icon>
+    </a>
+
             </div>
         </div>
 
@@ -103,6 +111,8 @@
                     <a href="/">Home</a>
                     
                     <a href="/archives">Archives</a>
+                    
+                    <a href="/CV">CV</a>
                     
                 </div>
             </div>
@@ -147,8 +157,18 @@
             </section>
 
             
-            <aside class="sidebar ">
+            <aside class="sidebar sidebar-search-fix">
                 
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
 
 
 <div class="widget" id="widget">
