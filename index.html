@@ -166,25 +166,6 @@ class="article article-type-post"
     <div class="article-entry post-inner-html">
         
         <h1 id="第一篇文章"><a href="#第一篇文章" class="headerlink" title="第一篇文章"></a>第一篇文章</h1><p>第一篇文章</p>
-<pre><code class="javascript">function replaceTable(node) &#123;
-  let tableList = Array.from(node.getElementsByTagName(&quot;table&quot;));Array.from(node.getElementsByTagName(&quot;table&quot;));Array.from(node.getElementsByTagName(&quot;table&quot;));
-  if (tableList.length === 0) return;
-  tableList.forEach((table) =&gt; &#123;
-    // if (table.querySelectorAll(&quot;img&quot;).length == 0) &#123;
-    //     return;
-    // &#125;
-    let div1 = document.createElement(&quot;div&quot;);
-    let bigdiv = document.createElement(&quot;div&quot;);
-    bigdiv.setAttribute(&quot;cms-style&quot;, &quot;scroll&quot;);
-    div1.setAttribute(&quot;cms-style&quot;, &quot;maxWidth&quot;);
-    let clonetable = table.cloneNode(true);
-    div1.appendChild(clonetable);
-    bigdiv.appendChild(div1);
-    table.parentNode.insertBefore(bigdiv, table);
-    table.parentNode.removeChild(table);
-  &#125;);
-&#125;
-</code></pre>
 
         
     </div>
