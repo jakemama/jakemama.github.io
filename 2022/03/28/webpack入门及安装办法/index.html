@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>webpack入门及安装办法 | Ant-Thinker</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;webpack快速入门&#34;&gt;&lt;a href=&#34;#webpack快速入门&#34; class=&#34;headerlink&#34; title=&#34;webpack快速入门&#34;&gt;&lt;/a&gt;&lt;strong&gt;webpack快速入门&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是webpack&#34;&gt;&lt;a href=&#34;#什么是webpack&#34; class=&#34;headerlink&#34; title=&#34;什么是webpack&#34;&gt;&lt;/a&gt;什么是webpack&lt;/h3&gt;&lt;p&gt;官方网址：webpackjs.com&lt;br&gt;自动化打包工具，优化我们的项目，服务请求更快。&lt;br&gt;webpack是现代JavaScript应用程序的静态打包工具，当webpack处理应用程序时，它会在内部构建一个依赖图，此依赖图会映射项目所需的每个模块，并生成一个或多个bundle包。&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker Jake Ma 马一栋 博客  个人博客">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "webpack入门及安装办法 | Ant-Thinker"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;webpack快速入门&#34;&gt;&lt;a href=&#34;#webpack快速入门&#34; class=&#34;headerlink&#34; title=&#34;webpack快速入门&#34;&gt;&lt;/a&gt;&lt;strong&gt;webpack快速入门&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是webpack&#34;&gt;&lt;a href=&#34;#什么是webpack&#34; class=&#34;headerlink&#34; title=&#34;什么是webpack&#34;&gt;&lt;/a&gt;什么是webpack&lt;/h3&gt;&lt;p&gt;官方网址：webpackjs.com&lt;br&gt;自动化打包工具，优化我们的项目，服务请求更快。&lt;br&gt;webpack是现代JavaScript应用程序的静态打包工具，当webpack处理应用程序时，它会在内部构建一个依赖图，此依赖图会映射项目所需的每个模块，并生成一个或多个bundle包。&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/03/28/webpack%E5%85%A5%E9%97%A8%E5%8F%8A%E5%AE%89%E8%A3%85%E5%8A%9E%E6%B3%95/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Jake Ma" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;webpack快速入门&#34;&gt;&lt;a href=&#34;#webpack快速入门&#34; class=&#34;headerlink&#34; title=&#34;webpack快速入门&#34;&gt;&lt;/a&gt;&lt;strong&gt;webpack快速入门&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是webpack&#34;&gt;&lt;a href=&#34;#什么是webpack&#34; class=&#34;headerlink&#34; title=&#34;什么是webpack&#34;&gt;&lt;/a&gt;什么是webpack&lt;/h3&gt;&lt;p&gt;官方网址：webpackjs.com&lt;br&gt;自动化打包工具，优化我们的项目，服务请求更快。&lt;br&gt;webpack是现代JavaScript应用程序的静态打包工具，当webpack处理应用程序时，它会在内部构建一个依赖图，此依赖图会映射项目所需的每个模块，并生成一个或多个bundle包。&lt;/p&gt;" />
+    <meta name="twitter:title" content="webpack入门及安装办法 | Ant-Thinker"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;webpack快速入门&#34;&gt;&lt;a href=&#34;#webpack快速入门&#34; class=&#34;headerlink&#34; title=&#34;webpack快速入门&#34;&gt;&lt;/a&gt;&lt;strong&gt;webpack快速入门&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是webpack&#34;&gt;&lt;a href=&#34;#什么是webpack&#34; class=&#34;headerlink&#34; title=&#34;什么是webpack&#34;&gt;&lt;/a&gt;什么是webpack&lt;/h3&gt;&lt;p&gt;官方网址：webpackjs.com&lt;br&gt;自动化打包工具，优化我们的项目，服务请求更快。&lt;br&gt;webpack是现代JavaScript应用程序的静态打包工具，当webpack处理应用程序时，它会在内部构建一个依赖图，此依赖图会映射项目所需的每个模块，并生成一个或多个bundle包。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;webpack快速入门&#34;&gt;&lt;a href=&#34;#webpack快速入门&#34; class=&#34;headerlink&#34; title=&#34;webpack快速入门&#34;&gt;&lt;/a&gt;&lt;strong&gt;webpack快速入门&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是webpack&#34;&gt;&lt;a href=&#34;#什么是webpack&#34; class=&#34;headerlink&#34; title=&#34;什么是webpack&#34;&gt;&lt;/a&gt;什么是webpack&lt;/h3&gt;&lt;p&gt;官方网址：webpackjs.com&lt;br&gt;自动化打包工具，优化我们的项目，服务请求更快。&lt;br&gt;webpack是现代JavaScript应用程序的静态打包工具，当webpack处理应用程序时，它会在内部构建一个依赖图，此依赖图会映射项目所需的每个模块，并生成一个或多个bundle包。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Jake Ma" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2022/03/28/webpack%E5%85%A5%E9%97%A8%E5%8F%8A%E5%AE%89%E8%A3%85%E5%8A%9E%E6%B3%95/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "Jake Ma"
+            },
+            "headline": "webpack入门及安装办法 | Ant-Thinker",
+            "datePublished": "2022-03-28T09:19:18.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2022/03/28/webpack%E5%85%A5%E9%97%A8%E5%8F%8A%E5%AE%89%E8%A3%85%E5%8A%9E%E6%B3%95/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Ant-Thinker</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">摄影</a>
+                
+                <a href="/plan">2022计划</a>
+                
+                <a href="/CV">CV</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='code' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">摄影</a>
+                    
+                    <a href="/plan">2022计划</a>
+                    
+                    <a href="/CV">CV</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl1alke2o00086g3v8kun90kg" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      webpack入门及安装办法
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-03-28T09:19:18.000Z" itemprop="datePublished">2022-03-28</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="webpack快速入门"><a href="#webpack快速入门" class="headerlink" title="webpack快速入门"></a><strong>webpack快速入门</strong></h2><h3 id="什么是webpack"><a href="#什么是webpack" class="headerlink" title="什么是webpack"></a>什么是webpack</h3><p>官方网址：webpackjs.com<br>自动化打包工具，优化我们的项目，服务请求更快。<br>webpack是现代JavaScript应用程序的静态打包工具，当webpack处理应用程序时，它会在内部构建一个依赖图，此依赖图会映射项目所需的每个模块，并生成一个或多个bundle包。</p>
+<span id="more"></span>
+
+<h3 id="为啥要使用webpack"><a href="#为啥要使用webpack" class="headerlink" title="为啥要使用webpack"></a>为啥要使用webpack</h3><p><strong>代码转换</strong>:TypeScript编译成JavaScript，LESS&#x2F;SCSS编译CSS，ES6&#x2F;7编译成ES5，虚拟DOM编译成真实DOM等等<br><strong>文件优化</strong>:压缩js，css，HTML代码，压缩合并图片，图片base64等<br><strong>代码分割</strong>:提取多个页面的公共代码、提取首屏不需要执行部分的代码<br><strong>模块合并</strong>:在采用模块化的项目里会有很多个模块，模块下有很多文件，需要构建功能把各个模块文件合并成一个文件<br><strong>自动刷新</strong>:监听本地源代码的变化,自动重新构建，刷新浏览器<br><strong>代码校验</strong>: Eslint代 码规范校验和检测，单元测试<br><strong>自动发布</strong>:自动构建出线上发布版本，传输给发布系统<br>………………………</p>
+<h3 id="npm：安装webpack前需要了解的"><a href="#npm：安装webpack前需要了解的" class="headerlink" title="npm：安装webpack前需要了解的"></a>npm：安装webpack前需要了解的</h3><p>npm &#x3D; node package manager<br>NPM的全称是Node Package Manager，是一个NodeJS包管理和分发工具，已经成为了非官方的发布Node模块（包）的标准。<br><strong>常用的npm语法：</strong></p>
+<pre><code class="javascript">npm install xxx        //把xxx安装在当前目录
+npm i xxx -g        //把xxx安装在全局 global
+npm i xxx@xx.xx        //安装制定版本号的xxx    eg：npm i jquery@1.11.3
+npm uninstall xxx    /-g        //卸载xxx包
+</code></pre>
+<p>安装在全局的作用：</p>
+<ol>
+<li>所有的项目都能用</li>
+<li>可以使用命令（在win下）</li>
+<li>安装在全局模块不能基于CommonJs等模块规范在代码中导入模块</li>
+</ol>
+<h3 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h3><h4 id="安装package-json"><a href="#安装package-json" class="headerlink" title="安装package.json"></a>安装package.json</h4><p>在根目录下右键，在集成终端中打开，首先我们先安装一个package.json文件。在终端中输入</p>
+<pre><code class="javascript">npm init -y        //在当前目录下生成一个package.json文件，注意当前项目目录中不能包括中文或特殊字符
+</code></pre>
+<p>要注意npm正如上文所说，要在node环境下才能运行。要提前安装好node（安装教程很多，自行安装）。<br>每个项目的根目录下面，一般都有一个package.json文件，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。</p>
+<h4 id="安装webpack-1"><a href="#安装webpack-1" class="headerlink" title="安装webpack"></a>安装webpack</h4><pre><code class="javascript">npm i webpack webpack-cli --save-dev    //--save-dev 安装在开发环境，不加的话默认安装在生产环境
+</code></pre>
+<p>全局安装只要电脑不发生问题，就无需多次安装，但是官方不推荐全局安装 webpack。这会将你项目中的 webpack 锁定到指定版本，并且在使用不同的 webpack 版本的项目中，可能会导致构建失败。</p>
+<p>有些时候npm安装会非常非常慢，这时我们可以先安装yarn，利用yarn再安装webpack会快很多</p>
+<pre><code class="javascript">npm i yarn -g        //yarn安装
+yarn add webpack webpack-cli -D
+</code></pre>
+<h4 id="添加webpack-config-js文件"><a href="#添加webpack-config-js文件" class="headerlink" title="添加webpack.config.js文件"></a>添加webpack.config.js文件</h4><p>在根目录下创建添加webpack.config.js文件。并添加如下代码：</p>
+<pre><code class="javascript">const path = require (&#39;path&#39;);
+
+module.exports = &#123;
+    //设置编译的入口文件（真实项目中一般开发的代码都会放在src目录中）
+    entry:&#39;./src/main.js&#39;,      
+    //设置编译的出口文件
+    output:&#123;
+        //编译后文件名
+        filename:&#39;bundle.[hash:5].js&#39;,        //hash在内容更新后会自动生成一串哈希值，来避免浏览器的强缓存，及时更新文件
+                                                //浏览器的强缓存：当运行的文件名相同时，会默认加在缓存里的文件
+        //输出的目录（绝对路径）
+        path:path.resolve(__dirname, &#39;build&#39;)
+            &#125;
+             mode:&quot;development&quot;    //开发模式，没有对js等文件压缩，默认生成的是压缩文件
+    &#125;
+</code></pre>
+<h4 id="配置package-json"><a href="#配置package-json" class="headerlink" title="配置package.json"></a>配置package.json</h4><p>打开package.json，将scrtpts下代码换成下面样式</p>
+<pre><code class="javascript">&quot;scripts&quot;: &#123;
+    &quot;serve&quot;: &quot;webpack&quot;,
+  &#125;,
+</code></pre>
+<p>配置完成后，我们在终端输入的如下命令，可以直接打包。</p>
+<pre><code class="javascript">npm run start
+</code></pre>
+<h3 id="优秀相关博客"><a href="#优秀相关博客" class="headerlink" title="优秀相关博客"></a>优秀相关博客</h3><p>自己配完webpack之后就想写篇博客记录一下，方便自己或初学者查询。在准备博客的过程中看了许多相关博客，有一些让我叹为观止，一度很羞愧自己的作品哈哈哈，大家如果看我的不太明白在这里推荐两个：<br>清晰的webpack及插件安装过程：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/aizai846/p/11497508.html">webpack安装及打包详细过程</a><br>webpack安装过程中可能遇到的问题及解决方法：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/jinzhaozhao/p/10006131.html">webpack安装常见问题及基本插件使用</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20200826142038903.png#pic_center" alt="在这里插入图片描述"></p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/2022/03/28/vue%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8A%A5%E9%94%99/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">vue初始化报错</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=webpack入门及安装办法 - Ant-Thinker&url=https://jakemama.github.io/2022/03/28/webpack%E5%85%A5%E9%97%A8%E5%8F%8A%E5%AE%89%E8%A3%85%E5%8A%9E%E6%B3%95/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=webpack入门及安装办法 - Ant-Thinker&u=https://jakemama.github.io/2022/03/28/webpack%E5%85%A5%E9%97%A8%E5%8F%8A%E5%AE%89%E8%A3%85%E5%8A%9E%E6%B3%95/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=webpack入门及安装办法 - Ant-Thinker&url=https://jakemama.github.io/2022/03/28/webpack%E5%85%A5%E9%97%A8%E5%8F%8A%E5%AE%89%E8%A3%85%E5%8A%9E%E6%B3%95/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%98%85%E8%AF%BB/">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/28/webpack%E5%85%A5%E9%97%A8%E5%8F%8A%E5%AE%89%E8%A3%85%E5%8A%9E%E6%B3%95/">webpack入门及安装办法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/28/vue%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8A%A5%E9%94%99/">vue初始化报错</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/28/node%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/">node前置知识点</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/28/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E6%80%BB%E7%BB%93/">一文看完《mysql必知必会》-知识点总结版</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/28/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%BE%E4%B8%8D%E5%88%B0flutter%E5%91%BD%E4%BB%A4/">命令行运行提示 zsh: command not found: flutter（MAC环境）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Ant-Thinker &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
