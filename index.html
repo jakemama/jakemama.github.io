@@ -158,6 +158,111 @@
   
     
       <article
+id="post-你不知道的JS"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/2022/04/05/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/">《你不知道的JS》上卷</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <span id="more"></span>
+
+<h2 id="1-编译"><a href="#1-编译" class="headerlink" title="1.编译"></a>1.编译</h2><ul>
+<li>分词&#x2F;词法分析：将字符组成的字符串分解成有意义的代码块</li>
+<li>解析&#x2F;语法分析：将词法单元流（数组）转换成一个由元素逐级嵌套所组成的代表了程序语法结构的抽象语法树（AST）</li>
+<li>代码生成：将AST转换成可执行代码</li>
+</ul>
+<p>上面是传统编译语言的流程，JS的编译过程不是发生在构建之前，而是发生在代码执行前</p>
+<!--more-->
+
+<h2 id="2-LHS和RHS查找"><a href="#2-LHS和RHS查找" class="headerlink" title="2.LHS和RHS查找"></a>2.LHS和RHS查找</h2><p>LHS和RHS是引擎对变量的查找方式，L和R代表的是一个赋值操作的左侧和右侧。可以理解为赋值和取值。</p>
+<p><code>console.log(a)</code>对a是引用是RHS饮用，这里a并没有赋予任何值  </p>
+<p><code>a = 2</code>对a的引用是LHS引用</p>
+<p>为什么要区分LHS和RHS呢？当你未声明该变量时，进行RHS查询会抛出ReferenceError异常，而LHS查询会在全局作用域中创建一个该名称变量，但如果在严格模式下，禁止自动或隐式创建全局变量，也会抛出ReferenceError异常。如果RHS找到一个变量，但是对其进行不合理操作，会抛出TypeError异常。</p>
+<p>RefersnceError同作用域判别失败有关，而TypeError则代表作用域判别成功，但是对结果的操作是非法的</p>
+<h2 id="3-匿名和具名函数"><a href="#3-匿名和具名函数" class="headerlink" title="3.匿名和具名函数"></a>3.匿名和具名函数</h2><p>匿名函数的几个缺点</p>
+<ol>
+<li>调试困难：匿名函数在栈追踪中不会显示出有意义的函数名</li>
+<li>引用自身时只能使用已过期的arguments.callee引用：比如在递归中和事件触发后事件监听器需要解绑自身</li>
+<li>可读性、可理解性下降：一个描述性名称可以让代码不言自明</li>
+</ol>
+<h2 id="4-块作用域"><a href="#4-块作用域" class="headerlink" title="4. 块作用域"></a>4. 块作用域</h2><p>将变量绑定在所在块作用域（{…}）ES6用let，之前用try&#x2F;catch的catch块。</p>
+<h2 id="5-变量提升"><a href="#5-变量提升" class="headerlink" title="5. 变量提升"></a>5. 变量提升</h2><p>变量的声明会提到作用域的最上方，并且函数声明优先。</p>
+<h2 id="6-闭包"><a href="#6-闭包" class="headerlink" title="6. 闭包"></a>6. 闭包</h2><p>当函数可以记住并访问所在的词法作用域，即使函数是在当前词法作用域之外执行，这是就产生了闭包</p>
+<h2 id="7-箭头函数"><a href="#7-箭头函数" class="headerlink" title="7. 箭头函数"></a>7. 箭头函数</h2><p>箭头函数在涉及绑定时的行为和普通函数的行为完全不一致。她放弃了所有普通this绑定的规则，取而代之的是用当前的词法作用域覆盖了this的值</p>
+<p>相当于在函数外声明了<code>that = this</code>，然后在函数内使用that来绑定</p>
+<p>也可以在函数后面加上<code>bind(this)</code>，也和箭头函数等价。但可以避免使用新特性。</p>
+<h2 id="8-this"><a href="#8-this" class="headerlink" title="8.this"></a>8.this</h2><p><strong>this既不指向函数本身也不指向函数的词法作用域，this实际上是在函数被调用时发生的绑定，完全取决于函数的调用位置。是在运行时进行绑定的，并不是在编写时进行绑定的。</strong></p>
+<h4 id="this的绑定规则"><a href="#this的绑定规则" class="headerlink" title="this的绑定规则"></a>this的绑定规则</h4><ol>
+<li>默认绑定（函数体处于严格模式下无效）</li>
+<li>隐式绑定（被某个对象拥有或包含并且直接调用）</li>
+<li>显式绑定<ol>
+<li>call(obj, arg1, arg2…)</li>
+<li>apply(obj, [arg1, arg2…])</li>
+<li>bind(obj)，返回一个硬编码的新函数</li>
+</ol>
+</li>
+<li>new绑定：在js中，构造函数只是使用new操作符时被调用的函数，就是个普通函数。只是会自动执行下面操作<ol>
+<li>创建（或者说构造）一个全新的对象</li>
+<li>这个新对象会被执行prototype连接</li>
+<li>这个新对象会绑定到函数调用的this</li>
+<li>如果函数没有返回其他对象，那么new表达式中的函数调用会自动返回这个新对象</li>
+</ol>
+</li>
+</ol>
+<p>this绑定优先级：new &gt; 显式绑定 &gt; 隐式绑定 &gt; 默认绑定。</p>
+<p>bind(null, arg1)，bind可以传入null对参数进行柯里化（预先设置一些参数）</p>
+<p>Object.create(null)和”{}”很像，但是不会创建Object.prototype这个委托，所以它比{}“更空”</p>
+<h2 id="9-对象"><a href="#9-对象" class="headerlink" title="9.对象"></a>9.对象</h2><p>in操作符会检查<strong>属性名（不是属性的值）</strong>是否在其对象及其原型链上，而hasOwnProperty()只会检查属性是否在对象中。hasOwnProperty()也是用原型上的方法实现的，所以对象没有原型链的话，函数就会失败。</p>
+<p>for…in…或者Object.keys(obj)循环用在对象上遍历<strong>属性名</strong>，如果属性名的可枚举属性enumerable设置成fasle，就遍历不到了。若要全部遍历出来，用Object.getOwnPropertyNames(obj)</p>
+<p>for…of…循环用在数组上<strong>属性值</strong></p>
+<h2 id="10-类"><a href="#10-类" class="headerlink" title="10.类"></a>10.类</h2><p>多态：父类的通用行为可以被子类的特殊行为重写</p>
+<p>总而言之，js中尽量不要模拟类的实现。得不偿失</p>
+<h2 id="11-原型"><a href="#11-原型" class="headerlink" title="11.原型"></a>11.原型</h2><p>a instanceof b<br>instanceof的判断依据：在a的整条[[Prototype]]链中是否有Foo.prototype指向的对象</p>
+
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2022-04-05T09:51:16.000Z" itemprop="datePublished">2022-04-05</time>
+</div>
+    
+        <div class="article-category">
+        <a class="article-category-link" href="/categories/xx/">xx</a>
+        </div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xx/" rel="tag">xx</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+    
+      <article
 id="post-docker镜像制作并部署上云"
 class="article article-type-post"
 >
@@ -433,58 +538,6 @@ class="article article-type-post"
 
     
   
-    
-      <article
-id="post-命令行找不到flutter命令"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/03/28/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%BE%E4%B8%8D%E5%88%B0flutter%E5%91%BD%E4%BB%A4/">命令行运行提示 zsh: command not found: flutter（MAC环境）</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <p>如果还没有下载Flutter SDK，请先去官网下载并解压。官网地址：<a target="_blank" rel="noopener" href="https://flutter.io/sdk-archive/#macos">https://flutter.io/sdk-archive/#macos</a></p>
-<p>Flutter 的渠道版本会不停变动，请以 Flutter 官网为准。另外，在中国大陆地区，要想正常获取安装包列表或下载安装包，可能需要翻墙，读者也可以去 Flutter github 项目下去下载安装包，地址：<a target="_blank" rel="noopener" href="https://github.com/flutter/flutter/releases">https://github.com/flutter/flutter/releases</a> 。</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-03-28T08:24:15.000Z" itemprop="datePublished">2022-03-28</time>
-</div>
-    
-        <div class="article-category">
-        <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-        </div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bug/" rel="tag">bug</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
 
   
     <nav class="pagination">
@@ -519,7 +572,7 @@ class="article article-type-post"
   <div class="widget-wrap widget-cate">
     <div class="widget-title"><span>Categories</span></div>
     <div class="widget-inner">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/xx/">xx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
     </div>
   </div>
 
@@ -529,7 +582,7 @@ class="article article-type-post"
   <div class="widget-wrap widget-tags">
     <div class="widget-title"><span>Tags</span></div>
     <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xx/" rel="tag">xx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li></ul>
     </div>
   </div>
 
@@ -540,6 +593,10 @@ class="article article-type-post"
     <div class="widget-title"><span>Recent Posts</span></div>
     <div class="widget-inner">
       <ul>
+        
+          <li>
+            <a href="/2022/04/05/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/">《你不知道的JS》上卷</a>
+          </li>
         
           <li>
             <a href="/2022/04/01/docker%E9%95%9C%E5%83%8F%E5%88%B6%E4%BD%9C%E5%B9%B6%E9%83%A8%E7%BD%B2%E4%B8%8A%E4%BA%91/">docker镜像制作并部署上云</a>
@@ -555,10 +612,6 @@ class="article article-type-post"
         
           <li>
             <a href="/2022/03/28/node%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/">node前置知识点</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/28/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E6%80%BB%E7%BB%93/">一文看完《mysql必知必会》-知识点总结版</a>
           </li>
         
       </ul>
