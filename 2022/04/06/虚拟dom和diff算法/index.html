@@ -6,55 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     
-    <title>vue初始化报错 | Ant-Thinker</title>
+    <title>虚拟dom和diff算法 | Ant-Thinker</title>
 
-    <meta name="description" content="&lt;h2 id=&#34;报错代码：&#34;&gt;&lt;a href=&#34;#报错代码：&#34; class=&#34;headerlink&#34; title=&#34;报错代码：&#34;&gt;&lt;/a&gt;报错代码：&lt;/h2&gt;&lt;p&gt;初始化脚手架时命令：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;javascript&#34;&gt;vue init webpack-simple project
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;错误代码如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;javascript&#34;&gt;vue-cli · Failed to download repo vuejs-templates/webpack: connect ETIMEDOUT 192.30.253.112:443
-&lt;/code&gt;&lt;/pre&gt;">
+    <meta name="description" content="&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;">
     <meta name="keywords" content="Ant-Thinker Jake Ma 马一栋 博客  个人博客">
 
     
 
     <meta property="og:locale" content="cn,ja,default" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content= "vue初始化报错 | Ant-Thinker"  />
-    <meta property="og:description" content= "&lt;h2 id=&#34;报错代码：&#34;&gt;&lt;a href=&#34;#报错代码：&#34; class=&#34;headerlink&#34; title=&#34;报错代码：&#34;&gt;&lt;/a&gt;报错代码：&lt;/h2&gt;&lt;p&gt;初始化脚手架时命令：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;javascript&#34;&gt;vue init webpack-simple project
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;错误代码如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;javascript&#34;&gt;vue-cli · Failed to download repo vuejs-templates/webpack: connect ETIMEDOUT 192.30.253.112:443
-&lt;/code&gt;&lt;/pre&gt;" />
-    <meta property="og:url" content="https://jakemama.github.io/2022/03/28/vue%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8A%A5%E9%94%99/index.html" />
+    <meta property="og:title" content= "虚拟dom和diff算法 | Ant-Thinker"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/index.html" />
     <meta property="og:site_name" content="" />
     <meta property="article:author" content="Jake Ma" />
     <meta property="article:publisher" content="" />
-    <meta property="og:description" content="&lt;h2 id=&#34;报错代码：&#34;&gt;&lt;a href=&#34;#报错代码：&#34; class=&#34;headerlink&#34; title=&#34;报错代码：&#34;&gt;&lt;/a&gt;报错代码：&lt;/h2&gt;&lt;p&gt;初始化脚手架时命令：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;javascript&#34;&gt;vue init webpack-simple project
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;错误代码如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;javascript&#34;&gt;vue-cli · Failed to download repo vuejs-templates/webpack: connect ETIMEDOUT 192.30.253.112:443
-&lt;/code&gt;&lt;/pre&gt;" />
-    <meta name="twitter:title" content="vue初始化报错 | Ant-Thinker"/>
-    <meta name="twitter:description" content="&lt;h2 id=&#34;报错代码：&#34;&gt;&lt;a href=&#34;#报错代码：&#34; class=&#34;headerlink&#34; title=&#34;报错代码：&#34;&gt;&lt;/a&gt;报错代码：&lt;/h2&gt;&lt;p&gt;初始化脚手架时命令：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;javascript&#34;&gt;vue init webpack-simple project
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;错误代码如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;javascript&#34;&gt;vue-cli · Failed to download repo vuejs-templates/webpack: connect ETIMEDOUT 192.30.253.112:443
-&lt;/code&gt;&lt;/pre&gt;"/>
+    <meta property="og:description" content="&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;" />
+    <meta name="twitter:title" content="虚拟dom和diff算法 | Ant-Thinker"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;"/>
     <script type="application/ld+json">
         {
-            "description": "&lt;h2 id=&#34;报错代码：&#34;&gt;&lt;a href=&#34;#报错代码：&#34; class=&#34;headerlink&#34; title=&#34;报错代码：&#34;&gt;&lt;/a&gt;报错代码：&lt;/h2&gt;&lt;p&gt;初始化脚手架时命令：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;javascript&#34;&gt;vue init webpack-simple project
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;错误代码如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;javascript&#34;&gt;vue-cli · Failed to download repo vuejs-templates/webpack: connect ETIMEDOUT 192.30.253.112:443
-&lt;/code&gt;&lt;/pre&gt;",
+            "description": "&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;",
             "author": { "@type": "Person", "name": "Jake Ma" },
             "@type": "BlogPosting",
-            "url": "https://jakemama.github.io/2022/03/28/vue%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8A%A5%E9%94%99/index.html",
+            "url": "https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/index.html",
             "publisher": {
             "@type": "Organization",
             "logo": {
@@ -63,11 +38,11 @@
             },
             "name": "Jake Ma"
             },
-            "headline": "vue初始化报错 | Ant-Thinker",
-            "datePublished": "2022-03-28T09:16:54.000Z",
+            "headline": "虚拟dom和diff算法 | Ant-Thinker",
+            "datePublished": "2022-04-06T03:50:10.000Z",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://jakemama.github.io/2022/03/28/vue%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8A%A5%E9%94%99/index.html"
+                "@id": "https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/index.html"
             },
             "@context": "http://schema.org"
         }
@@ -194,7 +169,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cl1n9pd9z0009k13vh6bd7xfh" class="article article-type-post" itemscope
+    <article id="post-cl1n9pdau001tk13vd4qcctyj" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -210,7 +185,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      vue初始化报错
+      虚拟dom和diff算法
     </h1>
   
 
@@ -220,7 +195,7 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2022-03-28T09:16:54.000Z" itemprop="datePublished">2022-03-28</time>
+  <time datetime="2022-04-06T03:50:10.000Z" itemprop="datePublished">2022-04-06</time>
 </div>
 
             
@@ -231,7 +206,7 @@
 
             
             <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bug/" rel="tag">bug</a></li></ul>
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
             </div>
             
 
@@ -240,43 +215,59 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h2 id="报错代码："><a href="#报错代码：" class="headerlink" title="报错代码："></a>报错代码：</h2><p>初始化脚手架时命令：</p>
-<pre><code class="javascript">vue init webpack-simple project
-</code></pre>
-<p>错误代码如下：</p>
-<pre><code class="javascript">vue-cli · Failed to download repo vuejs-templates/webpack: connect ETIMEDOUT 192.30.253.112:443
-</code></pre>
+            <h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a><strong>虚拟DOM</strong></h2><h3 id="什么是虚拟DOM"><a href="#什么是虚拟DOM" class="headerlink" title="什么是虚拟DOM"></a><strong>什么是虚拟DOM</strong></h3><p><strong>虚拟DOM就是一个用来描述真实DOM的javaScript对象</strong></p>
 <span id="more"></span>
-
-<h3 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h3><p>与github网络连接不畅，可以尝试下列方法证明：</p>
-<blockquote>
-<p>打开终端（cmd）<br>输入命令：ping 192.30.253.112 发现连接超时；<br>输入命令：ping github.com 显示超时<br>说明连接有问题</p>
-</blockquote>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p><strong>1.可尝试更换网络或电脑，或者为npm设置代理。</strong></p>
-<blockquote>
-<p>我发现即使在同一网络下，不同电脑的反应不一样，有些可以直接初始化而不报错，有时候换个网络也可以下载。而且有时候电脑可以访问github但是还是无法下载成功。我初步分析认为可能npm也需要设置代理<br>（设置方法：<a target="_blank" rel="noopener" href="http://huangtengfei.com/2015/03/set-proxy-for-npm-and-git-and-bower/">为 NPM&#x2F;Git&#x2F;Bower 设置代理</a>）<br>这种方法对我有点太专业了，我怕设置出错没有采用，有兴趣的可以看一下</p>
-</blockquote>
-<p><strong>2.更改host文件，打通网络</strong></p>
-<blockquote>
-<p>详细步骤：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/taiyanghua0522/p/6043942.html">vue init webpack-simple project 报错处理 (connect ETIMEDOUT<br>192.30.253.112)</a></p>
-<p>既然网络不通就给他打通，不过对于我来说还是不起作用。（从小到大凡是用host文件来修改bug的方法我从来都没成功过。。。。）</p>
-</blockquote>
-<p><strong>3.自己下载模板进行离线初始化（亲测可用）</strong></p>
-<blockquote>
-<p>在 <a target="_blank" rel="noopener" href="https://github.com/vuejs-templates/">vuejs-templates 的github地址</a>下载 webpack-simple 或 webpack。（推荐webpack）</p>
-</blockquote>
-<p>如何下载：</p>
-<blockquote>
-<p>比如：到<a target="_blank" rel="noopener" href="https://github.com/vuejs-templates/webpack">https://github.com/vuejs-templates/webpack</a>点 Clone or Download 里的 Download ZIP</p>
-</blockquote>
-<p>解压 zip，放置文件夹</p>
-<blockquote>
-<p>把解压出的文件夹放在放在项目同级</p>
-</blockquote>
-<p>用相对路径来初始化</p>
-<pre><code class="javascript">vue init ./webpack-develop myproject 
+<p>真实DOM:</p>
+<pre><code class="xml">&lt;ul class=&quot;list&quot;&gt;
+    &lt;li&gt;a&lt;/li&gt;
+    &lt;li&gt;b&lt;/li&gt;
+    &lt;li&gt;c&lt;/li&gt;
+&lt;/ul&gt;
 </code></pre>
-<p>搞定<br><img src="https://img-blog.csdnimg.cn/20200911234455453.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pha2VNYTEwMjQ=,size_16,color_FFFFFF,t_70#pic_center" alt="成功"><br>md这个bug我都搞一下午了，结果最后还是用本地方法解决的，唉气死偶了。</p>
+<p>虚拟DOM:</p>
+<pre><code class="javascript">let vnode = h(&#39;ul.list&#39;, [
+  h(&#39;li&#39;,&#39;a&#39;),
+  h(&#39;li&#39;,&#39;b&#39;),
+  h(&#39;li&#39;,&#39;c&#39;),
+])
+</code></pre>
+<h3 id="为什么需要虚拟DOM"><a href="#为什么需要虚拟DOM" class="headerlink" title="为什么需要虚拟DOM"></a><strong>为什么需要虚拟DOM</strong></h3><ol>
+<li>MVVM框架解决视图和状态同步问题</li>
+<li>模板引擎可以简化视图操作,没办法跟踪状态</li>
+<li>虚拟DOM跟踪状态变化</li>
+<li>参考github上virtual-dom[1]的动机描述<ol>
+<li>虚拟DOM可以维护程序的状态,跟踪上一次的状态</li>
+<li>通过比较前后两次状态差异更新真实DOM</li>
+</ol>
+</li>
+<li>跨平台使用<ol>
+<li>浏览器平台渲染DOM</li>
+<li>服务端渲染SSR(Nuxt.js&#x2F;Next.js),前端是vue向,后者是react向</li>
+<li>原生应用(Weex&#x2F;React Native)</li>
+<li>小程序(mpvue&#x2F;uni-app)等</li>
+</ol>
+</li>
+<li>真实DOM的属性很多，创建DOM节点开销很大</li>
+<li>虚拟DOM只是普通JavaScript对象，描述属性并不需要很多，创建开销很小</li>
+<li>复杂视图情况下提升渲染性能(操作dom性能消耗大,减少操作dom的范围可以提升性能)，简单视图情况下，不一定比直接重新渲染更快</li>
+</ol>
+<h2 id="diff算法"><a href="#diff算法" class="headerlink" title="diff算法"></a><strong>diff算法</strong></h2><p>diff算法其实就是找出修改前后虚拟DOM树的差异</p>
+<p>Diff 的对象是虚拟DOM（virtual dom），更新真实 DOM 是 Diff 算法的结果。</p>
+<p><strong>传统diff算法</strong></p>
+<ol>
+<li>传统算法查找两颗树每一个节点的差异</li>
+<li>会运行n1(dom1的节点数)*n2(dom2的节点数)次方去对比,找到差异的部分再去更新<br><img src="/../images/%E4%BC%A0%E7%BB%9Fdiff%E7%AE%97%E6%B3%95.png" alt="传统diff算法"></li>
+</ol>
+<p><strong>diff算法优化</strong></p>
+<ol>
+<li>DOM操作时候很少会跨级别操作节点</li>
+<li>只比较同级别的节点<br><img src="/../images/%E4%BC%98%E5%8C%96diff%E7%AE%97%E6%B3%95.png" alt="diff算法优化"></li>
+</ol>
+<h3 id="diff算法中key的作用"><a href="#diff算法中key的作用" class="headerlink" title="diff算法中key的作用"></a>diff算法中key的作用</h3><ol>
+<li>Diff操作可以更加快速;（实例:a,b,c三个dom元素中的b,c间插入一个z元素）</li>
+<li>Diff操作可以更加准确，避免渲染错误（实例:a,b,c三个dom元素,修改了a元素的某个属性再去在a元素前新增一个z元素）</li>
+<li>不推荐使用索引作为key</li>
+</ol>
 
         </div>
 
@@ -301,19 +292,19 @@
     
 <nav class="article-nav">
   
-    <a href="/2022/03/28/webpack%E5%85%A5%E9%97%A8%E5%8F%8A%E5%AE%89%E8%A3%85%E5%8A%9E%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/04/06/mqtt/" id="article-nav-newer" class="article-nav-link-wrap">
       <div class="article-nav-caption">下一篇</div>
       <div class="article-nav-title">
         
-          webpack入门及安装办法
+          mqtt
         
       </div>
     </a>
   
   
-    <a href="/2022/03/28/node%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/04/05/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">node前置知识点</div>
+      <div class="article-nav-title">《你不知道的JS》上卷</div>
     </a>
   
 </nav>
@@ -322,15 +313,15 @@
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=vue初始化报错 - Ant-Thinker&url=https://jakemama.github.io/2022/03/28/vue%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8A%A5%E9%94%99/">
+            href="https://twitter.com/share?text=虚拟dom和diff算法 - Ant-Thinker&url=https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=vue初始化报错 - Ant-Thinker&u=https://jakemama.github.io/2022/03/28/vue%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8A%A5%E9%94%99/">
+            href="https://www.facebook.com/sharer.php?title=虚拟dom和diff算法 - Ant-Thinker&u=https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=vue初始化报错 - Ant-Thinker&url=https://jakemama.github.io/2022/03/28/vue%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8A%A5%E9%94%99/&pic=">
+            href="https://service.weibo.com/share/share.php?title=虚拟dom和diff算法 - Ant-Thinker&url=https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
