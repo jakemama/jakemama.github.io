@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>vue3大型项目前端工作流 | Ant-Thinker</title>
+
+    <meta name="description" content="&lt;p&gt;首页  文章详情&lt;br&gt;(建议收藏)从零到一，带你搭建 Vue3 企业级大型项目前端工作流&lt;br&gt; 前端三元同学&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker Jake Ma 马一栋 博客  个人博客">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "vue3大型项目前端工作流 | Ant-Thinker"  />
+    <meta property="og:description" content= "&lt;p&gt;首页  文章详情&lt;br&gt;(建议收藏)从零到一，带你搭建 Vue3 企业级大型项目前端工作流&lt;br&gt; 前端三元同学&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/06/29/vue3%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Jake Ma" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;首页  文章详情&lt;br&gt;(建议收藏)从零到一，带你搭建 Vue3 企业级大型项目前端工作流&lt;br&gt; 前端三元同学&lt;/p&gt;" />
+    <meta name="twitter:title" content="vue3大型项目前端工作流 | Ant-Thinker"/>
+    <meta name="twitter:description" content="&lt;p&gt;首页  文章详情&lt;br&gt;(建议收藏)从零到一，带你搭建 Vue3 企业级大型项目前端工作流&lt;br&gt; 前端三元同学&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;首页  文章详情&lt;br&gt;(建议收藏)从零到一，带你搭建 Vue3 企业级大型项目前端工作流&lt;br&gt; 前端三元同学&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Jake Ma" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2022/06/29/vue3%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "Jake Ma"
+            },
+            "headline": "vue3大型项目前端工作流 | Ant-Thinker",
+            "datePublished": "2022-06-29T06:25:46.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2022/06/29/vue3%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Ant-Thinker</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl4zdip1w003agi3v5002257p" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      vue3大型项目前端工作流
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-06-29T06:25:46.000Z" itemprop="datePublished">2022-06-29</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>首页  文章详情<br>(建议收藏)从零到一，带你搭建 Vue3 企业级大型项目前端工作流<br> 前端三元同学</p>
+<span id="more"></span>
+
+<p>Vue3 跟 Vite 正式版发布有很长一段时间了，生态圈也渐渐丰富起来，作者已在多个项目中使用，总结一下：就是快！也不用担心稳定性问题，开发体验真不是一般好！还没尝试的同学可以从本文开始学习，从 0 开始手把手带你搭建一套基于 Vite + Vue3 + TypeScript 规范的前端工程化项目环境。</p>
+<p>本文篇幅较长，从以下几个方面展开：</p>
+<p>架构搭建<br>代码规范<br>提交规范<br>单元测试<br>自动部署</p>
+<blockquote>
+<p>本项目完整的代码托管在 GitHub 仓库 [1] 欢迎点亮小星星 🌟🌟</p>
+</blockquote>
+<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><p>编程语言：<code>TypeScript 4.x</code>[2] + <code>JavaScript</code>[3]<br>构建工具：<code>Vite 2.x</code>[4]<br>前端框架：<code>Vue 3.x</code>[5]<br>路由工具：<code>Vue Router 4.x</code>[6]<br>状态管理：<code>Vuex 4.x</code>[7]<br>UI 框架：<code>Element Plus</code>[8]<br>CSS 预编译：<code>Stylus</code>[9] &#x2F; <code>Sass</code>[10] &#x2F; <code>Less</code>[11]<br>HTTP 工具：<code>Axios</code>[12]<br>Git Hook 工具：<code>husky</code>[13] + <code>lint-staged</code>[14]<br>代码规范：<code>EditorConfig</code>[15] + <code>Prettier</code>[16] + <code>ESLint</code>[17] + <code>Airbnb JavaScript Style Guide</code>[18]<br>提交规范：<code>Commitizen</code>[19] + <code>Commitlint</code>[20]<br>单元测试：<code>vue-test-utils</code>[21] + <code>jest</code>[22] + <code>vue-jest</code>[23] + <code>ts-jest</code>[24]<br>自动部署：<code>GitHub Actions</code>[25]</p>
+<h1 id="架构搭建"><a href="#架构搭建" class="headerlink" title="架构搭建"></a>架构搭建</h1><p>请确保你的电脑上成功安装 Node.js，本项目使用 Vite 构建工具，需要 Node.js 版本 &gt;&#x3D; 12.0.0。</p>
+<p>查看 Node.js 版本：</p>
+<pre><code>node -v
+</code></pre>
+<p>建议将 Node.js 升级到最新的稳定版本：</p>
+<pre><code># 使用 nvm 安装最新稳定版 Node.js
+nvm install stable
+</code></pre>
+<h2 id="使用-Vite-快速初始化项目雏形"><a href="#使用-Vite-快速初始化项目雏形" class="headerlink" title="使用 Vite 快速初始化项目雏形"></a>使用 Vite 快速初始化项目雏形</h2><p>使用 NPM：</p>
+<pre><code>npm init @vitejs/app
+</code></pre>
+<p>使用 Yarn：</p>
+<pre><code>yarn create @vitejs/app
+</code></pre>
+<p>然后按照终端提示完成以下操作：</p>
+<ol>
+<li>输入项目名称</li>
+</ol>
+<p>例如：本项目名称 vite-vue3-starter</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%811.webp" alt="&#39;vue3工作流1&#39;"></p>
+<ol start="2">
+<li>选择模板</li>
+</ol>
+<p>本项目需要使用 Vue3 + TypeScript，所以我们选择 vue-ts，会自动安装 Vue3 和 TypeScript。</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%812.webp" alt="&#39;vue3工作流2&#39;"><br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%813.webp" alt="&#39;vue3工作流3&#39;"></p>
+<p>你还可以通过附加的命令行选项直接指定项目名和模板，本项目要构建 Vite + Vue3 + TypeScript 项目，则运行：</p>
+<pre><code># npm 6.x
+npm init @vitejs/app vite-vue3-starter --template vue-ts
+
+# npm 7+（需要额外的双横线）
+npm init @vitejs/app vite-vue3-starter -- --template vue-ts
+
+# yarn
+yarn create @vitejs/app vite-vue3-starter --template vue-ts
+</code></pre>
+<ol start="3">
+<li>安装依赖<pre><code>npm install
+</code></pre>
+</li>
+<li>启动项目<pre><code>npm run dev
+</code></pre>
+<img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%814.webp" alt="&#39;vue3工作流4&#39;"></li>
+</ol>
+<p>如上图，表示 Vite + Vue3 + TypeScript 简单的项目骨架搭建完毕，下面我们来为这个项目集成 Vue Router、Vuex、Element Plus、Axios、Stylus&#x2F;Sass&#x2F;Less。</p>
+<h2 id="修改-Vite-配置文件"><a href="#修改-Vite-配置文件" class="headerlink" title="修改 Vite 配置文件"></a>修改 Vite 配置文件</h2><p>Vite 配置文件<strong>vite.config.ts</strong> 位于根目录下，项目启动时会自动读取。</p>
+<p>本项目先做一些简单配置，例如：设置 @ 指向 src 目录、 服务启动端口、打包路径、代理等。</p>
+<p>关于 Vite 更多配置项及用法，请查看 Vite 官网 <a target="_blank" rel="noopener" href="https://vitejs.dev/config/">https://vitejs.dev/config/</a> 。</p>
+<pre><code class="js">import &#123; defineConfig &#125; from &quot;vite&quot;;
+import vue from &quot;@vitejs/plugin-vue&quot;;
+// 如果编辑器提示 path 模块找不到，则可以安装一下 @types/node -&gt; npm i @types/node -D
+import &#123; resolve &#125; from &quot;path&quot;;
+
+// https://vitejs.dev/config/
+export default defineConfig(&#123;
+  plugins: [vue()],
+  resolve: &#123;
+    alias: &#123;
+      &quot;@&quot;: resolve(__dirname, &quot;src&quot;), // 设置 `@` 指向 `src` 目录
+    &#125;,
+  &#125;,
+  base: &quot;./&quot;, // 设置打包路径
+  server: &#123;
+    port: 4000, // 设置服务启动端口号
+    open: true, // 设置服务启动时是否自动打开浏览器
+    cors: true, // 允许跨域
+
+    // 设置代理，根据我们项目实际情况配置
+    // proxy: &#123;
+    //   &#39;/api&#39;: &#123;
+    //     target: &#39;http://xxx.xxx.xxx.xxx:8000&#39;,
+    //     changeOrigin: true,
+    //     secure: false,
+    //     rewrite: (path) =&gt; path.replace(&#39;/api/&#39;, &#39;/&#39;)
+    //   &#125;
+    // &#125;
+  &#125;,
+&#125;);
+</code></pre>
+<h2 id="规范目录结构"><a href="#规范目录结构" class="headerlink" title="规范目录结构"></a>规范目录结构</h2><pre><code>├── publish/
+└── src/
+    ├── assets/                    // 静态资源目录
+    ├── common/                    // 通用类库目录
+    ├── components/                // 公共组件目录
+    ├── router/                    // 路由配置目录
+    ├── store/                     // 状态管理目录
+    ├── style/                     // 通用 CSS 目录
+    ├── utils/                     // 工具函数目录
+    ├── views/                     // 页面组件目录
+    ├── App.vue
+    ├── main.ts
+    ├── shims-vue.d.ts
+├── tests/                         // 单元测试目录
+├── index.html
+├── tsconfig.json                  // TypeScript 配置文件
+├── vite.config.ts                 // Vite 配置文件
+└── package.json
+</code></pre>
+<h2 id="集成路由工具-Vue-Router"><a href="#集成路由工具-Vue-Router" class="headerlink" title="集成路由工具 Vue Router"></a>集成路由工具 Vue Router</h2><ol>
+<li>安装支持 Vue3 的路由工具 vue-router@4<pre><code>npm i vue-router@4
+</code></pre>
+</li>
+<li>创建 src&#x2F;router&#x2F;index.ts 文件</li>
+</ol>
+<p>在 src 下创建 router 目录，然后在 router 目录里新建 index.ts 文件：</p>
+<pre><code> └── src/
+     ├── router/
+         ├── index.ts  // 路由配置文件
+</code></pre>
+<pre><code class="js">import &#123;
+  createRouter,
+  createWebHashHistory,
+  RouteRecordRaw,
+&#125; from &quot;vue-router&quot;;
+import Home from &quot;@/views/home.vue&quot;;
+import Vuex from &quot;@/views/vuex.vue&quot;;
+
+const routes: Array&lt;RouteRecordRaw&gt; = [
+  &#123;
+    path: &quot;/&quot;,
+    name: &quot;Home&quot;,
+    component: Home,
+  &#125;,
+  &#123;
+    path: &quot;/vuex&quot;,
+    name: &quot;Vuex&quot;,
+    component: Vuex,
+  &#125;,
+  &#123;
+    path: &quot;/axios&quot;,
+    name: &quot;Axios&quot;,
+    component: () =&gt; import(&quot;@/views/axios.vue&quot;), // 懒加载组件
+  &#125;,
+];
+
+const router = createRouter(&#123;
+  history: createWebHashHistory(),
+  routes,
+&#125;);
+
+export default router;
+</code></pre>
+<p>根据本项目路由配置的实际情况，你需要在 src 下创建 views 目录，用来存储页面组件。</p>
+<p>我们在 views 目录下创建 home.vue 、vuex.vue 、axios.vue。</p>
+<ol start="3">
+<li>在 main.ts 文件中挂载路由配置<br>&#96;&#96;&#96;js<br>import { createApp } from “vue”;<br>import App from “.&#x2F;App.vue”;</li>
+</ol>
+<p>import router from “.&#x2F;router&#x2F;index”;</p>
+<p>createApp(App).use(router).mount(“#app”);</p>
+<pre><code>## 集成状态管理工具 Vuex
+1. 安装支持 Vue3 的状态管理工具 vuex@next
+</code></pre>
+<p>npm i vuex@next</p>
+<pre><code>2. 创建 src/store/index.ts 文件
+
+在 src 下创建 store 目录，然后在 store 目录里新建 index.ts 文件：
+</code></pre>
+<p>└── src&#x2F;<br>    ├── store&#x2F;<br>        ├── index.ts  &#x2F;&#x2F; store 配置文件</p>
+<pre><code>```js
+import &#123; createStore &#125; from &quot;vuex&quot;;
+
+const defaultState = &#123;
+  count: 0,
+&#125;;
+
+// Create a new store instance.
+export default createStore(&#123;
+  state() &#123;
+    return defaultState;
+  &#125;,
+  mutations: &#123;
+    increment(state: typeof defaultState) &#123;
+      state.count++;
+    &#125;,
+  &#125;,
+  actions: &#123;
+    increment(context) &#123;
+      context.commit(&quot;increment&quot;);
+    &#125;,
+  &#125;,
+  getters: &#123;
+    double(state: typeof defaultState) &#123;
+      return 2 * state.count;
+    &#125;,
+  &#125;,
+&#125;);
+</code></pre>
+<ol start="3">
+<li>在 main.ts 文件中挂载 Vuex 配置<br>&#96;&#96;&#96;js<br>import { createApp } from “vue”;<br>import App from “.&#x2F;App.vue”;</li>
+</ol>
+<p>import store from “.&#x2F;store&#x2F;index”;</p>
+<p>createApp(App).use(store).mount(“#app”);</p>
+<pre><code>## 集成 UI 框架 Element Plus
+1. 安装支持 Vue3 的 UI 框架 Element Plus
+</code></pre>
+<p>npm i element-plus</p>
+<pre><code>2. 在 main.ts 文件中挂载 Element Plus
+```js
+import &#123; createApp &#125; from &quot;vue&quot;;
+import App from &quot;./App.vue&quot;;
+
+import ElementPlus from &quot;element-plus&quot;;
+import &quot;element-plus/lib/theme-chalk/index.css&quot;;
+
+createApp(App).use(ElementPlus).mount(&quot;#app&quot;);
+</code></pre>
+<h2 id="集成-HTTP-工具-Axios"><a href="#集成-HTTP-工具-Axios" class="headerlink" title="集成 HTTP 工具 Axios"></a>集成 HTTP 工具 Axios</h2><ol>
+<li>安装 Axios（Axios 跟 Vue 版本没有直接关系，安装最新即可）<pre><code>npm i axios
+</code></pre>
+</li>
+<li>配置 Axios</li>
+</ol>
+<blockquote>
+<p>为了使项目的目录结构合理且规范，我们在 src 下创建 utils 目录来存储我们常用的工具函数。</p>
+</blockquote>
+<p>Axios 作为 HTTP 工具，我们在 utils 目录下创建 axios.ts 作为 Axios 配置文件：</p>
+<pre><code>└── src/
+    ├── utils/
+        ├── axios.ts  // Axios 配置文件
+</code></pre>
+<pre><code class="js">import Axios from &quot;axios&quot;;
+import &#123; ElMessage &#125; from &quot;element-plus&quot;;
+
+const baseURL = &quot;https://api.github.com&quot;;
+
+const axios = Axios.create(&#123;
+  baseURL,
+  timeout: 20000, // 请求超时 20s
+&#125;);
+
+// 前置拦截器（发起请求之前的拦截）
+axios.interceptors.request.use(
+  (response) =&gt; &#123;
+    /**
+     * 根据你的项目实际情况来对 config 做处理
+     * 这里对 config 不做任何处理，直接返回
+     */
+    return response;
+  &#125;,
+  (error) =&gt; &#123;
+    return Promise.reject(error);
+  &#125;
+);
+
+// 后置拦截器（获取到响应时的拦截）
+axios.interceptors.response.use(
+  (response) =&gt; &#123;
+    /**
+     * 根据你的项目实际情况来对 response 和 error 做处理
+     * 这里对 response 和 error 不做任何处理，直接返回
+     */
+    return response;
+  &#125;,
+  (error) =&gt; &#123;
+    if (error.response &amp;&amp; error.response.data) &#123;
+      const code = error.response.status;
+      const msg = error.response.data.message;
+      ElMessage.error(`Code: $&#123;code&#125;, Message: $&#123;msg&#125;`);
+      console.error(`[Axios Error]`, error.response);
+    &#125; else &#123;
+      ElMessage.error(`$&#123;error&#125;`);
+    &#125;
+    return Promise.reject(error);
+  &#125;
+);
+
+export default axios;
+</code></pre>
+<ol start="3">
+<li>使用 Axios<br>在需要使用 Axios 文件里，引入 Axios 配置文件，参考如下：<br>&#96;&#96;&#96;html<br><template></template><script lang="ts">
+  import { defineComponent } from "vue";
+  import axios from "../utils/axios";</li>
+</ol>
+<p>  export default defineComponent({<br>    setup() {<br>      axios<br>        .get(“&#x2F;users&#x2F;XPoet”)<br>        .then((res) &#x3D;&gt; {<br>          console.log(“res: “, res);<br>        })<br>        .catch((err) &#x3D;&gt; {<br>          console.log(“err: “, err);<br>        });<br>    },<br>  });<br></script></p>
+<pre><code>## 集成 CSS 预编译器 Stylus/Sass/Less
+本项目使用 CSS 预编译器 Stylus，直接安装为开发依赖即可。Vite 内部已帮我们集成了相关的 loader，不需要额外配置。同理，你也可以使用 Sass 或 Less 等。
+
+1. 安装
+</code></pre>
+<p>npm i stylus -D</p>
+<h1 id="or"><a href="#or" class="headerlink" title="or"></a>or</h1><p>npm i sass -D<br>npm i less -D</p>
+<pre><code>2. 使用
+```html
+&lt;style lang=&quot;stylus&quot;&gt;
+  ...
+&lt;/style&gt;
+</code></pre>
+<p>至此，一个基于 TypeScript + Vite + Vue3 + Vue Router + Vuex + Element Plus + Axios + Stylus&#x2F;Sass&#x2F;Less 的前端项目开发环境搭建完毕，项目 Demo 托管在 GitHub 仓库[26]，需要的同学可以去下载下来，参考学习。</p>
+<p>下面我们来打磨这个项目，增加代码规范约束、提交规范约束、单元测试、自动部署等，让其更完善、更健壮。</p>
+<h1 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h1><p>随着前端应用逐渐变得大型化和复杂化，在同一个项目中有多个人员参与时，每个人的前端能力程度不等，他们往往会用不同的编码风格和习惯在项目中写代码，长此下去，势必会让项目的健壮性越来越差。解决这些问题，理论上讲，口头约定和代码审查都可以，但是这种方式无法实时反馈，而且沟通成本过高，不够灵活，更关键的是无法把控。不以规矩，不能成方圆，我们不得不在项目使用一些工具来约束代码规范。</p>
+<p>本文讲解如何使用 <strong>EditorConfig + Prettier + ESLint</strong> 组合来实现代码规范化。</p>
+<p>这样做带来好处：</p>
+<ol>
+<li>解决团队之间代码不规范导致的可读性差和可维护性差的问题。</li>
+<li>解决团队成员不同编辑器导致的编码规范不统一问题。</li>
+<li>提前发现代码风格问题，给出对应规范提示，及时修复。</li>
+<li>减少代码审查过程中反反复复的修改过程，节约时间。</li>
+<li>自动格式化，统一编码风格，从此和脏乱差的代码说再见。</li>
+</ol>
+<h2 id="集成-EditorConfig-配置"><a href="#集成-EditorConfig-配置" class="headerlink" title="集成 EditorConfig 配置"></a>集成 EditorConfig 配置</h2><p>EditorConfig 有助于为不同 IDE 编辑器上处理同一项目的多个开发人员维护一致的编码风格。</p>
+<p>官网：<a target="_blank" rel="noopener" href="http://editorconfig.org/">http://editorconfig.org</a></p>
+<p>在项目根目录下增加 .editorconfig 文件：</p>
+<pre><code class="bash"># Editor configuration, see http://editorconfig.org
+
+# 表示是最顶层的 EditorConfig 配置文件
+root = true
+
+[*] # 表示所有文件适用
+charset = utf-8 # 设置文件字符集为 utf-8
+indent_style = space # 缩进风格（tab | space）
+indent_size = 2 # 缩进大小
+end_of_line = lf # 控制换行类型(lf | cr | crlf)
+trim_trailing_whitespace = true # 去除行首的任意空白字符
+insert_final_newline = true # 始终在文件末尾插入一个新行
+
+[*.md] # 表示仅 md 文件适用以下规则
+max_line_length = off
+trim_trailing_whitespace = false
+</code></pre>
+<p>注意：</p>
+<p>VSCode 使用 EditorConfig 需要去插件市场下载插件 <strong>EditorConfig for VS Code</strong> 。</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%815.webp" alt="&#39;vue3工作流5&#39;"></p>
+<p>JetBrains 系列（WebStorm、IntelliJ IDEA 等）则不用额外安装插件，可直接使用 EditorConfig 配置。</p>
+<h2 id="集成-Prettier-配置"><a href="#集成-Prettier-配置" class="headerlink" title="集成 Prettier 配置"></a>集成 Prettier 配置</h2><p>Prettier 是一款强大的代码格式化工具，支持 JavaScript、TypeScript、CSS、SCSS、Less、JSX、Angular、Vue、GraphQL、JSON、Markdown 等语言，基本上前端能用到的文件格式它都可以搞定，是当下最流行的代码格式化工具。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://prettier.io/">https://prettier.io/</a></p>
+<ol>
+<li>安装 Prettier<pre><code>npm i prettier -D
+</code></pre>
+</li>
+<li>创建 Prettier 配置文件</li>
+</ol>
+<p>Prettier 支持多种格式的配置文件[27]，比如 .json、.yml、.yaml、.js等。</p>
+<p>在本项目根目录下创建 .prettierrc 文件。</p>
+<ol start="3">
+<li>配置 .prettierrc</li>
+</ol>
+<p>在本项目中，我们进行如下简单配置，关于更多配置项信息，请前往官网查看 Prettier-Options[28] 。</p>
+<pre><code class="json">&#123;
+  &quot;useTabs&quot;: false,
+  &quot;tabWidth&quot;: 2,
+  &quot;printWidth&quot;: 100,
+  &quot;singleQuote&quot;: true,
+  &quot;trailingComma&quot;: &quot;none&quot;,
+  &quot;bracketSpacing&quot;: true,
+  &quot;semi&quot;: false
+&#125;
+</code></pre>
+<p>Prettier 安装且配置好之后，就能使用命令来格式化代码</p>
+<pre><code class="bash"># 格式化所有文件（. 表示所有文件）
+npx prettier --write .
+</code></pre>
+<p>注意：</p>
+<p>VSCode 编辑器使用 Prettier 配置需要下载插件 <strong>Prettier - Code formatter</strong> 。</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%816.webp" alt="&#39;vue3工作流6&#39;"><br>JetBrains 系列编辑器（WebStorm、IntelliJ IDEA 等）则不用额外安装插件，可直接使用 Prettier 配置。</p>
+<p>Prettier 配置好以后，在使用 VSCode 或 WebStorm 等编辑器的格式化功能时，编辑器就会按照 Prettier 配置文件的规则来进行格式化，避免了因为大家编辑器配置不一样而导致格式化后的代码风格不统一的问题。</p>
+<h2 id="集成-ESLint-配置"><a href="#集成-ESLint-配置" class="headerlink" title="集成 ESLint 配置"></a>集成 ESLint 配置</h2><p>ESLint[29] 是一款用于查找并报告代码中问题的工具，并且支持部分问题自动修复。其核心是通过对代码解析得到的 AST（Abstract Syntax Tree 抽象语法树）进行模式匹配，来分析代码达到检查代码质量和风格问题的能力。</p>
+<p>正如前面我们提到的因团队成员之间编程能力和编码习惯不同所造成的代码质量问题，我们使用 ESLint 来解决，一边写代码一边查找问题，如果发现错误，就给出规则提示，并且自动修复，长期下去，可以促使团队成员往同一种编码风格靠拢。</p>
+<ol>
+<li>安装 ESLint</li>
+</ol>
+<p>可以全局或者本地安装，作者推荐本地安装（只在当前项目中安装）。</p>
+<pre><code>npm i eslint -D
+</code></pre>
+<ol start="2">
+<li>配置 ESLint</li>
+</ol>
+<p>ESLint 安装成功后，执行 npx eslint –init，然后按照终端操作提示完成一系列设置来创建配置文件。</p>
+<ul>
+<li><p>Airbnb JavaScript Style Guide[30]</p>
+</li>
+<li><p>Airbnb JavaScript 风格指南 - 中文版[31]</p>
+</li>
+<li><p>JavaScript Standard Style[32]</p>
+</li>
+<li><p>JavaScript Standard Style - 中文版[33]</p>
+</li>
+<li><p>Google JavaScript Style Guide[34]</p>
+</li>
+</ul>
+<p>How would you like to use ESLint? （你想如何使用 ESLint?）</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%817.webp" alt="&#39;vue3工作流7&#39;"></p>
+<p>我们这里选择 <strong>To check syntax, find problems, and enforce code style（检查语法、发现问题并强制执行代码风格）</strong></p>
+<p>What type of modules does your project use?（你的项目使用哪种类型的模块?）</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%818.webp" alt="&#39;vue3工作流8&#39;"></p>
+<p>我们这里选择 JavaScript modules (import&#x2F;export)</p>
+<p>Which framework does your project use? （你的项目使用哪种框架?）</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%819.webp" alt="&#39;vue3工作流9&#39;"><br>我们这里选择 Vue.js</p>
+<p>Does your project use TypeScript?（你的项目是否使用 TypeScript？）</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8110.webp" alt="&#39;vue3工作流10&#39;"><br>我们这里选择 Yes</p>
+<p>Where does your code run?（你的代码在哪里运行?）</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8111.webp" alt="&#39;vue3工作流11&#39;"><br>我们这里选择 Browser 和 Node（按空格键进行选择，选完按回车键确定）</p>
+<p>How would you like to define a style for your project?（你想怎样为你的项目定义风格？）</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8112.webp" alt="&#39;vue3工作流12&#39;"><br>我们这里选择 Use a popular style guide（使用一种流行的风格指南）</p>
+<p>Which style guide do you want to follow?（你想遵循哪一种风格指南?）</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8113.webp" alt="&#39;vue3工作流13&#39;"><br>我们这里选择 Airbnb: <a target="_blank" rel="noopener" href="https://github.com/airbnb/javascript">https://github.com/airbnb/javascript</a></p>
+<p>ESLint 为我们列出了三种社区流行的 JavaScript 风格指南，分别是 Airbnb、Standard、Google。</p>
+<p>这三份风格指南都是由众多大佬根据多年开发经验编写，足够优秀，全球很多大小公司都在使用。我们选用 GitHub 上 star 最多的 Airbnb，免去繁琐的配置 ESLint 规则时间，然后让团队成员去学习 Airbnb JavaScript 风格指南即可。</p>
+<p>此时，我们在 ESLint 配置了 Airbnb JavaScript 规则，在编码时，所有不符合 Airbnb 风格的代码，编辑器都会给出提示，并且可以自动修复。</p>
+<p><strong>这里作者不建议大家去自由配置 ESLint 规则，相信我，这三份 JavaScript 代码风格指南值得我们反复学习，掌握后，编程能力能上一大台阶。</strong></p>
+<p>What format do you want your config file to be in?（你希望你的配置文件是什么格式?）</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8114.webp" alt="&#39;vue3工作流14&#39;"><br>我们这里选择 JavaScript</p>
+<p>Would you like to install them now with npm?（你想现在就用 NPM 安装它们吗?）</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8115.webp" alt="&#39;vue3工作流15&#39;"><br>根据上面的选择，ESLint 会自动去查找缺失的依赖，我们这里选择 Yes，使用 NPM 下载安装这些依赖包。</p>
+<p>注意：如果自动安装依赖失败，那么需要手动安装</p>
+<pre><code class="bash">npm i @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-airbnb-base eslint-plugin-import eslint-plugin-vue -D
+</code></pre>
+<ol start="3">
+<li>ESLint 配置文件 .eslintrc.js</li>
+</ol>
+<p>在上一步操作完成后，会在项目根目录下自动生成 .eslintrc.js 配置文件：</p>
+<pre><code class="js">module.exports = &#123;
+  env: &#123;
+    browser: true,
+    es2021: true,
+    node: true,
+  &#125;,
+  extends: [&quot;plugin:vue/essential&quot;, &quot;airbnb-base&quot;],
+  parserOptions: &#123;
+    ecmaVersion: 12,
+    parser: &quot;@typescript-eslint/parser&quot;,
+    sourceType: &quot;module&quot;,
+  &#125;,
+  plugins: [&quot;vue&quot;, &quot;@typescript-eslint&quot;],
+  rules: &#123;&#125;,
+&#125;;
+</code></pre>
+<p>根据项目实际情况，如果我们有额外的 ESLint 规则，也在此文件中追加。</p>
+<p>注意：</p>
+<p>VSCode 使用 ESLint 配置文件需要去插件市场下载插件 ESLint 。</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8116.webp" alt="&#39;vue3工作流16&#39;"><br>JetBrains 系列（WebStorm、IntelliJ IDEA 等）则不用额外安装插件。</p>
+<p>配置好以后，我们在 VSCode 或 WebStorm 等编辑器中开启 ESLin，写代码时，ESLint 就会按照我们配置的规则来进行实时代码检查，发现问题会给出对应错误提示和修复方案。</p>
+<p>如图：</p>
+<p>VSCode<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8117.webp" alt="&#39;vue3工作流17&#39;"><br>WebStorm<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8118.webp" alt="&#39;vue3工作流18&#39;"><br>虽然，现在编辑器已经给出错误提示和修复方案，但需要我们一个一个去点击修复，还是挺麻烦的。很简单，我们只需设置编辑器保存文件时自动执行 eslint –fix 命令进行代码风格修复。</p>
+<p>VSCode 在 settings.json 设置文件中，增加以下代码：</p>
+<pre><code class="json"> &quot;editor.codeActionsOnSave&quot;: &#123;
+    &quot;source.fixAll.eslint&quot;: true
+ &#125;
+</code></pre>
+<p>WebStorm 打开设置窗口，按如下操作，最后点击 Apply -&gt; OK。<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8119.webp" alt="&#39;vue3工作流19&#39;"></p>
+<h2 id="解决-Prettier-和-ESLint-的冲突"><a href="#解决-Prettier-和-ESLint-的冲突" class="headerlink" title="解决 Prettier 和 ESLint 的冲突"></a>解决 Prettier 和 ESLint 的冲突</h2><p>通常大家会在项目中根据实际情况添加一些额外的 ESLint 和 Prettier 配置规则，难免会存在规则冲突情况。</p>
+<p>本项目中的 ESLint 配置中使用了 Airbnb JavaScript 风格指南校验，其规则之一是<strong>代码结束后面要加分号</strong>，而我们在 Prettier 配置文件中加了<strong>代码结束后面不加分号</strong>的配置项，这样就有冲突了，会出现用 Prettier 格式化后的代码，ESLint 检测到格式有问题的，从而抛出错误提示。</p>
+<p>解决两者冲突问题，需要用到 eslint-plugin-prettier 和 eslint-config-prettier。</p>
+<blockquote>
+<p>eslint-plugin-prettier 将 Prettier 的规则设置到 ESLint 的规则中。</p>
+</blockquote>
+<blockquote>
+<p>eslint-config-prettier 关闭 ESLint 中与 Prettier 中会发生冲突的规则。</p>
+</blockquote>
+<p>最后形成优先级：Prettier 配置规则 &gt; ESLint 配置规则。</p>
+<p>安装插件</p>
+<pre><code>npm i eslint-plugin-prettier eslint-config-prettier -D
+</code></pre>
+<p>在 .eslintrc.js 添加 prettier 插件</p>
+<pre><code class="js">module.exports = &#123;
+  ...
+  extends: [
+    &#39;plugin:vue/essential&#39;,
+    &#39;airbnb-base&#39;,
+    &#39;plugin:prettier/recommended&#39; // 添加 prettier 插件
+  ],
+  ...
+&#125;
+</code></pre>
+<p>这样，我们在执行 eslint –fix 命令时，ESLint 就会按照 Prettier 的配置规则来格式化代码，轻松解决二者冲突问题。</p>
+<h2 id="集成-husky-和-lint-staged"><a href="#集成-husky-和-lint-staged" class="headerlink" title="集成 husky 和 lint-staged"></a>集成 husky 和 lint-staged</h2><p>我们在项目中已集成 ESLint 和 Prettier，在编码时，这些工具可以对我们写的代码进行实时校验，在一定程度上能有效规范我们写的代码，但团队可能会有些人觉得这些条条框框的限制很麻烦，选择视“提示”而不见，依旧按自己的一套风格来写代码，或者干脆禁用掉这些工具，开发完成就直接把代码提交到了仓库，日积月累，ESLint 也就形同虚设。</p>
+<p>所以，我们还需要做一些限制，让没通过 ESLint 检测和修复的代码禁止提交，从而保证仓库代码都是符合规范的。</p>
+<p>为了解决这个问题，我们需要用到 Git Hook，在本地执行 git commit 的时候，就对所提交的代码进行 ESLint 检测和修复（即执行 eslint –fix），如果这些代码没通过 ESLint 规则校验，则禁止提交。</p>
+<p>实现这一功能，我们借助 husky[35] + lint-staged[36] 。</p>
+<blockquote>
+<p>husky[37] —— Git Hook 工具，可以设置在 git 各个阶段（pre-commit、commit-msg、pre-push 等）触发我们的命令。<br>lint-staged[38] —— 在 git 暂存的文件上运行 linters。</p>
+</blockquote>
+<h2 id="配置-husky"><a href="#配置-husky" class="headerlink" title="配置 husky"></a>配置 husky</h2><p>自动配置（推荐）</p>
+<p>使用 husky-init 命令快速在项目初始化一个 husky 配置。</p>
+<pre><code>npx husky-init &amp;&amp; npm install
+</code></pre>
+<p>这行命令做了四件事：</p>
+<p>1.安装 husky 到开发依赖<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8120.webp" alt="&#39;vue3工作流20&#39;"><br>2.在项目根目录下创建 .husky 目录<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8121.webp" alt="&#39;vue3工作流21&#39;"></p>
+<p>3.在 .husky 目录创建 pre-commit hook，并初始化 pre-commit 命令为 npm test<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8122.webp" alt="&#39;vue3工作流22&#39;"></p>
+<p>4.修改 package.json 的 scripts，增加 “prepare”: “husky install”<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8123.webp" alt="&#39;vue3工作流23&#39;"></p>
+<p>手动配置（不推荐，懒是程序员第一生产力）</p>
+<p>在项目根目录下创建 .husky 目录<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8124.webp" alt="&#39;vue3工作流24&#39;"></p>
+<p>在 .husky 目录创建 pre-commit hook，并初始化 pre-commit 命令为 npm test<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8125.webp" alt="&#39;vue3工作流25&#39;"></p>
+<p>安装 husky</p>
+<pre><code>npm i husky -D
+</code></pre>
+<p>创建 Git hooks</p>
+<pre><code>npx husky install
+</code></pre>
+<p>该命令做了两件事：</p>
+<p>手动修改 package.json 的 scripts，增加 “prepare”: “husky install”<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8126.webp" alt="&#39;vue3工作流26&#39;"></p>
+<blockquote>
+<p>特别注意：本项目使用 husky 6.x 版本，6.x 版本配置方式跟之前的版本有较大差异。目前网上大部分有关 husky 的教程都是 6 以前的版本 ，跟本文教程不太一样，当发现配置方法不一致时，一切以 husky 官网[39]为准。</p>
+</blockquote>
+<p>到这里，husky 配置完毕，现在我们来使用它：</p>
+<p>husky 包含很多 hook（钩子），常用有：pre-commit、commit-msg、pre-push。这里，我们使用 pre-commit 来触发 ESLint 命令。</p>
+<p>修改 .husky&#x2F;pre-commit hook 文件的触发命令：</p>
+<pre><code>eslint --fix ./src --ext .vue,.js,.ts
+</code></pre>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8127.webp" alt="&#39;vue3工作流27&#39;"></p>
+<p>上面这个 pre-commit hook 文件的作用是：当我们执行 git commit -m “xxx” 时，会先对 src 目录下所有的 .vue、.js、.ts 文件执行 eslint –fix 命令，如果 ESLint 通过，成功 commit，否则终止 commit。</p>
+<p>但是又存在一个问题：有时候我们明明只改动了一两个文件，却要对所有的文件执行 eslint –fix。假如这是一个历史项目，我们在中途配置了 ESLint 规则，那么在提交代码时，也会对其他未修改的“历史”文件都进行检查，可能会造成大量文件出现 ESLint 错误，显然不是我们想要的结果。</p>
+<p>我们要做到只用 ESLint 修复自己此次写的代码，而不去影响其他的代码。所以我们还需借助一个神奇的工具 lint-staged 。</p>
+<h2 id="配置-lint-staged"><a href="#配置-lint-staged" class="headerlink" title="配置 lint-staged"></a>配置 lint-staged</h2><p>lint-staged 这个工具一般结合 husky 来使用，它可以让 husky 的 hook 触发的命令只作用于 git add那些文件（即 git 暂存区的文件），而不会影响到其他文件。</p>
+<p>接下来，我们使用 lint-staged 继续优化项目。</p>
+<ol>
+<li>安装 lint-staged<pre><code>npm i lint-staged -D
+</code></pre>
+</li>
+<li>在 package.json里增加 lint-staged 配置项</li>
+</ol>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8128.webp" alt="&#39;vue3工作流28&#39;"></p>
+<pre><code class="json">&quot;lint-staged&quot;: &#123;
+  &quot;*.&#123;vue,js,ts&#125;&quot;: &quot;eslint --fix&quot;
+&#125;,
+</code></pre>
+<p>这行命令表示：只对 git 暂存区的 .vue、.js、.ts 文件执行 eslint –fix。</p>
+<ol start="3">
+<li>修改 .husky&#x2F;pre-commit hook 的触发命令为：npx lint-staged</li>
+</ol>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8129.webp" alt="&#39;vue3工作流29&#39;"></p>
+<p>至此，husky 和 lint-staged 组合配置完成。</p>
+<p>现在我们提交代码时就会变成这样：</p>
+<p>假如我们修改了 scr 目录下的 test-1.js、test-2.ts 和 test-3.md 文件，然后 git add .&#x2F;src&#x2F;，最后 git commit -m “test…”，这时候就会只对 test-1.js、test-2.ts 这两个文件执行 eslint –fix。如果 ESLint 通过，成功提交，否则终止提交。从而保证了我们提交到 Git 仓库的代码都是规范的。</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8130.webp" alt="&#39;vue3工作流30&#39;"></p>
+<p>提交前 test-1.js、test-2.ts<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8131.webp" alt="&#39;vue3工作流31&#39;"></p>
+<p>提交后 test-1.js、test-2.ts 自动修复代码格式<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8132.webp" alt="&#39;vue3工作流32&#39;"></p>
+<p>无论写代码还是做其他事情，都应该用长远的眼光来看，刚开始使用 ESint 的时候可能会有很多问题，改起来也很费时费力，只要坚持下去，代码质量和开发效率都会得到提升，前期的付出都是值得的。</p>
+<p>这些工具并不是必须的，没有它们你同样可以可以完成功能开发，但是利用好这些工具，你可以写出更高质量的代码。特别是一些刚刚接触的人，可能会觉得麻烦而放弃使用这些工具，失去了一次提升编程能力的好机会。</p>
+<h1 id="提交规范"><a href="#提交规范" class="headerlink" title="提交规范"></a>提交规范</h1><p>前面我们已经统一代码规范，并且在提交代码时进行强约束来保证仓库代码质量。多人协作的项目中，在提交代码这个环节，也存在一种情况：不能保证每个人对提交信息的准确描述，因此会出现提交信息紊乱、风格不一致的情况。</p>
+<p>如果 git commit 的描述信息精准，在后期维护和 Bug 处理时会变得有据可查，项目开发周期内还可以根据规范的提交信息快速生成开发日志，从而方便我们追踪项目和把控进度。</p>
+<p>这里，我们使用社区最流行、最知名、最受认可的 Angular 团队提交规范。</p>
+<p>先看看 Angular 项目的提交记录[40]：</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8133.webp" alt="&#39;vue3工作流33&#39;"></p>
+<p>如上图，可以看出这些提交信息都是有固定格式的，下面我们来学习 Angular 规范的 commit message 格式。</p>
+<h2 id="commit-message-格式规范"><a href="#commit-message-格式规范" class="headerlink" title="commit message 格式规范"></a>commit message 格式规范</h2><p>commit message 由 Header、Body、Footer 组成。</p>
+<pre><code class="html">&lt;Header&gt;
+
+&lt;Body&gt;
+
+&lt;Footer&gt;
+</code></pre>
+<h3 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h3><p>Header 部分包括三个字段 type（必需）、scope（可选）和 subject（必需）。</p>
+<pre><code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+</code></pre>
+<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>type 用于说明 commit 的提交类型（必须是以下几种之一）。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>feat</td>
+<td>新增一个功能</td>
+</tr>
+<tr>
+<td>fix</td>
+<td>修复一个 Bug</td>
+</tr>
+<tr>
+<td>docs</td>
+<td>文档变更</td>
+</tr>
+<tr>
+<td>style</td>
+<td>代码格式（不影响功能，例如空格、分号等格式修正）</td>
+</tr>
+<tr>
+<td>refactor</td>
+<td>代码重构</td>
+</tr>
+<tr>
+<td>perf</td>
+<td>改善性能</td>
+</tr>
+<tr>
+<td>test</td>
+<td>测试</td>
+</tr>
+<tr>
+<td>build</td>
+<td>变更项目构建或外部依赖（例如 scopes: webpack、gulp、npm 等）</td>
+</tr>
+<tr>
+<td>ci</td>
+<td>更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis, Circle 等</td>
+</tr>
+<tr>
+<td>chore</td>
+<td>变更构建流程或辅助工具</td>
+</tr>
+<tr>
+<td>revert</td>
+<td>代码回退</td>
+</tr>
+</tbody></table>
+<h4 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h4><p>scope 用于指定本次 commit 影响的范围。scope 依据项目而定，例如在业务项目中可以依据菜单或者功能模块划分，如果是组件库开发，则可以依据组件划分。（scope 可省略）</p>
+<h4 id="subject"><a href="#subject" class="headerlink" title="subject"></a>subject</h4><p>subject 是本次 commit 的简洁描述，长度约定在 50 个字符以内，通常遵循以下几个规范：</p>
+<p>用动词开头，第一人称现在时表述，例如：change 代替 changed 或 changes<br>第一个字母小写<br>结尾不加句号（.）</p>
+<h3 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h3><p>body 是对本次 commit 的详细描述，可以分成多行。（body 可省略）</p>
+<p>跟 subject 类似，用动词开头，body 应该说明修改的原因和更改前后的行为对比。</p>
+<h3 id="Footer"><a href="#Footer" class="headerlink" title="Footer"></a>Footer</h3><p>如果本次提交的代码是突破性的变更或关闭缺陷，则 Footer 必需，否则可以省略。</p>
+<h4 id="突破性的变更"><a href="#突破性的变更" class="headerlink" title="突破性的变更"></a>突破性的变更</h4><p>当前代码与上一个版本有突破性改变，则 Footer 以 BREAKING CHANGE 开头，后面是对变动的描述、以及变动的理由。</p>
+<h4 id="关闭缺陷"><a href="#关闭缺陷" class="headerlink" title="关闭缺陷"></a>关闭缺陷</h4><p>如果当前提交是针对特定的 issue，那么可以在 Footer 部分填写需要关闭的单个 issue 或一系列 issues。</p>
+<p>参考例子<br>feat</p>
+<pre><code class="bash">feat(browser): onUrlChange event (popstate/hashchange/polling)
+
+Added new event to browser:
+- forward popstate event if available
+- forward hashchange event if popstate not available
+- do polling when neither popstate nor hashchange available
+
+Breaks $browser.onHashChange, which was removed (use onUrlChange instead)
+</code></pre>
+<p>fix</p>
+<pre><code class="bash">fix(compile): couple of unit tests for IE9
+
+Older IEs serialize html uppercased, but IE9 does not...
+Would be better to expect case insensitive, unfortunately jasmine does
+not allow to user regexps for throw expectations.
+
+Closes #392
+Breaks foo.bar api, foo.baz should be used instead
+</code></pre>
+<p>style</p>
+<pre><code class="bash">style(location): add couple of missing semi colons
+</code></pre>
+<p>chore</p>
+<pre><code class="bash">chore(release): v3.4.2
+</code></pre>
+<h3 id="规范-commit-message-的好处"><a href="#规范-commit-message-的好处" class="headerlink" title="规范 commit message 的好处"></a>规范 commit message 的好处</h3><p>首行就是简洁实用的关键信息，方便在 git history 中快速浏览。<br>具有更加详细的 body 和 footer，可以清晰的看出某次提交的目的和影响。<br>可以通过 type 过滤出想要查找的信息，也可以通过关键字快速查找相关提交。<br>可以直接从 commit 生成 change log。</p>
+<h2 id="集成-Commitizen-实现规范提交"><a href="#集成-Commitizen-实现规范提交" class="headerlink" title="集成 Commitizen 实现规范提交"></a>集成 Commitizen 实现规范提交</h2><p>上面介绍了 Angular 规范提交的格式，初次接触的同学咋一看可能会觉得复杂，其实不然，如果让大家在 git commit 的时候严格按照上面的格式来写，肯定是有压力的，首先得记住不同的类型到底是用来定义什么，subject 怎么写，body 怎么写，footer 要不要写等等问题，懒才是程序员第一生产力，为此我们使用 Commitizen 工具来帮助我们自动生成 commit message 格式，从而实现规范提交。</p>
+<blockquote>
+<p>Commitizen 是一个帮助撰写规范 commit message 的工具。它有一个命令行工具 cz-cli。</p>
+</blockquote>
+<h3 id="安装-Commitizen"><a href="#安装-Commitizen" class="headerlink" title="安装 Commitizen"></a>安装 Commitizen</h3><pre><code>npm install commitizen -D
+</code></pre>
+<h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><p>成功安装 Commitizen 后，我们用 cz-conventional-changelog 适配器来初始化项目：</p>
+<pre><code>npx commitizen init cz-conventional-changelog --save-dev --save-exact
+</code></pre>
+<p>这行命令做了两件事：</p>
+<p>安装 cz-conventional-changelog 到开发依赖（devDependencies）<br>在 package.json 中增加了 config.commitizen</p>
+<pre><code class="json">&quot;config&quot;: &#123;
+  &quot;commitizen&quot;: &#123;
+    &quot;path&quot;: &quot;./node_modules/cz-conventional-changelog&quot;
+  &#125;
+&#125;
+</code></pre>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8134.webp" alt="&#39;vue3工作流34‘"></p>
+<h4 id="使用-Commitizen"><a href="#使用-Commitizen" class="headerlink" title="使用 Commitizen"></a>使用 Commitizen</h4><p>以前我们提交代码都是 git commit -m “xxx”，现在改为 git cz，然后按照终端操作提示，逐步填入信息，就能自动生成规范的 commit message。</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8135.webp" alt="&#39;vue3工作流35‘"><br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8136.webp" alt="&#39;vue3工作流36‘"></p>
+<p>最后，在 Git 提交历史中就能看到刚刚规范的提交记录了：</p>
+<h4 id="自定义配置提交说明"><a href="#自定义配置提交说明" class="headerlink" title="自定义配置提交说明"></a>自定义配置提交说明</h4><p>从上面的截图可以看到，git cz 终端操作提示都是英文的，如果想改成中文的或者自定义这些配置选项，我们使用 cz-customizable 适配器。</p>
+<p><strong>cz-customizable 初始化项目</strong><br>运行如下命令使用 cz-customizable 初始化项目，注意之前已经初始化过一次，这次再初始化，需要加 –force 覆盖。</p>
+<pre><code>npx commitizen init cz-customizable --save-dev --save-exact --force
+</code></pre>
+<p>这行命令做了两件事：</p>
+<p>安装 cz-customizable 到开发依赖（devDependencies）</p>
+<pre><code class="json">&quot;devDependencies&quot;: &#123;
+  ...
+  &quot;cz-customizable&quot;: &quot;^6.3.0&quot;,
+  ...
+&#125;,
+</code></pre>
+<p>修改 package.json 中的 config.commitizen 字段为：</p>
+<pre><code class="json">&quot;config&quot;: &#123;
+  &quot;commitizen&quot;: &#123;
+    &quot;path&quot;: &quot;./node_modules/cz-customizable&quot;
+  &#125;
+&#125;
+</code></pre>
+<p><strong>使用 cz-customizable</strong><br>在项目根目录下创建 .cz-config.js 文件，然后按照官方提供的示例[41]来配置。</p>
+<p>在本项目中我们修改成中文：</p>
+<pre><code class="js">module.exports = &#123;
+  // type 类型（定义之后，可通过上下键选择）
+  types: [
+    &#123; value: &#39;feat&#39;, name: &#39;feat:     新增功能&#39; &#125;,
+    &#123; value: &#39;fix&#39;, name: &#39;fix:      修复 bug&#39; &#125;,
+    &#123; value: &#39;docs&#39;, name: &#39;docs:     文档变更&#39; &#125;,
+    &#123; value: &#39;style&#39;, name: &#39;style:    代码格式（不影响功能，例如空格、分号等格式修正）&#39; &#125;,
+    &#123; value: &#39;refactor&#39;, name: &#39;refactor: 代码重构（不包括 bug 修复、功能新增）&#39; &#125;,
+    &#123; value: &#39;perf&#39;, name: &#39;perf:     性能优化&#39; &#125;,
+    &#123; value: &#39;test&#39;, name: &#39;test:     添加、修改测试用例&#39; &#125;,
+    &#123; value: &#39;build&#39;, name: &#39;build:    构建流程、外部依赖变更（如升级 npm 包、修改 webpack 配置等）&#39; &#125;,
+    &#123; value: &#39;ci&#39;, name: &#39;ci:       修改 CI 配置、脚本&#39; &#125;,
+    &#123; value: &#39;chore&#39;, name: &#39;chore:    对构建过程或辅助工具和库的更改（不影响源文件、测试用例）&#39; &#125;,
+    &#123; value: &#39;revert&#39;, name: &#39;revert:   回滚 commit&#39; &#125;
+  ],
+
+  // scope 类型（定义之后，可通过上下键选择）
+  scopes: [
+    [&#39;components&#39;, &#39;组件相关&#39;],
+    [&#39;hooks&#39;, &#39;hook 相关&#39;],
+    [&#39;utils&#39;, &#39;utils 相关&#39;],
+    [&#39;element-ui&#39;, &#39;对 element-ui 的调整&#39;],
+    [&#39;styles&#39;, &#39;样式相关&#39;],
+    [&#39;deps&#39;, &#39;项目依赖&#39;],
+    [&#39;auth&#39;, &#39;对 auth 修改&#39;],
+    [&#39;other&#39;, &#39;其他修改&#39;],
+    // 如果选择 custom，后面会让你再输入一个自定义的 scope。也可以不设置此项，把后面的 allowCustomScopes 设置为 true
+    [&#39;custom&#39;, &#39;以上都不是？我要自定义&#39;]
+  ].map(([value, description]) =&gt; &#123;
+    return &#123;
+      value,
+      name: `$&#123;value.padEnd(30)&#125; ($&#123;description&#125;)`
+    &#125;
+  &#125;),
+
+  // 是否允许自定义填写 scope，在 scope 选择的时候，会有 empty 和 custom 可以选择。
+  // allowCustomScopes: true,
+
+  // allowTicketNumber: false,
+  // isTicketNumberRequired: false,
+  // ticketNumberPrefix: &#39;TICKET-&#39;,
+  // ticketNumberRegExp: &#39;\\d&#123;1,5&#125;&#39;,
+
+
+  // 针对每一个 type 去定义对应的 scopes，例如 fix
+  /*
+  scopeOverrides: &#123;
+    fix: [
+      &#123; name: &#39;merge&#39; &#125;,
+      &#123; name: &#39;style&#39; &#125;,
+      &#123; name: &#39;e2eTest&#39; &#125;,
+      &#123; name: &#39;unitTest&#39; &#125;
+    ]
+  &#125;,
+  */
+
+  // 交互提示信息
+  messages: &#123;
+    type: &#39;确保本次提交遵循 Angular 规范！\n选择你要提交的类型：&#39;,
+    scope: &#39;\n选择一个 scope（可选）：&#39;,
+    // 选择 scope: custom 时会出下面的提示
+    customScope: &#39;请输入自定义的 scope：&#39;,
+    subject: &#39;填写简短精炼的变更描述：\n&#39;,
+    body:
+      &#39;填写更加详细的变更描述（可选）。使用 &quot;|&quot; 换行：\n&#39;,
+    breaking: &#39;列举非兼容性重大的变更（可选）：\n&#39;,
+    footer: &#39;列举出所有变更的 ISSUES CLOSED（可选）。 例如: #31, #34：\n&#39;,
+    confirmCommit: &#39;确认提交？&#39;
+  &#125;,
+
+  // 设置只有 type 选择了 feat 或 fix，才询问 breaking message
+  allowBreakingChanges: [&#39;feat&#39;, &#39;fix&#39;],
+
+  // 跳过要询问的步骤
+  // skipQuestions: [&#39;body&#39;, &#39;footer&#39;],
+
+  // subject 限制长度
+  subjectLimit: 100
+  breaklineChar: &#39;|&#39;, // 支持 body 和 footer
+  // footerPrefix : &#39;ISSUES CLOSED:&#39;
+  // askForBreakingChangeFirst : true,
+&#125;
+</code></pre>
+<p>建议大家结合项目实际情况来自定义配置提交规则，例如很多时候我们不需要写长描述，公司内部的代码仓库也不需要管理 issue，那么可以把询问 body 和 footer 的步骤跳过（在 .cz-config.js 中修改成 skipQuestions: [‘body’, ‘footer’]）。</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8137.webp" alt="&#39;vue3工作流37‘"></p>
+<h4 id="集成-commitlint-验证提交规范"><a href="#集成-commitlint-验证提交规范" class="headerlink" title="集成 commitlint 验证提交规范"></a>集成 commitlint 验证提交规范</h4><p>在“代码规范”章节，我们已经讲到过，尽管制定了规范，但在多人协作的项目中，总有些人依旧我行我素，因此提交代码这个环节，我们也增加一个限制：只让符合 Angular 规范的 commit message 通过，我们借助 @commitlint&#x2F;config-conventional 和 @commitlint&#x2F;cli 来实现。</p>
+<p><strong>安装 commitlint</strong><br>安装 @commitlint&#x2F;config-conventional 和 @commitlint&#x2F;cli</p>
+<pre><code>npm i @commitlint/config-conventional @commitlint/cli -D
+</code></pre>
+<p><strong>配置 commitlint</strong><br>创建 commitlint.config.js 文件 在项目根目录下创建 commitlint.config.js 文件，并填入以下内容：</p>
+<pre><code>module.exports = &#123; extends: [&quot;@commitlint/config-conventional&quot;] &#125;;
+</code></pre>
+<p>或直接使用快捷命令：</p>
+<pre><code>echo &quot;module.exports = &#123;extends: [&#39;@commitlint/config-conventional&#39;]&#125;&quot; &gt; commitlint.config.js
+</code></pre>
+<p>使用 husky 的 commit-msg hook 触发验证提交信息的命令<br>我们使用 husky 命令在 .husky 目录下创建 commit-msg 文件，并在此执行 commit message 的验证命令。</p>
+<pre><code>npx husky add .husky/commit-msg &quot;npx --no-install commitlint --edit $1&quot;
+</code></pre>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8138.webp" alt="&#39;vue3工作流38‘"></p>
+<p><strong>commitlint 验证</strong><br>不符合规范的提交信息<br>如下图，提交信息 test commitlint 不符合规范，提交失败。<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8139.webp" alt="&#39;vue3工作流39‘"></p>
+<p>符合规范的提交信息<br>如下图，提交信息 test: commitlint test 符合规范，成功提交到仓库。<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8140.webp" alt="&#39;vue3工作流40‘"></p>
+<p>因为已在项目中集成 commitizen，建议大家用 git cz 来代替 git commit 提交代码，可以保证提交信息规范。</p>
+<h1 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h1><p>单元测试是项目开发中一个非常重要的环节，完整的测试能为代码和业务提供质量保证，减少 Bug 的出现。</p>
+<p>本章节将带领大家在 Vite + Vue3 + TypeScript 的项目中集成单元测试工具。</p>
+<h2 id="安装核心依赖"><a href="#安装核心依赖" class="headerlink" title="安装核心依赖"></a>安装核心依赖</h2><p>我们使用 Vue 官方提供的 vue-test-utils 和社区流行的测试工具 jest 来进行 Vue 组件的单元测试。</p>
+<ul>
+<li><strong>vue-test-utils</strong>[42] The next iteration of Vue Test Utils. It targets Vue 3.</li>
+<li><strong>jest</strong>[43] Delightful JavaScript Testing.</li>
+<li><strong>vue-jest</strong>[44] Jest Vue transformer</li>
+<li><strong>ts-jest</strong>[45] A Jest transformer with source map support that lets you use Jest to test projects written in TypeScript.</li>
+</ul>
+<p>安装这些工具为开发依赖（devDependencies）：</p>
+<pre><code>npm i @vue/test-utils@next jest vue-jest@next ts-jest -D
+</code></pre>
+<h2 id="创建-jest-配置文件"><a href="#创建-jest-配置文件" class="headerlink" title="创建 jest 配置文件"></a>创建 jest 配置文件</h2><p>在项目根目录下新建 jest.config.js 文件：</p>
+<pre><code class="js">module.exports = &#123;
+  moduleFileExtensions: [&quot;vue&quot;, &quot;js&quot;, &quot;ts&quot;],
+  preset: &quot;ts-jest&quot;,
+  testEnvironment: &quot;jsdom&quot;,
+  transform: &#123;
+    &quot;^.+\\.vue$&quot;: &quot;vue-jest&quot;, // vue 文件用 vue-jest 转换
+    &quot;^.+\\.ts$&quot;: &quot;ts-jest&quot;, // ts 文件用 ts-jest 转换
+  &#125;,
+  // 匹配 __tests__ 目录下的 .js/.ts 文件 或其他目录下的 xx.test.js/ts xx.spec.js/ts
+  testRegex: &quot;(/__tests__/.*|(\\.|/)(test|spec))\\.(ts)$&quot;,
+&#125;;
+</code></pre>
+<h2 id="创建单元测试文件"><a href="#创建单元测试文件" class="headerlink" title="创建单元测试文件"></a>创建单元测试文件</h2><p>在上面的 jest.config.js 文件中，我们配置只匹配 <strong>tests</strong> 目录下的任意 .ts 文件或其他目录下的 xx.test.ts&#x2F;xx.spec.ts 文件进行单元测试。</p>
+<p>这里，我们在项目根目录下创建 tests 目录来存储单元测试文件</p>
+<pre><code>├── src/
+└── tests/                           // 单元测试目录
+    ├── Test.spec.ts                 // Test 组件测试
+</code></pre>
+<p>Test.vue</p>
+<pre><code class="html">&lt;template&gt;
+  &lt;div class=&quot;test-container page-container&quot;&gt;
+    &lt;div class=&quot;page-title&quot;&gt;Unit Test Page&lt;/div&gt;
+    &lt;p&gt;count is: &#123;&#123; count &#125;&#125;&lt;/p&gt;
+    &lt;button @click=&quot;increment&quot;&gt;increment&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script lang=&quot;ts&quot;&gt;
+  import &#123; defineComponent, ref &#125; from &quot;vue&quot;;
+
+  export default defineComponent(&#123;
+    name: &quot;Vuex&quot;,
+    setup() &#123;
+      const count = ref&lt;number&gt;(0);
+      const increment = () =&gt; &#123;
+        count.value += 1;
+      &#125;;
+      return &#123; count, increment &#125;;
+    &#125;,
+  &#125;);
+&lt;/script&gt;
+</code></pre>
+<p>Test.spec.ts</p>
+<pre><code class="ts">import &#123; mount &#125; from &quot;@vue/test-utils&quot;;
+import Test from &quot;../src/views/Test.vue&quot;;
+
+test(&quot;Test.vue&quot;, async () =&gt; &#123;
+  const wrapper = mount(Test);
+  expect(wrapper.html()).toContain(&quot;Unit Test Page&quot;);
+  expect(wrapper.html()).toContain(&quot;count is: 0&quot;);
+  await wrapper.find(&quot;button&quot;).trigger(&quot;click&quot;);
+  expect(wrapper.html()).toContain(&quot;count is: 1&quot;);
+&#125;);
+</code></pre>
+<p>集成 @types&#x2F;jest</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8141.webp" alt="&#39;vue3工作流41‘"></p>
+<p>如上图，我们使用 VSCode &#x2F; WebStrom &#x2F; IDEA 等编辑器时，在单元测试文件中，IDE 会提示某些方法不存在（如 test、describe、it、expect等），安装 @types&#x2F;jest 即可解决。</p>
+<pre><code>npm i @types/jest -D
+</code></pre>
+<p>TypeScript 的编译器也会提示 jest 的方法和类型找不到，我们还需把 @types&#x2F;jest 添加根目录下的 ts.config.json（TypeScript 配置文件）中：</p>
+<pre><code class="json">&#123;
+  &quot;compilerOptions&quot;: &#123;
+    ...
+    &quot;types&quot;: [&quot;vite/client&quot;, &quot;jest&quot;]
+  &#125;,
+&#125;
+</code></pre>
+<h2 id="添加-eslint-plugin-jest"><a href="#添加-eslint-plugin-jest" class="headerlink" title="添加 eslint-plugin-jest"></a>添加 eslint-plugin-jest</h2><p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8142.webp" alt="&#39;vue3工作流42‘"></p>
+<p>因为我们在项目中集成了 ESLint，如上图很明显是没通过 ESLint 规则检验。因此，我们还需要在 ESLint 中增加 eslint-plugin-jest 插件来解除对 jest 的校验。</p>
+<p>安装 eslint-plugin-jest</p>
+<pre><code>npm i eslint-plugin-jest -D
+</code></pre>
+<p>添加 eslint-plugin-jest 到 ESLint 配置文件 .eslintrc.js 中</p>
+<pre><code class="js">module.exports = &#123;
+  ...
+  extends: [
+    ...
+    &#39;plugin:jest/recommended&#39;
+  ],
+  ...
+&#125;
+</code></pre>
+<p>现在，我们的单元测试代码就不会有错误提示信息了 ؏؏☝ᖗ 乛 ◡ 乛 ᖘ☝؏؏</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8143.webp" alt="&#39;vue3工作流43‘"></p>
+<h2 id="执行单元测试"><a href="#执行单元测试" class="headerlink" title="执行单元测试"></a>执行单元测试</h2><p>在根目录下 package.json 文件的 scripts 中，添加一条单元测试命令：”test”: “jest”。</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8147.webp" alt="&#39;vue3工作流47‘"></p>
+<p>执行命令 npm run test 即可进行单元测试，jest 会根据 jest.config.js 配置文件去查找 <strong>tests</strong> 目录下的 .ts 文件或其他任意目录下的 .spec.ts 和 .test.ts 文件，然后执行单元测试方法。</p>
+<blockquote>
+<p>你可以在 jest.config.js 配置文件中，自由配置单元测试文件的目录。</p>
+</blockquote>
+<p>单元测试全部通过时的终端显示信息<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8144.webp" alt="&#39;vue3工作流44‘"></p>
+<p>单元测试未全部通过时的终端显示信息<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8145.webp" alt="&#39;vue3工作流45‘"></p>
+<p>当单元测试没有全部通过时，我们需要根据报错信息去优化对应组件的代码，进一步提高项目健壮性。但是写单元测试是件比较痛苦的事，我个人觉得也没必要全部组件都写单元测试，根据项目实际情况有针对性去写就行了。</p>
+<h2 id="单元测试约束"><a href="#单元测试约束" class="headerlink" title="单元测试约束"></a>单元测试约束</h2><p>前面，我们使用 husky 在 Git 的 pre-commit 和 commit-msg 阶段分别约束代码风格规范和提交信息规范。这一步，我们在 pre-push 阶段进行单元测试，只有单元测试全部通过才让代码 push 到远端仓库，否则终止 push。</p>
+<p>使用 husky 命令在 .husky 目录下自动创建 pre-push hook 文件，并在此执行单元测试命令 npm run test。</p>
+<pre><code>npx husky add .husky/pre-push &quot;npm run test $1&quot;
+</code></pre>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8146.webp" alt="&#39;vue3工作流46‘"></p>
+<p>现在，我们在 git push 时就能先进行单元测试了，只有单元测试全部通过，才能成功 push。</p>
+<h1 id="自动部署"><a href="#自动部署" class="headerlink" title="自动部署"></a>自动部署</h1><p>到了这一步，我们已经在项目中集成代码规范约束、提交信息规范约束，单元测试约束，从而保证我们远端仓库（如 GitHub、GitLab、Gitee 仓库等）的代码都是高质量的。</p>
+<p>本项目是要搭建一套规范的前端工程化环境，为此我们使用 CI（Continuous Integration 持续集成）来完成项目最后的部署工作。</p>
+<p>常见的 CI 工具有 GitHub Actions、GitLab CI、Travis CI、Circle CI 等。</p>
+<p>这里，我们使用 GitHub Actions。</p>
+<h2 id="什么是-GitHub-Actions"><a href="#什么是-GitHub-Actions" class="headerlink" title="什么是 GitHub Actions"></a>什么是 GitHub Actions</h2><p>GitHub Actions 是 GitHub 的持续集成服务，持续集成由很多操作组成，比如抓取代码、运行测试、登录远程服务器、发布到第三方服务等等，GitHub 把这些操作称为 actions。</p>
+<h2 id="配置-GitHub-Actions"><a href="#配置-GitHub-Actions" class="headerlink" title="配置 GitHub Actions"></a>配置 GitHub Actions</h2><h3 id="创建-GitHub-仓库"><a href="#创建-GitHub-仓库" class="headerlink" title="创建 GitHub 仓库"></a>创建 GitHub 仓库</h3><p>因为 GitHub Actions 只对 GitHub 仓库有效，所以我们创建 GitHub 仓库[46]来托管项目代码。</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8148.webp" alt="&#39;vue3工作流48‘"></p>
+<p>其中，我们用：</p>
+<p>master 分支存储项目源代码<br>gh-pages 分支存储打包后的静态文件</p>
+<blockquote>
+<p>gh-pages 分支，是 GitHub Pages 服务的固定分支，可以通过 HTTP 的方式访问到这个分支的静态文件资源。</p>
+</blockquote>
+<h3 id="创建-GitHub-Token"><a href="#创建-GitHub-Token" class="headerlink" title="创建 GitHub Token"></a>创建 GitHub Token</h3><p>创建一个有 repo 和 workflow 权限的 GitHub Token[47]</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8149.webp" alt="&#39;vue3工作流49‘"></p>
+<p>注意：新生成的 Token 只会显示一次，保存起来，后面要用到。如有遗失，重新生成即可。</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8150.webp" alt="&#39;vue3工作流50‘"></p>
+<h3 id="在仓库中添加-secret"><a href="#在仓库中添加-secret" class="headerlink" title="在仓库中添加 secret"></a>在仓库中添加 secret</h3><p>将上面新创建的 Token 添加到 GitHub 仓库的 Secrets 里，并将这个新增的 secret 命名为 VUE3_DEPLOY （名字无所谓，看你喜欢）。</p>
+<p>步骤：仓库 -&gt; settings -&gt; Secrets -&gt; New repository secret。</p>
+<p><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8151.webp" alt="&#39;vue3工作流51‘"></p>
+<blockquote>
+<p>新创建的 secret VUE3_DEPLOY 在 Actions 配置文件中要用到，两个地方需保持一致！</p>
+</blockquote>
+<h3 id="创建-Actions-配置文件"><a href="#创建-Actions-配置文件" class="headerlink" title="创建 Actions 配置文件"></a>创建 Actions 配置文件</h3><ol>
+<li>在项目根目录下创建 .github 目录。</li>
+<li>在 .github 目录下创建 workflows 目录。</li>
+<li>在 workflows 目录下创建 deploy.yml 文件。<br><img src="/../images/vue3%E5%B7%A5%E4%BD%9C%E6%B5%8152.webp" alt="&#39;vue3工作流52‘"></li>
+</ol>
+<p>deploy.yml 文件的内容：</p>
+<pre><code class="yml">name: deploy
+
+on:
+  push:
+    branches: [master] # master 分支有 push 时触发
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js v14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: &quot;14.x&quot;
+
+      - name: Install
+        run: npm install # 安装依赖
+
+      - name: Build
+        run: npm run build # 打包
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
+        with:
+          publish_dir: ./dist # 部署打包后的 dist 目录
+          github_token: $&#123;&#123; secrets.VUE3_DEPLOY &#125;&#125; # secret 名
+          user_name: $&#123;&#123; secrets.MY_USER_NAME &#125;&#125;
+          user_email: $&#123;&#123; secrets.MY_USER_EMAIL &#125;&#125;
+          commit_message: Update Vite2.x + Vue3.x + TypeScript Starter # 部署时的 git 提交信息，自由填写
+</code></pre>
+<h2 id="自动部署触发原理"><a href="#自动部署触发原理" class="headerlink" title="自动部署触发原理"></a>自动部署触发原理</h2><p>当有新提交的代码 push 到 GitHub 仓库时，就会触发 GitHub Actions，在 GitHub 服务器上执行 Action 配置文件里面的命令，例如：安装依赖、项目打包等，然后将打包好的静态文件部署到 GitHub Pages 上，最后，我们就能通过域名访问了。</p>
+<p>🌏 通过域名 <a target="_blank" rel="noopener" href="https://vite-vue3-starter.xpoet.cn/">https://vite-vue3-starter.xpoet.cn/</a> 访问本项目</p>
+<p>使用自动部署，我们只需专注于项目开发阶段，任何重复且枯燥的行为都交由程序去完成，懒才是程序员第一生产力。</p>
+<p>事实上，自动部署只是 GitHub Actions 功能的冰山一角，GitHub Actions 能做的事还很多很多，大家感兴趣的话自行查阅。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>本文从技术选项到架构搭建、从代码规范约束到提交信息规范约束，从单元测试到自动部署，一步一步带领大家如何从一个最简单的前端项目骨架到规范的前端工程化环境，基本上涵盖了前端项目开发的整个周期。</p>
+<p>因篇幅较长，所涉及技术点较多，难免会出现错误，希望大家多多指正，谢谢大家！</p>
+<blockquote>
+<p>本项目完整的代码托管在 GitHub 仓库[48]，需要的同学自取，别忘了点 Star 支持作者~</p>
+</blockquote>
+<p>参考资料<br>[1]GitHub 仓库: <a target="_blank" rel="noopener" href="https://github.com/XPoet/vite-vue3-starter">https://github.com/XPoet/vite-vue3-starter</a><br>[2]TypeScript 4.x: <a target="_blank" rel="noopener" href="https://www.typescriptlang.org/zh/">https://www.typescriptlang.org/zh/</a><br>[3]JavaScript: <a target="_blank" rel="noopener" href="https://www.javascript.com/">https://www.javascript.com/</a><br>[4]Vite 2.x: <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/">https://cn.vitejs.dev/</a><br>[5]Vue 3.x: <a target="_blank" rel="noopener" href="https://v3.cn.vuejs.org/">https://v3.cn.vuejs.org/</a><br>[6]Vue Router 4.x: <a target="_blank" rel="noopener" href="https://next.router.vuejs.org/zh/index.html">https://next.router.vuejs.org/zh/index.html</a><br>[7]Vuex 4.x: <a target="_blank" rel="noopener" href="https://next.vuex.vuejs.org/">https://next.vuex.vuejs.org/</a><br>[8]Element Plus: <a target="_blank" rel="noopener" href="https://element-plus.org/#/zh-CN">https://element-plus.org/#/zh-CN</a><br>[9]Stylus: <a target="_blank" rel="noopener" href="https://stylus-lang.com/">https://stylus-lang.com/</a><br>[10]Sass: <a target="_blank" rel="noopener" href="https://sass.bootcss.com/documentation">https://sass.bootcss.com/documentation</a><br>[11]Less: <a target="_blank" rel="noopener" href="http://lesscss.cn/">http://lesscss.cn/</a><br>[12]Axios: <a target="_blank" rel="noopener" href="https://axios-http.com/">https://axios-http.com/</a><br>[13]husky: <a target="_blank" rel="noopener" href="https://typicode.github.io/husky/#/">https://typicode.github.io/husky/#/</a><br>[14]lint-staged: <a target="_blank" rel="noopener" href="https://github.com/okonet/lint-staged">https://github.com/okonet/lint-staged</a><br>[15]EditorConfig: <a target="_blank" rel="noopener" href="http://editorconfig.org/">http://editorconfig.org</a><br>[16]Prettier: <a target="_blank" rel="noopener" href="https://prettier.io/">https://prettier.io/</a><br>[17]ESLint: <a target="_blank" rel="noopener" href="https://eslint.org/">https://eslint.org/</a><br>[18]Airbnb JavaScript Style Guide: <a target="_blank" rel="noopener" href="https://github.com/airbnb/javascript#translation">https://github.com/airbnb/javascript#translation</a><br>[19]Commitizen: <a target="_blank" rel="noopener" href="http://commitizen.github.io/cz-cli/">http://commitizen.github.io/cz-cli/</a><br>[20]Commitlint: <a target="_blank" rel="noopener" href="https://commitlint.js.org/#/">https://commitlint.js.org/#/</a><br>[21]vue-test-utils: <a target="_blank" rel="noopener" href="https://next.vue-test-utils.vuejs.org/">https://next.vue-test-utils.vuejs.org/</a><br>[22]jest: <a target="_blank" rel="noopener" href="https://jestjs.io/">https://jestjs.io/</a><br>[23]vue-jest: <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-jest">https://github.com/vuejs/vue-jest</a><br>[24]ts-jest: <a target="_blank" rel="noopener" href="https://kulshekhar.github.io/ts-jest/">https://kulshekhar.github.io/ts-jest/</a><br>[25]GitHub Actions: <a target="_blank" rel="noopener" href="https://docs.github.com/cn/actions/learn-github-actions">https://docs.github.com/cn/actions/learn-github-actions</a><br>[26]GitHub 仓库: <a target="_blank" rel="noopener" href="https://github.com/XPoet/vite-vue3-starter">https://github.com/XPoet/vite-vue3-starter</a><br>[27]配置文件: <a target="_blank" rel="noopener" href="https://prettier.io/docs/en/configuration.html">https://prettier.io/docs/en/configuration.html</a><br>[28]Prettier-Options: <a target="_blank" rel="noopener" href="https://prettier.io/docs/en/options.html">https://prettier.io/docs/en/options.html</a><br>[29]ESLint: <a target="_blank" rel="noopener" href="https://github.com/eslint/eslint">https://github.com/eslint/eslint</a><br>[30]Airbnb JavaScript Style Guide: <a target="_blank" rel="noopener" href="https://github.com/airbnb/javascript">https://github.com/airbnb/javascript</a><br>[31]Airbnb JavaScript 风格指南 - 中文版: <a target="_blank" rel="noopener" href="https://github.com/lin-123/javascript">https://github.com/lin-123/javascript</a><br>[32]JavaScript Standard Style: <a target="_blank" rel="noopener" href="https://github.com/standard/standard">https://github.com/standard/standard</a><br>[33]JavaScript Standard Style - 中文版: <a target="_blank" rel="noopener" href="https://github.com/standard/standard/blob/master/docs/README-zhcn.md">https://github.com/standard/standard/blob/master/docs/README-zhcn.md</a><br>[34]Google JavaScript Style Guide: <a target="_blank" rel="noopener" href="https://google.github.io/styleguide/jsguide.html">https://google.github.io/styleguide/jsguide.html</a><br>[35]husky: <a target="_blank" rel="noopener" href="https://github.com/typicode/husky">https://github.com/typicode/husky</a><br>[36]lint-staged: <a target="_blank" rel="noopener" href="https://github.com/okonet/lint-staged">https://github.com/okonet/lint-staged</a><br>[37]husky: <a target="_blank" rel="noopener" href="https://github.com/typicode/husky">https://github.com/typicode/husky</a><br>[38]lint-staged: <a target="_blank" rel="noopener" href="https://github.com/okonet/lint-staged">https://github.com/okonet/lint-staged</a><br>[39]husky 官网: <a target="_blank" rel="noopener" href="https://typicode.github.io/husky/#/?id=usage">https://typicode.github.io/husky/#/?id=usage</a><br>[40]Angular 项目的提交记录: <a target="_blank" rel="noopener" href="https://github.com/angular/angular/commits/master">https://github.com/angular/angular/commits/master</a><br>[41]示例: <a target="_blank" rel="noopener" href="https://github.com/leoforfree/cz-customizable/blob/master/cz-config-EXAMPLE.js">https://github.com/leoforfree/cz-customizable/blob/master/cz-config-EXAMPLE.js</a><br>[42]vue-test-utils: <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-test-utils-next">https://github.com/vuejs/vue-test-utils-next</a><br>[43]jest: <a target="_blank" rel="noopener" href="https://github.com/facebook/jest">https://github.com/facebook/jest</a><br>[44]vue-jest: <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-jest">https://github.com/vuejs/vue-jest</a><br>[45]ts-jest: <a target="_blank" rel="noopener" href="https://github.com/kulshekhar/ts-jest">https://github.com/kulshekhar/ts-jest</a><br>[46]创建 GitHub 仓库: <a target="_blank" rel="noopener" href="https://github.com/new">https://github.com/new</a><br>[47]GitHub Token: <a target="_blank" rel="noopener" href="https://github.com/settings/tokens/new">https://github.com/settings/tokens/new</a><br>[48]GitHub 仓库: <a target="_blank" rel="noopener" href="https://github.com/XPoet/vite-vue3-starter">https://github.com/XPoet/vite-vue3-starter</a></p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/2022/06/17/%E5%BD%93%E3%80%8C%E5%A4%AA%E9%BA%BB%E7%83%A6%E4%BA%86%E3%80%8D%E6%88%90%E4%B8%BA%E5%80%9F%E5%8F%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">当「太麻烦了」成为借口</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=vue3大型项目前端工作流 - Ant-Thinker&url=https://jakemama.github.io/2022/06/29/vue3%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=vue3大型项目前端工作流 - Ant-Thinker&u=https://jakemama.github.io/2022/06/29/vue3%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=vue3大型项目前端工作流 - Ant-Thinker&url=https://jakemama.github.io/2022/06/29/vue3%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/29/vue3%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/">vue3大型项目前端工作流</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/17/%E5%BD%93%E3%80%8C%E5%A4%AA%E9%BA%BB%E7%83%A6%E4%BA%86%E3%80%8D%E6%88%90%E4%B8%BA%E5%80%9F%E5%8F%A3/">当「太麻烦了」成为借口</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/07/%E5%88%A4%E6%96%AD%E5%BA%94%E5%9F%BA%E4%BA%8E%E5%8F%AF%E9%87%8F%E5%8C%96%E6%9D%A1%E4%BB%B6/">判断应基于可量化条件</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/06/%E5%85%B3%E4%BA%8E%E8%B7%91%E6%AD%A5%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/">关于跑步的一些想法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/22/%E7%9C%8B%E7%8E%B0%E4%BB%A3%E5%8F%8D%E6%B8%B8%E5%87%BB%E4%BD%9C%E6%88%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%84%9F%E5%8F%97/">看现代反游击作战的个人感受</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Ant-Thinker &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
