@@ -6,30 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     
-    <title>虚拟dom和diff算法 | Ant-Thinker</title>
+    <title>你不知道的JS中 | Ant-Thinker</title>
 
-    <meta name="description" content="&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;">
+    <meta name="description" content="马一栋的个人博客">
     <meta name="keywords" content="Ant-Thinker Jake Ma 马一栋 博客  个人博客">
 
     
 
     <meta property="og:locale" content="cn,ja,default" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content= "虚拟dom和diff算法 | Ant-Thinker"  />
-    <meta property="og:description" content= "&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;" />
-    <meta property="og:url" content="https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/index.html" />
+    <meta property="og:title" content= "你不知道的JS中 | Ant-Thinker"  />
+    <meta property="og:description" content= "马一栋的个人博客" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/07/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS%E4%B8%AD/index.html" />
     <meta property="og:site_name" content="" />
     <meta property="article:author" content="Jake Ma" />
     <meta property="article:publisher" content="" />
-    <meta property="og:description" content="&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;" />
-    <meta name="twitter:title" content="虚拟dom和diff算法 | Ant-Thinker"/>
-    <meta name="twitter:description" content="&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;"/>
+    <meta property="og:description" content="马一栋的个人博客" />
+    <meta name="twitter:title" content="你不知道的JS中 | Ant-Thinker"/>
+    <meta name="twitter:description" content="马一栋的个人博客"/>
     <script type="application/ld+json">
         {
-            "description": "&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;",
+            "description": "马一栋的个人博客",
             "author": { "@type": "Person", "name": "Jake Ma" },
             "@type": "BlogPosting",
-            "url": "https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/index.html",
+            "url": "https://jakemama.github.io/2022/07/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS%E4%B8%AD/index.html",
             "publisher": {
             "@type": "Organization",
             "logo": {
@@ -38,11 +38,11 @@
             },
             "name": "Jake Ma"
             },
-            "headline": "虚拟dom和diff算法 | Ant-Thinker",
-            "datePublished": "2022-04-06T03:50:10.000Z",
+            "headline": "你不知道的JS中 | Ant-Thinker",
+            "datePublished": "2022-07-17T11:36:53.000Z",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/index.html"
+                "@id": "https://jakemama.github.io/2022/07/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS%E4%B8%AD/index.html"
             },
             "@context": "http://schema.org"
         }
@@ -165,7 +165,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cl5p8uoe40027cz3v4qucf9m5" class="article article-type-post" itemscope
+    <article id="post-cl5p8uoen0041cz3v3mad5j41" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -181,7 +181,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      虚拟dom和diff算法
+      你不知道的JS中
     </h1>
   
 
@@ -191,7 +191,7 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2022-04-06T03:50:10.000Z" itemprop="datePublished">2022-04-06</time>
+  <time datetime="2022-07-17T11:36:53.000Z" itemprop="datePublished">2022-07-17</time>
 </div>
 
             
@@ -202,7 +202,7 @@
 
             
             <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
             </div>
             
 
@@ -211,59 +211,53 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a><strong>虚拟DOM</strong></h2><h3 id="什么是虚拟DOM"><a href="#什么是虚拟DOM" class="headerlink" title="什么是虚拟DOM"></a><strong>什么是虚拟DOM</strong></h3><p><strong>虚拟DOM就是一个用来描述真实DOM的javaScript对象</strong></p>
-<span id="more"></span>
-<p>真实DOM:</p>
-<pre><code class="xml">&lt;ul class=&quot;list&quot;&gt;
-    &lt;li&gt;a&lt;/li&gt;
-    &lt;li&gt;b&lt;/li&gt;
-    &lt;li&gt;c&lt;/li&gt;
-&lt;/ul&gt;
+            <span id="more"></span>
+
+<h2 id="1-类型"><a href="#1-类型" class="headerlink" title="1.类型"></a>1.类型</h2><p>使用typeof判断null值返回“object”，其余基本类型均有同名的字符串值与其对应</p>
+<pre><code class="javascript">typeof null === &quot;object&quot; // true
 </code></pre>
-<p>虚拟DOM:</p>
-<pre><code class="javascript">let vnode = h(&#39;ul.list&#39;, [
-  h(&#39;li&#39;,&#39;a&#39;),
-  h(&#39;li&#39;,&#39;b&#39;),
-  h(&#39;li&#39;,&#39;c&#39;),
-])
+<!--more-->
+<p>对于未定义(undeclared)和未声明的变量，typeof均会返回undefined</p>
+<pre><code class="javascript">var a
+typeof a; // &quot;undefined&quot;
+typeof b; // &quot;undefined&quot;
 </code></pre>
-<h3 id="为什么需要虚拟DOM"><a href="#为什么需要虚拟DOM" class="headerlink" title="为什么需要虚拟DOM"></a><strong>为什么需要虚拟DOM</strong></h3><ol>
-<li>MVVM框架解决视图和状态同步问题</li>
-<li>模板引擎可以简化视图操作,没办法跟踪状态</li>
-<li>虚拟DOM跟踪状态变化</li>
-<li>参考github上virtual-dom[1]的动机描述<ol>
-<li>虚拟DOM可以维护程序的状态,跟踪上一次的状态</li>
-<li>通过比较前后两次状态差异更新真实DOM</li>
-</ol>
-</li>
-<li>跨平台使用<ol>
-<li>浏览器平台渲染DOM</li>
-<li>服务端渲染SSR(Nuxt.js&#x2F;Next.js),前端是vue向,后者是react向</li>
-<li>原生应用(Weex&#x2F;React Native)</li>
-<li>小程序(mpvue&#x2F;uni-app)等</li>
-</ol>
-</li>
-<li>真实DOM的属性很多，创建DOM节点开销很大</li>
-<li>虚拟DOM只是普通JavaScript对象，描述属性并不需要很多，创建开销很小</li>
-<li>复杂视图情况下提升渲染性能(操作dom性能消耗大,减少操作dom的范围可以提升性能)，简单视图情况下，不一定比直接重新渲染更快</li>
-</ol>
-<h2 id="diff算法"><a href="#diff算法" class="headerlink" title="diff算法"></a><strong>diff算法</strong></h2><p>diff算法其实就是找出修改前后虚拟DOM树的差异</p>
-<p>Diff 的对象是虚拟DOM（virtual dom），更新真实 DOM 是 Diff 算法的结果。</p>
-<p><strong>传统diff算法</strong></p>
+<h2 id="2-值"><a href="#2-值" class="headerlink" title="2.值"></a>2.值</h2><p>使用<code>delete</code>运算符可以数组中元素删除，但是数组的length属性并不会发生变化</p>
+<p>稀疏数组：含有空白或空缺单元的数组</p>
+<pre><code class="javascript">var a = []
+a[0] = 1
+// 此处没有设置a[1]单元
+a[2] = 3
+a[1]  // undefined
+a.length   // 3
+</code></pre>
+<p>将类数组转换成数组的两种方法：工具函数slice(…)和ES6内置工具函数Array.form(…)</p>
+<pre><code class="javascript">var arr1 = Array.prototype.slice.call(arguments)
+
+var arr2 = Array.form(arguments)
+</code></pre>
+<hr>
+<p>JavaScript中的字符串是不可变的，字符串的成员函数不会改变其原始值，而是创建并返回一个新字符串</p>
+<p>当需要对字符串进行比较复杂的操作时，通常的思路是将字符串转换成数组进行操作，之后再拼接回字符串</p>
+<blockquote>
+<p>上述方法对于包含复杂字符（Unicode，如星号、多字节字符等）的字符串并不适用。建议使用功能更加完备的Unicode的工具库，比如<a target="_blank" rel="noopener" href="https://github.com/mathiasbynens/esrever">Esrever</a></p>
+</blockquote>
+<p>如果需要经常以字符数组的方式来处理字符串，不如直接用数组，在需要时用join(“”)来转换为字符串</p>
+<hr>
+<p>NaN是不是数字的数字，对其进行typeof运算返回”number”，且是唯一一个非自反的值，NaN !&#x3D;&#x3D; NaN 为true。</p>
+<p>内建的全局函数isNaN(…)有个缺陷，对字符串也会返回true。建议使用ES6的 Number.isNaN(…)</p>
+<p>ES6中新加入一个工具方法Object.is(…)来判断两个值是否绝对相等，可以用来处理几乎所有特殊情况（NaN比较，0与-0的比较），不过能使用 &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 时就尽量不要用Object.is(…)，因为前者效率更高更通用。</p>
+<hr>
+<h2 id="3-原生函数"><a href="#3-原生函数" class="headerlink" title="3.原生函数"></a>3.原生函数</h2><p>字面量定义与构造函数定义相比，语法简单，执行效率也高，会进行预编译和缓存，也能避免大部分意料之外的问题。</p>
+<h2 id="4-强制类型转换"><a href="#4-强制类型转换" class="headerlink" title="4.强制类型转换"></a>4.强制类型转换</h2><p>JSON.stringify(…)可以传递一个可选参数replacer，它可以是数组或者是函数，用来指定对象序列化过程中哪些属性应该被处理。</p>
+<blockquote>
 <ol>
-<li>传统算法查找两颗树每一个节点的差异</li>
-<li>会运行n1(dom1的节点数)*n2(dom2的节点数)次方去对比,找到差异的部分再去更新<br><img src="/../images/%E4%BC%A0%E7%BB%9Fdiff%E7%AE%97%E6%B3%95.png" alt="传统diff算法"></li>
+<li>如果是数组，必须是字符串数组，字符串为要处理的对象的属性名称，除此之外的其他属性则被忽略</li>
+<li>如果是函数，它会对对象本身调用一次，然后对对象中的各个属性调用一次，每次传键和值两个参数。如果要忽略就返回undefined，否则返回指定的值</li>
 </ol>
-<p><strong>diff算法优化</strong></p>
-<ol>
-<li>DOM操作时候很少会跨级别操作节点</li>
-<li>只比较同级别的节点<br><img src="/../images/%E4%BC%98%E5%8C%96diff%E7%AE%97%E6%B3%95.png" alt="diff算法优化"></li>
-</ol>
-<h3 id="diff算法中key的作用"><a href="#diff算法中key的作用" class="headerlink" title="diff算法中key的作用"></a>diff算法中key的作用</h3><ol>
-<li>Diff操作可以更加快速;（实例:a,b,c三个dom元素中的b,c间插入一个z元素）</li>
-<li>Diff操作可以更加准确，避免渲染错误（实例:a,b,c三个dom元素,修改了a元素的某个属性再去在a元素前新增一个z元素）</li>
-<li>不推荐使用索引作为key</li>
-</ol>
+</blockquote>
+<p>&#96;&#96;&#96; javascript<br>var a &#x3D; {<br>  b: 42,<br>  c: ‘42’,<br>  d: [1,2,3]<br>}<br>JSON.stringify(a, [‘b’, ‘c’]) &#x2F;&#x2F; {“b”:42, “c”:”42”}</p>
+<p>&#x2F;&#x2F; 对象本身调用那次k值为undefined，数组在调用时，k值为索引值<br>JSON.stringify(a, function(k, v){<br>  if(k!&#x3D;&#x3D; “c”) return v<br>})<br>&#x2F;&#x2F; </p>
 
         </div>
 
@@ -288,19 +282,10 @@
     
 <nav class="article-nav">
   
-    <a href="/2022/04/06/mqtt/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
-      <div class="article-nav-title">
-        
-          mqtt
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/04/05/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/07/17/%E5%AE%B6%E7%94%A8%E6%91%84%E5%83%8F%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">《你不知道的JS》上卷</div>
+      <div class="article-nav-title">家用摄像配置</div>
     </a>
   
 </nav>
@@ -309,15 +294,15 @@
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=虚拟dom和diff算法 - Ant-Thinker&url=https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/">
+            href="https://twitter.com/share?text=你不知道的JS中 - Ant-Thinker&url=https://jakemama.github.io/2022/07/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS%E4%B8%AD/">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=虚拟dom和diff算法 - Ant-Thinker&u=https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/">
+            href="https://www.facebook.com/sharer.php?title=你不知道的JS中 - Ant-Thinker&u=https://jakemama.github.io/2022/07/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS%E4%B8%AD/">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=虚拟dom和diff算法 - Ant-Thinker&url=https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/&pic=">
+            href="https://service.weibo.com/share/share.php?title=你不知道的JS中 - Ant-Thinker&url=https://jakemama.github.io/2022/07/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS%E4%B8%AD/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
