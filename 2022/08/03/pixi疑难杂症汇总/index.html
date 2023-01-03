@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>pixi疑难杂症汇总 | Ant-Thinker</title>
+
+    <meta name="description" content="&lt;p&gt;这段时间在忙一个七夕活动游戏的项目，技术栈基于gsap + pixi.js + ts + vue&lt;/p&gt;
+&lt;p&gt;因为算是第一次用pixi和gsap来做项目，踩了不少坑。特此记录整理一下。&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "pixi疑难杂症汇总 | Ant-Thinker"  />
+    <meta property="og:description" content= "&lt;p&gt;这段时间在忙一个七夕活动游戏的项目，技术栈基于gsap + pixi.js + ts + vue&lt;/p&gt;
+&lt;p&gt;因为算是第一次用pixi和gsap来做项目，踩了不少坑。特此记录整理一下。&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/08/03/pixi%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E6%B1%87%E6%80%BB/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;这段时间在忙一个七夕活动游戏的项目，技术栈基于gsap + pixi.js + ts + vue&lt;/p&gt;
+&lt;p&gt;因为算是第一次用pixi和gsap来做项目，踩了不少坑。特此记录整理一下。&lt;/p&gt;" />
+    <meta name="twitter:title" content="pixi疑难杂症汇总 | Ant-Thinker"/>
+    <meta name="twitter:description" content="&lt;p&gt;这段时间在忙一个七夕活动游戏的项目，技术栈基于gsap + pixi.js + ts + vue&lt;/p&gt;
+&lt;p&gt;因为算是第一次用pixi和gsap来做项目，踩了不少坑。特此记录整理一下。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;这段时间在忙一个七夕活动游戏的项目，技术栈基于gsap + pixi.js + ts + vue&lt;/p&gt;
+&lt;p&gt;因为算是第一次用pixi和gsap来做项目，踩了不少坑。特此记录整理一下。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2022/08/03/pixi%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E6%B1%87%E6%80%BB/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "pixi疑难杂症汇总 | Ant-Thinker",
+            "datePublished": "2022-08-03T10:51:47.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2022/08/03/pixi%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E6%B1%87%E6%80%BB/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Ant-Thinker</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcgcrwd50050iauq97lx2kti" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      pixi疑难杂症汇总
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-08-03T10:51:47.000Z" itemprop="datePublished">2022-08-03</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>这段时间在忙一个七夕活动游戏的项目，技术栈基于gsap + pixi.js + ts + vue</p>
+<p>因为算是第一次用pixi和gsap来做项目，踩了不少坑。特此记录整理一下。</p>
+<span id="more"></span>
+<h1 id="gsap挂载pixi-js插件"><a href="#gsap挂载pixi-js插件" class="headerlink" title="gsap挂载pixi.js插件"></a><strong>gsap挂载pixi.js插件</strong></h1><pre><code class="js">import gsap, &#123; PixiPlugin &#125; from &#39;gsap/all&#39;;
+
+gsap.registerPlugin(PixiPlugin);
+PixiPlugin.registerPIXI(PIXI);
+</code></pre>
+<h1 id="loader加载音频、gif等特殊资源"><a href="#loader加载音频、gif等特殊资源" class="headerlink" title="loader加载音频、gif等特殊资源"></a><strong>loader加载音频、gif等特殊资源</strong></h1><h2 id="加载音频"><a href="#加载音频" class="headerlink" title="加载音频"></a><strong>加载音频</strong></h2><p>pixijs 在苹果手机上面的微信浏览器里面用loader无法加载音频文件</p>
+<p>加载图片很容易，但是有时候加载音频文件会卡住不动。</p>
+<p>网上大部分能搜到的都是在pixi的 v4.0.0+ 版本中，通过修改loadtype来解决</p>
+<pre><code class="js">    PIXI.loaders.Resource.setExtensionLoadType( &#39;mp3&#39;, PIXI.loaders.Resource.LOAD_TYPE.XHR );
+    PIXI.loaders.Resource.setExtensionXhrType( &#39;mp3&#39;, PIXI.loaders.Resource.XHR_RESPONSE_TYPE.BLOB );
+</code></pre>
+<p>在 v5.0.0+ 版本中，原理是一样的，只是修改方法不一样，可以直接在load.add方法中来添加参数</p>
+<pre><code class="ts">// npm i @pixi/gif
+import &#123; Loader, LoaderResource &#125; from &#39;pixi.js&#39;;
+
+const loader = Loader.shared;
+
+loader.add(
+        &#123;
+          loadType: LoaderResource.LOAD_TYPE.XHR,
+          url: &#39;assets/audio.mp3&#39;
+        &#125;)
+      .load(setup)
+
+function setup() &#123;
+  ...
+&#125;
+</code></pre>
+<h2 id="加载gif"><a href="#加载gif" class="headerlink" title="加载gif"></a><strong>加载gif</strong></h2><p>gif图片也可以用来当作精灵来使用</p>
+<pre><code class="ts">import &#123; Loader, LoaderResource, Sprite &#125; from &#39;pixi.js&#39;;
+import &#123; AnimatedGIF, AnimatedGIFLoader &#125; from &#39;@pixi/gif&#39;;
+Loader.registerPlugin(AnimatedGIFLoader);
+
+
+const loader = Loader.shared;
+const gifSprites: Record&lt;string, AnimatedGIF&gt; = &#123;&#125; as any;
+
+loader.add(
+        &#123;
+          key: &#39;gif&#39;,
+          url: &#39;assets/gg.gif&#39;
+        &#125;)
+      .load((_, res) =&gt; &#123;
+        gifSprites[&#39;gif&#39;] = res[&#39;gif&#39;].animation;
+      &#125;)
+</code></pre>
+<h1 id="mask遮罩导致点击事件失效"><a href="#mask遮罩导致点击事件失效" class="headerlink" title="mask遮罩导致点击事件失效"></a><strong>mask遮罩导致点击事件失效</strong></h1><p>当元素的遮罩mask设置透明度为0时，元素的绑定事件会失效。将透明度置为1即可</p>
+<pre><code class="ts">// Create a graphics object to define our mask
+let mask = new PIXI.Graphics();
+// Add the rectangular area to show
+mask.beginFill(0xffffff, 1); // 第二个参数为透明度，若设置为0，则maskContainer的点击事件不会生效
+mask.drawRect(0,0,200,200);
+mask.endFill();
+
+// Add container that will hold our masked content
+let maskContainer = new PIXI.Container();
+// Set the mask to use our graphics object from above
+maskContainer.mask = mask;
+// Add the mask as a child, so that the mask is positioned relative to its parent
+maskContainer.addChild(mask);
+// Offset by the window&#39;s frame width
+maskContainer.position.set(4,4);
+// And add the container to the window!
+this.app.stage.addChild(maskContainer);
+
+maskContainer.interactive = true
+maskContainer.on(&#39;pointerdown&#39;, () =&gt; &#123;
+  console.log(&#39;pointerdown&#39;);
+&#125;)
+</code></pre>
+<h1 id="Container的背景色设置和阴影设置"><a href="#Container的背景色设置和阴影设置" class="headerlink" title="Container的背景色设置和阴影设置"></a><strong>Container的背景色设置和阴影设置</strong></h1><p>坦白来说，Container并不能设置背景色和阴影，因为它本来只是作为一系列元素的集合，并不是真正div元素</p>
+<p>等价方法就是创建一个Graphics元素，宽高设置为Container的宽高，来模仿背景色。</p>
+<p>阴影设置也是手动绘制图形，放在Container下方来模拟。</p>
+<h1 id="绘制自定义图形"><a href="#绘制自定义图形" class="headerlink" title="绘制自定义图形"></a><strong>绘制自定义图形</strong></h1><p>目前官方的绘制函数，有<a href="2022-08_pixi%E5%9F%BA%E7%A1%80.md">圆形、矩形、多边形、椭圆</a></p>
+<p>可以自定义想要的绘制函数</p>
+<pre><code class="js">  const words = new Graphics()
+  this.words.beginFill(0x000000);
+  // 传入Graphics元素，进行手动绘制
+  this.roundRect(words, 0, 0, 100, 50, 9, &#39;right&#39;);
+  this.words.endFill(); 
+
+ function roundRect(ctx, x, y, w, h, r, direction) &#123;
+    // 画圆角 ctx、x起点、y起点、w宽度、y高度、r圆角半径, direction圆角朝向left/right
+
+    // 绘制左上角圆弧 Math.PI = 180度
+    // 圆心x起点、圆心y起点、半径、以3点钟方向顺时针旋转后确认的起始弧度、以3点钟方向顺时针旋转后确认的终止弧度
+    ctx.arc(x + r, y + r, r, Math.PI, Math.PI * 1.5);
+
+    // 绘制border-top
+    // 移动起点位置 x终点、y终点
+    ctx.moveTo(x + r, y);
+    // 画一条线 x终点、y终点
+    ctx.lineTo(x + w - r, y);
+    // 绘制右上角圆弧
+    ctx.arc(x + w - r, y + r, r, Math.PI * 1.5, Math.PI * 2);
+    if (direction == &#39;right&#39;) &#123;
+      // 三角上的间距
+      ctx.lineTo(x + w, y + h / 2 - 10);
+      // 绘制三角
+      ctx.lineTo(x + w + 10, y + h / 2);
+      ctx.lineTo(x + w, y + h / 2 + 10);
+    &#125;
+
+    // 绘制border-right
+    ctx.lineTo(x + w, y + h - r);
+
+    // 绘制右下角圆弧
+    ctx.arc(x + w - r, y + h - r, r, 0, Math.PI * 0.5);
+
+    // 绘制border-bottom
+    ctx.lineTo(x + r, y + h);
+    // ctx.lineTo(x, y + h - r)
+
+    // 绘制左下角圆弧
+    ctx.arc(x + r, y + h - r, r, Math.PI * 0.5, Math.PI);
+
+    // 绘制border-left
+    if (direction == &#39;left&#39;) &#123;
+      // 三角下的间距
+      ctx.lineTo(x, y + h / 2 + 10);
+      // 绘制三角
+      ctx.lineTo(x - 10, y + h / 2);
+      ctx.lineTo(x, y + h / 2 - 10);
+    &#125;
+    ctx.lineTo(x, y + r);
+  &#125;
+</code></pre>
+<h1 id="直接采用相对路径加载图片失败"><a href="#直接采用相对路径加载图片失败" class="headerlink" title="直接采用相对路径加载图片失败"></a><strong>直接采用相对路径加载图片失败</strong></h1><p>当你采用下面的方法来直接load图片资源的话，会报错「Error: Failed to load element using: IMG」</p>
+<pre><code class="js">loader
+    .add(&quot;a&quot;, &quot;logo.png&quot;)
+    .add(&quot;b&quot;, &quot;bbb.png&quot;)
+    .load(handleLoadComplete);
+
+function handleLoadComplete() &#123;
+    let texture = loader.resources.a.texture;
+    img = new PIXI.Sprite(texture);
+    img.anchor.x = 0.5;
+    img.anchor.y = 0.5;
+    app.stage.addChild(img);
+
+    app.ticker.add(animate);
+&#125;;
+
+function animate() &#123;
+    img.x = app.renderer.screen.width / 2;
+    img.y = app.renderer.screen.height / 2;
+    img.rotation += 0.1;
+&#125;
+</code></pre>
+<p>原因是图像的路径是相对于项目根目录指定的，而不是相对于编译版本。由于项目是动态构建的，为了找出图像的相对路径(以及哈希等等)，不需要手动指定路径，只需导入图像:</p>
+<p>可以使用import来引入正确的路径，或者使用require函数来加载（推荐）</p>
+<pre><code class="js">import logoImagePath from &#39;./logo.png&#39;;
+import bbbImagePath from &#39;./bbb.png&#39;;
+
+loader
+      .add(&quot;a&quot;, logoImagePath)
+      .add(&quot;b&quot;, bbbImagePath)
+
+// 或者
+
+loader
+    .add(&quot;a&quot;, require(&quot;logo.png&quot;))
+    .add(&quot;b&quot;, require(&quot;bbb.png&quot;))
+    .load(handleLoadComplete);
+</code></pre>
+<h1 id="pixi实现3D类旋转"><a href="#pixi实现3D类旋转" class="headerlink" title="pixi实现3D类旋转"></a><strong>pixi实现3D类旋转</strong></h1><p>因为pixi是一个2D的动画引擎，实现在平面上的动效是比较方便的，例如平移、旋转等。</p>
+<p>不过实现3D的旋转，只需要将scale值设置为负数即可</p>
+<pre><code class="js">// 这种办法需要和gsap结合使用。
+gsap.to(
+        this.container,
+        &#123;
+          duration: 0.9,
+          pixi: &#123; scaleX: -0.5 &#125;
+        &#125;
+      )
+</code></pre>
+<h1 id="pixi精灵图加载方法"><a href="#pixi精灵图加载方法" class="headerlink" title="pixi精灵图加载方法"></a><strong>pixi精灵图加载方法</strong></h1><p>网上能够搜到的精灵图加载方法，基本上都是直接loader加载json文件，就可以拿到纹理了。</p>
+<pre><code class="js">const app = new PIXI.Application();
+document.body.appendChild(app.view);
+
+app.loader
+    .add(&#39;examples/assets/spritesheet/fighter.json&#39;)
+    .load(onAssetsLoaded);
+
+function onAssetsLoaded() &#123;
+  ...
+&#125;
+</code></pre>
+<p>但是我写demo来实现动画精灵的时候，这种方法无法正确添加纹理缓存。（pixi版本v6+）</p>
+<p>因为webpack会编译我们的json文件，这样loader加载的时候就不是常量类型了。建议可以放在public文件夹下面，或者你利用脚手架设置的webpack不编译的地方。</p>
+<p>如果无法改变文件夹位置，也可以使用下面这张方法，此时可以采用绕过loader的方法来加载，直接创建Spritesheet实例</p>
+<pre><code class="js">import &#123; Loader &#125; from &#39;pixi.js&#39;;
+import * as PIXI from &quot;pixi.js&quot;;
+
+const app = new PIXI.Application();
+document.body.appendChild(app.view);
+
+Loader.shared.add(&#39;spritesheet&#39;, require(&#39;./assets/dnf.png&#39;)).load(setup)
+
+function setup(loader, resources) &#123;
+  // console.log(PIXI.utils.TextureCache, resources[&#39;spritesheet&#39;]);
+  let id
+
+  const texture = loader.resources[&quot;spritesheet&quot;].texture.baseTexture;
+  const sheet = new PIXI.Spritesheet(texture, jsonPath);
+  sheet.parse((textures) =&gt; &#123;
+    id = textures;
+  &#125;);
+
+  // 
+  // let id = resources[&#39;spritesheet&#39;].textures;
+
+    //创建纹理数组
+    let frames = [
+        id[&quot;dnf0.png&quot;],
+        id[&quot;dnf1.png&quot;],
+        id[&quot;dnf2.png&quot;],
+        id[&quot;dnf3.png&quot;]
+    ];
+    //创建动画精灵
+    let pixie = new PIXI.AnimatedSprite(frames);
+    //设置动画精灵的速度
+    pixie.animationSpeed = 0.1;
+
+    //把动画精灵添加到舞台
+    app.stage.addChild(pixie);
+    //播放动画精灵
+    pixie.play();
+&#125;
+</code></pre>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/08/15/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E6%94%B6%E5%BD%95Google/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          个人博客站点收录Google
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/03/pixi%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">PixiJS基础</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=pixi疑难杂症汇总 - Ant-Thinker&url=https://jakemama.github.io/2022/08/03/pixi%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E6%B1%87%E6%80%BB/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=pixi疑难杂症汇总 - Ant-Thinker&u=https://jakemama.github.io/2022/08/03/pixi%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E6%B1%87%E6%80%BB/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=pixi疑难杂症汇总 - Ant-Thinker&url=https://jakemama.github.io/2022/08/03/pixi%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E6%B1%87%E6%80%BB/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/03/git%E7%9A%84ssh%E9%93%BE%E6%8E%A5%E9%97%AE%E9%A2%98/">git报错kex_exchange_identification: Connection closed by remote host</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/03/%E5%BD%93%E8%B4%9DDBH2%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90%E7%BF%BB%E5%A2%99%E8%A7%82%E7%9C%8BYouTube/">当贝DBH2电视盒子翻墙观看YouTube</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2022年终总结</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/axios%E5%B0%81%E8%A3%85%E6%96%B9%E6%A1%88/">axios封装方案</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">前端常用库、方案</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Ant-Thinker &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

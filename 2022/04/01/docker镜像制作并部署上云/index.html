@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>docker镜像制作并部署上云 | Ant-Thinker</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;项目背景&#34;&gt;&lt;a href=&#34;#项目背景&#34; class=&#34;headerlink&#34; title=&#34;项目背景&#34;&gt;&lt;/a&gt;&lt;strong&gt;项目背景&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;写了个自动给女朋友和我发邮件的脚本，因为需要一直运行，所以打算搬到刚买的阿里云服务器上运行，为了避免环境问题影响，准备制作docker镜像运行。&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "docker镜像制作并部署上云 | Ant-Thinker"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;项目背景&#34;&gt;&lt;a href=&#34;#项目背景&#34; class=&#34;headerlink&#34; title=&#34;项目背景&#34;&gt;&lt;/a&gt;&lt;strong&gt;项目背景&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;写了个自动给女朋友和我发邮件的脚本，因为需要一直运行，所以打算搬到刚买的阿里云服务器上运行，为了避免环境问题影响，准备制作docker镜像运行。&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/04/01/docker%E9%95%9C%E5%83%8F%E5%88%B6%E4%BD%9C%E5%B9%B6%E9%83%A8%E7%BD%B2%E4%B8%8A%E4%BA%91/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;项目背景&#34;&gt;&lt;a href=&#34;#项目背景&#34; class=&#34;headerlink&#34; title=&#34;项目背景&#34;&gt;&lt;/a&gt;&lt;strong&gt;项目背景&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;写了个自动给女朋友和我发邮件的脚本，因为需要一直运行，所以打算搬到刚买的阿里云服务器上运行，为了避免环境问题影响，准备制作docker镜像运行。&lt;/p&gt;" />
+    <meta name="twitter:title" content="docker镜像制作并部署上云 | Ant-Thinker"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;项目背景&#34;&gt;&lt;a href=&#34;#项目背景&#34; class=&#34;headerlink&#34; title=&#34;项目背景&#34;&gt;&lt;/a&gt;&lt;strong&gt;项目背景&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;写了个自动给女朋友和我发邮件的脚本，因为需要一直运行，所以打算搬到刚买的阿里云服务器上运行，为了避免环境问题影响，准备制作docker镜像运行。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;项目背景&#34;&gt;&lt;a href=&#34;#项目背景&#34; class=&#34;headerlink&#34; title=&#34;项目背景&#34;&gt;&lt;/a&gt;&lt;strong&gt;项目背景&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;写了个自动给女朋友和我发邮件的脚本，因为需要一直运行，所以打算搬到刚买的阿里云服务器上运行，为了避免环境问题影响，准备制作docker镜像运行。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2022/04/01/docker%E9%95%9C%E5%83%8F%E5%88%B6%E4%BD%9C%E5%B9%B6%E9%83%A8%E7%BD%B2%E4%B8%8A%E4%BA%91/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "docker镜像制作并部署上云 | Ant-Thinker",
+            "datePublished": "2022-04-01T05:59:33.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2022/04/01/docker%E9%95%9C%E5%83%8F%E5%88%B6%E4%BD%9C%E5%B9%B6%E9%83%A8%E7%BD%B2%E4%B8%8A%E4%BA%91/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Ant-Thinker</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcgcrwcq000qiauq9h406sru" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      docker镜像制作并部署上云
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-04-01T05:59:33.000Z" itemprop="datePublished">2022-04-01</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a><strong>项目背景</strong></h2><p>写了个自动给女朋友和我发邮件的脚本，因为需要一直运行，所以打算搬到刚买的阿里云服务器上运行，为了避免环境问题影响，准备制作docker镜像运行。</p>
+<span id="more"></span>
+
+<h2 id="准备事项"><a href="#准备事项" class="headerlink" title="准备事项"></a><strong>准备事项</strong></h2><ul>
+<li>写好的一套脚本代码（文中是基于js+node），并上传到github</li>
+<li>一台云服务器（文中采用阿里云服务器）</li>
+<li>基本的docker知识，推荐阮一峰老师的<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html">docker入门教程</a></li>
+</ul>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a><strong>步骤</strong></h2><h3 id="1-代码项目中添加Dockerfile文件和-dockerignore文件"><a href="#1-代码项目中添加Dockerfile文件和-dockerignore文件" class="headerlink" title="1. 代码项目中添加Dockerfile文件和.dockerignore文件"></a><strong>1. 代码项目中添加Dockerfile文件和.dockerignore文件</strong></h3><p>在项目的根目录下，新建一个文本文件.dockerignore，写入下面的内容</p>
+<pre><code>.git
+
+node_modules
+
+npm-debug.log
+</code></pre>
+<p>上面代码表示，这三个路径要排除，不要打包进入 image 文件。如果你没有路径要排除，这个文件可以不新建。</p>
+<p>然后，在项目的根目录下，新建一个文本文件 Dockerfile，写入下面内容</p>
+<pre><code class="bash">FROM node:8.4
+
+COPY . /app
+
+WORKDIR /app
+
+RUN npm install --registry=https://registry.npm.taobao.org
+
+EXPOSE 3000
+
+CMD node demos/01.js
+</code></pre>
+<p>上面代码一共五行，含义如下</p>
+<pre><code class="bash">FROM node:8.4：该 image 文件继承官方的 node image，冒号表示标签，这里标签是 8.4，即 8.4 版本的 node。
+
+COPY . /app：将当前目录下的所有文件（除了.dockerignore 排除的路径），都拷贝进入 image 文件的 /app 目录。
+
+WORKDIR /app：指定接下来的工作路径为 /app。
+
+RUN npm install：在 /app 目录下，运行 npm install 命令安装依赖。注意，安装后所有的依赖，都将打包进入 image 文件。
+
+EXPOSE 3000：将容器 3000 端口暴露出来， 允许外部连接这个端口。
+
+CMD node demos/01.js:容器启动后自动执行 node demos/01.js。
+</code></pre>
+<h3 id="2-将代码拉取到云服务器上"><a href="#2-将代码拉取到云服务器上" class="headerlink" title="2. 将代码拉取到云服务器上"></a><strong>2. 将代码拉取到云服务器上</strong></h3><p>git clone你的项目到云服务器中，cd到当前目录，并npm install安装相关依赖，咱们这次在云服务器环境进行镜像build</p>
+<p>还有一种就是本地电脑build 然后push到docker hub上。 在服务器上拉下来这种。这种我也试过，但是如果镜像太大的话，比如900多MB，拉不下来。应该是镜像中包含了node这种模块。</p>
+<h3 id="3-创建image镜像文件"><a href="#3-创建image镜像文件" class="headerlink" title="3. 创建image镜像文件"></a><strong>3. 创建image镜像文件</strong></h3><p>创建镜像文件， -t参数用来指定创建的image镜像文件的名字，后面可以使用冒号指定标签，默认是lastest。最后记得还有一个点，表示dockerfile文件所在的路径。</p>
+<p>注意最后有一个”.”，不要漏了</p>
+<pre><code class="bash">$ docker image build -t [yourProjectName] .
+# 或者
+$ docker image build -t [yourProjectName]:0.0.1 .
+</code></pre>
+<p>查看镜像文件</p>
+<pre><code class="bash">$ docker image ls
+</code></pre>
+<h3 id="4-生成容器"><a href="#4-生成容器" class="headerlink" title="4. 生成容器"></a><strong>4. 生成容器</strong></h3><p>从image生成容器</p>
+<pre><code class="bash">$ docker container run -p 8000:3000 -it [yourProjectName]
+# 或者
+$ docker container run -p 8000:3000 -it [yourProjectName]:0.0.1
+</code></pre>
+<pre><code class="bash">-p 参数：容器的 3000 端口映射到本机的 8000 端口。
+
+-it 参数：容器的 Shell 映射到当前的 Shell，然后你在本机窗口输入的命令，就会传入容器。
+
+koa-demo:0.0.1：image 文件的名字（如果有标签，还需要提供标签，默认是 latest 标签）。
+
+/bin/bash：容器启动以后，内部第一个执行的命令。这里是启动 Bash，保证用户可以使用 Shell。
+</code></pre>
+<p><strong>终止容器运行</strong></p>
+<pre><code class="bash"># 在本机的另一个终端窗口，查出容器的 ID，只能查到正在运行的容器
+$ docker container ls
+
+# 停止指定的容器运行
+$ docker container kill [containerID]
+</code></pre>
+<p><strong>删除容器</strong></p>
+<pre><code class="bash"># 查出容器的 ID，包括已停止运行的容器
+$ docker container ls --all
+
+# 删除指定的容器文件
+$ docker container rm [containerID]
+</code></pre>
+<p><strong>终止容器后自动删除</strong></p>
+<pre><code class="bash">$ docker container run --rm -p 8000:3000 -it [yourProjectName] /bin/bash
+</code></pre>
+<p>后台自动运行，容器创建后除非删除否则不会消失，云服务器运行的服务其实是容器，不是镜像</p>
+<p><strong>开启、终止容器服务</strong></p>
+<pre><code class="bash"># 查出所有容器的 ID
+$ docker container ls --all
+
+# 停止指定的容器运行
+$ docker container stop/kill [containerID]
+
+# 开启指定容器
+$ docker container start [containerID]
+</code></pre>
+<p><strong>查看容器打印的日志</strong>，tail参数表示最近100条日志，不加的话默认从头开始显示</p>
+<pre><code class="bash">$ docker logs -f --tail 100 [containerID]
+</code></pre>
+<p><strong>进入容器操作</strong></p>
+<pre><code class="bash">$ docker exec -it id sh
+</code></pre>
+<h2 id="提交到docker-hub"><a href="#提交到docker-hub" class="headerlink" title="提交到docker hub"></a><strong>提交到docker hub</strong></h2><p>首先你要注册一个<a target="_blank" rel="noopener" href="https://hub.docker.com/">dockerhub</a>的账号，之后登陆账号</p>
+<pre><code class="bash">docker login
+</code></pre>
+<p>输入你的ID和密码，之后执行：</p>
+<pre><code class="bash">docker push [imageName]:[imageVersion]
+</code></pre>
+<p>第一次提交可能会被拒绝：denied: requested access to the resource is denied，根据文档：</p>
+<pre><code class="bash">You need to include the namespace for Docker Hub to associate it with your account.
+The namespace is the same as your Docker Hub account name.
+You need to rename the image to YOUR_DOCKERHUB_NAME/docker-whale.
+</code></pre>
+<p>所以在push之前需要添加tag</p>
+<pre><code class="bash">docker tag [imageName] [dockerhubName]/[imageName]
+</code></pre>
+<p>然后再进行push操作</p>
+<pre><code class="bash">docker push [dockerhubName]/[imageName]
+</code></pre>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/04/05/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          《你不知道的JS》上卷
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/28/webpack%E5%85%A5%E9%97%A8%E5%8F%8A%E5%AE%89%E8%A3%85%E5%8A%9E%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">webpack入门及安装办法</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=docker镜像制作并部署上云 - Ant-Thinker&url=https://jakemama.github.io/2022/04/01/docker%E9%95%9C%E5%83%8F%E5%88%B6%E4%BD%9C%E5%B9%B6%E9%83%A8%E7%BD%B2%E4%B8%8A%E4%BA%91/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=docker镜像制作并部署上云 - Ant-Thinker&u=https://jakemama.github.io/2022/04/01/docker%E9%95%9C%E5%83%8F%E5%88%B6%E4%BD%9C%E5%B9%B6%E9%83%A8%E7%BD%B2%E4%B8%8A%E4%BA%91/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=docker镜像制作并部署上云 - Ant-Thinker&url=https://jakemama.github.io/2022/04/01/docker%E9%95%9C%E5%83%8F%E5%88%B6%E4%BD%9C%E5%B9%B6%E9%83%A8%E7%BD%B2%E4%B8%8A%E4%BA%91/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/03/git%E7%9A%84ssh%E9%93%BE%E6%8E%A5%E9%97%AE%E9%A2%98/">git报错kex_exchange_identification: Connection closed by remote host</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/03/%E5%BD%93%E8%B4%9DDBH2%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90%E7%BF%BB%E5%A2%99%E8%A7%82%E7%9C%8BYouTube/">当贝DBH2电视盒子翻墙观看YouTube</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2022年终总结</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/axios%E5%B0%81%E8%A3%85%E6%96%B9%E6%A1%88/">axios封装方案</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">前端常用库、方案</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Ant-Thinker &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>一文看完《mysql必知必会》-知识点总结版 | Ant-Thinker</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;基础（连接和选择数据库）&#34;&gt;&lt;a href=&#34;#基础（连接和选择数据库）&#34; class=&#34;headerlink&#34; title=&#34;基础（连接和选择数据库）&#34;&gt;&lt;/a&gt;&lt;strong&gt;基础（连接和选择数据库）&lt;/strong&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;选择指定数据库：USE + ‘数据库名称’&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看所有可以使用的数据库： SHOW DATABASES&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;返回当前选择的数据库内可用表的列表：SHOW TABLES&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;显示表的所有列：SHOW COLUMNS FROM ‘表名’&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其他常用SHOW语句：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;SHOW STATUS，用于显示广泛的服务器状态信息；&lt;/li&gt;
+&lt;li&gt;SHOW CREATE DATABASE和SHOW CREATE TABLE，分别用来显示创建特定数据库或表的MySQL语句；&lt;/li&gt;
+&lt;li&gt;SHOW GRANTS，用来显示授予用户（所有用户或特定用户）的安全权限；&lt;/li&gt;
+&lt;li&gt;SHOW ERRORS和SHOW WARNINGS，用来显示服务器错误或警告消息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "一文看完《mysql必知必会》-知识点总结版 | Ant-Thinker"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;基础（连接和选择数据库）&#34;&gt;&lt;a href=&#34;#基础（连接和选择数据库）&#34; class=&#34;headerlink&#34; title=&#34;基础（连接和选择数据库）&#34;&gt;&lt;/a&gt;&lt;strong&gt;基础（连接和选择数据库）&lt;/strong&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;选择指定数据库：USE + ‘数据库名称’&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看所有可以使用的数据库： SHOW DATABASES&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;返回当前选择的数据库内可用表的列表：SHOW TABLES&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;显示表的所有列：SHOW COLUMNS FROM ‘表名’&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其他常用SHOW语句：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;SHOW STATUS，用于显示广泛的服务器状态信息；&lt;/li&gt;
+&lt;li&gt;SHOW CREATE DATABASE和SHOW CREATE TABLE，分别用来显示创建特定数据库或表的MySQL语句；&lt;/li&gt;
+&lt;li&gt;SHOW GRANTS，用来显示授予用户（所有用户或特定用户）的安全权限；&lt;/li&gt;
+&lt;li&gt;SHOW ERRORS和SHOW WARNINGS，用来显示服务器错误或警告消息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/03/28/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E6%80%BB%E7%BB%93/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;基础（连接和选择数据库）&#34;&gt;&lt;a href=&#34;#基础（连接和选择数据库）&#34; class=&#34;headerlink&#34; title=&#34;基础（连接和选择数据库）&#34;&gt;&lt;/a&gt;&lt;strong&gt;基础（连接和选择数据库）&lt;/strong&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;选择指定数据库：USE + ‘数据库名称’&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看所有可以使用的数据库： SHOW DATABASES&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;返回当前选择的数据库内可用表的列表：SHOW TABLES&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;显示表的所有列：SHOW COLUMNS FROM ‘表名’&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其他常用SHOW语句：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;SHOW STATUS，用于显示广泛的服务器状态信息；&lt;/li&gt;
+&lt;li&gt;SHOW CREATE DATABASE和SHOW CREATE TABLE，分别用来显示创建特定数据库或表的MySQL语句；&lt;/li&gt;
+&lt;li&gt;SHOW GRANTS，用来显示授予用户（所有用户或特定用户）的安全权限；&lt;/li&gt;
+&lt;li&gt;SHOW ERRORS和SHOW WARNINGS，用来显示服务器错误或警告消息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;" />
+    <meta name="twitter:title" content="一文看完《mysql必知必会》-知识点总结版 | Ant-Thinker"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;基础（连接和选择数据库）&#34;&gt;&lt;a href=&#34;#基础（连接和选择数据库）&#34; class=&#34;headerlink&#34; title=&#34;基础（连接和选择数据库）&#34;&gt;&lt;/a&gt;&lt;strong&gt;基础（连接和选择数据库）&lt;/strong&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;选择指定数据库：USE + ‘数据库名称’&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看所有可以使用的数据库： SHOW DATABASES&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;返回当前选择的数据库内可用表的列表：SHOW TABLES&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;显示表的所有列：SHOW COLUMNS FROM ‘表名’&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其他常用SHOW语句：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;SHOW STATUS，用于显示广泛的服务器状态信息；&lt;/li&gt;
+&lt;li&gt;SHOW CREATE DATABASE和SHOW CREATE TABLE，分别用来显示创建特定数据库或表的MySQL语句；&lt;/li&gt;
+&lt;li&gt;SHOW GRANTS，用来显示授予用户（所有用户或特定用户）的安全权限；&lt;/li&gt;
+&lt;li&gt;SHOW ERRORS和SHOW WARNINGS，用来显示服务器错误或警告消息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;基础（连接和选择数据库）&#34;&gt;&lt;a href=&#34;#基础（连接和选择数据库）&#34; class=&#34;headerlink&#34; title=&#34;基础（连接和选择数据库）&#34;&gt;&lt;/a&gt;&lt;strong&gt;基础（连接和选择数据库）&lt;/strong&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;选择指定数据库：USE + ‘数据库名称’&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看所有可以使用的数据库： SHOW DATABASES&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;返回当前选择的数据库内可用表的列表：SHOW TABLES&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;显示表的所有列：SHOW COLUMNS FROM ‘表名’&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其他常用SHOW语句：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;SHOW STATUS，用于显示广泛的服务器状态信息；&lt;/li&gt;
+&lt;li&gt;SHOW CREATE DATABASE和SHOW CREATE TABLE，分别用来显示创建特定数据库或表的MySQL语句；&lt;/li&gt;
+&lt;li&gt;SHOW GRANTS，用来显示授予用户（所有用户或特定用户）的安全权限；&lt;/li&gt;
+&lt;li&gt;SHOW ERRORS和SHOW WARNINGS，用来显示服务器错误或警告消息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2022/03/28/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E6%80%BB%E7%BB%93/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "一文看完《mysql必知必会》-知识点总结版 | Ant-Thinker",
+            "datePublished": "2022-03-28T08:28:21.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2022/03/28/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E6%80%BB%E7%BB%93/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Ant-Thinker</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcgcrwcl0003iauq9ugthp0r" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      一文看完《mysql必知必会》-知识点总结版
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-03-28T08:28:21.000Z" itemprop="datePublished">2022-03-28</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="基础（连接和选择数据库）"><a href="#基础（连接和选择数据库）" class="headerlink" title="基础（连接和选择数据库）"></a><strong>基础（连接和选择数据库）</strong></h2><ol>
+<li><p>选择指定数据库：USE + ‘数据库名称’</p>
+</li>
+<li><p>查看所有可以使用的数据库： SHOW DATABASES</p>
+</li>
+<li><p>返回当前选择的数据库内可用表的列表：SHOW TABLES</p>
+</li>
+<li><p>显示表的所有列：SHOW COLUMNS FROM ‘表名’</p>
+</li>
+<li><p>其他常用SHOW语句：</p>
+<ol>
+<li>SHOW STATUS，用于显示广泛的服务器状态信息；</li>
+<li>SHOW CREATE DATABASE和SHOW CREATE TABLE，分别用来显示创建特定数据库或表的MySQL语句；</li>
+<li>SHOW GRANTS，用来显示授予用户（所有用户或特定用户）的安全权限；</li>
+<li>SHOW ERRORS和SHOW WARNINGS，用来显示服务器错误或警告消息。</li>
+</ol>
+</li>
+</ol>
+<span id="more"></span>
+<h2 id="select语句"><a href="#select语句" class="headerlink" title="select语句"></a><strong>select语句</strong></h2><ol>
+<li><p>检索单个列：SELESCT ‘列名’ FROM ‘表名’</p>
+</li>
+<li><p>SQL其实不区分大小写，也会忽略所有空格，尽量命令末尾都加上分号，但这样写更易于阅读调试</p>
+</li>
+<li><p>检索多个列：SELECT ’列名1‘, ‘列名2‘, ‘列名3’ FROM ‘表名‘</p>
+</li>
+<li><p>检索所有列： SELECT * FROM table_name</p>
+</li>
+<li><p>使用通配符会降低检索效率，但可以检索出名字未知的列</p>
+</li>
+<li><p>检索不同的行：SELECT DISTINCT Column1 FROM table_name</p>
+</li>
+<li><p>不能部分使用DISTINCT DISTINCT关键字应用于所有列而不仅是前置它的列。如果给出SELECT DISTINCT vend_id,prod_price，除非指定的两个列都不同，否则所有行都将被检索出来。</p>
+</li>
+<li><p>限制结果数量：</p>
+<ol>
+<li>SELECT column FROM table_name LIMIT 5;（返回不多于5行）</li>
+<li>SELECT column FROM table_name LIMIT 5, 5;（LIMIT 5, 5指示MySQL返回从行5开始的5行。第一个数为开始位置，第二个数为要检索的行数。）</li>
+<li>MySQL 5支持LIMIT的另一种替代语法。LIMIT 4 OFFSET 3 意为从行3开始取4行，就像LIMIT 3, 4一样。</li>
+</ol>
+</li>
+<li><p>完全限定的表名：</p>
+<ol>
+<li>SELECT table_name.column FROM table_name</li>
+<li>SELECT table_name.column FROM database_name.table_name</li>
+</ol>
+</li>
+</ol>
+<h2 id="排序检索数据"><a href="#排序检索数据" class="headerlink" title="排序检索数据"></a><strong>排序检索数据</strong></h2><ol>
+<li><p>以某列排序：SELECT column FROM table_name ORDER BY column</p>
+</li>
+<li><p>按多个列排序：SELECT column1, column2, column3 FROM table_name ORDER BY column1, column2</p>
+</li>
+<li><p>指定降序排列：</p>
+<ol>
+<li>某一列：SELECT column FROM table_name ORDER BY column DESC</li>
+<li>多列：SELECT column1, column2, column3 FROM table_name ORDER BY column1 DESC, column2</li>
+<li>多列都降序：SELECT column1, column2, column3 FROM table_name ORDER BY column1 DESC, column2 DESC</li>
+</ol>
+</li>
+<li><p>在给出ORDER BY子句时，应该保证它位于FROM子句之后。如果使用LIMIT，它必须位于ORDER BY之后。使用子句的次序不对将产生错误消息。</p>
+</li>
+</ol>
+<h2 id="过滤数据"><a href="#过滤数据" class="headerlink" title="过滤数据"></a><strong>过滤数据</strong></h2><ol>
+<li>检索特定信息：SELECT column1, column2 FROM table_name WHERE column1 &#x3D; xxx</li>
+<li>WHERE子句操作符</li>
+</ol>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/102b1a6a1b5f4344a640e91e6352e1f4~tplv-k3u1fbpfcp-zoom-1.image"></p>
+<ol>
+<li>MySQL在执行匹配时默认不区分大小写</li>
+<li>范围值检查：SELECT column1, column2 FROM table_name WHERE column1 BETWEEN xx AND xxx</li>
+<li>空值检查：SELECT column1, column2 FROM table_name WHERE column1 IS NULL</li>
+<li>NULL与不匹配： 在通过过滤选择出不具有特定值的行时，你可能希望返回具有NULL值的行。但是，不行。因为未知具有特殊的含义，数据库不知道它们是否匹配，所以在匹配过滤或不匹配过滤时不返回它们。因此，在过滤数据时，一定要验证返回数据中确实给出了被过滤列具有NULL的行。</li>
+</ol>
+<h2 id="数据过滤"><a href="#数据过滤" class="headerlink" title="数据过滤"></a><strong>数据过滤</strong></h2><ol>
+<li><p>组合WHERE子句</p>
+<ol>
+<li>AND操作符：SELECT column1, column2, column3 FROM table_name WHERE column1 &#x3D; xxx AND column2 &lt;&gt; xxxxx</li>
+<li>OR操作符：SELECT column1, column2, column3 FROM table_name WHERE column1 &#x3D; xxx OR column2 &lt;&gt; xxxxx</li>
+</ol>
+</li>
+<li><p>计算次序：SELECT column1, column2, column3 FROM table_name WHERE column1 &#x3D; xxx AND column2 &lt;&gt; xxxxx OR column3 &#x3D; xxxxxx</p>
+<ol>
+<li>SQL（像多数语言一样）在处理OR操作符前，优先处理AND操作符。此问题的解决方法是使用圆括号明确地分组相应的操作符。</li>
+<li>SELECT column1, column2, column3 FROM table_name WHERE column1 &#x3D; xxx AND ( column2 &lt;&gt; xxxxx OR column3 &#x3D; xxxxxx )</li>
+<li>任何时候使用具有AND和OR操作符的WHERE子句，都应该使用圆括号明确地分组操作符。不要过分依赖默认计算次序，即使它确实是你想要的东西也是如此。使用圆括号没有什么坏处，它能消除歧义</li>
+</ol>
+</li>
+<li><p>IN操作符：SELECT column1, column2 FROM table_name WHERE column1 IN (xx, xxx)</p>
+</li>
+<li><p>NOT取反：SELECT column1, column2 FROM table_name WHERE column1 NOT IN (xx, xxx)</p>
+</li>
+</ol>
+<h2 id="用通配符过滤"><a href="#用通配符过滤" class="headerlink" title="用通配符过滤"></a><strong>用通配符过滤</strong></h2><ol>
+<li><p>百分号通配符：</p>
+<ol>
+<li>xxx开头：SELECT column1, column2 FROM table_name WHERE column1 LIKE ‘xxx%’</li>
+<li>xxx结尾：SELECT column1, column2 FROM table_name WHERE column1 LIKE ‘%xxx’</li>
+<li>包含xxx：SELECT column1, column2 FROM table_name WHERE column1 LIKE ‘%xxx%’</li>
+<li>s开头e结尾：SELECT column1, column2 FROM table_name WHERE column1 LIKE ‘s%e’</li>
+<li>虽然似乎%通配符可以匹配任何东西，但有一个例外，即NULL。即使是WHERE column1 LIKE ‘%’也不能匹配用值NULL作为产品名的行。</li>
+</ol>
+</li>
+<li><p>下划线通配符</p>
+<ol>
+<li>另一个有用的通配符是下划线（_）。下划线的用途与%一样，但下划线只匹配单个字符而不是多个字符。</li>
+<li>SELECT column1, column2 FROM table_name WHERE column1 LIKE ‘_xxx’</li>
+</ol>
+</li>
+<li><p>通配符搜索的处理一般要比前面讨论的其他搜索所花时间更长。</p>
+<ol>
+<li>不要过度使用通配符。如果其他操作符能达到相同的目的，应该使用其他操作符。</li>
+<li>在确实需要使用通配符时，除非绝对有必要，否则不要把它们用在搜索模式的开始处。把通配符置于搜索模式的开始处，搜索起来是最慢的。</li>
+</ol>
+</li>
+</ol>
+<h2 id="正则表达式搜索"><a href="#正则表达式搜索" class="headerlink" title="正则表达式搜索"></a><strong>正则表达式搜索</strong></h2><ol>
+<li><p>基本字符匹配：SELECT column1 FROM table_name WHERE column1 REGEXP ‘xxx’</p>
+</li>
+<li><p>MySQL中的正则表达式匹配（自版本3.23.4后）不区分大小写（即，大写和小写都匹配）。为区分大小写，可使用BINARY关键字，如WHERE prod_name REGEXP BINARY ‘JetPack .000’。</p>
+</li>
+<li><p>进行OR匹配：SELECT column1 FROM table_name WHERE column1 REGEXP ‘xxx | yyy | zzz’</p>
+</li>
+<li><p>匹配几个字符之一：SELECT column1 FROM table_name WHERE column1 REGEXP ‘[123] xxx’</p>
+<ol>
+<li>类似于OR匹配：SELECT column1 FROM table_name WHERE column1 REGEXP ‘[1 | 2 | 3] xxx’</li>
+</ol>
+</li>
+<li><p>匹配范围：SELECT column1 FROM table_name WHERE column1 REGEXP ‘[1-3] xxx’</p>
+<ol>
+<li>[0-9]任意数字，[a-z]任意字母字符</li>
+</ol>
+</li>
+<li><p>匹配特殊字符，利用转义：SELECT column1 FROM table_name WHERE column1 REGEXP ‘\.’</p>
+</li>
+<li><p>使REGEXP起类似LIKE的作用 本章前面说过，LIKE和REGEXP的不同在于，LIKE匹配整个串而REGEXP匹配子串。利用定位符，通过用^开始每个表达式，用$结束每个表达式，可以使REGEXP的作用与LIKE一样。</p>
+</li>
+<li><p><strong>^</strong> 的双重用途 ^有两种用法。在集合中（用[和]定义），用它来否定该集合，否则，用来指串的开始处。</p>
+</li>
+<li><p>匹配字符类，匹配多个实例，定位符：</p>
+</li>
+</ol>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3d2056c730144319c277bd68649ff19~tplv-k3u1fbpfcp-zoom-1.image"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f77fe24f3cc44628981ca2ae5a9f696~tplv-k3u1fbpfcp-zoom-1.image"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/62878cef195a48c3a956e0347f1a691f~tplv-k3u1fbpfcp-zoom-1.image"></p>
+<h2 id="创建计算字段"><a href="#创建计算字段" class="headerlink" title="创建计算字段"></a><strong>创建计算字段</strong></h2><ol>
+<li><p>拼接字段：SELECT Concat( column1, ‘ (‘ , column2 , ‘)’ ) FROM table_name</p>
+<ol>
+<li>输出为column1（column2）格式</li>
+<li>Concat()拼接串，即把多个串连接起来形成一个较长的串。Concat()需要一个或多个指定的串，各个串之间用逗号分隔。</li>
+<li>使用trim函数删去可能存在的空格：SELECT Concat( RTrim(column1), ‘ (‘ , RTrim(column2) , ‘)’ ) FROM table_name</li>
+<li>Trim函数 MySQL除了支持RTrim()（正如刚才所见，它去掉串右边的空格），还支持LTrim()（去掉串左边的空格）以及Trim()（去掉串左右两边的空格）。</li>
+</ol>
+</li>
+<li><p>使用别名：SELECT Concat( RTrim(column1), ‘ (‘ , RTrim(column2) , ‘)’ ) AS column3 FROM table_name</p>
+<ol>
+<li>别名有时也称为导出列（derived column）</li>
+</ol>
+</li>
+<li><p>执行算术计算：SELECT column1, column2, column1*column2 AS column3 FROM table_name</p>
+</li>
+</ol>
+<h2 id="使用数据处理函数"><a href="#使用数据处理函数" class="headerlink" title="使用数据处理函数"></a><strong>使用数据处理函数</strong></h2><ol>
+<li><p>文本处理函数，发音比较：</p>
+<ol>
+<li>完全等于：SELECT column1, column2 FROM table_name WHERE column1 &#x3D; ‘xxx’</li>
+<li>听起来像：SELECT column1, column2 FROM table_name WHERE Soundex(column1) &#x3D; Soundex(‘xxx’)</li>
+</ol>
+</li>
+<li><p>日期和时间处理函数：</p>
+<ol>
+<li>根据日期过滤：SELECT column1, column2 FROM table_name WHERE Date(column1) &#x3D; ‘xxxx-xx-xx’</li>
+</ol>
+</li>
+<li><p>数值处理函数：</p>
+<ol>
+<li>数值处理函数仅处理数值数据。</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd34eb58091643979da96795979ce301~tplv-k3u1fbpfcp-zoom-1.image"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd5c5a459ccd4dee9449d46c62028a9d~tplv-k3u1fbpfcp-zoom-1.image"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5916b5e0bc249c68f2c9292de0b494e~tplv-k3u1fbpfcp-zoom-1.image"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4826783dd65441d98d5e77420f79aed3~tplv-k3u1fbpfcp-zoom-1.image"></p>
+<h2 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a><strong>汇总数据</strong></h2><ol>
+<li><p>聚集函数：只返回汇总之后的数据，不需要返回具体数据</p>
+<ol>
+<li><p>AVG：SELECT AVG(column) AS column2 FROM table_name</p>
+<ol>
+<li>只能用于单个列，为了获得多个列的平均值，必须使用多个AVG()函数。</li>
+<li>AVG()函数忽略列值为NULL的行</li>
+</ol>
+</li>
+<li><p>COUNT：</p>
+<ol>
+<li>使用COUNT(*)对表中行的数目进行计数，不管表列中包含的是空值（NULL）还是非空值。</li>
+<li> 使用COUNT(column)对特定列中具有值的行进行计数，忽略NULL值。</li>
+</ol>
+</li>
+<li><p>MAX：</p>
+<ol>
+<li>对非数值数据使用MAX() ，则MAX()返回最后一行。</li>
+<li>MAX()函数忽略列值为NULL的行。</li>
+</ol>
+</li>
+<li><p>SUM：</p>
+<ol>
+<li>SUM()函数忽略列值为NULL的行</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>聚焦不同值：只要求包含不同的值，指定DISTINCT参数。</p>
+<ol>
+<li>SELECT AVG(DISTINCT column) AS column2 FROM table_name</li>
+<li>如果指定列名，则DISTINCT只能用于COUNT()。DISTINCT不能用于COUNT(*)，因此不允许使用COUNT（DISTINCT），否则会产生错误。类似地，DISTINCT必须使用列名，不能用于计算或表达式。</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30e4c8766016488da85e9e4116c86522~tplv-k3u1fbpfcp-zoom-1.image"></p>
+<h2 id="分组数据"><a href="#分组数据" class="headerlink" title="分组数据"></a><strong>分组数据</strong></h2><ol>
+<li><p>分组允许把数据分为多个逻辑组，以便能对每个组进行聚集计算。</p>
+</li>
+<li><p>创建分组：SELECT column1, COUNT(*) AS column2 FROM table_name GROUP BY column1</p>
+<ol>
+<li>GROUP BY子句可以包含任意数目的列。这使得能对分组进行嵌套，为数据分组提供更细致的控制。</li>
+<li>如果在GROUP BY子句中嵌套了分组，数据将在最后规定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</li>
+<li>GROUP BY子句中列出的每个列都必须是检索列或有效的表达式但不能是聚集函数）。如果在SELECT中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</li>
+<li>除聚集计算语句外，SELECT语句中的每个列都必须在GROUP BY子句中给出。</li>
+<li>如果分组列中具有NULL值，则NULL将作为一个分组返回。如果列中有多行NULL值，它们将分为一组。</li>
+<li>GROUP BY子句必须出现在WHERE子句之后，ORDER BY子句之前。</li>
+<li>使用WITH ROLLUP关键字，可以得到每个分组以及每个分组汇总级别（针对每个分组）的值</li>
+</ol>
+</li>
+<li><p>过滤分组</p>
+<ol>
+<li>HAVING支持所有WHERE操作符，差别是WHERE过滤行，HAVING过滤分组</li>
+<li>SELECT column1, COUNT(<em>) AS column2 FROM table_name GROUP BY column1 HAVING COUNT(</em>) &gt;&#x3D; 123;</li>
+<li>一般在使用GROUP BY子句时，应该也给出ORDER BY子句。这是保证数据正确排序的唯一方法。千万不要仅依赖GROUP BY排序数据。</li>
+</ol>
+</li>
+</ol>
+<h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a><strong>子查询</strong></h2><ol>
+<li>可以把一条SELECT语句返回的结果用于另一条SELECT语句的WHERE子句。</li>
+</ol>
+<h2 id="联结表"><a href="#联结表" class="headerlink" title="联结表"></a><strong>联结表</strong></h2><ol>
+<li><p>SELECT T1column1, T2column1 FROM table1, table2 WHERE table1.T1column1 &#x3D; table2.T2column1</p>
+</li>
+<li><p>等值联结（equijoin），它基于两个表之间的相等测试。这种联结也称为内部联结。</p>
+<ol>
+<li>SELECT T1column1, T2column1 FROM table1 INNER JOIN table2 ON table1.T1column1 &#x3D; table2.T2column1</li>
+<li>首选INNER JOIN语法。此外，尽管使用WHERE子句定义联结的确比较简单，但是使用明确的联结语法能够确保不会忘记联结条件，有时候这样做也能影响性能</li>
+</ol>
+</li>
+</ol>
+<h2 id="创建高级联结"><a href="#创建高级联结" class="headerlink" title="创建高级联结"></a><strong>创建高级联结</strong></h2><ol>
+<li><p>使用表别名：SELECT T1column1, T2column1 FROM table1 AS T1 , table2 AS T2 WHERE T1.T1column1 &#x3D; T2.T2column1</p>
+</li>
+<li><p>其他类型的连接</p>
+<ol>
+<li><p>自联结：SELECT T1.column1, T1.column2 FROM table1 AS T1 , table1 AS T2 WHERE T1.column1 &#x3D; T2.column1 AND T2.column3 &gt; 123</p>
+<ol>
+<li>此查询中需要的两个表实际上是相同的表</li>
+<li>自联结通常作为外部语句用来替代从相同表中检索数据时使用的子查询语句。虽然最终的结果是相同的，但有时候处理联结远比处理子查询快得多。</li>
+</ol>
+</li>
+<li><p>自然联结:内部联结返回所有数据，甚至相同的列多次出现。自然联结排除多次出现，使每个列只返回一次</p>
+<ol>
+<li>自然联结是你只能选择那些唯一的列。这一般是通过对一个表使用通配符（SELECT *），对所有其他表的列使用明确的子集来完成的</li>
+<li>迄今为止我们建立的每个内部联结都是自然联结，很可能我们永远都不会用到不是自然联结的内部联结</li>
+</ol>
+</li>
+<li><p>外部连结：SELECT T1column1, T2column1 FROM table1 LEFT OUTER JOIN table2 ON table1.T1column1 &#x3D; table2.T2column1</p>
+<ol>
+<li>外部联结还包括没有关联行的行。</li>
+<li>上面的例子使用LEFT OUTER JOIN从FROM子句的左边表（table1表）中选择所有行。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a><strong>组合查询</strong></h2><ol>
+<li><p>UNION规则</p>
+<ol>
+<li>UNION必须由两条或两条以上的SELECT语句组成，语句之间用关键字UNION分隔（因此，如果组合4条SELECT语句，将要使用3个UNION关键字）。</li>
+<li>UNION中的每个查询必须包含相同的列、表达式或聚集函数（不过各个列不需要以相同的次序列出）。</li>
+<li>列数据类型必须兼容：类型不必完全相同，但必须是DBMS可以隐含地转换的类型（例如，不同的数值类型或不同的日期类型）</li>
+<li>UNION从查询结果集中自动去除了重复的行（换句话说，它的行为与单条SELECT语句中使用多个WHERE子句条件一样）。如果想返回所有匹配行，可使用UNION ALL而不是UNION。</li>
+<li>UNION几乎总是完成与多个WHERE条件相同的工作。UNION ALL为UNION的一种形式，它完成WHERE子句完成不了的工作。如果确实需要每个条件的匹配行全部出现（包括重复行），则必须使用UNION ALL而不是WHERE</li>
+</ol>
+</li>
+</ol>
+<h2 id="全文本搜索"><a href="#全文本搜索" class="headerlink" title="全文本搜索"></a><strong>全文本搜索</strong></h2><ol>
+<li><p>在创建表时指定FULLTEXT，或者在稍后指定（在这种情况下所有已有数据必须立即索引）。</p>
+</li>
+<li><p>如果正在导入数据到一个新表，此时不应该启用FULLTEXT索引。应该首先导入所有数据，然后再修改表，定义FULLTEXT。这样有助于更快地导入数据（而且使索引数据的总时间小于在导入每行时分别进行索引所需的总时间）。</p>
+</li>
+<li><p>使用两个函数Match()和Against()执行全文本搜索，其中Match()指定被搜索的列，Against()指定要使用的搜索表达式</p>
+</li>
+<li><p>SELECT note_text FROM productnotes WHERE Match(note_text) Against(‘rabbit’);</p>
+<ol>
+<li>此SELECT语句检索单个列note_text。由于WHERE子句，一个全文本搜索被执行。Match(note_text)指示MySQL针对指定的列进行搜索，Against(‘rabbit’)指定词rabbit作为搜索文本。</li>
+</ol>
+</li>
+<li><p>传递给 Match() 的值必须与FULLTEXT()定义中的相同。如果指定多个列，则必须列出它们（而且次序正确）。</p>
+</li>
+<li><p>除非使用BINARY方式（本章中没有介绍），否则全文本搜索不区分大小写。</p>
+</li>
+<li><p>查询扩展：</p>
+<ol>
+<li>首先，进行一个基本的全文本搜索，找出与搜索条件匹配的所有行；</li>
+<li>其次，MySQL检查这些匹配行并选择所有有用的词（我们将会简要地解释MySQL如何断定什么有用，什么无用）。</li>
+<li>再其次，MySQL再次进行全文本搜索，这次不仅使用原来的条件，而且还使用所有有用的词。</li>
+<li>SELECT note_text FROM productnotes WHERE Match(note_text) Against(‘rabbit’ WITH QUERY EXPANSION);</li>
+</ol>
+</li>
+<li><p>布尔文本搜索</p>
+</li>
+</ol>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7fba3540ceca43b78ce6cff1fb15b1b9~tplv-k3u1fbpfcp-zoom-1.image"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/caf787e5b20042c086e3f773238dc09b~tplv-k3u1fbpfcp-zoom-1.image"></p>
+<blockquote>
+<p>全文本搜索的一些说明：</p>
+</blockquote>
+<ul>
+<li>在索引全文本数据时，短词被忽略且从索引中排除。短词定义为那些具有3个或3个以下字符的词（如果需要，这个数目可以更改）。</li>
+<li>MySQL带有一个内建的非用词（stopword）列表，这些词在索引全文本数据时总是被忽略。如果需要，可以覆盖这个列表（请参阅MySQL文档以了解如何完成此工作）。</li>
+<li>许多词出现的频率很高，搜索它们没有用处（返回太多的结果）。因此，MySQL规定了一条50%规则，如果一个词出现在50%以上的行中，则将它作为一个非用词忽略。50%规则不用于IN BOOLEAN MODE。</li>
+<li>如果表中的行数少于3行，则全文本搜索不返回结果（因为每个词或者不出现，或者至少出现在50%的行中）。</li>
+<li>忽略词中的单引号。例如，don’t索引为dont。</li>
+<li>不具有词分隔符（包括日语和汉语）的语言不能恰当地返回全文本搜索结果。</li>
+</ul>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a><strong>插入数据</strong></h2><ol>
+<li>插入完整的行：INSERT INTO table1(column1, column3, column6) VALUSE(‘xxxx’, NULL, ‘123123’)</li>
+<li>插入多条数据：INSERT INTO table1(column1, column3, column6) VALUSE(‘xxxx’, NULL, ‘123123’), (‘xx’, ‘xxxx’, ‘222’)</li>
+</ol>
+<h2 id="更新和删除数据"><a href="#更新和删除数据" class="headerlink" title="更新和删除数据"></a><strong>更新和删除数据</strong></h2><ol>
+<li><p>更新：UPDATE table1 SET column1 &#x3D; ‘xxxxxx’, column3 &#x3D; ‘123123’ WHERE column2 &#x3D; ‘yyyy’</p>
+<ol>
+<li>如果用UPDATE语句更新多行，并且在更新这些行中的一行或多行时出一个现错误，则整个UPDATE操作被取消（错误发生前更新的所有行被恢复到它们原来的值）。为即使是发生错误，也继续进行更新，可使用IGNORE关键字，如下所示：UPDATE IGNORE customers…</li>
+<li>为了删除某个列的值，可设置它为NULL（假如表定义允许NULL值）。</li>
+</ol>
+</li>
+<li><p>删除：DELETE FROM table1 WHERE column1 &#x3D; ‘xxx’</p>
+<ol>
+<li>如果想从表中删除所有行，不要使用DELETE。可使用TRUNCATE TABLE语句，它完成相同的工作，但速度更快（TRUNCATE实际是删除原来的表并重新创建一个表，而不是逐行删除表中的数据）。</li>
+</ol>
+</li>
+<li><p>在对UPDATE或DELETE语句使用WHERE子句前，应该先用SELECT进行测试，保证它过滤的是正确的记录，以防编写的WHERE子句不正确</p>
+</li>
+</ol>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a><strong>视图</strong></h2><ol>
+<li>视图用CREATE VIEW语句来创建。</li>
+<li>使用SHOW CREATE VIEW viewname；来查看创建视图的语句。</li>
+<li>用DROP删除视图，其语法为DROP VIEW viewname;。</li>
+<li>更新视图时，可以先用DROP再用CREATE，也可以直接用CREATE ORREPLACE VIEW。如果要更新的视图不存在，则第2条更新语句会创建一个视图；如果要更新的视图存在，则第2条更新语句会替换原有视图。</li>
+<li>应该将视图用于检索（SELECT语句）而不用于更新（INSERT、UPDATE和DELETE）</li>
+</ol>
+<h2 id="使用存储过程"><a href="#使用存储过程" class="headerlink" title="使用存储过程"></a><strong>使用存储过程</strong></h2><ol>
+<li>存储过程简单来说，就是为以后的使用而保存的一条或多条MySQL语句的集合。可将其视为批文件，虽然它们的作用不仅限于批处理。</li>
+</ol>
+<h2 id="使用游标"><a href="#使用游标" class="headerlink" title="使用游标"></a><strong>使用游标</strong></h2><ol>
+<li>需要在检索出来的行中前进或后退一行或多行。这就是使用游标的原因。游标（cursor）是一个存储在MySQL服务器上的数据库查询，它不是一条SELECT语句，而是被该语句检索出来的结果集</li>
+<li>MySQL游标只能用于存储过程（和函数）</li>
+<li>我称之为存储过程里的函数操作</li>
+</ol>
+<h2 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a><strong>触发器</strong></h2><ol>
+<li><p>在创建触发器时，需要给出4条信息：</p>
+<ol>
+<li>唯一的触发器名；</li>
+<li>触发器关联的表；</li>
+<li>触发器应该响应的活动（DELETE、INSERT或UPDATE）；</li>
+<li>触发器何时执行（处理之前或之后）</li>
+</ol>
+</li>
+<li><p>每个表最多支持6个触发器（每条INSERT、UPDATE和DELETE的之前和之后）。单一触发器不能与多个事件或多个表关联</p>
+</li>
+<li><p>触发器不能更新或覆盖。为了修改一个触发器，必须先删除它，然后再重新创建：DROP TRIGGER xxxx</p>
+</li>
+</ol>
+<h2 id="管理事务处理"><a href="#管理事务处理" class="headerlink" title="管理事务处理"></a><strong>管理事务处理</strong></h2><ol>
+<li><p>事务处理（transaction processing）可以用来维护数据库的完整性，它保证成批的MySQL操作要么完全执行，要么完全不执行。保证原子性</p>
+<ol>
+<li>事务（transaction）指一组SQL语句；</li>
+<li>回退（rollback）指撤销指定SQL语句的过程；</li>
+<li>提交（commit）指将未存储的SQL语句结果写入数据库表；</li>
+<li>保留点（savepoint）指事务处理中设置的临时占位符（placeholder），你可以对它发布回退（与回退整个事务处理不同）</li>
+</ol>
+</li>
+<li><p>事务处理用来管理INSERT、UPDATE和DELETE语句。你不能回退SELECT语句。（这样做也没有什么意义。）你不能回退CREATE或DROP操作</p>
+</li>
+<li><p>ROLLBACK只能在一个事务处理内使用（在执行一条START TRANSACTION命令之后）</p>
+</li>
+</ol>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/03/28/node%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          node前置知识点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/28/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%BE%E4%B8%8D%E5%88%B0flutter%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">命令行运行提示 zsh: command not found: flutter（MAC环境）</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=一文看完《mysql必知必会》-知识点总结版 - Ant-Thinker&url=https://jakemama.github.io/2022/03/28/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E6%80%BB%E7%BB%93/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=一文看完《mysql必知必会》-知识点总结版 - Ant-Thinker&u=https://jakemama.github.io/2022/03/28/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E6%80%BB%E7%BB%93/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=一文看完《mysql必知必会》-知识点总结版 - Ant-Thinker&url=https://jakemama.github.io/2022/03/28/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E6%80%BB%E7%BB%93/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/03/git%E7%9A%84ssh%E9%93%BE%E6%8E%A5%E9%97%AE%E9%A2%98/">git报错kex_exchange_identification: Connection closed by remote host</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/03/%E5%BD%93%E8%B4%9DDBH2%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90%E7%BF%BB%E5%A2%99%E8%A7%82%E7%9C%8BYouTube/">当贝DBH2电视盒子翻墙观看YouTube</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2022年终总结</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/axios%E5%B0%81%E8%A3%85%E6%96%B9%E6%A1%88/">axios封装方案</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">前端常用库、方案</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Ant-Thinker &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

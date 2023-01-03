@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>node前置知识点 | Ant-Thinker</title>
+
+    <meta name="description" content="&lt;p&gt;阅读大佬笔记有感：&lt;a href=&#34;https://www.nodejs.red/#/&#34;&gt;node技术栈&lt;/a&gt;，总结了一些笔记&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "node前置知识点 | Ant-Thinker"  />
+    <meta property="og:description" content= "&lt;p&gt;阅读大佬笔记有感：&lt;a href=&#34;https://www.nodejs.red/#/&#34;&gt;node技术栈&lt;/a&gt;，总结了一些笔记&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/03/28/node%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;阅读大佬笔记有感：&lt;a href=&#34;https://www.nodejs.red/#/&#34;&gt;node技术栈&lt;/a&gt;，总结了一些笔记&lt;/p&gt;" />
+    <meta name="twitter:title" content="node前置知识点 | Ant-Thinker"/>
+    <meta name="twitter:description" content="&lt;p&gt;阅读大佬笔记有感：&lt;a href=&#34;https://www.nodejs.red/#/&#34;&gt;node技术栈&lt;/a&gt;，总结了一些笔记&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;阅读大佬笔记有感：&lt;a href=&#34;https://www.nodejs.red/#/&#34;&gt;node技术栈&lt;/a&gt;，总结了一些笔记&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2022/03/28/node%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "node前置知识点 | Ant-Thinker",
+            "datePublished": "2022-03-28T08:36:19.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2022/03/28/node%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Ant-Thinker</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcgcrwco000eiauqa71eeqv9" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      node前置知识点
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-03-28T08:36:19.000Z" itemprop="datePublished">2022-03-28</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>阅读大佬笔记有感：<a target="_blank" rel="noopener" href="https://www.nodejs.red/#/">node技术栈</a>，总结了一些笔记</p>
+<span id="more"></span>
+
+
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><ol>
+<li><p>javascript 引擎在编译阶段会进行性能优化，很多优化依赖于能够根据代码词法进行静态分析，预先确定了变量和函数的定义位置，才能快速找到标识符，但是在词法分析阶段遇到了 with 或 eval 无法明确知道它们会接收什么代码，也就无法判断标识符的位置，最简单的做法就是遇到 with 或 eval 不做任何优化，使用其中一个都会导致代码运行变慢，因此，<strong>请不要使用with 或 eval</strong>。（eval函数接受字符串并将其转换成代码执行，with通常被当作重复引用同一个对象中的多个属性的快捷方式）</p>
+</li>
+<li><p><code>typeof</code>用来检测基本类型，<code>instanceof</code>用来检测数组、对象、正则</p>
+</li>
+<li><p>数组去重的三种方式</p>
+<ol>
+<li><p><strong>Set数组去重</strong>，ES6新的数据结构，类似数组，但元素唯一</p>
+</li>
+<li><p><strong>reduce 数组对象去重</strong>，对数组中的每一个元素依次执行回调函数，不含数组中未赋值、被删除的元素，回调函数接收四个参数</p>
+<ol>
+<li><p>callback</p>
+<ol>
+<li>previousValue：上一次调用回调返回的值，或者是提供的初始值（initialValue）</li>
+<li>currentValue：数组中当前被处理的元素</li>
+<li>index：当前元素在数组中的索引</li>
+<li>array：调用reduce的数组</li>
+</ol>
+</li>
+<li><p>initialValue：可选，作为第一次调用callback的第一个参数</p>
+</li>
+</ol>
+</li>
+<li><p>_.uniqBy（参考lodash：一个现代的 JavaScript 实用程序库，提供模块化，性能和附加功能）</p>
+</li>
+</ol>
+</li>
+<li><p>深拷贝：</p>
+<pre><code class="javascript">function copy(elments)&#123;
+  //根据传入的元素判断是数组还是对象
+  let newElments = elments instanceof Array ? [] : &#123;&#125;; 
+  for (let key in elments) &#123; 
+  //注意数组也是对象类型，如果遍历的元素是对象，进行深度拷贝 
+  newElments[key] = typeof elments[key] === &#39;object&#39; ? copy(elments[key]) : elments[key]; 
+  &#125; 
+  return newElments;
+&#125;
+</code></pre>
+<ul>
+<li>es6 的 扩展运算符(…) 也是可以进行深拷贝的，但好像只能拷贝一维，多维好像浅拷贝了</li>
+</ul>
+</li>
+<li><p>由于计算机底层存储都是基于二进制的，需要事先由十进制转换为二进制存储与运算，这整个转换过程中，类似于 0.1、0.2 这样的数是无穷尽的，无法用二进制数精确表示。JavaScript 采用的是 IEEE 754 双精确度标准，能够有效存储的位数为 52 位，所以就需要做舍入操作，这无可避免的会引起<strong>精度丢失</strong>。另外我们在 0.1 与 0.2 相加做对阶、求和、舍入过程中也会产生精度的丢失。</p>
+</li>
+<li><p>js有<strong>大数处理精度丢失问题</strong>，（超过2的53次方）处理方法可以用字符串代替，如果涉及到json，可能需要使用第三方库json-bigint</p>
+</li>
+<li><p>如果服务端的某个数据状态定期的去变化，那么前端需要定时的去服务端取这个状态，因为 http 是无状态的链接，如果要实时的去取服务端的这种变化有两种方法，一个是<strong>长轮询</strong>，一个是通过 <strong>websocket</strong>，websocket 浏览器兼容性不好，因此长轮询还是一个普遍的用法 一种做法是通过定时器，不断的去访问接口 第二种是使用 Generator</p>
+</li>
+<li><p>为什么使用TS</p>
+<ol>
+<li>类型安全，可以类比java</li>
+<li>TS面向对象理念，支持面向对象的封装，继承，多态三大特性</li>
+<li>类似babel，es6，es7新语法都可以写</li>
+<li>生产力工具的提升，vs code + TS 使IDE更容易理解你的代码</li>
+</ol>
+</li>
+<li><p>TS const声明的变量必须有默认值，let声明的则不是必须的</p>
+</li>
+<li><p>nodejs适用于什么？</p>
+<ol>
+<li><p>I&#x2F;O 密集型场景</p>
+<ol>
+<li>Node.js 的优势主要在于<strong>事件循环，非阻塞异步</strong> I&#x2F;O，只开一个线程，不会每个请求过来我都去创建一个线程，从而产生资源开销。</li>
+</ol>
+</li>
+<li><p>RESTful API</p>
+<ol>
+<li>通常我们可以使用 Node.js 来做为<strong>中间层</strong>，负责组装数据提供 API 接口给到前端调用，这些数据源可能来自第三方接口或者数据库，例如，以前可能我们通过后端 Java、PHP 等其它语言来做，现在我们前端工程师通过 Node.js 即可完成，后端则可以更专注于业务开发。既然提到了 RESTful API，顺便推荐一个去哪儿开源的 API 管理工具 YAPI：<a target="_blank" rel="noopener" href="https://github.com/YMFE/yapi">https://github.com/YMFE/yapi</a> 使用的 Node.js 进行开发的（声明下这里不是打广告，只是这个用起来真的很赞！忍不住向给大家推荐！）。</li>
+</ol>
+</li>
+<li><p>RPC 服务</p>
+<ol>
+<li>RPC（Remote Procedure Call）中文名「远程过程调用」，也许你对它很陌生，但是在当今微服务模式下，我们可能是针对功能或者具体的业务形态进行服务化，那么服务之间的通信一种常见的模式我们都知道通过 HTTP 来实现，了解网络模型的同学可能知道，如果我们现在通过 TCP 的方式是不是会更高效呢？当然是的，HTTP 属于应用层协议，在这之下就是传输层，显然以 TCP 形式是很有优势的，RPC 服务也就是采用的 TCP，现在出名的 RPC 服务例如，Google 的 gRPC、阿里的 Dubble。</li>
+</ol>
+</li>
+<li><p>基础工具</p>
+<ol>
+<li>可以做为基础工具，前端领域中的编译器、构建工具、搭建脚手架等。比较出名的例如 Webpack、Gulp 都是很成功的。</li>
+</ol>
+</li>
+<li><p>论坛社区</p>
+<ol>
+<li>Nodeclub 是使用 Node.js 和 MongoDB 开发的社区系统，界面优雅，功能丰富，小巧迅速，可以用它搭建自己的社区。Cnode 社区就是一个成功的例子，Cnode 地址：<a target="_blank" rel="noopener" href="https://cnodejs.org/">https://cnodejs.org/</a> <a target="_blank" rel="noopener" href="https://github.com/cnodejs/nodeclub">https://github.com/cnodejs/nodeclub</a></li>
+</ol>
+</li>
+<li><p>Backend For Frontend</p>
+<ol>
+<li>Backend For Frontend，简称 BFF，服务于前端的后端，并非是一种新技术只是一种逻辑上的分层，在这一层我们可以做一些资源的整合，例如：原先前端需要从三个不同的地方来获取资源，那么，有了这一层之后，我们是不是可以做个聚合，统一处理之后返回给前端，同时也不授后端系统的变迁，导致也要去更改。</li>
+</ol>
+</li>
+<li><p>Serverless</p>
+<ol>
+<li>这将是未来经常会听到的一个词，ServerLess 是一种 “无服务器架构”，它不需要开发者去关心运维、流量处理这些工作，开发者则可以更关注于业务本身。函数即服务，那么写一个函数就可以实现一个 API 接口给到前端，显然对开发工作是减轻了很多，在 JavaScript 中函数则是一等一的公民，在 ServerLess 这一场景下 Node.js 本身也很轻量级，还是拥有着很大的优势</li>
+</ol>
+</li>
+<li><p>Microservices</p>
+<ol>
+<li>微服务也是近两年一个很火热的词，这里提几个微服务主要的特点：小型服务、以独立进程运行、可以使用不同语言。那么这里则可以根据业务形态来选择不同的语言实现，Node.js 本身也是很轻量级的，实现起来也很快，在一些 I&#x2F;O 密集场景还是很适用的。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>本文从 Handler 处理方式、中间件执行机制的实现、响应机制三个维度来对 Express、Koa 做了比较，通常都会说 Koa 是洋葱模型，这重点在于中间件的设计。但是按照上面的分析，会发现 Express 也是类似的，不同的是 Express 中间件机制使用了 Callback 实现，这样如果出现异步则可能会使你在执行顺序上感到困惑，因此如果我们想做接口耗时统计、错误处理 Koa 的这种中间件模式处理起来更方便些。最后一点响应机制也很重要，Koa 不是立即响应，是整个中间件处理完成在最外层进行了响应，而 Express 则是立即响应。</p>
+</li>
+<li><p>在模块加载机制中，Node.js 采用了<strong>延迟加载</strong>的策略，只有在用到的情况下，系统模块才会被加载</p>
+</li>
+<li><p>在 Node.js 中模块加载一般会经历 3 个步骤，<strong>路径分析、文件定位、编译执行</strong>。</p>
+</li>
+<li><p>module.exports 与 exports 的区别？</p>
+<ol>
+<li>exports 相当于 module.exports 的快捷方式</li>
+<li>但是要注意不能改变 exports 的指向，我们可以通过 exports.test &#x3D; ‘a’ 这样来导出一个对象，但是不能向下面示例直接赋值，这样会改变 exports 的指向</li>
+<li>&#x2F;&#x2F; 错误的写法 将会得到 undefined exports &#x3D; { ‘a’: 1, ‘b’: 2 } &#x2F;&#x2F; 正确的写法 modules.exports &#x3D; { ‘a’: 1, ‘b’: 2 }</li>
+</ol>
+</li>
+<li><p>实现继承的方法</p>
+<ol>
+<li><p>ES6方法：class和extends关键词</p>
+</li>
+<li><p>原生JS：Object.setProtitypeOf().例如针对server函数和EventEmitter函数</p>
+<ol>
+<li>Object.setPrototypeOf(Server.prototype, EventEmitter.prototype); Object.setPrototypeOf(Server, EventEmitter);</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>缓存雪崩：对于需要查询 DB 的数据，我们一般称之为热点数据，这类数据通常是要在 DB 之上增加一层缓存，但是在高并发场景下，如果这个缓存正好失效，此时就会有大量的请求直接涌入数据库，对数据库造成一定的压力</p>
+</li>
+<li><p>setImmediate() 与 setTimeout(() &#x3D;&gt; {}, 0)（传入 0 毫秒的超时）、process.nextTick() 有何不同？</p>
+<ol>
+<li>传给 process.nextTick() 的函数会在事件循环的当前迭代中（当前操作结束之后）被执行。 这意味着它会始终在 setTimeout 和 setImmediate 之前执行。延迟 0 毫秒的 setTimeout() 回调与 setImmediate() 非常相似。 执行顺序取决于各种因素，但是它们都会在事件循环的下一个迭代中运行。</li>
+<li>process.nextTick ()，效率最高，消费资源小，但会阻塞 CPU 的后续调用；</li>
+<li> setTimeout ()，精确度不高，可能有延迟执行的情况发生，且因为动用了红黑树，所以消耗资源大；</li>
+<li> setImmediate ()，消耗的资源小，也不会造成阻塞，但效率也是最低的。</li>
+</ol>
+</li>
+<li><p>Node.js 是单线程模型，但是其基于事件驱动、异步非阻塞模式，可以应用于高并发场景，避免了线程创建、线程之间上下文切换所产生的资源开销。如果你有需要大量计算，CPU 耗时的操作，开发时候要注意。</p>
+</li>
+<li><p>多线程的代价还在于创建新的线程和执行期上下文线程的切换开销，由于每创建一个线程就会占用一定的内存，当应用程序并发大了之后，内存将会很快耗尽。类似于上面单线程模型中例举的例子，需要一定的计算会造成当前线程阻塞的，还是推荐使用多线程来处理。线程间资源是共享的，关注的是安全问题。</p>
+</li>
+<li><p>关于node进程的几点总结</p>
+<ol>
+<li>Javascript 是单线程，但是做为宿主环境的 Node.js 并非是单线程的。</li>
+<li>由于单线程原故，一些复杂的、消耗 CPU 资源的任务建议不要交给 Node.js 来处理，当你的业务需要一些大量计算、视频编码解码等 CPU 密集型的任务，可以采用 C 语言。</li>
+<li>Node.js 和 Nginx 均采用事件驱动方式，避免了多线程的线程创建、线程上下文切换的开销。如果你的业务大多是基于 I&#x2F;O 操作，那么你可以选择 Node.js 来开发。</li>
+</ol>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.nodejs.red/#/nodejs/process-threads?id=nodejs%e5%a4%9a%e8%bf%9b%e7%a8%8b%e6%9e%b6%e6%9e%84%e6%a8%a1%e5%9e%8b">Nodejs 多进程架构模型</a>解决了单进程、单线程无法充分利用系统多核 CPU 的问题</p>
+</li>
+<li><p>守护进程：</p>
+<ol>
+<li>index.js 文件里的处理逻辑使用 spawn 创建子进程完成了上面的第一步操作。</li>
+<li>设置 options.detached 为 true 可以使子进程在父进程退出后继续运行（系统层会调用 setsid 方法），参考 <a target="_blank" rel="noopener" href="http://nodejs.cn/api/child_process.html#child_process_options_detached">options_detached</a>，这是第二步操作。</li>
+<li>options.cwd 指定当前子进程工作目录若不做设置默认继承当前工作目录，这是第三步操作。</li>
+<li>运行 daemon.unref () 退出父进程，参考 <a target="_blank" rel="noopener" href="http://nodejs.cn/api/child_process.html#child_process_options_stdio">options.stdio</a>，这是第四步操作。</li>
+</ol>
+</li>
+<li><p>进程间是独立的关注的是通信问题，线程间资源是共享的关注的是安全问题 </p>
+</li>
+<li><p>孤儿进程：父进程创建子进程之后，父进程退出了，但是父进程对应的一个或多个子进程还在运行，这些子进程会被系统的 init 进程收养，对应的进程 ppid 为 1，这就是孤儿进程。</p>
+</li>
+<li><p>IPC (Inter-process communication) ，即进程间通信技术，由于每个进程创建之后都有自己的独立地址空间，实现 IPC 的目的就是为了进程之间资源共享访问，实现 IPC 的方式有多种：管道、消息队列、信号量、Domain Socket，Node.js 通过 pipe 来实现。</p>
+</li>
+<li><p>Node.js 是单线程还是多线程？进一步会提问为什么是单线程？</p>
+<ol>
+<li>第一个问题，Node.js 是单线程还是多线程？这个问题是个基本的问题，在以往面试中偶尔提到还是有不知道的，Javascript 是单线程的，但是做为其在服务端运行环境的 Node.js 并非是单线程的。</li>
+<li>第二个问题，Javascript 为什么是单线程？这个问题需要从浏览器说起，在浏览器环境中对于 DOM 的操作，试想如果多个线程来对同一个 DOM 操作是不是就乱了呢，那也就意味着对于 DOM 的操作只能是单线程，避免 DOM 渲染冲突。在浏览器环境中 UI 渲染线程和 JS 执行引擎是互斥的，一方在执行时都会导致另一方被挂起，这是由 JS 引擎所决定的。</li>
+</ol>
+</li>
+<li><p>多进程或多个 Web 服务之间的状态共享问题？</p>
+<ol>
+<li>多进程模式下各个进程之间是相互独立的，例如用户登陆之后 session 的保存，如果保存在服务进程里，那么如果我有 4 个工作进程，每个进程都要保存一份这是没必要的，假设服务重启了数据也会丢失。多个 Web 服务也是一样的，还会出现我在 A 机器上创建了 Session，当负载均衡分发到 B 机器上之后还需要在创建一份。一般的做法是通过 Redis 或者 数据库来做数据共享。</li>
+</ol>
+</li>
+<li><p> Net 与 Dgram 是基于网络模型的传输层来实现的，分别对应于 TCP、UDP 协议</p>
+</li>
+<li><p>TCP 粘包是什么？该怎么解决？</p>
+<ol>
+<li><p>客户端（发送的一端）在发送之前会将短时间有多个发送的数据块缓冲到一起（发送端缓冲区），形成一个大的数据块一并发送，同样接收端也有一个接收端缓冲区，收到的数据先存放接收端缓冲区，然后程序从这里读取部分数据进行消费，这样做也是为了减少 I&#x2F;O 消耗达到性能优化。</p>
+</li>
+<li><p>TCP 粘包解决方案？</p>
+<ol>
+<li>方案一：延迟发送</li>
+<li>方案二：关闭 Nagle 算法</li>
+<li>方案三：封包 &#x2F; 拆包 : 通信双方约定好格式，将消息分为定长的消息头（Header）和不定长的消息体（Body），在解析时读取消息头获取到内容占用的长度，之后读取到的消息体内容字节数等于字节头的字节数时，我们认为它是一个完整的包。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/03/28/vue%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8A%A5%E9%94%99/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          vue初始化报错
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/28/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">一文看完《mysql必知必会》-知识点总结版</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=node前置知识点 - Ant-Thinker&url=https://jakemama.github.io/2022/03/28/node%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=node前置知识点 - Ant-Thinker&u=https://jakemama.github.io/2022/03/28/node%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=node前置知识点 - Ant-Thinker&url=https://jakemama.github.io/2022/03/28/node%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/03/git%E7%9A%84ssh%E9%93%BE%E6%8E%A5%E9%97%AE%E9%A2%98/">git报错kex_exchange_identification: Connection closed by remote host</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/03/%E5%BD%93%E8%B4%9DDBH2%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90%E7%BF%BB%E5%A2%99%E8%A7%82%E7%9C%8BYouTube/">当贝DBH2电视盒子翻墙观看YouTube</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2022年终总结</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/axios%E5%B0%81%E8%A3%85%E6%96%B9%E6%A1%88/">axios封装方案</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">前端常用库、方案</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Ant-Thinker &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

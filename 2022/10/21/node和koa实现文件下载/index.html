@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>node和koa实现文件下载 | Ant-Thinker</title>
+
+    <meta name="description" content="马一栋的个人博客">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "node和koa实现文件下载 | Ant-Thinker"  />
+    <meta property="og:description" content= "马一栋的个人博客" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/10/21/node%E5%92%8Ckoa%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="马一栋的个人博客" />
+    <meta name="twitter:title" content="node和koa实现文件下载 | Ant-Thinker"/>
+    <meta name="twitter:description" content="马一栋的个人博客"/>
+    <script type="application/ld+json">
+        {
+            "description": "马一栋的个人博客",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2022/10/21/node%E5%92%8Ckoa%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "node和koa实现文件下载 | Ant-Thinker",
+            "datePublished": "2022-10-21T08:28:06.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2022/10/21/node%E5%92%8Ckoa%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Ant-Thinker</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcgcrwd6005biauq3nyq7s7v" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      node和koa实现文件下载
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-10-21T08:28:06.000Z" itemprop="datePublished">2022-10-21</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <span id="more"></span>
+<h1 id="简单下载"><a href="#简单下载" class="headerlink" title="简单下载"></a>简单下载</h1><p>最简单的情况就是服务器上文件系统已经存在了某个文件，客户端请求下载直接把文件读了吐回去即可：</p>
+<pre><code class="js">import Koa from &#39;koa&#39;;
+import Router from &#39;koa-router&#39;;
+import * as fs from &#39;fs/promises&#39;;
+
+const app = new Koa();
+const router = new Router();
+
+router.get(&#39;/download/simple&#39;, async (ctx) =&gt; &#123;
+  const file = await fs.readFile(`$&#123;__dirname&#125;/1.txt`, &#39;utf-8&#39;);
+  ctx.set(&#123;
+    &#39;Content-Disposition&#39;: `attachment; filename=1.txt`,
+  &#125;);
+  ctx.body = file;
+&#125;);
+
+app.use(router.routes());
+app.listen(80);
+</code></pre>
+<blockquote>
+<p>设置 Content-Disposition 头部为 attachment 是关键，告诉浏览器应该下载这个文件。</p>
+</blockquote>
+<h1 id="流式下载"><a href="#流式下载" class="headerlink" title="流式下载"></a>流式下载</h1><p>简单下载在碰到大文件的情景就不够用了，因为 Node 无法将大文件一次性读取到进程内存里。这时候用流来解决：</p>
+<pre><code class="js">router.get(&#39;/download/stream&#39;, async (ctx) =&gt; &#123;
+  const file = fs.createReadStream(`$&#123;__dirname&#125;/1.txt`);
+  ctx.set(&#123;
+    &#39;Content-Disposition&#39;: `attachment; filename=1.txt`,
+  &#125;);
+  ctx.body = file;
+&#125;);
+</code></pre>
+<blockquote>
+<p>此例子不设置 Content-Disposition 头部也是会下载的，因为 Content-Type 被设置为了 application&#x2F;octet-stream，浏览器认为其是一个二进制流文件所以默认下载处理了。</p>
+</blockquote>
+<h1 id="进度显示"><a href="#进度显示" class="headerlink" title="进度显示"></a>进度显示</h1><p>当下载的文件特别大时，上个例子 Content-Length 正确设置时浏览器下载条里就能正常显示进度了，为了方便我们使用程序模拟一下：</p>
+<pre><code class="js">router.get(&#39;/download/progress&#39;, async (ctx) =&gt; &#123;
+  const &#123; enable &#125; = ctx.query;
+  const buffer = await fsp.readFile(`$&#123;__dirname&#125;/1.txt`);
+  const stream = new PassThrough();
+  const l = buffer.length;
+  const count = 4;
+  const size = Math.floor(l / count);
+  const writeQuarter = (i = 0) =&gt; &#123;
+    const start = i * size;
+    const end = i === count - 1 ? l : (i + 1) * size;
+    stream.write(buffer.slice(start, end));
+
+    if (end === l) &#123;
+      stream.end();
+    &#125; else &#123;
+      setTimeout(() =&gt; writeQuarter(i + 1), 3000);
+    &#125;
+  &#125;;
+
+  if (!!enable) &#123;
+    ctx.set(&#123;
+      &#39;Content-Length&#39;: `$&#123;l&#125;`,
+    &#125;);
+  &#125;
+
+  ctx.set(&#123;
+    &#39;Content-Type&#39;: &#39;plain/txt&#39;,
+    &#39;Content-Disposition&#39;: `attachment; filename=1.txt`,
+    Connection: &#39;keep-alive&#39;,
+  &#125;);
+  ctx.body = stream;
+  writeQuarter();
+&#125;);
+</code></pre>
+<blockquote>
+<p>这里利用了 PassThrough 流来替代 fs.createReadStream，故 Koa 不再知道文件大小和类型，并将文件分为 4 份，每份间隔 3 秒发送来模拟大文件下载。<br>当参数 enable 为真时，设置了 Content-Length 则会显示进度 (剩余时间），否则不显示</p>
+</blockquote>
+<h1 id="断点续传"><a href="#断点续传" class="headerlink" title="断点续传"></a>断点续传</h1><p>下载文件特别大时，常常也会因为网络不稳定导致下载中途断开而失败，这时候可以考虑支持断点续传：</p>
+<pre><code class="js">function getStartPos(range = &#39;&#39;) &#123;
+  var startPos = 0;
+  if (typeof range === &#39;string&#39;) &#123;
+    var matches = /^bytes=([0-9]+)-$/.exec(range);
+    if (matches) &#123;
+      startPos = Number(matches[1]);
+    &#125;
+  &#125;
+  return startPos;
+&#125;
+
+router.get(&#39;/download/partial&#39;, async (ctx) =&gt; &#123;
+  const range = ctx.get(&#39;range&#39;);
+  const start = getStartPos(range);
+  const stat = await fsp.stat(`$&#123;__dirname&#125;/1.txt`);
+  const stream = fs.createReadStream(`$&#123;__dirname&#125;/1.txt`, &#123;
+    start,
+    highWaterMark: Math.ceil((stat.size - start) / 4),
+  &#125;);
+
+  stream.on(&#39;data&#39;, (chunk) =&gt; &#123;
+    console.log(`Readed $&#123;chunk.length&#125; bytes of data.`);
+    stream.pause();
+    setTimeout(() =&gt; &#123;
+      stream.resume();
+    &#125;, 3000);
+  &#125;);
+
+  console.log(`Start Pos: $&#123;start&#125;.`);
+  if (start === 0) &#123;
+    ctx.status = 200;
+    ctx.set(&#123;
+      &#39;Accept-Ranges&#39;: &#39;bytes&#39;,
+      &#39;Content-Length&#39;: `$&#123;stat.size&#125;`,
+    &#125;);
+  &#125; else &#123;
+    ctx.status = 206;
+    ctx.set(&#123;
+      &#39;Content-Range&#39;: `bytes $&#123;start&#125;-$&#123;stat.size - 1&#125;/$&#123;stat.size&#125;`,
+    &#125;);
+  &#125;
+
+  ctx.set(&#123;
+    &#39;Content-Type&#39;: &#39;application/octet-stream&#39;,
+    &#39;Content-Disposition&#39;: `attachment; filename=1.txt`,
+    Connection: &#39;keep-alive&#39;,
+  &#125;);
+  ctx.body = stream;
+&#125;);
+</code></pre>
+<blockquote>
+<p>（Chrome 默认下载工具不支持断点续传）</p>
+</blockquote>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/10/28/charles%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%8A%93https%E5%8C%85/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          charles移动端抓https包
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/10/20/js%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">js常用工具函数</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=node和koa实现文件下载 - Ant-Thinker&url=https://jakemama.github.io/2022/10/21/node%E5%92%8Ckoa%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=node和koa实现文件下载 - Ant-Thinker&u=https://jakemama.github.io/2022/10/21/node%E5%92%8Ckoa%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=node和koa实现文件下载 - Ant-Thinker&url=https://jakemama.github.io/2022/10/21/node%E5%92%8Ckoa%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/03/git%E7%9A%84ssh%E9%93%BE%E6%8E%A5%E9%97%AE%E9%A2%98/">git报错kex_exchange_identification: Connection closed by remote host</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/03/%E5%BD%93%E8%B4%9DDBH2%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90%E7%BF%BB%E5%A2%99%E8%A7%82%E7%9C%8BYouTube/">当贝DBH2电视盒子翻墙观看YouTube</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2022年终总结</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/axios%E5%B0%81%E8%A3%85%E6%96%B9%E6%A1%88/">axios封装方案</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">前端常用库、方案</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Ant-Thinker &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

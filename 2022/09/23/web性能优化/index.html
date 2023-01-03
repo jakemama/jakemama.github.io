@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>web性能优化 | Ant-Thinker</title>
+
+    <meta name="description" content="&lt;p&gt;前端的性能优化的核心其实就是：&lt;strong&gt;资源更快的加载速度、视图更快的渲染&amp;#x2F;交互速度&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;简单来说，主要是&lt;strong&gt;网络层面&lt;/strong&gt;和&lt;strong&gt;浏览器层面&lt;/strong&gt;的优化&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "web性能优化 | Ant-Thinker"  />
+    <meta property="og:description" content= "&lt;p&gt;前端的性能优化的核心其实就是：&lt;strong&gt;资源更快的加载速度、视图更快的渲染&amp;#x2F;交互速度&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;简单来说，主要是&lt;strong&gt;网络层面&lt;/strong&gt;和&lt;strong&gt;浏览器层面&lt;/strong&gt;的优化&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/09/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;前端的性能优化的核心其实就是：&lt;strong&gt;资源更快的加载速度、视图更快的渲染&amp;#x2F;交互速度&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;简单来说，主要是&lt;strong&gt;网络层面&lt;/strong&gt;和&lt;strong&gt;浏览器层面&lt;/strong&gt;的优化&lt;/p&gt;" />
+    <meta name="twitter:title" content="web性能优化 | Ant-Thinker"/>
+    <meta name="twitter:description" content="&lt;p&gt;前端的性能优化的核心其实就是：&lt;strong&gt;资源更快的加载速度、视图更快的渲染&amp;#x2F;交互速度&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;简单来说，主要是&lt;strong&gt;网络层面&lt;/strong&gt;和&lt;strong&gt;浏览器层面&lt;/strong&gt;的优化&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;前端的性能优化的核心其实就是：&lt;strong&gt;资源更快的加载速度、视图更快的渲染&amp;#x2F;交互速度&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;简单来说，主要是&lt;strong&gt;网络层面&lt;/strong&gt;和&lt;strong&gt;浏览器层面&lt;/strong&gt;的优化&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2022/09/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "web性能优化 | Ant-Thinker",
+            "datePublished": "2022-09-23T03:40:07.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2022/09/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Ant-Thinker</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcgcrwd60053iauq0hul25m4" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      web性能优化
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-09-23T03:40:07.000Z" itemprop="datePublished">2022-09-23</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>前端的性能优化的核心其实就是：<strong>资源更快的加载速度、视图更快的渲染&#x2F;交互速度</strong>。</p>
+<p>简单来说，主要是<strong>网络层面</strong>和<strong>浏览器层面</strong>的优化</p>
+<span id="more"></span>
+<h1 id="性能统计计算"><a href="#性能统计计算" class="headerlink" title="性能统计计算"></a>性能统计计算</h1><h2 id="单机测试"><a href="#单机测试" class="headerlink" title="单机测试"></a>单机测试</h2><p>单台机器测试的时候，可以使用谷歌浏览器控制台提供的Performance和Lighthouse，Performance的信息非常详细，上手难度较高。Lighthouse信息简单，也全面，并且会有对应的优化提示。</p>
+<h2 id="一些常见的性能指标："><a href="#一些常见的性能指标：" class="headerlink" title="一些常见的性能指标："></a>一些常见的性能指标：</h2><ul>
+<li>首次绘制（First Paint，FP）<ul>
+<li>在渲染进程确认要渲染当前响应资源后，渲染进程会先创建一个空白页面，通常把创建空白页面的这个时间点称为 First Paint，简称 FP</li>
+<li>所谓的<strong>白屏时间</strong>其实指的就是创建这个空白页面到浏览器开始渲染非空白内容的时间，比如页面背景发生变化等</li>
+</ul>
+</li>
+<li>首次内容绘制（First Contentful Paint，FCP）<ul>
+<li>当用户看见一些 “内容” 元素被绘制在页面上的时间点，和白屏是不一样，它可以是 文本 首次绘制，或 SVG 首次出现，或 Canvas 首次绘制等，即当页面中绘制了第一个 像素 时，这个时间点称为 First Content Paint，简称 FCP</li>
+</ul>
+</li>
+<li>首屏时间 &#x2F; 最大内容绘制（Largest Contentful Paint, LCP）<ul>
+<li>LCP 是一种新的性能度量标准，LCP 侧重于用户体验的性能度量标准，与现有度量标准相比，更容易理解与推理，当首屏内容完全绘制完成时，这个时间点称为 Largest Content Paint，简称 LCP</li>
+<li>最大内容绘制应在 2.5s 内完成</li>
+</ul>
+</li>
+<li>首次输入延迟（First Input Delay, FID）<ul>
+<li>FID 测量的是当用户第一次在页面上交互的时候（点击链接、点击按钮 或 自定义基于 js 的事件），到浏览器实际开始处理这个事件的时间</li>
+<li>首次输入延迟应在 100ms 内完成</li>
+</ul>
+</li>
+<li>累积布局偏移（Cumulative Layout Shift, CLS)<ul>
+<li>CLS 是为了测量 视觉稳定性，以便提供良好的用户体验</li>
+<li>累积布局偏移应保持在 0.1 或更少</li>
+</ul>
+</li>
+<li>首字节达到时间（Time to First Byte，TTFB）<ul>
+<li>指的是浏览器开始收到服务器响应数据的时间（后台处理时间 + 重定向时间），是反映服务端响应速度的重要指标</li>
+<li>TTFB 时间如果超过 500ms，用户在打开网页的时就会感觉到明显的等待</li>
+</ul>
+</li>
+</ul>
+<h2 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a>自动化测试</h2><p>当需要实现自动化测试的时候，可以使用performance Api，浏览器端的全局对象 window 上有一个名为 performance 的属性，它是一个用于支持 IE9 以上及 webkit 内核浏览器中用于记录页面 加载 和 解析 过程中关键时间点的机制</p>
+<h3 id="window-performance"><a href="#window-performance" class="headerlink" title="window.performance"></a>window.performance</h3><h4 id="performance-timing"><a href="#performance-timing" class="headerlink" title="performance.timing"></a>performance.timing</h4><p>performance.timing 属性中提供了很多关键的时间信息，我们可以通过这些时间节点来简单的计算出需要的性能指标数据（不一定准确），计算方式如：</p>
+<pre><code class="js">const &#123;
+ domainLookupStart,
+ domainLookupEnd,
+ navigationStart,
+ loadEventEnd,
+ responseStart,
+ responseEnd,
+ connectStart,
+ connectEnd,
+ redirectStart,
+ redirectEnd,
+ domContentLoadedEventEnd,
+ domComplete,
+ fetchStart,
+ unloadEventEnd,
+ unloadEventStart,
+ domInteractive,
+ domLoading
+&#125; = performance.timing
+
+// DNS 查询时间
+DNS = domainLookupEnd - domainLookupStart
+
+// DNS 缓存时间
+AppcacheTime = domainLookupStart - fetchStart
+
+// 卸载页面时间
+unloadTime = unloadEventEnd - unloadEventStart
+
+// TCP 建立连接时间
+TCP = connectEnd - connectStart
+
+// request请求耗时
+reqTime = responseEnd - responseStart
+
+// 页面重定向时间
+Redirect = redirectEnd - redirectStart
+
+// 首字节到底时间
+TTFB = responseStart - navigationStart
+
+// 首次渲染时间
+FP = responseStart - navigationStart
+
+// DOM 解析时间
+DOM = domComplete - responseEnd
+
+// 解析DOM树耗时
+analysisTime = domComplete - domInteractive
+
+// 首屏时间
+LCP = loadEventEnd - navigationStart
+// 用户等待页面完全可用时间
+loadPage = loadEventEnd - navigationStart
+
+// 白屏时间
+blankTime = domLoading - fetchStart
+
+// domReadyTime 即用户可交互时间
+domReadyTime = domContentLoadedEventEnd - fetchStart
+
+</code></pre>
+<h4 id="performance-getEntries-方法"><a href="#performance-getEntries-方法" class="headerlink" title="performance.getEntries()方法"></a>performance.getEntries()方法</h4><p>performance.getEntries() 方法可以获取所有资源请求的时间数据，点击可查看具体的资源信息，其他属性和上述内容有重复，就不在额外介绍计算方式了</p>
+<h4 id="performance-now-方法"><a href="#performance-now-方法" class="headerlink" title="performance.now() 方法"></a>performance.now() 方法</h4><p>performance.now() 方法可以精确计算程序执行时间，它会返回以微秒（百万分之一秒）为单位的时间，即更加精准，这也是它和 Date.now() 是不同点：</p>
+<ul>
+<li>Date.now() 返回自 1970年1月1日 00:00:00 (UTC) 到 当前时间 的 毫秒数<ul>
+<li>意味着 Date.now() 依赖于系统的当前时间，而系统时间可以被认为修改，因此它的毫秒数并不准确</li>
+<li>performance.now() 的时间是以恒定速率递增的，不受系统时间的影响</li>
+</ul>
+</li>
+</ul>
+<pre><code class="js">// Date.now()
+let a = 2, b = 3;
+const begin = Date.now();
+console.log(&#39; a + b = &#39;, a + b);
+
+console.log(&#39;time = &#39;, Date.now() - begin); // 2
+
+// performance.now()
+let a = 2, b = 3;
+const begin = performance.now();
+console.log(&#39; a + b = &#39;, a + b);
+
+console.log(&#39;time = &#39;, performance.now() - begin); // 0.10000002384185791
+</code></pre>
+<h3 id="Web-Vitals"><a href="#Web-Vitals" class="headerlink" title="Web Vitals"></a>Web Vitals</h3><p><strong><code>web-vitals</code></strong>[6] 库是 Google 推出的一个小型（约 1.5K）模块化库，用于测量真实用户的所有 Web Vitals 相关的指标</p>
+<h3 id="自定义测试收集"><a href="#自定义测试收集" class="headerlink" title="自定义测试收集"></a>自定义测试收集</h3><p>对于一些SPA应用，路由跳转并不会导致页面刷新，这时候window.performance可能就不太准确了，这时候我们可以手动来计算首屏渲染时间。</p>
+<ol>
+<li>使用计时器：计时器为0，不断检测img节点是否在首屏并加载完成，没有图片的话就监听DOMReady时间</li>
+<li>不用计时器：默认首屏加载时间主要由图片影响，纯文字加载是很快的。给所有img图片添加回调事件。</li>
+</ol>
+<h1 id="网络层面优化"><a href="#网络层面优化" class="headerlink" title="网络层面优化"></a>网络层面优化</h1><h2 id="使用-dns-prefetch-减少-DNS-的查询时间"><a href="#使用-dns-prefetch-减少-DNS-的查询时间" class="headerlink" title="使用 dns-prefetch 减少 DNS 的查询时间"></a>使用 dns-prefetch 减少 DNS 的查询时间</h2><p>dns-prefetch 能够 提前解析 后续可能会用到的 不同域的域名，使解析结果 缓存到系统缓存 中，缩短 DNS 解析时间以提高网站的访问速度。</p>
+<pre><code class="html">&lt;link data-n-head=&quot;ssr&quot; rel=&quot;dns-prefetch&quot; href=&quot;//api.juejin.cn&quot;&gt;
+</code></pre>
+<h2 id="使用-preconnect-提前建立连接"><a href="#使用-preconnect-提前建立连接" class="headerlink" title="使用 preconnect 提前建立连接"></a>使用 preconnect 提前建立连接</h2><p>preconnect 的作用是提前和第三方资源建立连接，设置了它浏览器就会做好早期的连接工作，但这个连接通常只会维持 10 s。</p>
+<p>比如在当前域请求一个资源前，可能会涉及 DNS 寻址、TLS 握手、TCP 握手、重定向等，这过程也会花费一定的时间。</p>
+<pre><code class="html">&lt;link data-n-head=&quot;ssr&quot; rel=&quot;preconnect&quot; href=&quot;//xxx.xxx.com&quot; crossorigin=&quot;anonymous&quot;&gt;
+</code></pre>
+<h2 id="使用-preload-x2F-prefetch-预先加载资源"><a href="#使用-preload-x2F-prefetch-预先加载资源" class="headerlink" title="使用 preload &#x2F; prefetch 预先加载资源"></a>使用 preload &#x2F; prefetch 预先加载资源</h2><p>preload 的作用是提前加载页面对应的 关键资源 加快页面的渲染，preload 的优先级顺序和 as 属性相关</p>
+<blockquote>
+<p>as 属性一定要设置，除了上面提到的设置优先级外，还涉及到浏览识别的问题：如果没有设置 as 属性，后续遇到该请求就会被作为一个 XHR 请求，把意味着资源预加载的功能可能会失效，因为可能会每次都发起新的请求获取</p>
+</blockquote>
+<pre><code class="html">&lt;link rel=&quot;preload&quot; href=&quot;xxx/xxx/xx.js&quot; as=&quot;script&quot;&gt;
+</code></pre>
+<p>preload 是对资源的预加载，它虽提前加载但只在需要执行时执行，即这个资源一定是当前页面所需要的资源，如果是需要为下一个页面提前加载资源，那么应该使用 prefetch，它会在 浏览器空闲时 下载资源。</p>
+<p>在vue-cli的默认webpack配置</p>
+<pre><code class="js">new PreloadPlugin(
+  &#123;
+    rel: &#39;preload&#39;,
+    include: &#39;initial&#39;
+    fileBlacklist: [
+      /\.map$/,
+      /hot-update\.js$/
+    ]
+  &#125;
+),
+
+new PreloadPlugin(
+  &#123;
+    rel: &#39;prefetch&#39;,
+    include: &#39;asyncChunks&#39;
+  &#125;
+)
+</code></pre>
+<h2 id="压缩资源体积"><a href="#压缩资源体积" class="headerlink" title="压缩资源体积"></a>压缩资源体积</h2><p>资源是需要通过 http 数据包的方式在网络中进行传输的，那么只要能减少传输数据包的体积，也是能够使得资源更快到达客户端，这也是压缩资源体积的核心目的。</p>
+<p>本地使用的一些图片可以提前进行压缩处理</p>
+<h3 id="HTTP压缩"><a href="#HTTP压缩" class="headerlink" title="HTTP压缩"></a>HTTP压缩</h3><p>HTTP 压缩中一个典型代表就是 gzip，它是一种优秀的压缩算法，压缩能将响应的数据量减少将近70%，因此可考虑对 http 请求中的一些文件资源，html,脚本，样式，图片进行压缩，一般来讲是要在服务端处理的，可通过在响应头中设置 Content-encoding: gzip 表示当前资源使用的压缩方式（如：gzip、deflate、br 等），便于客户端使用正确的方式解压。</p>
+<blockquote>
+<p>【注意】gzip 并不是万能的，它不能保证针对每个文件的压缩都能使其体积变小</p>
+</blockquote>
+<pre><code class="bash">// 浏览器请求时对http header设置
+Accept-Encoding: gzip
+// Web服务器响应时对http header设置
+Content-Encoding: gzip
+</code></pre>
+<h3 id="Webpack压缩"><a href="#Webpack压缩" class="headerlink" title="Webpack压缩"></a>Webpack压缩</h3><p>HTTP压缩本身是需要时间的，如果所有资源等到被访问时才被服务端压缩，那么在压缩完成前客户端就处于等待状态。所以可以将一些压缩资源的操作放在打包构建中。主要使用webpack插件来实现。</p>
+<ul>
+<li>使用 CompressionPlugin 压缩文件</li>
+<li>使用 HtmlWebpackPlugin 压缩 HTML 文件</li>
+<li>使用 SplitChunksPlugin 自定义分包策略：Webpack 默认会将尽可能多的模块代码打包在一起，可以降低最终页面的HTTP请求数，但页面初始代码可能过大，影响首屏渲染性能，也无法有效应用浏览器缓存</li>
+<li>使用 MiniCssExtractPlugin 抽离和压缩 CSS</li>
+<li>使用 ImageMinimizerWebpackPlugin 压缩图片资源</li>
+<li>通过 Tree Shaking 移除无用代码，当 webpack 的模式 mode 为 “production” 时，就可以启用 更多优化项，包括 压缩代码 与 Tree Shaking。但同时必须保证<ul>
+<li>尽量使用 ES6 模块语法，即 import 和 export</li>
+<li>保证没有 编译器（如：babel）将对应的 ES6 模块语法转换为 CommonJS 的语法（如：@babel&#x2F;preset-env 的默认行为）</li>
+<li>可在项目的 package.json 文件中添加 “sideEffects” 属性，标识当前内容是否存在副作用操作</li>
+<li>可在通过 &#x2F;<em>#<strong>PURE</strong></em>&#x2F; 注释，将函数调用标记为无副作用[16]</li>
+</ul>
+</li>
+</ul>
+<h2 id="减少-http-请求数量"><a href="#减少-http-请求数量" class="headerlink" title="减少 http 请求数量"></a>减少 http 请求数量</h2><ul>
+<li>合并公共资源，如 雪碧图 等</li>
+<li>内置模块资源，如 生成 base64 图片、通过 symbol 引用 svg 等</li>
+<li>合并代码块，如构建工具分包策略配合 公共组件封装、组件复用逻辑抽离 等</li>
+<li>按需加载资源，如 路由懒加载、图片懒加载、上拉加载、分页加载 等</li>
+</ul>
+<h2 id="将文件分配到不同的域名"><a href="#将文件分配到不同的域名" class="headerlink" title="将文件分配到不同的域名"></a>将文件分配到不同的域名</h2><p>把组件分散到不同的域名允许你最大化并行下载数。但要确保只用不超过2-4个域，因为存在DNS查找的代价。例如，可以把HTML和动态内容部署在<a target="_blank" rel="noopener" href="http://www.example.org,而把静态组件分离到static1.example.org和static2.example.org./">www.example.org，而把静态组件分离到static1.example.org和static2.example.org。</a></p>
+<h2 id="减少不必要的-cookie"><a href="#减少不必要的-cookie" class="headerlink" title="减少不必要的 cookie"></a>减少不必要的 cookie</h2><p>不必要的 cookie 来回传输会造成带宽浪费：</p>
+<ul>
+<li>减少 cookie 存储的内容</li>
+<li>对于静态资源采用 CDN 托管（即非同域），不同域名默认不携带 cookie</li>
+</ul>
+<h2 id="CDN-托管静态资源-HTTP-缓存"><a href="#CDN-托管静态资源-HTTP-缓存" class="headerlink" title="CDN 托管静态资源 + HTTP 缓存"></a>CDN 托管静态资源 + HTTP 缓存</h2><p>CDN 加速的本质是缓存加速，将服务器上存储的静资源容缓存在 CDN 节点上，当后续访问这些静态内容时，无需访问服务器源站，选择就近访问 CDN 节点即可，从而达到加速的效果，同时减轻服务器源站的压力</p>
+<h2 id="协议升级为-Http2-0"><a href="#协议升级为-Http2-0" class="headerlink" title="协议升级为 Http2.0"></a>协议升级为 Http2.0</h2><ul>
+<li>针对 <strong>TCP 连接数</strong> 被限制的问题，http2.0 采用 <strong>多路复用</strong> 一个域名只对应一个 TCP 连接</li>
+<li>针对 <strong>http 队头阻塞</strong> 问题，http2.0 中通过二进制分帧层为每个 请求&#x2F;响应 添加 stream id 保证 请求&#x2F;响应 一一对应，即不必等待前面的请求处理完成，并且还可以为每个请求添加 优先级</li>
+<li>针对 <strong>header 数据大</strong>的问题，http2.0 中传输的 header 帧经过处理后会用 二进制 的方式表示，替换了原本的 文本格式，并使用 HPACK 算法进行压缩<ul>
+<li>接收&#x2F;发送 两端会维护一个 <strong>索引表</strong>，通过下标来标识 header，针对后续重复的 header 信息就可以用对应的索引来代替</li>
+</ul>
+</li>
+<li>针对传统的 请求 —&gt; 响应 模式，http2.0 中提供了 <strong>服务端推送</strong> 的能力，让服务端能够主动向客户端推送关键资源，加快资源加载</li>
+</ul>
+<h1 id="浏览器层面优化"><a href="#浏览器层面优化" class="headerlink" title="浏览器层面优化"></a>浏览器层面优化</h1><p>浏览器渲染HTML的核心过程</p>
+<ul>
+<li>HTML 解释器：将 HTML 文档经过词法分析输出 DOM Tree</li>
+<li>CSS 解释器：解析 CSS 文档，生成样式规则 CSSOM</li>
+<li>样式计算：将 DOM Tree 和 CSSOM 合并生成 Render Tree</li>
+<li>布局计算：计算Render Tree在页面中的位置，创建Layout Tree</li>
+<li>划分图层：为一些复杂效果（3D变换、页面滚动、z-index）生成专用图层，生成对应的图层树Layer Tree</li>
+<li>图层绘制：将图层拆分成很多小的「绘制指令」，并按顺序组成「绘制列表」，之后由主线程提交给合成线程</li>
+<li>栅格化 raster：合成线程将图层划分成图块，渲染进程 把 生成图块的指令 发送给 GPU 并执行生成图块的 位图</li>
+<li>合成和显示：一旦所有图块都被光栅化，合成线程 就会生成一个绘制图块的命令 —— DrawQuad，然后将该命令提交给 浏览器进程。浏览器进程 里面有一个 viz 组件，会根据 DrawQuad 命令，将其页面内容绘制到内存中，最后再将内存显示在屏幕上</li>
+</ul>
+<h2 id="渲染层面"><a href="#渲染层面" class="headerlink" title="渲染层面"></a>渲染层面</h2><h3 id="优化文档结构"><a href="#优化文档结构" class="headerlink" title="优化文档结构"></a>优化文档结构</h3><ul>
+<li>HTML 文档中首次渲染的节点数量要尽量少，避免深层次的嵌套结构，避免大量使用慢标签（如：iframe）等</li>
+<li>CSS 资源放文档头部，降低 CSS 复杂度，比如 合理使用 CSS 选择器</li>
+<li>js脚本文件在外部比在内部性能更好，因为可以缓存文件。</li>
+<li><strong>脚本阻塞问题.推荐将所有js文件放在body标签底部以减少对整个页面的影响。</strong>，合理使用 defer、async 的加载方式</li>
+<li><strong>减少页面外链脚本文件的数量将会提高页面性能</strong>：http请求会带来额外的开销，因此下载单个300k的文件将比下载10个30k的文件效率更高。</li>
+<li><strong>动态脚本加载技术</strong>：无论何时启动下载，文件的下载和执行都不会阻塞页面其他进程。写个load函数，动态创建script标签。或者使用一些无阻塞加载类库——LABjs</li>
+<li>图片和脚本进行预加载，利用link的preload和prefetch来预加载<ul>
+<li>preload 告诉浏览器立即加载资源;</li>
+<li>prefetch 告诉浏览器在空闲时才开始加载资源；</li>
+<li>preload、prefetch 仅仅是加载资源，并不会“执行”;</li>
+<li>preload、prefetch 均能设置、命中缓存；</li>
+<li>正确使用 preload、prefetch 不会导致重复请求，重复preload和prefetch会重复请求，页面中使用到的资源时不会再请求；</li>
+</ul>
+</li>
+<li>尽量少用iframe<ul>
+<li>优点：<ul>
+<li>帮助解决缓慢的第三方内容的加载，如广告和标志；</li>
+<li>并行下载脚本；</li>
+<li>安全沙箱；</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>即使空的也消耗（资源和时间）</li>
+<li>阻塞了页面的onload；</li>
+<li>非语义化（标签）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>使用示例</p>
+</blockquote>
+<pre><code class="html">&lt;link rel=&quot;prefetch&quot; href=&quot;https:/xxx&quot; as=&quot;image&quot; /&gt;
+
+&lt;link rel=&quot;preload&quot; href=&quot;/main.js?t=2000&quot; as=&quot;script&quot;&gt;
+
+&lt;link rel=&quot;prefetch&quot; href=&quot;/prefetch.css?t=1000&quot; as=&quot;style&quot;&gt;
+</code></pre>
+<h3 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h3><ul>
+<li>图片资源：优先加载在可视区范围内的图片，可视区外的图片 <strong>延后加载</strong>，或者说当移入的可视区时再加载</li>
+<li>列表数据：列表数据通常数据里量大，不可能一次渲染完所有数据，一般通过 <strong>分页加载、上拉加载</strong> 等方式分批次渲染</li>
+</ul>
+<h3 id="白屏优化"><a href="#白屏优化" class="headerlink" title="白屏优化"></a>白屏优化</h3><p>白屏是由于 SPA 应用需要等待 JavaScript 加载并执行完成后才会生成具体的页面结构内容导致的，即初始化模板中没有任何有意义需要被渲染的 HTML 结构：</p>
+<ul>
+<li>添加 <strong>白屏 loading</strong>，可在模板中添加默认的 loading 效果，等到真正页面内容被渲染就可以替换 loading 内容</li>
+<li>添加 <strong>骨架屏</strong>，和上述方案一致，在真正页面内容展示出来之前，先展示默认的视图内容，避免白屏</li>
+</ul>
+<h3 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h3><p>客户端渲染（client-side rendering，CSR）：组件的代码会在浏览器中运行，然后向页面输出DOM元素</p>
+<p>服务端渲染（server-side rendering，SSR） 可将相同组件在服务渲染成相应的 HTML 字符串，并发送给浏览器进行渲染，即客户端不需要等待所有的 JavaScript 都被下载并执行之后才显示，所以用户可以更快看到完整的渲染好的内容。</p>
+<h3 id="预渲染"><a href="#预渲染" class="headerlink" title="预渲染"></a>预渲染</h3><p>SSR并不适用于所有页面，此时可以考虑预渲染方式</p>
+<ul>
+<li>预渲染 是在打包构建过程中（离屏状态），针对对应的 routes 路由预先生成对应的页面内容</li>
+<li>预渲染 需要和 打包构建工具（webpack、rollup 等） 进行配合，如 **<code>webpack</code>**，就可通过 **<code>prerender-spa-plugin</code>**来支持 预渲染</li>
+</ul>
+<h2 id="交互层面"><a href="#交互层面" class="headerlink" title="交互层面"></a>交互层面</h2><h3 id="减少回流-x2F-重排、重绘"><a href="#减少回流-x2F-重排、重绘" class="headerlink" title="减少回流&#x2F;重排、重绘"></a>减少回流&#x2F;重排、重绘</h3><p>重绘：页面中元素样式的改变并不影响它在文档流中的位置时（如：color、background-color、visibility 等），浏览器会将新样式赋予给元素并 重新绘制</p>
+<p>回流：当 Render Tree 中部分或全部元素的 尺寸、结构、某些属性 发生改变时，浏览器 重新渲染 部分或全部文档</p>
+<ul>
+<li>能用CSS解决的话，尽量不用js操作DOM</li>
+<li>减少对 DOM 进行频繁操作，在一个对性能要求比较高的操作中更新一段HTML，推荐使用innerHTML，因为它在绝大多数浏览器中运行的都很快。</li>
+<li>使经常变动的元素脱离文档流，如具有持续性的动画效果，会一直触发回流和重绘</li>
+<li>避免访问或减少访问会导致浏览器 强制刷新队列 的属性，如：offsetTop、offsetLeft、offsetWidth等，<strong>建议：将设置样式的操作和获取样式的操作分开：</strong><ul>
+<li>【扩展】浏览器的渲染队列机制会通过 队列 将会触发 回流或重绘 的操作进行存储，等到一定的时间或一定的数量时再执行这些操作</li>
+</ul>
+</li>
+<li>HTML集合优化：HTML集合包含了DOM节点引用的类数组对象，一直与文档保持连接，每次你需要最新的信息时，都会重复执行查询操作，哪怕只是获取集合里元素的个数。<strong>建议使用局部变量保存访问。需要频繁访问操作的话，建议将HTML转换成数组形式使用</strong></li>
+<li>最小化重绘和重排<ul>
+<li>批量改变样式，将设置样式的操作放在一起</li>
+<li>批量修改DOM的优化方案<ul>
+<li><strong>如果是向文档中加入大量dom结构，建议使用createDocumentFragment()，然后一次性加入文档</strong></li>
+<li><strong>如果是像某一dom进行大量操作，可以先将其脱离文档流，例如设置成display:none，然后进行操作，再把display属性改回来</strong></li>
+</ul>
+</li>
+<li>慎用hover属性，大量hover会降低速度</li>
+<li>通过事件冒泡来实现时间委托，减少时间处理器的数量</li>
+<li>预先设定图片尺寸，避免图片资源加载完成后引发回流</li>
+<li>使用 will-change 开启 GPU 加速，will-change 指定的属性使得浏览器可在元素属性真正发生变化之前提前做好对应的优化</li>
+</ul>
+</li>
+<li>遍历DOM：<ul>
+<li>使用只返回元素节点的API遍历DOM,因为这些API的执行效率比自己实现的效率更高：<img src="/../images/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%961.png"></li>
+<li>选择器API——querySelectorAll()：querySelectorAll()方法使用css选择器作为参数并返回一个NodeList——包含着匹配节点的类数组对象，该方法不会返回HTML集合，因此返回的节点不会对应实时文档结构，着也避免了HTML集合引起的性能问题。</li>
+</ul>
+</li>
+</ul>
+<h3 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h3><p>合理使用 防抖&#x2F;节流 优化应用中的操作，比如 节流 可用于优化 滚动事件、模糊搜索等，<strong>防抖</strong> 可用于优化一些按钮点击操作等。</p>
+<h3 id="Web-Worker"><a href="#Web-Worker" class="headerlink" title="Web Worker"></a>Web Worker</h3><p>JavaScript 是单线程的，如果存在需要大量计算的场景（如视频解码），UI 线程就会被阻塞，甚至浏览器直接卡死。</p>
+<p>Web Worker 可以使脚本运行在新的线程中，它们独立于主线程，可以进行大量的计算活动，而不会影响主线程的 UI 渲染，但不能滥用 Web Worker 。</p>
+<p>使用Web Worker：它引入了一个接口，能使代码运行且不占用浏览器UI线程的时间。一个Worker由如下部分组成：</p>
+<ol>
+<li>① 一个navigator对象，包括appName,appVersion,user Agent和platform.</li>
+<li>② 一个location对象，只读。</li>
+<li>③ 一个self对象，指向全局worker对象</li>
+<li>④ 一个importScripts()方法，用来加载worker所用到的外部js文件</li>
+<li>⑤ 所有的ECMAScript对象。如object,Array,Date等</li>
+<li>⑥ XMLHttpRequest构造器⑦ setTimeout()，setInterval()</li>
+<li>⑧ 一个close()方法，它能立刻停止worker运行</li>
+<li>应用场景：编码&#x2F;解码大字符串、复杂数学运算（包括图像，视屏处理）、大数组排序</li>
+</ol>
+<pre><code class="js">// worker.js
+var worker = new Worker(&#39;code.js&#39;);
+// 接收信息
+worker.onmessage = function(event)&#123;
+    console.log(event.data);
+&#125;
+// 发送数据
+worker.postMessage(&#39;hello&#39;);
+
+// code.js
+
+// 导入其他计算代码
+importScripts(&#39;a.js&#39;,&#39;b.js&#39;);
+
+self.onmessage = function(event)&#123;
+    self.postMessage(&#39;hello&#39; + event.data);
+&#125;
+</code></pre>
+<h3 id="虚拟列表"><a href="#虚拟列表" class="headerlink" title="虚拟列表"></a>虚拟列表</h3><p>基于 上拉加载 列表的渲染，随着加载数据的增多，对应的 DOM 节点也会增多，达到某个限制页面一定会发生卡顿</p>
+<p>虚拟列表 核心就是固定渲染的 DOM 数，通过动态切换数据内容实现视图的更新，并保证文档中真实 DOM 的数量不随着数据量增大而增大（其实和 table 分页很像，但它支持滚动）</p>
+<h3 id="大文件分片上传"><a href="#大文件分片上传" class="headerlink" title="大文件分片上传"></a>大文件分片上传</h3><p>大部分的项目总少不了文件上传功能，但对大文件的上传还是有必要进行优化，所谓的 断点续传、秒传 都要基于 分片上传 这个核心功能。</p>
+<h3 id="Excel-导入-x2F-导出"><a href="#Excel-导入-x2F-导出" class="headerlink" title="Excel 导入&#x2F;导出"></a>Excel 导入&#x2F;导出</h3><p>有时候也是需要前端来进行优化处理的，比如导入时前端不发送文件只发送解析后的 JSON 数据，导出时不需要单独发送额外接口，直接使用当前展示数据实现导出等。</p>
+<h3 id="Vue项目优化"><a href="#Vue项目优化" class="headerlink" title="Vue项目优化"></a>Vue项目优化</h3><ul>
+<li>减少响应式数据的生成，对于纯展示、又需要使用在 template 模板中使用的数据，可使用 Object.freeze() 进行冻结，避免被转为 不必要的响应式数据</li>
+<li>Vue 组件初始化是比较损耗性能的，使用 函数式组件 减少组件初始化的过程，适用于实现没有业务逻辑只展示内容的简单组件</li>
+<li>合理使用 v-show 和 v-if、为 v-for 组件设定唯一 key（非 index）、v-for 和 v-if 不要一起使用等</li>
+<li>使用 KeepAlive 复用组件，避免组件重复的创建、销毁带来的性能损耗</li>
+<li>使用 () &#x3D;&gt; import(xxx) 方式实现路由懒加载</li>
+<li>使用 ESM 的方式封装自定义工具库等</li>
+<li>针对第三方库做到按需引入</li>
+<li>合理使用闭包，避免造成内存泄漏</li>
+<li>及时清除组件中的副作用，比如 setTimeout、setInterval、addEventListener 等</li>
+</ul>
+<h3 id="数据存取与JS性能"><a href="#数据存取与JS性能" class="headerlink" title="数据存取与JS性能"></a>数据存取与JS性能</h3><ul>
+<li>数据存储共有4种方式：字面量，变量，数组项，对象成员。访问层级越深的属性越慢。</li>
+<li>可以把需要多次使用的对象成员，数组元素，跨域变量保存在局部变量中来改善js性能</li>
+<li>循环中减少属性查找和反转</li>
+<li>使用duff装置来优化循环</li>
+<li>通常情况下switch比if-else快，但不是最佳方案</li>
+<li>在windows系统中定时器分辨率为15毫秒，因此设置小于15毫秒将会使IE锁定，延时的最小值建议为25ms.</li>
+<li>用延时数组分割耗时任务：</li>
+</ul>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/10/10/tsconfig%E5%AD%97%E6%AE%B5%E8%A7%A3%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          tsconfig字段解析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/15/%E5%88%A9%E7%94%A8puppeteer%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E5%99%A8%E8%87%AA%E5%8A%A8%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">利用puppeteer实现路由器自动定时重启</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=web性能优化 - Ant-Thinker&url=https://jakemama.github.io/2022/09/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=web性能优化 - Ant-Thinker&u=https://jakemama.github.io/2022/09/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=web性能优化 - Ant-Thinker&url=https://jakemama.github.io/2022/09/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/03/git%E7%9A%84ssh%E9%93%BE%E6%8E%A5%E9%97%AE%E9%A2%98/">git报错kex_exchange_identification: Connection closed by remote host</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/03/%E5%BD%93%E8%B4%9DDBH2%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90%E7%BF%BB%E5%A2%99%E8%A7%82%E7%9C%8BYouTube/">当贝DBH2电视盒子翻墙观看YouTube</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2022年终总结</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/axios%E5%B0%81%E8%A3%85%E6%96%B9%E6%A1%88/">axios封装方案</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">前端常用库、方案</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Ant-Thinker &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

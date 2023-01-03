@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>虚拟dom和diff算法 | Ant-Thinker</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "虚拟dom和diff算法 | Ant-Thinker"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;" />
+    <meta name="twitter:title" content="虚拟dom和diff算法 | Ant-Thinker"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;虚拟DOM&#34;&gt;&lt;a href=&#34;#虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;虚拟DOM&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&#34;什么是虚拟DOM&#34;&gt;&lt;a href=&#34;#什么是虚拟DOM&#34; class=&#34;headerlink&#34; title=&#34;什么是虚拟DOM&#34;&gt;&lt;/a&gt;&lt;strong&gt;什么是虚拟DOM&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;虚拟DOM就是一个用来描述真实DOM的javaScript对象&lt;/strong&gt;&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "虚拟dom和diff算法 | Ant-Thinker",
+            "datePublished": "2022-04-06T03:50:10.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Ant-Thinker</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcgcrwcv0023iauq9epd6922" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      虚拟dom和diff算法
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-04-06T03:50:10.000Z" itemprop="datePublished">2022-04-06</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a><strong>虚拟DOM</strong></h2><h3 id="什么是虚拟DOM"><a href="#什么是虚拟DOM" class="headerlink" title="什么是虚拟DOM"></a><strong>什么是虚拟DOM</strong></h3><p><strong>虚拟DOM就是一个用来描述真实DOM的javaScript对象</strong></p>
+<span id="more"></span>
+<p>真实DOM:</p>
+<pre><code class="xml">&lt;ul class=&quot;list&quot;&gt;
+    &lt;li&gt;a&lt;/li&gt;
+    &lt;li&gt;b&lt;/li&gt;
+    &lt;li&gt;c&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>虚拟DOM:</p>
+<pre><code class="javascript">let vnode = h(&#39;ul.list&#39;, [
+  h(&#39;li&#39;,&#39;a&#39;),
+  h(&#39;li&#39;,&#39;b&#39;),
+  h(&#39;li&#39;,&#39;c&#39;),
+])
+</code></pre>
+<h3 id="为什么需要虚拟DOM"><a href="#为什么需要虚拟DOM" class="headerlink" title="为什么需要虚拟DOM"></a><strong>为什么需要虚拟DOM</strong></h3><ol>
+<li>MVVM框架解决视图和状态同步问题</li>
+<li>模板引擎可以简化视图操作,没办法跟踪状态</li>
+<li>虚拟DOM跟踪状态变化</li>
+<li>参考github上virtual-dom[1]的动机描述<ol>
+<li>虚拟DOM可以维护程序的状态,跟踪上一次的状态</li>
+<li>通过比较前后两次状态差异更新真实DOM</li>
+</ol>
+</li>
+<li>跨平台使用<ol>
+<li>浏览器平台渲染DOM</li>
+<li>服务端渲染SSR(Nuxt.js&#x2F;Next.js),前端是vue向,后者是react向</li>
+<li>原生应用(Weex&#x2F;React Native)</li>
+<li>小程序(mpvue&#x2F;uni-app)等</li>
+</ol>
+</li>
+<li>真实DOM的属性很多，创建DOM节点开销很大</li>
+<li>虚拟DOM只是普通JavaScript对象，描述属性并不需要很多，创建开销很小</li>
+<li>复杂视图情况下提升渲染性能(操作dom性能消耗大,减少操作dom的范围可以提升性能)，简单视图情况下，不一定比直接重新渲染更快</li>
+</ol>
+<h2 id="diff算法"><a href="#diff算法" class="headerlink" title="diff算法"></a><strong>diff算法</strong></h2><p>diff算法其实就是找出修改前后虚拟DOM树的差异</p>
+<p>Diff 的对象是虚拟DOM（virtual dom），更新真实 DOM 是 Diff 算法的结果。</p>
+<p><strong>传统diff算法</strong></p>
+<ol>
+<li>传统算法查找两颗树每一个节点的差异</li>
+<li>会运行n1(dom1的节点数)*n2(dom2的节点数)次方去对比,找到差异的部分再去更新<br><img src="/../images/%E4%BC%A0%E7%BB%9Fdiff%E7%AE%97%E6%B3%95.png" alt="传统diff算法"></li>
+</ol>
+<p><strong>diff算法优化</strong></p>
+<ol>
+<li>DOM操作时候很少会跨级别操作节点</li>
+<li>只比较同级别的节点<br><img src="/../images/%E4%BC%98%E5%8C%96diff%E7%AE%97%E6%B3%95.png" alt="diff算法优化"></li>
+</ol>
+<h3 id="diff算法中key的作用"><a href="#diff算法中key的作用" class="headerlink" title="diff算法中key的作用"></a>diff算法中key的作用</h3><ol>
+<li>Diff操作可以更加快速;（实例:a,b,c三个dom元素中的b,c间插入一个z元素）</li>
+<li>Diff操作可以更加准确，避免渲染错误（实例:a,b,c三个dom元素,修改了a元素的某个属性再去在a元素前新增一个z元素）</li>
+<li>不推荐使用索引作为key</li>
+</ol>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/04/06/mqtt/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          mqtt
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/05/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">《你不知道的JS》上卷</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=虚拟dom和diff算法 - Ant-Thinker&url=https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=虚拟dom和diff算法 - Ant-Thinker&u=https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=虚拟dom和diff算法 - Ant-Thinker&url=https://jakemama.github.io/2022/04/06/%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/03/git%E7%9A%84ssh%E9%93%BE%E6%8E%A5%E9%97%AE%E9%A2%98/">git报错kex_exchange_identification: Connection closed by remote host</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/03/%E5%BD%93%E8%B4%9DDBH2%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90%E7%BF%BB%E5%A2%99%E8%A7%82%E7%9C%8BYouTube/">当贝DBH2电视盒子翻墙观看YouTube</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2022年终总结</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/axios%E5%B0%81%E8%A3%85%E6%96%B9%E6%A1%88/">axios封装方案</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">前端常用库、方案</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Ant-Thinker &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

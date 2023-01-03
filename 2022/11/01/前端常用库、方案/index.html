@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>前端常用库、方案 | Ant-Thinker</title>
+
+    <meta name="description" content="&lt;p&gt;总结前端领域常用的一些工具库和解决方案&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "前端常用库、方案 | Ant-Thinker"  />
+    <meta property="og:description" content= "&lt;p&gt;总结前端领域常用的一些工具库和解决方案&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;总结前端领域常用的一些工具库和解决方案&lt;/p&gt;" />
+    <meta name="twitter:title" content="前端常用库、方案 | Ant-Thinker"/>
+    <meta name="twitter:description" content="&lt;p&gt;总结前端领域常用的一些工具库和解决方案&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;总结前端领域常用的一些工具库和解决方案&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "前端常用库、方案 | Ant-Thinker",
+            "datePublished": "2022-11-01T01:45:30.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Ant-Thinker</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcgcrwd80061iauqcvnfh5jz" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      前端常用库、方案
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-11-01T01:45:30.000Z" itemprop="datePublished">2022-11-01</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>总结前端领域常用的一些工具库和解决方案</p>
+<span id="more"></span>
+<h1 id="工具库"><a href="#工具库" class="headerlink" title="工具库"></a>工具库</h1><h2 id="1-loadsh"><a href="#1-loadsh" class="headerlink" title="1. loadsh"></a>1. loadsh</h2><p><a target="_blank" rel="noopener" href="https://github.com/lodash/lodash">Lodash</a>是一个一致性、模块化、高性能、提高开发者效率的JavaScript 实用工具库。Lodash 通过降低 array、number、objects、string 等等的使用难度从而让 JavaScript 变得更简单。Lodash 的模块化方法，非常适用于：</p>
+<ul>
+<li>遍历 array、object 和 string；</li>
+<li>对值进行操作和检测；</li>
+<li>创建符合功能的函数。</li>
+</ul>
+<h2 id="2-Underscore-js"><a href="#2-Underscore-js" class="headerlink" title="2. Underscore.js"></a>2. Underscore.js</h2><p><a target="_blank" rel="noopener" href="https://github.com/jashkenas/underscore">Underscore.js</a> 是一个实用的 JavaScript 工具库，它提供了一整套函数式编程的实用功能，但没有扩展任何 JavaScript 内置对象，而是将数据封装在一个自定义对象中。</p>
+<h2 id="3-Ramda"><a href="#3-Ramda" class="headerlink" title="3. Ramda"></a>3. Ramda</h2><p><a target="_blank" rel="noopener" href="https://github.com/ramda/ramda">Ramda</a> 的目标是专门为函数式编程风格而设计，更容易创建函数式 pipeline、且从不改变用户已有数据。Ramda 主要特性如下：</p>
+<ul>
+<li>Ramda 强调更加纯粹的函数式风格。数据不变性和函数无副作用是其核心设计理念。这可以帮助你使用简洁、优雅的代码来完成工作。</li>
+<li>Ramda 函数本身都是自动柯里化的。这可以让你在只提供部分参数的情况下，轻松地在已有函数的基础上创建新函数。</li>
+<li>Ramda 函数参数的排列顺序更便于柯里化。要操作的数据通常在最后面。</li>
+</ul>
+<h2 id="4-Collect-js"><a href="#4-Collect-js" class="headerlink" title="4. Collect.js"></a>4. Collect.js</h2><p><a target="_blank" rel="noopener" href="https://github.com/ecrmnn/collect.js/">collect.js</a>是 JavaScript 处理数组和对象的方便且无依赖的包装类工具。其提供了常用的数组和集合的操作API，map，reduce，filter 等集合的高级方法，设计灵感来源于 Laravel Collection。</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20221101095512.png"></p>
+<h1 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h1><h2 id="1-date-fns"><a href="#1-date-fns" class="headerlink" title="1. date-fns"></a>1. date-fns</h2><p><a target="_blank" rel="noopener" href="https://github.com/date-fns/date-fns">date-fns</a> 是一个现代的 JavaScript 日期工具类库，提供了最全面、最简单和一致的工具集，用于在浏览器和 Node.js 中操作 JavaScript 日期。其具有以下特性：</p>
+<ul>
+<li>模块化：根据需求选择需要引用的模块</li>
+<li>不可变：date-fns 使用纯函数构建，并且始终返回一个新的日期实例，而不是更改传递的日期实例。它允许- 防止错误并跳过长时间的调试会话</li>
+<li>可信赖：遵循语义版本，始终向后兼容</li>
+<li>快速：轻量快速，为用户提供最佳的使用体验</li>
+<li>TypeScript &amp; Flow：date-fns 同时支持 Flow 和 TypeScript</li>
+</ul>
+<pre><code class="js">import &#123; format, formatDistance, formatRelative, subDays &#125; from &#39;date-fns&#39;
+
+format(new Date(), &quot;&#39;Today is a&#39; eeee&quot;)
+//=&gt; &quot;Today is a Saturday&quot;
+
+formatDistance(subDays(new Date(), 3), new Date(), &#123; addSuffix: true &#125;)
+//=&gt; &quot;3 days ago&quot;
+
+formatRelative(subDays(new Date(), 3), new Date())
+//=&gt; &quot;last Friday at 7:26 p.m.&quot;
+</code></pre>
+<h2 id="2-Moment-js"><a href="#2-Moment-js" class="headerlink" title="2. Moment.js"></a>2. Moment.js</h2><p><a target="_blank" rel="noopener" href="https://github.com/moment/moment/">Moment.js</a> 是一个简单易用的轻量级 JavaScript 日期处理类库，提供了日期格式化、解析、验证等功能。它支持在浏览器和 NodeJS 两种环境中运行。此类库能够将给定的任意日期转换成多种不同的格式，具有强大的日期计算功能，同时也内置了能显示多样的日期形式的函数。</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20221101095850.png"></p>
+<h2 id="3-Day-js"><a href="#3-Day-js" class="headerlink" title="3. Day.js"></a>3. Day.js</h2><p>Day.js是一个极简的JavaScript库，可以为现代浏览器解析、验证、操作和显示日期和时间。其具有以下特点：</p>
+<ul>
+<li>和 Moment.js 相同的 API 和用法</li>
+<li>不可变数据 (Immutable)</li>
+<li>支持链式操作 (Chainable)</li>
+<li>国际化 I18n</li>
+<li>仅 2kb 大小的微型库</li>
+<li>全浏览器兼容</li>
+</ul>
+<pre><code class="js">dayjs().format();                                     // 2020-09-08T13:42:32+08:00
+dayjs().format(&#39;YYYY-MM-DD&#39;);                         // 2020-09-08
+dayjs().format(&#39;YYYY-MM-DD HH:mm:ss&#39;);                // 2020-09-08 13:47:12
+dayjs(1318781876406).format(&#39;YYYY-MM-DD HH:mm:ss&#39;);   // 2011-10-17 00
+</code></pre>
+<h1 id="随机值"><a href="#随机值" class="headerlink" title="随机值"></a>随机值</h1><h2 id="1-Chance-js"><a href="#1-Chance-js" class="headerlink" title="1. Chance.js"></a>1. Chance.js</h2><p><a target="_blank" rel="noopener" href="https://github.com/chancejs/chancejs">Chance</a> 是一个轻量级的 JavaScript 随机字符串生成器插件，可帮助减少编写单调的代码，特别是在编写自动化测试时经常需要各种随机内容。可以使用它来产生随机数、字符、字符串、名字、地址、骰子等。</p>
+<h2 id="2-UUID"><a href="#2-UUID" class="headerlink" title="2. UUID"></a>2. UUID</h2><p><a target="_blank" rel="noopener" href="https://github.com/uuidjs/uuid">UUID</a> 是一个用于在 JavaScript 中生成符合 RFC 的 UUID 的实用程序库。其具有以下特点：</p>
+<ul>
+<li>完整：支持 RFC4122 版本 1、3、4 和 5 UUID</li>
+<li>跨平台：支持CommonJS、ECMAScript 模块和 CDN 构建；Node 12, 14, 16, 18；Chrome、Safari、Firefox、Edge 浏览器；Webpack 和 rollup.js 模块打包工具；</li>
+<li>安全：加密强度高的随机值</li>
+<li>体积小：零依赖，占用空间小</li>
+<li>CLI：包括 uuid 命令行实用程序</li>
+</ul>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20221101100338.png"></p>
+<h2 id="3-Nano-ID"><a href="#3-Nano-ID" class="headerlink" title="3. Nano ID"></a>3. Nano ID</h2><p><a target="_blank" rel="noopener" href="https://github.com/ai/nanoid">nanoid</a> 是一个小巧、安全、URL友好、唯一的 JavaScript 字符串ID生成器。其具有以下特性：</p>
+<ul>
+<li>小巧. 130 bytes (已压缩和 gzipped)。没有依赖。Size Limit 控制大小。</li>
+<li>快速. 它比 UUID 快 60%。</li>
+<li>安全. 它使用加密的强随机 API。可在集群中使用。</li>
+<li>紧凑. 它使用比 UUID（A-Za-z0-9_-）更大的字母表。因此，ID 大小从36个符号减少到21个符号。</li>
+<li>易用. Nano ID 已被移植到 20种编程语言。</li>
+</ul>
+<pre><code class="js">import &#123; nanoid &#125; from &#39;nanoid&#39;
+model.id = nanoid() //=&gt; &quot;V1StGXR8_Z5jdHi6B-myT&quot;
+</code></pre>
+<h1 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h1><h2 id="1-Math-js"><a href="#1-Math-js" class="headerlink" title="1. Math.js"></a>1. Math.js</h2><p><a target="_blank" rel="noopener" href="https://github.com/josdejong/mathjs">Math.js</a> 是一个强大的 JavaScript 和 Node.js 数学库。它具有支持符号计算的灵活表达式解析器，带有大量内置函数和常量，并提供了一个集成的解决方案来处理不同的数据类型，如数字、大数、复数、分数、单位和矩阵。功能强大且易于使用。</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20221101100641.png"></p>
+<h2 id="2-Numeral-js"><a href="#2-Numeral-js" class="headerlink" title="2. Numeral.js"></a>2. Numeral.js</h2><p><a target="_blank" rel="noopener" href="https://github.com/adamwdraper/Numeral-js">Numeral.js</a> 是一个用来对数值进行操作和格式化的 JS 库。可将数字格式化为货币、百分比、时间，甚至是序数词的缩写（比如1st，100th）。</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20221101100756.png"></p>
+<h2 id="3-Accounting-js"><a href="#3-Accounting-js" class="headerlink" title="3. Accounting.js"></a>3. Accounting.js</h2><p><a target="_blank" rel="noopener" href="https://github.com/openexchangerates/accounting.js">Accounting.js</a> 是一个用于数字、货币和货币解析&#x2F;格式化的小型 JavaScript 库。它是轻量级的，完全可本地化的，没有依赖关系，并且在客户端或服务器端都可以很好地工作。使用独立或作为 nodeJS&#x2F;npm 和 AMD&#x2F;requireJS 模块。</p>
+<pre><code class="js">// Default usage:
+accounting.formatMoney(12345678); // $12,345,678.00
+
+// European formatting (custom symbol and separators), can also use options object as second parameter:
+accounting.formatMoney(4999.99, &quot;€&quot;, 2, &quot;.&quot;, &quot;,&quot;); // €4.999,99
+
+// Negative values can be formatted nicely:
+accounting.formatMoney(-500000, &quot;£ &quot;, 0); // £ -500,000
+
+// Simple `format` string allows control of symbol position (%v = value, %s = symbol):
+accounting.formatMoney(5318008, &#123; symbol: &quot;GBP&quot;,  format: &quot;%v %s&quot; &#125;); // 5,318,008.00 GBP
+</code></pre>
+<h1 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h1><h2 id="MathMl"><a href="#MathMl" class="headerlink" title="MathMl"></a>MathMl</h2><p>需要对数学标签进行 css 重新设置</p>
+<pre><code class="css">math &#123;
+    font-family: Cambria Math, Latin Modern Math;
+&#125;
+</code></pre>
+<p>Cambria Math是Windows操作系统中的数学字体，Latin Modern Math是macOS中的数学字体。</p>
+<p>MathML 手写可能太复杂了，可以利用<a target="_blank" rel="noopener" href="https://webdemo.myscript.com/">在线小工具</a>，首页公式转换为 Math、LaTex、MathML</p>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="1-qs"><a href="#1-qs" class="headerlink" title="1. qs"></a>1. qs</h2><p><a target="_blank" rel="noopener" href="https://github.com/ljharb/qs">qs</a>是一个url参数转化（parse和stringify）的JavaScript库。可以把格式化的字符串转换为对象格式。</p>
+<pre><code class="js">var qs = require(&#39;qs&#39;);
+var assert = require(&#39;assert&#39;);
+
+var obj = qs.parse(&#39;a=c&#39;);
+assert.deepEqual(obj, &#123; a: &#39;c&#39; &#125;);
+
+var str = qs.stringify(obj);
+assert.equal(str, &#39;a=c&#39;);
+</code></pre>
+<h2 id="2-Voca"><a href="#2-Voca" class="headerlink" title="2. Voca"></a>2. Voca</h2><p><a target="_blank" rel="noopener" href="https://github.com/panzerdp/voca">Voca</a> 是一个用于操作字符串的 JavaScript 库。Voca 库提供了有用的函数来使字符串操作更加舒适：更改大小写、修剪、填充、slugify、拉丁化、sprintfy、截断、转义等。模块化设计允许加载整个库或单个函数以最小化应用程序构建。该库经过全面测试、有据可查并长期受支持。</p>
+<pre><code class="js">v.camelCase(&#39;bird flight&#39;);              // =&gt; &#39;birdFlight&#39;
+v.sprintf(&#39;%s costs $%.2f&#39;, &#39;Tea&#39;, 1.5); // =&gt; &#39;Tea costs $1.50&#39;
+v.slugify(&#39;What a wonderful world&#39;);     // =&gt; &#39;what-a-wonderful-world&#39;
+</code></pre>
+<h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><h2 id="1-js-cookie-js"><a href="#1-js-cookie-js" class="headerlink" title="1. js-cookie.js"></a>1. js-cookie.js</h2><p><a target="_blank" rel="noopener" href="https://github.com/js-cookie/js-cookie">js-cookie.js</a> 是一个用于处理浏览器 cookie 的简单、轻量级 JavaScript API。其具有以下特点：</p>
+<ul>
+<li>适用于所有浏览器</li>
+<li>接受任何字符</li>
+<li>经过大量测试</li>
+<li>无依赖</li>
+<li>支持ES模块</li>
+<li>支持 AMD&#x2F;CommonJS</li>
+<li>符合RFC 6265</li>
+<li>有用的维基</li>
+<li>启用自定义编码&#x2F;解码</li>
+<li>&lt; 800 字节压缩！</li>
+</ul>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20221101101724.png"></p>
+<h2 id="2-Cookies"><a href="#2-Cookies" class="headerlink" title="2. Cookies"></a>2. Cookies</h2><p><a target="_blank" rel="noopener" href="https://github.com/pillarjs/cookies">Cookies</a> 是一个用于获取和设置 HTTP(S) cookie的node.js模块。它的特点如下：</p>
+<ul>
+<li>允许使用Keygrip来签署cookie，以防止篡改；</li>
+<li>延迟验证cookie，以降低成本；</li>
+<li>不允许通过不安全的套接字发送安全cookies；</li>
+<li>默认情况下，所有cookie都仅适用于HTTP，并且通过SSL发送的cookie是安全的；</li>
+<li>允许其他库在不知道签名机制的情况下访问 cookie。</li>
+</ul>
+<pre><code class="js">var http = require(&#39;http&#39;)
+var Cookies = require(&#39;cookies&#39;)
+
+// Optionally define keys to sign cookie values
+// to prevent client tampering
+var keys = [&#39;keyboard cat&#39;]
+
+var server = http.createServer(function (req, res) &#123;
+  // Create a cookies object
+  var cookies = new Cookies(req, res, &#123; keys: keys &#125;)
+
+  // Get a cookie
+  var lastVisit = cookies.get(&#39;LastVisit&#39;, &#123; signed: true &#125;)
+
+  // Set the cookie to a value
+  cookies.set(&#39;LastVisit&#39;, new Date().toISOString(), &#123; signed: true &#125;)
+
+  if (!lastVisit) &#123;
+    res.setHeader(&#39;Content-Type&#39;, &#39;text/plain&#39;)
+    res.end(&#39;Welcome, first time visitor!&#39;)
+  &#125; else &#123;
+    res.setHeader(&#39;Content-Type&#39;, &#39;text/plain&#39;)
+    res.end(&#39;Welcome back! Nothing much changed since your last visit at &#39; + lastVisit + &#39;.&#39;)
+  &#125;
+&#125;)
+
+server.listen(3000, function () &#123;
+  console.log(&#39;Visit us at http://127.0.0.1:3000/ !&#39;)
+&#125;)
+</code></pre>
+<h1 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h1><h2 id="1-DOMPurify"><a href="#1-DOMPurify" class="headerlink" title="1. DOMPurify"></a>1. DOMPurify</h2><p><a target="_blank" rel="noopener" href="https://github.com/cure53/DOMPurify">DOMPurify</a> 是一个开源的基于DOM的快速XSS净化工具。输入HTML元素，然后通过DOM解析递归元素节点，进行净化，输出安全的HTML。</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20221101102306.png"></p>
+<h1 id="国际化"><a href="#国际化" class="headerlink" title="国际化"></a>国际化</h1><h2 id="1-vue-i18n"><a href="#1-vue-i18n" class="headerlink" title="1. vue-i18n"></a>1. vue-i18n</h2><p><a target="_blank" rel="noopener" href="https://kazupon.github.io/vue-i18n/zh/introduction.html">Vue I18n</a> 是 Vue.js 的国际化插件。它可以轻松地将一些本地化功能集成到你的 Vue.js 应用程序中</p>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><h2 id="1-xlsx"><a href="#1-xlsx" class="headerlink" title="1. xlsx"></a>1. xlsx</h2><p><a target="_blank" rel="noopener" href="https://github.com/SheetJS/sheetjs">xlsx</a>表格文件相关操作，例如表格导入json、json导出为表格</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20221101103209.png"></p>
+<h1 id="CSS-字体设置"><a href="#CSS-字体设置" class="headerlink" title="CSS 字体设置"></a>CSS 字体设置</h1><pre><code class="css">@font-face &#123;
+  font-family: Emoji;
+  src: local(&quot;Apple Color Emoji&quot;),
+      local(&quot;Segoe UI Emoji&quot;), 
+      local(&quot;Segoe UI Symbol&quot;),
+      local(&quot;Noto Color Emoji&quot;);
+  unicode-range: U+1F000-1F644, U+203C-3299;
+&#125;
+body &#123;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Emoji, Helvetica, Arial, sans-serif;
+&#125;
+</code></pre>
+<p>不错的衬线字体和等宽字体的字体族设置代码</p>
+<pre><code class="css">.font-serif &#123;
+  font-family: Georgia, Cambria, &quot;Times New Roman&quot;, Times, serif;
+&#125;
+.font-mono &#123;
+  font-family: Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, &quot;Courier New&quot;, monospace;
+&#125;
+</code></pre>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/L7ksmc0ywgAylIGb8m1qeg">https://mp.weixin.qq.com/s/L7ksmc0ywgAylIGb8m1qeg</a></li>
+</ol>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/11/23/axios%E5%B0%81%E8%A3%85%E6%96%B9%E6%A1%88/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          axios封装方案
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/10/31/packagejson%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">packagejson配置解析</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=前端常用库、方案 - Ant-Thinker&url=https://jakemama.github.io/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=前端常用库、方案 - Ant-Thinker&u=https://jakemama.github.io/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=前端常用库、方案 - Ant-Thinker&url=https://jakemama.github.io/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/03/git%E7%9A%84ssh%E9%93%BE%E6%8E%A5%E9%97%AE%E9%A2%98/">git报错kex_exchange_identification: Connection closed by remote host</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/03/%E5%BD%93%E8%B4%9DDBH2%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90%E7%BF%BB%E5%A2%99%E8%A7%82%E7%9C%8BYouTube/">当贝DBH2电视盒子翻墙观看YouTube</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2022年终总结</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/axios%E5%B0%81%E8%A3%85%E6%96%B9%E6%A1%88/">axios封装方案</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">前端常用库、方案</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Ant-Thinker &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

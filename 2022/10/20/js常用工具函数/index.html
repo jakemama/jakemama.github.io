@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>js常用工具函数 | Ant-Thinker</title>
+
+    <meta name="description" content="&lt;p&gt;常用的js工具函数汇总&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "js常用工具函数 | Ant-Thinker"  />
+    <meta property="og:description" content= "&lt;p&gt;常用的js工具函数汇总&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/10/20/js%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;常用的js工具函数汇总&lt;/p&gt;" />
+    <meta name="twitter:title" content="js常用工具函数 | Ant-Thinker"/>
+    <meta name="twitter:description" content="&lt;p&gt;常用的js工具函数汇总&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;常用的js工具函数汇总&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2022/10/20/js%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "js常用工具函数 | Ant-Thinker",
+            "datePublished": "2022-10-20T08:35:34.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2022/10/20/js%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Ant-Thinker</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcgcrwd7005niauq5jz46gty" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      js常用工具函数
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-10-20T08:35:34.000Z" itemprop="datePublished">2022-10-20</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>常用的js工具函数汇总</p>
+<span id="more"></span>
+<h2 id="1-校验数据类型"><a href="#1-校验数据类型" class="headerlink" title="1.校验数据类型"></a>1.校验数据类型</h2><pre><code class="js">export const typeOf = function(obj) &#123;
+  return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase()
+&#125;
+</code></pre>
+<p>example:</p>
+<pre><code class="js">typeOf(&#39;树哥&#39;)  // string
+typeOf([])  // array
+typeOf(new Date())  // date
+typeOf(null) // null
+typeOf(true) // boolean
+typeOf(() =&gt; &#123; &#125;) // function
+</code></pre>
+<h2 id="2-防抖"><a href="#2-防抖" class="headerlink" title="2.防抖"></a>2.防抖</h2><pre><code class="js">export const debounce = (() =&gt; &#123;
+  let timer = null
+  return (callback, wait = 800) =&gt; &#123;
+    timer&amp;&amp;clearTimeout(timer)
+    timer = setTimeout(callback, wait)
+  &#125;
+&#125;)()
+</code></pre>
+<p>example(in Vue):</p>
+<pre><code class="js">methods: &#123;
+  loadList() &#123;
+    debounce(() =&gt; &#123;
+      console.log(&#39;加载数据&#39;)
+    &#125;, 500)
+  &#125;
+&#125;
+</code></pre>
+<h2 id="3-节流"><a href="#3-节流" class="headerlink" title="3.节流"></a>3.节流</h2><pre><code class="js">export const throttle = (() =&gt; &#123;
+  let last = 0
+  return (callback, wait = 800) =&gt; &#123;
+    let now = +new Date()
+    if (now - last &gt; wait) &#123;
+      callback()
+      last = now
+    &#125;
+  &#125;
+&#125;)()
+</code></pre>
+<h2 id="4-手机号脱敏"><a href="#4-手机号脱敏" class="headerlink" title="4.手机号脱敏"></a>4.手机号脱敏</h2><pre><code class="js">export const hideMobile = (mobile) =&gt; &#123;
+  return mobile.replace(/^(\d&#123;3&#125;)\d&#123;4&#125;(\d&#123;4&#125;)$/, &quot;$1****$2&quot;)
+&#125;
+</code></pre>
+<h2 id="5-开启全屏、关闭全屏"><a href="#5-开启全屏、关闭全屏" class="headerlink" title="5.开启全屏、关闭全屏"></a>5.开启全屏、关闭全屏</h2><p>开启全屏</p>
+<pre><code class="js">export const launchFullscreen = (element) =&gt; &#123;
+  if (element.requestFullscreen) &#123;
+    element.requestFullscreen()
+  &#125; else if (element.mozRequestFullScreen) &#123;
+    element.mozRequestFullScreen()
+  &#125; else if (element.msRequestFullscreen) &#123;
+    element.msRequestFullscreen()
+  &#125; else if (element.webkitRequestFullscreen) &#123;
+    element.webkitRequestFullScreen()
+  &#125;
+&#125;
+</code></pre>
+<p>关闭全屏</p>
+<pre><code class="js">export const exitFullscreen = () =&gt; &#123;
+  if (document.exitFullscreen) &#123;
+    document.exitFullscreen()
+  &#125; else if (document.msExitFullscreen) &#123;
+    document.msExitFullscreen()
+  &#125; else if (document.mozCancelFullScreen) &#123;
+    document.mozCancelFullScreen()
+  &#125; else if (document.webkitExitFullscreen) &#123;
+    document.webkitExitFullscreen()
+  &#125;
+&#125;
+</code></pre>
+<h2 id="6-大小写转换"><a href="#6-大小写转换" class="headerlink" title="6.大小写转换"></a>6.大小写转换</h2><p>参数：</p>
+<ul>
+<li>str： 待转换的字符串</li>
+<li>type： 1-全大写 2-全小写 3-首字母大写</li>
+</ul>
+<pre><code class="js">export const turnCase = (str, type) =&gt; &#123;
+  switch (type) &#123;
+    case 1:
+      return str.toUpperCase()
+    case 2:
+      return str.toLowerCase()
+    case 3:
+      //return str[0].toUpperCase() + str.substr(1).toLowerCase() // substr 已不推荐使用
+      return str[0].toUpperCase() + str.substring(1).toLowerCase()
+    default:
+      return str
+  &#125;
+&#125;
+</code></pre>
+<p>example:</p>
+<pre><code class="js">turnCase(&#39;vue&#39;, 1) // VUE
+turnCase(&#39;REACT&#39;, 2) // react
+turnCase(&#39;vue&#39;, 3) // Vue
+</code></pre>
+<h2 id="7-解析URL参数"><a href="#7-解析URL参数" class="headerlink" title="7.解析URL参数"></a>7.解析URL参数</h2><pre><code class="js">export const getSearchParams = () =&gt; &#123;
+  const searchPar = new URLSearchParams(window.location.search)
+  const paramsObj = &#123;&#125;
+  for (const [key, value] of searchPar.entries()) &#123;
+    paramsObj[key] = value
+  &#125;
+  return paramsObj
+&#125;
+</code></pre>
+<p>example:</p>
+<pre><code class="js">// 假设目前位于 https://****com/index?id=154513&amp;age=18;
+getSearchParams(); // &#123;id: &quot;154513&quot;, age: &quot;18&quot;&#125;
+</code></pre>
+<h2 id="8-判断设备和运行环境"><a href="#8-判断设备和运行环境" class="headerlink" title="8.判断设备和运行环境"></a>8.判断设备和运行环境</h2><pre><code class="js">const u = navigator.userAgent;
+const env = &#123;
+  isAndroid: u.indexOf(&#39;Android&#39;) &gt; -1 || u.indexOf(&#39;Linux&#39;) &gt; -1;
+  isIOS: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+  isWeibo: !!u.match(/weibo/gi),
+  isWechat: !!u.match(/MicroMessenger/gi),
+  isTencent: !!u.match(/qq/gi),
+&#125;;
+</code></pre>
+<h2 id="9-滚动到顶部"><a href="#9-滚动到顶部" class="headerlink" title="9.滚动到顶部"></a>9.滚动到顶部</h2><pre><code class="js">export const scrollToTop = () =&gt; &#123;
+  const height = document.documentElement.scrollTop || document.body.scrollTop;
+  if (height &gt; 0) &#123;
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, height - height / 8);
+  &#125;
+&#125;
+</code></pre>
+<h2 id="10-滚动到指定元素"><a href="#10-滚动到指定元素" class="headerlink" title="10.滚动到指定元素"></a>10.滚动到指定元素</h2><pre><code class="js">export const smoothScroll = element =&gt;&#123;
+    document.querySelector(element).scrollIntoView(&#123;
+        behavior: &#39;smooth&#39;
+    &#125;);
+&#125;;
+</code></pre>
+<h2 id="11-金额格式化"><a href="#11-金额格式化" class="headerlink" title="11.金额格式化"></a>11.金额格式化</h2><p>参数：</p>
+<ul>
+<li>{number} number：要格式化的数字</li>
+<li>{number} decimals：保留几位小数</li>
+<li>{string} dec_point：小数点符号</li>
+<li>{string} thousands_sep：千分位符号</li>
+</ul>
+<pre><code class="js">export const moneyFormat = (number, decimals, dec_point, thousands_sep) =&gt; &#123;
+  number = (number + &#39;&#39;).replace(/[^0-9+-Ee.]/g, &#39;&#39;)
+  const n = !isFinite(+number) ? 0 : +number
+  const prec = !isFinite(+decimals) ? 2 : Math.abs(decimals)
+  const sep = typeof thousands_sep === &#39;undefined&#39; ? &#39;,&#39; : thousands_sep
+  const dec = typeof dec_point === &#39;undefined&#39; ? &#39;.&#39; : dec_point
+  let s = &#39;&#39;
+  const toFixedFix = function(n, prec) &#123;
+    const k = Math.pow(10, prec)
+    return &#39;&#39; + Math.ceil(n * k) / k
+  &#125;
+  s = (prec ? toFixedFix(n, prec) : &#39;&#39; + Math.round(n)).split(&#39;.&#39;)
+  const re = /(-?\d+)(\d&#123;3&#125;)/
+  while (re.test(s[0])) &#123;
+    s[0] = s[0].replace(re, &#39;$1&#39; + sep + &#39;$2&#39;)
+  &#125;
+
+  if ((s[1] || &#39;&#39;).length &lt; prec) &#123;
+    s[1] = s[1] || &#39;&#39;
+    s[1] += new Array(prec - s[1].length + 1).join(&#39;0&#39;)
+  &#125;
+  return s.join(dec)
+&#125;
+</code></pre>
+<p>example：</p>
+<pre><code class="js">moneyFormat(10000000) // 10,000,000.00
+moneyFormat(10000000, 3, &#39;.&#39;, &#39;-&#39;) // 10-000-000.000
+</code></pre>
+<h2 id="12-存储操作"><a href="#12-存储操作" class="headerlink" title="12.存储操作"></a>12.存储操作</h2><pre><code class="js">class MyCache &#123;
+  constructor(isLocal = true) &#123;
+    this.storage = isLocal ? localStorage : sessionStorage
+  &#125;
+
+  setItem(key, value) &#123;
+    if (typeof (value) === &#39;object&#39;) value = JSON.stringify(value)
+    this.storage.setItem(key, value)
+  &#125;
+
+  getItem(key) &#123;
+    try &#123;
+      return JSON.parse(this.storage.getItem(key))
+    &#125; catch (err) &#123;
+      return this.storage.getItem(key)
+    &#125;
+  &#125;
+
+  removeItem(key) &#123;
+    this.storage.removeItem(key)
+  &#125;
+
+  clear() &#123;
+    this.storage.clear()
+  &#125;
+
+  key(index) &#123;
+    return this.storage.key(index)
+  &#125;
+
+  length() &#123;
+    return this.storage.length
+  &#125;
+&#125;
+
+const localCache = new MyCache()
+const sessionCache = new MyCache(false)
+
+export &#123; localCache, sessionCache &#125;
+</code></pre>
+<p>example:</p>
+<pre><code class="js">localCache.getItem(&#39;user&#39;)
+sessionCache.setItem(&#39;name&#39;,&#39;树哥&#39;)
+sessionCache.getItem(&#39;token&#39;)
+localCache.clear()
+</code></pre>
+<h2 id="13-下载文件"><a href="#13-下载文件" class="headerlink" title="13.下载文件"></a>13.下载文件</h2><p>参数：</p>
+<ul>
+<li>api 接口</li>
+<li>params 请求参数</li>
+<li>fileName 文件名</li>
+</ul>
+<pre><code class="js">const downloadFile = (api, params, fileName, type = &#39;get&#39;) =&gt; &#123;
+  axios(&#123;
+    method: type,
+    url: api,
+    responseType: &#39;blob&#39;, 
+    params: params
+  &#125;).then((res) =&gt; &#123;
+    let str = res.headers[&#39;content-disposition&#39;]
+    if (!res || !str) &#123;
+      return
+    &#125;
+    let suffix = &#39;&#39;
+    // 截取文件名和文件类型
+    if (str.lastIndexOf(&#39;.&#39;)) &#123;
+      fileName ? &#39;&#39; : fileName = decodeURI(str.substring(str.indexOf(&#39;=&#39;) + 1, str.lastIndexOf(&#39;.&#39;)))
+      suffix = str.substring(str.lastIndexOf(&#39;.&#39;), str.length)
+    &#125;
+    //  如果支持微软的文件下载方式(ie10+浏览器)
+    if (window.navigator.msSaveBlob) &#123;
+      try &#123;
+        const blobObject = new Blob([res.data]);
+        window.navigator.msSaveBlob(blobObject, fileName + suffix);
+      &#125; catch (e) &#123;
+        console.log(e);
+      &#125;
+    &#125; else &#123;
+      //  其他浏览器
+      let url = window.URL.createObjectURL(res.data)
+      let link = document.createElement(&#39;a&#39;)
+      link.style.display = &#39;none&#39;
+      link.href = url
+      link.setAttribute(&#39;download&#39;, fileName + suffix)
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      window.URL.revokeObjectURL(link.href);
+    &#125;
+  &#125;).catch((err) =&gt; &#123;
+    console.log(err.message);
+  &#125;)
+&#125;
+</code></pre>
+<p>example:</p>
+<pre><code class="js">downloadFile(&#39;/api/download&#39;, &#123;id&#125;, &#39;文件名&#39;)
+</code></pre>
+<h2 id="14-时间相关操作"><a href="#14-时间相关操作" class="headerlink" title="14.时间相关操作"></a>14.时间相关操作</h2><blockquote>
+<p>关于时间操作，没必要自己再写一大串代码了，强烈推荐使用 day.js[2]</p>
+<p>Day.js 是一个仅 2kb 大小的轻量级 JavaScript 时间日期处理库，下载、解析和执行的JavaScript更少，为代码留下更多的时间。</p>
+</blockquote>
+<h2 id="15-深拷贝"><a href="#15-深拷贝" class="headerlink" title="15.深拷贝"></a>15.深拷贝</h2><p><strong>如果确实想要完备的深拷贝，推荐使用 lodash 中的 cloneDeep 方法</strong></p>
+<blockquote>
+<p>下面方法存在一定局限性：一些特殊情况没有处理: 例如Buffer对象、Promise、Set、Map。</p>
+</blockquote>
+<pre><code class="js">export const clone = parent =&gt; &#123;
+  // 判断类型
+  const isType = (obj, type) =&gt; &#123;
+    if (typeof obj !== &quot;object&quot;) return false;
+    const typeString = Object.prototype.toString.call(obj);
+    let flag;
+    switch (type) &#123;
+      case &quot;Array&quot;:
+        flag = typeString === &quot;[object Array]&quot;;
+        break;
+      case &quot;Date&quot;:
+        flag = typeString === &quot;[object Date]&quot;;
+        break;
+      case &quot;RegExp&quot;:
+        flag = typeString === &quot;[object RegExp]&quot;;
+        break;
+      default:
+        flag = false;
+    &#125;
+    return flag;
+  &#125;;
+
+  // 处理正则
+  const getRegExp = re =&gt; &#123;
+    var flags = &quot;&quot;;
+    if (re.global) flags += &quot;g&quot;;
+    if (re.ignoreCase) flags += &quot;i&quot;;
+    if (re.multiline) flags += &quot;m&quot;;
+    return flags;
+  &#125;;
+  // 维护两个储存循环引用的数组
+  const parents = [];
+  const children = [];
+
+  const _clone = parent =&gt; &#123;
+    if (parent === null) return null;
+    if (typeof parent !== &quot;object&quot;) return parent;
+
+    let child, proto;
+
+    if (isType(parent, &quot;Array&quot;)) &#123;
+      // 对数组做特殊处理
+      child = [];
+    &#125; else if (isType(parent, &quot;RegExp&quot;)) &#123;
+      // 对正则对象做特殊处理
+      child = new RegExp(parent.source, getRegExp(parent));
+      if (parent.lastIndex) child.lastIndex = parent.lastIndex;
+    &#125; else if (isType(parent, &quot;Date&quot;)) &#123;
+      // 对Date对象做特殊处理
+      child = new Date(parent.getTime());
+    &#125; else &#123;
+      // 处理对象原型
+      proto = Object.getPrototypeOf(parent);
+      // 利用Object.create切断原型链
+      child = Object.create(proto);
+    &#125;
+
+    // 处理循环引用
+    const index = parents.indexOf(parent);
+
+    if (index != -1) &#123;
+      // 如果父数组存在本对象,说明之前已经被引用过,直接返回此对象
+      return children[index];
+    &#125;
+    parents.push(parent);
+    children.push(child);
+
+    for (let i in parent) &#123;
+      // 递归
+      child[i] = _clone(parent[i]);
+    &#125;
+
+    return child;
+  &#125;;
+  return _clone(parent);
+&#125;;
+</code></pre>
+<h2 id="16-遍历树节点"><a href="#16-遍历树节点" class="headerlink" title="16.遍历树节点"></a>16.遍历树节点</h2><pre><code class="js">export const foreachTree = (data, callback, childrenName = &#39;children&#39;) =&gt; &#123;
+  for (let i = 0; i &lt; data.length; i++) &#123;
+    callback(data[i])
+    if (data[i][childrenName] &amp;&amp; data[i][childrenName].length &gt; 0) &#123;
+      foreachTree(data[i][childrenName], callback, childrenName)
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>示例：</p>
+<p>假设我们要从树状结构数据中查找 id 为 9 的节点</p>
+<pre><code class="js">const treeData = [&#123;
+  id: 1,
+  label: &#39;一级 1&#39;,
+  children: [&#123;
+    id: 4,
+    label: &#39;二级 1-1&#39;,
+    children: [&#123;
+      id: 9,
+      label: &#39;三级 1-1-1&#39;
+    &#125;, &#123;
+      id: 10,
+      label: &#39;三级 1-1-2&#39;
+    &#125;]
+  &#125;]
+ &#125;, &#123;
+  id: 2,
+  label: &#39;一级 2&#39;,
+  children: [&#123;
+    id: 5,
+    label: &#39;二级 2-1&#39;
+  &#125;, &#123;
+    id: 6,
+    label: &#39;二级 2-2&#39;
+  &#125;]
+  &#125;, &#123;
+    id: 3,
+    label: &#39;一级 3&#39;,
+    children: [&#123;
+      id: 7,
+      label: &#39;二级 3-1&#39;
+    &#125;, &#123;
+      id: 8,
+      label: &#39;二级 3-2&#39;
+    &#125;]
+&#125;],
+
+let result
+foreachTree(data, (item) =&gt; &#123;
+  if (item.id === 9) &#123;
+    result = item
+  &#125;
+&#125;)
+console.log(&#39;result&#39;, result)  // &#123;id: 9,label: &quot;三级 1-1-1&quot;&#125;   
+</code></pre>
+<h2 id="17-jsonp方法封装"><a href="#17-jsonp方法封装" class="headerlink" title="17.jsonp方法封装"></a>17.jsonp方法封装</h2><p>关键点:</p>
+<ul>
+<li>每次请求完成之后，必须清空产生的多余无用的方法和标签</li>
+<li>包装成promise对象，使用起来就像axios一样</li>
+<li>自动生成接收函数，无需用户考虑，我们要做的是把值传递回去</li>
+</ul>
+<pre><code class="js">function myJsonp(options) &#123;
+    return new Promise((resolve, reject) =&gt; &#123;
+    //判断是否是第一次jsonp请求
+        if (!window.jsonpNum) &#123;
+            window.jsonpNum = 1
+        &#125; else &#123;
+            window.jsonpNum++
+        &#125;
+
+        let &#123;                    
+            url,
+            data,
+            timeout = 5000,
+            cbkey = &#39;callback&#39;,
+        &#125; = options
+        
+        //保证每次请求接收的方法都不会重复
+        let funName = &#39;jsonpReceive&#39; + window.jsonpNum
+        
+        //清除本次jsonp请求产生的一些无用东西
+        function clear() &#123;                             
+            window[funName] = null
+            script.parentNode.removeChild(script);
+            clearTimeout(timer)
+        &#125;
+        
+    //定义jsonp接收函数
+        window[funName] = function(res) &#123;
+      //一旦函数执行了，就等于说请求成功了
+            resolve(res)                             
+            clear()
+        &#125;
+        
+    //请求超时计时器
+        let timer = setTimeout(() =&gt; &#123;                
+            reject(&#39;超时了&#39;)
+            clear()
+        &#125;, timeout)
+        
+    //定义请求的参数
+        let params = &#39;&#39;                                 
+        
+    //如果有参数
+        if (Object.keys(data).length) &#123;             
+            for (let key in data) &#123;
+                params += `&amp;$&#123;key&#125;=$&#123;encodeURIComponent(data[key])&#125;`;
+            &#125;
+            
+            params = params.substr(1)
+        &#125;
+        
+    //拼接最终的请求路径，结尾拼接回调的方法名
+        url = url + &#39;?&#39; + params + `&amp;$&#123;cbkey&#125;=$&#123;funName&#125;`      
+
+        let script = document.createElement(&#39;script&#39;);
+        script.src = url;
+        document.body.appendChild(script);
+    &#125;)
+&#125;
+</code></pre>
+<h2 id="18-adb清除手机代理"><a href="#18-adb清除手机代理" class="headerlink" title="18.adb清除手机代理"></a>18.adb清除手机代理</h2><pre><code class="bash">adb shell settings delete global http_proxy;
+adb shell settings delete global global_http_proxy_host;
+adb shell settings delete global global_http_proxy_port;
+adb reboot
+</code></pre>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/10/21/node%E5%92%8Ckoa%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          node和koa实现文件下载
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/10/11/prettier%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">prettier配置文件解析</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=js常用工具函数 - Ant-Thinker&url=https://jakemama.github.io/2022/10/20/js%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=js常用工具函数 - Ant-Thinker&u=https://jakemama.github.io/2022/10/20/js%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=js常用工具函数 - Ant-Thinker&url=https://jakemama.github.io/2022/10/20/js%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/03/git%E7%9A%84ssh%E9%93%BE%E6%8E%A5%E9%97%AE%E9%A2%98/">git报错kex_exchange_identification: Connection closed by remote host</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/03/%E5%BD%93%E8%B4%9DDBH2%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90%E7%BF%BB%E5%A2%99%E8%A7%82%E7%9C%8BYouTube/">当贝DBH2电视盒子翻墙观看YouTube</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2022年终总结</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/axios%E5%B0%81%E8%A3%85%E6%96%B9%E6%A1%88/">axios封装方案</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">前端常用库、方案</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Ant-Thinker &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

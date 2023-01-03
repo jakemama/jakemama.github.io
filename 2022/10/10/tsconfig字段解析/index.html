@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>tsconfig字段解析 | Ant-Thinker</title>
+
+    <meta name="description" content="&lt;p&gt;tsconfig.json 的配置项解析&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "tsconfig字段解析 | Ant-Thinker"  />
+    <meta property="og:description" content= "&lt;p&gt;tsconfig.json 的配置项解析&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2022/10/10/tsconfig%E5%AD%97%E6%AE%B5%E8%A7%A3%E6%9E%90/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;tsconfig.json 的配置项解析&lt;/p&gt;" />
+    <meta name="twitter:title" content="tsconfig字段解析 | Ant-Thinker"/>
+    <meta name="twitter:description" content="&lt;p&gt;tsconfig.json 的配置项解析&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;tsconfig.json 的配置项解析&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2022/10/10/tsconfig%E5%AD%97%E6%AE%B5%E8%A7%A3%E6%9E%90/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "tsconfig字段解析 | Ant-Thinker",
+            "datePublished": "2022-10-10T09:45:42.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2022/10/10/tsconfig%E5%AD%97%E6%AE%B5%E8%A7%A3%E6%9E%90/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Ant-Thinker</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcgcrwd8005uiauqbply0u6u" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      tsconfig字段解析
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-10-10T09:45:42.000Z" itemprop="datePublished">2022-10-10</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>tsconfig.json 的配置项解析</p>
+<span id="more"></span>
+<pre><code class="json">&#123;
+  // 指定需要编译文件 否则默认当前目录下除了exclude之外的所有.ts, .d.ts,.tsx 文件
+  &quot;include&quot;: [&quot;./test.ts&quot;],
+  // 指定需要编译文件 否则默认当前目录下除了exclude之外的所有.ts, .d.ts,.tsx 文件
+  &quot;files&quot;: [&quot;./src/**/*&quot;],
+  // 不编译某些文件
+  &quot;exclude&quot;: [&quot;test.ts&quot;],
+  &quot;compilerOptions&quot;: &#123;
+    /* Basic Options */
+    &quot;baseUrl&quot;: &quot;.&quot;, // 模块解析根路径，默认为 tsconfig.json 位于的目录
+    &quot;rootDir&quot;: &quot;src&quot;, // 编译解析根路径，默认为 tsconfig.json 位于的目录
+    &quot;sourceMap&quot;: true, // 启用 sourceMap，默认为 false, 用来指定编译时是否生成.map文件
+    /* 如果设为true，编译每个ts文件之后会生成一个js文件和一个声明文件,生成 .d.ts 类型文件，默认为 false
+    declaration和allowJs不能同时设为true */
+    &quot;declaration&quot;: true,
+    // 值为true或false，指定是否为声明文件.d.ts生成map文件
+    &quot;declarationMap&quot;: true,
+    &quot;declarationDir&quot;: &quot;dist/types&quot;, // .d.ts 类型文件的输出目录，默认为 outDir 目录
+
+    // 只编译修改过的文件,这个时候会生成tsconfig.tsbuildinfo,下次编译的时候会进行对比只编译修改过的文件 
+    &quot;incremental&quot;: true,
+    // 指定 ECMAScript 目标版本: &#39;ES3&#39; (default), &#39;ES5&#39;, &#39;ES2015&#39;, &#39;ES2016&#39;, &#39;ES2017&#39;, or &#39;ESNEXT&#39;
+    &quot;target&quot;: &quot;es5&quot;,
+    // 指定使用模块: &#39;commonjs&#39;(default), &#39;amd&#39;, &#39;system&#39;, &#39;umd&#39; or &#39;es2015&#39;
+    &quot;module&quot;: &quot;commonjs&quot;,
+    /* 注意：如果未指定--lib，则会注入默认的librares列表。注入的默认库为：
+    对于 --target ES5: DOM,ES5,ScriptHost
+    对于 --target ES6: DOM,ES6,DOM.Iterable,ScriptHost
+    TS 绝不会在您的代码中注入polyfill,所以需要你自己制定编译lib, 如果你的项目涉及到WebWorker API，需要添加到 lib 字段中 */
+    &quot;lib&quot;: [&quot;es5&quot;, &quot;dom&quot;, &quot;ScriptHost&quot;, &quot;es2015.promise&quot;, &quot;WebWorker&quot;],
+    // 允许编译JS
+    &quot;allowJs&quot;: true,
+    /* 是否检测JS的语法,例如下面的语法编辑器会报错
+    let name = &#39;paul&#39;;
+    console.log(name.a.b) */
+    &quot;checkJs&quot;: true,
+    // 指定 jsx 代码的生成: &#39;preserve&#39;, &#39;react-native&#39;, or &#39;react&#39;
+    &quot;jsx&quot;: preserve,
+    
+    // 当module设置为 &#39;amd&#39; and &#39;system&#39;的时候可以使用此命令,这样可以将ts文件打包到一个目录下
+    &quot;outFile&quot;:&quot;./&quot;,
+    //  outDir 编译后的文件存到到哪个目录下,默认是每一个ts文件的当前目录,,下面的配置就是把ts编译到build目录下
+    &quot;outDir&quot;: &#39;./build&#39;,
+    // 是否编译构建引用项目,很复杂后面介绍
+    &quot;composite&quot;: true,
+    // 指定文件用来存储增量编译信息,默认是tsconfig.tsbuildinfo
+    &quot;tsBuildInfoFile&quot;: &quot;./&quot;,
+    // 编译的时候删除注释
+    &quot;removeComments&quot;: true,
+    // 不生成编译文件，这个一般比较少用,这个build目录下将没有任何文件,但是会进行编译,有错误会抛出
+    &quot;noEmit&quot;: true,
+    // 是否引入npm包tslib中的辅助函数,__extends等 
+    &quot;importHelpers&quot;: true,
+    // 当target为&#39;ES5&#39; or &#39;ES3&#39;时，为&#39;for-of&#39;, spread, and destructuring&#39;中的迭代器提供完全支持
+    &quot;downlevelIteration&quot;: true,
+    // isolatedModules的值为true或false，指定是否将每个文件作为单独的模块，默认为true，它不可以和declaration同时设定
+    // 不是很理解,将每一个文件作为单独模块
+    &quot;isolatedModules&quot;: true,
+    /* Strict Type-Checking Options */
+    // 严格模式将会打开下面的几个选项, 启用所有严格的类型检查选项，默认为 true
+    &quot;strict&quot;: false, 
+
+    /* 不允许变量或函数参数具有隐式any类型,例如
+    function(name) &#123;
+        return name;
+    &#125; */
+
+    &quot;skipLibCheck&quot;: true, // 跳过导入第三方 lib 声明文件的类型检查，默认为 true
+    &quot;forceConsistentCasingInFileNames&quot;: true, // 强制在文件名中使用一致的大小写，默认为 true
+    &quot;noImplicitAny&quot;: true,
+    // null类型检测,const teacher: string = null;会报错
+    &quot;strictNullChecks&quot;: true,
+    // 对函数参数进行严格逆变比较
+    &quot;strictFunctionTypes&quot;: true,
+    // 严格检查bind call apply
+    &quot;strictBindCallApply&quot;: true,
+    // 此规则将验证构造函数内部初始化前后已定义的属性。
+    &quot;strictPropertyInitialization&quot;: true,
+    // 检测this是否隐式指定
+    &quot;noImplicitThis&quot;: true,
+    // 使用js的严格模式,在每一个文件上部声明 use strict
+    &quot;alwaysStrict&quot;: true,
+    /* Additional Checks */
+    // 默认false,是否检测定义了但是没使用的变量
+    &quot;noUnusedLocals&quot;: true,
+    // 用于检查是否有在函数体中没有使用的参数
+    &quot;noUnusedParameters&quot;: true,
+    // 用于检查函数是否有返回值，设为true后，如果函数没有返回值则会提示
+    &quot;noImplicitReturns&quot;: true,
+    // 用于检查switch中是否有case没有使用break跳出switch
+    &quot;noFallthroughCasesInSwitch&quot;: true,
+    /* Module Resolution Options */
+    // 用于选择模块解析策略，有&#39;node&#39;和&#39;classic&#39;两种类型，默认为 Classic
+    &quot;moduleResolution&quot;: &quot;node&quot;,
+    &quot;paths&quot;: &#123;&#125;,                   
+    &quot;rootDirs&quot;: [],
+    /* typeRoots用来指定声明文件或文件夹的路径列表，如果指定了此项，则只有在这里列出的声明文件才会被加载 */
+    typeRoots: [],
+    // types用来指定需要包含的模块，只有在这里列出的模块的声明文件才会被加载进来
+    types:[],
+    // 用来指定允许从没有默认导出的模块中默认导入 
+    &quot;allowSyntheticDefaultImports&quot;: true, 
+    // 通过为导入内容创建命名空间，实现CommonJS和ES模块之间的互操作性，默认为 true
+    &quot;esModuleInterop&quot;: true ,
+    // 不把符号链接解析为真实路径，具体可以了解下webpack和node.js的symlink相关知识
+    &quot;preserveSymlinks&quot;: true,
+    &quot;allowUmdGlobalAccess&quot;: true,
+    
+    // sourceRoot用于指定调试器应该找到TypeScript文件而不是源文件的位置，这个值会被写进.map文件里
+    &quot;sourceRoot&quot;: &#39;&#39;,
+    // mapRoot用于指定调试器找到映射文件而非生成文件的位置，指定map文件的根路径，该选项会影响.map文件中的sources属性
+    &quot;mapRoot&quot;,
+    // inlineSourceMap指定是否将map文件内容和js文件编译在一个同一个js文件中，如果设为true,则map的内容会以//#soureMappingURL=开头，然后接base64字符串的形式插入在js文件底部
+    &quot;inlineSourceMap&quot;: true,
+    // inlineSources用于指定是否进一步将ts文件的内容也包含到输出文件中
+    &quot;inlineSources&quot;: true,
+    
+    // experimentalDecorators用于指定是否启用实验性的装饰器特性
+    &quot;experimentalDecorators&quot;: true,
+    
+    // emitDecoratorMetadata用于指定是否为装上去提供元数据支持，关于元数据，也是ES6的新标准，可以通过Reflect提供的静态方法获取元数据，如果需要使用Reflect的一些方法，需要引用ES2015.Reflect这个库
+    &quot;emitDecoratorMetadata&quot;: true,
+    // compileOnSave的值是true或false，如果设为true，在我们编辑了项目中的文件保存的时候，编辑器会根据tsconfig.json中的配置重新生成文件，不过这个要编辑器支持
+    &quot;compileOnSave&quot;: true,
+    // 很复杂 下面介绍
+    &quot;references&quot;:[],
+  &#125;,
+  &quot;include&quot;: [&quot;src&quot;], // 指定需要编译文件，默认当前目录下除了 exclude 之外的所有.ts, .d.ts,.tsx 文件
+  
+&#125; 
+</code></pre>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/10/11/prettier%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          prettier配置文件解析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">web性能优化</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=tsconfig字段解析 - Ant-Thinker&url=https://jakemama.github.io/2022/10/10/tsconfig%E5%AD%97%E6%AE%B5%E8%A7%A3%E6%9E%90/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=tsconfig字段解析 - Ant-Thinker&u=https://jakemama.github.io/2022/10/10/tsconfig%E5%AD%97%E6%AE%B5%E8%A7%A3%E6%9E%90/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=tsconfig字段解析 - Ant-Thinker&url=https://jakemama.github.io/2022/10/10/tsconfig%E5%AD%97%E6%AE%B5%E8%A7%A3%E6%9E%90/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/03/git%E7%9A%84ssh%E9%93%BE%E6%8E%A5%E9%97%AE%E9%A2%98/">git报错kex_exchange_identification: Connection closed by remote host</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/03/%E5%BD%93%E8%B4%9DDBH2%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90%E7%BF%BB%E5%A2%99%E8%A7%82%E7%9C%8BYouTube/">当贝DBH2电视盒子翻墙观看YouTube</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2022年终总结</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/axios%E5%B0%81%E8%A3%85%E6%96%B9%E6%A1%88/">axios封装方案</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">前端常用库、方案</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Ant-Thinker &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
