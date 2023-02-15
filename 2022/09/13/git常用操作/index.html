@@ -7,23 +7,23 @@
     <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
 
     
-    <title>git常用操作 | Ant-Thinker</title>
+    <title>git常用操作 | Jake Ma</title>
 
     <meta name="description" content="&lt;p&gt;记录一些常用的git操作&lt;/p&gt;">
-    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客 前端 程序员 frontend program">
 
     
 
     <meta property="og:locale" content="cn,ja,default" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content= "git常用操作 | Ant-Thinker"  />
+    <meta property="og:title" content= "git常用操作 | Jake Ma"  />
     <meta property="og:description" content= "&lt;p&gt;记录一些常用的git操作&lt;/p&gt;" />
     <meta property="og:url" content="https://jakemama.github.io/2022/09/13/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html" />
     <meta property="og:site_name" content="" />
     <meta property="article:author" content="JakeMa" />
     <meta property="article:publisher" content="" />
     <meta property="og:description" content="&lt;p&gt;记录一些常用的git操作&lt;/p&gt;" />
-    <meta name="twitter:title" content="git常用操作 | Ant-Thinker"/>
+    <meta name="twitter:title" content="git常用操作 | Jake Ma"/>
     <meta name="twitter:description" content="&lt;p&gt;记录一些常用的git操作&lt;/p&gt;"/>
     <script type="application/ld+json">
         {
@@ -39,7 +39,7 @@
             },
             "name": "JakeMa"
             },
-            "headline": "git常用操作 | Ant-Thinker",
+            "headline": "git常用操作 | Jake Ma",
             "datePublished": "2022-09-13T04:48:08.000Z",
             "mainEntityOfPage": {
                 "@type": "WebPage",
@@ -55,7 +55,7 @@
     
 
     
-    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="" data-index-name="hexo">
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="42fac59586a27a38cc623ad379ef6337" data-index-name="hexo">
     
 
     
@@ -101,7 +101,7 @@
             <div class="header-type-inner">
                 
                     <div id="typed-strings" style="display:none">
-                        <p>Ant-Thinker</p>
+                        <p>Jake Ma</p>
                     </div>
                     <a class="header-type-title" id="typed" href="/"></a>
                 
@@ -166,7 +166,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-clcgd6x3d004rtuuq464t9ezc" class="article article-type-post" itemscope
+    <article id="post-cle5tfxq7004txkuqf26n90vd" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -223,6 +223,42 @@
 </code></pre>
 <h2 id="将本地分支推送到线上（本地存在，远程不存在）"><a href="#将本地分支推送到线上（本地存在，远程不存在）" class="headerlink" title="将本地分支推送到线上（本地存在，远程不存在）"></a>将本地分支推送到线上（本地存在，远程不存在）</h2><pre><code>git push -u origin branch_name
 </code></pre>
+<h2 id="关联本地仓库和远程仓库"><a href="#关联本地仓库和远程仓库" class="headerlink" title="关联本地仓库和远程仓库"></a>关联本地仓库和远程仓库</h2><pre><code>创建本地仓库
+git init
+
+git remote add origin git@github.com:UserName/yourProjectName.git
+</code></pre>
+<p>如果不执行这个命令的话，每次 push 的时候都需要指定远程服务器的地址</p>
+<h2 id="git强制覆盖本地代码"><a href="#git强制覆盖本地代码" class="headerlink" title="git强制覆盖本地代码"></a>git强制覆盖本地代码</h2><pre><code>git fetch --all &amp;&amp; git reset --hard origin/master &amp;&amp; git pull
+</code></pre>
+<h2 id="git修改远程仓库地址"><a href="#git修改远程仓库地址" class="headerlink" title="git修改远程仓库地址"></a>git修改远程仓库地址</h2><p>方法有三种：</p>
+<p>1.修改命令</p>
+<pre><code>git remote origin set-url [url]
+</code></pre>
+<p>2.先删后加</p>
+<pre><code>git remote rm origin
+
+git remote add origin [url]
+</code></pre>
+<p>3.直接修改config文件</p>
+<p>.git文件夹，找到config，编辑，把就的项目地址替换成新的。</p>
+<h2 id="git-配置"><a href="#git-配置" class="headerlink" title="git 配置"></a>git 配置</h2><pre><code>git config --list        查看配置列表
+
+git config --global user.name &quot;xxx&quot;   -- 配置用户名，上传本地 repository 到服务器上的时候，在 Github 上会显示这里配置的上传者信息
+
+git config --global user.email &quot;xxx&quot;    -- 配置邮箱
+</code></pre>
+<h2 id="配置-sshkey"><a href="#配置-sshkey" class="headerlink" title="配置 sshkey"></a>配置 sshkey</h2><p>上传代码时使用这个 sshkey 来确认是否有上传权限</p>
+<ol>
+<li>创建本地 ssh ： ssh-keygen -t rsa -C “Github 的注册邮箱”</li>
+<li>在 Github 中添加这个 sshkey ：<br> 复制  C:\Documents and Settings\Administrator.ssh\id_rsa.pub 文件中的内容；（mac电脑中为 ～&#x2F;.ssh)<br> 登录 Github –&gt; Account Setting  –&gt; SSH-KEY –&gt; Add SSH-KEY –&gt; 粘贴id_rsa.pub中的内容；</li>
+<li>验证： ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;</a><br> 出现 Hi xxx! You’ve successfully authenticated, but GitHub does not provide shell access. 说明配置成功，可以连接上 Github</li>
+</ol>
+<h2 id="使用-gitignore-文件忽略指定的内容："><a href="#使用-gitignore-文件忽略指定的内容：" class="headerlink" title="使用 .gitignore 文件忽略指定的内容："></a>使用 .gitignore 文件忽略指定的内容：</h2><ol>
+<li>在本地仓库根目录创建 .gitignore 文件。Win7 下不能直接创建，可以创建 “.gitignore.” 文件，后面的标点自动被忽略；</li>
+<li>过滤文件和文件夹： [Tt]emp&#x2F; 过滤 Temp\temp 文件夹； *.suo 过滤 .suo 文件；</li>
+<li>不过滤文件和文件夹： !*.c;</li>
+</ol>
 
         </div>
 
@@ -268,15 +304,15 @@
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=git常用操作 - Ant-Thinker&url=https://jakemama.github.io/2022/09/13/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
+            href="https://twitter.com/share?text=git常用操作 - Jake Ma&url=https://jakemama.github.io/2022/09/13/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=git常用操作 - Ant-Thinker&u=https://jakemama.github.io/2022/09/13/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
+            href="https://www.facebook.com/sharer.php?title=git常用操作 - Jake Ma&u=https://jakemama.github.io/2022/09/13/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=git常用操作 - Ant-Thinker&url=https://jakemama.github.io/2022/09/13/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&pic=">
+            href="https://service.weibo.com/share/share.php?title=git常用操作 - Jake Ma&url=https://jakemama.github.io/2022/09/13/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
@@ -341,7 +377,7 @@
   <div class="widget-wrap widget-tags">
     <div class="widget-title"><span>Tags</span></div>
     <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E9%89%B4%E6%9D%83/" rel="tag">互联网鉴权</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
     </div>
   </div>
 
@@ -354,23 +390,23 @@
       <ul>
         
           <li>
-            <a href="/2023/01/03/git%E7%9A%84ssh%E9%93%BE%E6%8E%A5%E9%97%AE%E9%A2%98/">git报错kex_exchange_identification: Connection closed by remote host</a>
+            <a href="/2023/02/14/%E6%95%99%E4%BD%A0%E4%BD%BF%E7%94%A8%E6%96%B0%E5%BF%85%E5%BA%94bing/">教你使用新必应bing</a>
           </li>
         
           <li>
-            <a href="/2023/01/03/%E5%BD%93%E8%B4%9DDBH2%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90%E7%BF%BB%E5%A2%99%E8%A7%82%E7%9C%8BYouTube/">当贝DBH2电视盒子翻墙观看YouTube</a>
+            <a href="/2023/02/13/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%89%8D%E5%90%8E%E7%AB%AF%E9%89%B4%E6%9D%83/">一文搞懂常用前后端鉴权方式</a>
           </li>
         
           <li>
-            <a href="/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2022年终总结</a>
+            <a href="/2023/02/10/chatGPT%E4%BC%9A%E6%98%AF%E9%93%B6%E5%BC%B9%E5%90%97/">chatGPT会是银弹吗</a>
           </li>
         
           <li>
-            <a href="/2022/11/23/axios%E5%B0%81%E8%A3%85%E6%96%B9%E6%A1%88/">axios封装方案</a>
+            <a href="/2023/02/06/vue%20init%20webpack%20project%20%E8%B6%85%E6%97%B6%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">vue init webpack project 超时报错解决方案</a>
           </li>
         
           <li>
-            <a href="/2022/11/01/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%BA%93%E3%80%81%E6%96%B9%E6%A1%88/">前端常用库、方案</a>
+            <a href="/2023/02/02/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">一文掌握常用正则表达式</a>
           </li>
         
       </ul>
@@ -405,7 +441,7 @@
     <!-- 开源不易，请勿删除 -->
     <div class="footer-wrap">
         <div class="footer-inner"> 
-            Ant-Thinker &copy; 2023<br>
+            Jake Ma &copy; 2023<br>
             Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
         </div>
     </div>

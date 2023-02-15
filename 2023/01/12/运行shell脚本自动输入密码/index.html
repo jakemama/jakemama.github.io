@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>运行shell脚本自动输入密码 | Jake Ma</title>
+
+    <meta name="description" content="&lt;p&gt;最近因为在研究云服务器相关的部署问题，所以会经常连接远程服务器的时候输入密码，这也算是一个机械化操作，所以就想着写个shell脚本，这样可以一键执行一系列操作，提升开发效率。&lt;/p&gt;
+&lt;p&gt;不过在这中间遇到一个问题，就是如何添加一些交互动作，例如密码的输入或者选项的选择，这样可以让shell脚本更加强大和便捷。&lt;/p&gt;
+&lt;p&gt;目前实现方法主要有三种&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用管道（上一个命令的 stdout 接到下一个命令的 stdin）&lt;/li&gt;
+&lt;li&gt;使用文本块输入重定向&lt;/li&gt;
+&lt;li&gt;使用 expect 脚本（使用的是expect解释器，不是bash了）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下面进行详细分析&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客 前端 程序员 frontend program">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "运行shell脚本自动输入密码 | Jake Ma"  />
+    <meta property="og:description" content= "&lt;p&gt;最近因为在研究云服务器相关的部署问题，所以会经常连接远程服务器的时候输入密码，这也算是一个机械化操作，所以就想着写个shell脚本，这样可以一键执行一系列操作，提升开发效率。&lt;/p&gt;
+&lt;p&gt;不过在这中间遇到一个问题，就是如何添加一些交互动作，例如密码的输入或者选项的选择，这样可以让shell脚本更加强大和便捷。&lt;/p&gt;
+&lt;p&gt;目前实现方法主要有三种&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用管道（上一个命令的 stdout 接到下一个命令的 stdin）&lt;/li&gt;
+&lt;li&gt;使用文本块输入重定向&lt;/li&gt;
+&lt;li&gt;使用 expect 脚本（使用的是expect解释器，不是bash了）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下面进行详细分析&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2023/01/12/%E8%BF%90%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;最近因为在研究云服务器相关的部署问题，所以会经常连接远程服务器的时候输入密码，这也算是一个机械化操作，所以就想着写个shell脚本，这样可以一键执行一系列操作，提升开发效率。&lt;/p&gt;
+&lt;p&gt;不过在这中间遇到一个问题，就是如何添加一些交互动作，例如密码的输入或者选项的选择，这样可以让shell脚本更加强大和便捷。&lt;/p&gt;
+&lt;p&gt;目前实现方法主要有三种&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用管道（上一个命令的 stdout 接到下一个命令的 stdin）&lt;/li&gt;
+&lt;li&gt;使用文本块输入重定向&lt;/li&gt;
+&lt;li&gt;使用 expect 脚本（使用的是expect解释器，不是bash了）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下面进行详细分析&lt;/p&gt;" />
+    <meta name="twitter:title" content="运行shell脚本自动输入密码 | Jake Ma"/>
+    <meta name="twitter:description" content="&lt;p&gt;最近因为在研究云服务器相关的部署问题，所以会经常连接远程服务器的时候输入密码，这也算是一个机械化操作，所以就想着写个shell脚本，这样可以一键执行一系列操作，提升开发效率。&lt;/p&gt;
+&lt;p&gt;不过在这中间遇到一个问题，就是如何添加一些交互动作，例如密码的输入或者选项的选择，这样可以让shell脚本更加强大和便捷。&lt;/p&gt;
+&lt;p&gt;目前实现方法主要有三种&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用管道（上一个命令的 stdout 接到下一个命令的 stdin）&lt;/li&gt;
+&lt;li&gt;使用文本块输入重定向&lt;/li&gt;
+&lt;li&gt;使用 expect 脚本（使用的是expect解释器，不是bash了）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下面进行详细分析&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;最近因为在研究云服务器相关的部署问题，所以会经常连接远程服务器的时候输入密码，这也算是一个机械化操作，所以就想着写个shell脚本，这样可以一键执行一系列操作，提升开发效率。&lt;/p&gt;
+&lt;p&gt;不过在这中间遇到一个问题，就是如何添加一些交互动作，例如密码的输入或者选项的选择，这样可以让shell脚本更加强大和便捷。&lt;/p&gt;
+&lt;p&gt;目前实现方法主要有三种&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用管道（上一个命令的 stdout 接到下一个命令的 stdin）&lt;/li&gt;
+&lt;li&gt;使用文本块输入重定向&lt;/li&gt;
+&lt;li&gt;使用 expect 脚本（使用的是expect解释器，不是bash了）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下面进行详细分析&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2023/01/12/%E8%BF%90%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "运行shell脚本自动输入密码 | Jake Ma",
+            "datePublished": "2023-01-12T08:44:20.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2023/01/12/%E8%BF%90%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="42fac59586a27a38cc623ad379ef6337" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Jake Ma</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cle5tfxqd006pxkuq07dq00bl" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      运行shell脚本自动输入密码
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-01-12T08:44:20.000Z" itemprop="datePublished">2023-01-12</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>最近因为在研究云服务器相关的部署问题，所以会经常连接远程服务器的时候输入密码，这也算是一个机械化操作，所以就想着写个shell脚本，这样可以一键执行一系列操作，提升开发效率。</p>
+<p>不过在这中间遇到一个问题，就是如何添加一些交互动作，例如密码的输入或者选项的选择，这样可以让shell脚本更加强大和便捷。</p>
+<p>目前实现方法主要有三种</p>
+<ol>
+<li>使用管道（上一个命令的 stdout 接到下一个命令的 stdin）</li>
+<li>使用文本块输入重定向</li>
+<li>使用 expect 脚本（使用的是expect解释器，不是bash了）</li>
+</ol>
+<p>下面进行详细分析</p>
+<span id="more"></span>
+
+<h2 id="使用管道"><a href="#使用管道" class="headerlink" title="使用管道"></a>使用管道</h2><p>可以这样写shell文件</p>
+<pre><code class="bash">#!/bin/bash
+echo yourpassword | sudo -S apt-get update
+</code></pre>
+<p>通过使用管道符“｜”，可以将上一个命令的 stdout 作为下一个命令的 stdin。这样就可以实现自动为 sudo 命令填写用户密码了。</p>
+<h2 id="使用文本块输入重定向"><a href="#使用文本块输入重定向" class="headerlink" title="使用文本块输入重定向"></a>使用文本块输入重定向</h2><p>可以这样写shell文件</p>
+<pre><code class="bash">#!/bin/bash
+sudo -S apt-get update &lt;&lt; EOF 
+yourpassword
+EOF
+</code></pre>
+<p>说明：在shell脚本中，通常将EOF与 &lt;&lt; 结合使用，表示后续的输入作为子命令或子Shell的输入，直到遇到EOF为止，再返回到主Shell,即将‘你的密码’当做命令的输入</p>
+<blockquote>
+<p>-S参数的作用：<strong>加上-S参数 sudo才会从标准输入中读取密码，不加-S参数以上命令将起不到作用</strong></p>
+</blockquote>
+<p>可以通过man sudo命令找到对应的手册解释</p>
+<pre><code>Write the prompt to the standard error and read the password from the standard inputinstead of using the terminal device. 
+The password must be followed by a newline character.
+</code></pre>
+<h2 id="使用expect脚本"><a href="#使用expect脚本" class="headerlink" title="使用expect脚本"></a>使用expect脚本</h2><p>上面两种方法很常用，但是都有一个问题，就是一条命令只能输入一次。如果多次的话就无能为力。</p>
+<p>例如使用sudo命令使用ssh登录远程服务器时，需要先输入用户root密码，再输入远程服务器的密码。这是再使用上面两种方法就很难实现了，需要用到我们接下来介绍的expect脚本</p>
+<p>首先我们要知道一些shell脚本的基础</p>
+<h3 id="shell脚本的运行方式"><a href="#shell脚本的运行方式" class="headerlink" title="shell脚本的运行方式"></a>shell脚本的运行方式</h3><p>首先要说一下shell的几种启动方式，同时也使得我们运行shell，知其所以然。</p>
+<h4 id="通过文件名执行"><a href="#通过文件名执行" class="headerlink" title="通过文件名执行"></a>通过文件名执行</h4><p>shell脚本可以直接通过文件名执行，需要注意的是文件需要执行权限。如果直接运行shell脚本显示没有权限，可以通过 <code>sudo chmod +x ./file_name.sh</code> 来给文件添加执行权限；</p>
+<pre><code class="bash"># 给文件添加执行权限
+sudo chmod +x ./file_name.sh
+</code></pre>
+<h4 id="指定脚本解释器来执行文件"><a href="#指定脚本解释器来执行文件" class="headerlink" title="指定脚本解释器来执行文件"></a>指定脚本解释器来执行文件</h4><p>我们常用的 <code>sh file_name.sh</code> 就是指定了脚本解释器 <code>/bin/sh</code>来解释执行脚本；常见的脚本解释器还有：<code>/bin/bash</code>等，我们可以使用<code>ls -l /bin/*sh</code>命令来查看当前可用的脚本解释器；</p>
+<h4 id="使用-x2F-file-name或source命令执行脚本"><a href="#使用-x2F-file-name或source命令执行脚本" class="headerlink" title="使用 .&#x2F;file_name或source命令执行脚本"></a>使用 .&#x2F;file_name或source命令执行脚本</h4><p>这种方式不会像前两种方式一样fork一个子进程去执行脚本，而是使用当前shell环境执行，用于 <code>.bashrc</code>或者<code>.bash_profile</code>被修改的时候，我们不必重启shell或者重新登录系统，就能使当前的更改生效。</p>
+<p>例如修改<code>.bashrc</code>, <code>.zshrc</code>, <code>.bash_profile</code> 文件之后，需要执行一下下面的source命令才能生效</p>
+<pre><code>source ~/.zshrc
+</code></pre>
+<h3 id="shell脚本的shebang属性"><a href="#shell脚本的shebang属性" class="headerlink" title="shell脚本的shebang属性"></a>shell脚本的shebang属性</h3><p>我们写一个shell脚本时，总是习惯在最前面加上一行 <code>#!/binbash</code>,它就是脚本的<code>shebang</code>,至于为什么叫这么个奇怪的名字，C语言和Unix的开发者丹尼斯·里奇称它为可能是类似于”hash-bang”的英国风描述性文字；</p>
+<p>贴一段wiki上的解释:</p>
+<blockquote>
+<p>在计算机科学中，Shebang是一个由井号和叹号构成的字符串行，其出现在文本文件的第一行的前两个字符。 在文件中存在Shebang的情况下，类Unix操作系统的程序载入器会分析Shebang后的内容，将这些内容作为解释器指令，并调用该指令，并将载有Shebang的文件路径作为该解释器的参数。</p>
+</blockquote>
+<p>简单的说，它<strong>指示了此脚本运行时的解释器</strong>，所以，使用文件名直接执行shell脚本时，必须带上shebang; 此外，我们还可以在shebang后面直接附加选项，执行时我们默认使用选项执行；</p>
+<p>如 <code>test.sh</code>的<code>shebang</code>为 <code>#!/bin/sh -x</code>，那我们执行脚本时:</p>
+<pre><code class="bsh">./test.sh hello
+</code></pre>
+<p>相当于：</p>
+<pre><code class="bsh">bin/sh -x ./test.sh hello;
+</code></pre>
+<p>而编写一个ssh自动登陆脚本，需要用到的shebang(解释器)为 <code>/usr/bin/expect</code>;</p>
+<blockquote>
+<p>需要注意的是：在指定脚本解释器来执行脚本时，shebang会被指定的脚本解释器覆盖，即优先使用指定的脚本解释器来执行脚本（习惯性地用sh .&#x2F;test.sh却提示command not found）</p>
+</blockquote>
+<h3 id="expect解释器"><a href="#expect解释器" class="headerlink" title="expect解释器"></a>expect解释器</h3><p>expect是一个能实现自动和交互式任务的解释器，它也能解释常见的shell语法命令，其特色在以下几个命令：</p>
+<h4 id="spawn命令："><a href="#spawn命令：" class="headerlink" title="spawn命令："></a>spawn命令：</h4><p>spawn command命令会fork一个子进程去执行command命令，然后在此子进程中执行后面的命令；</p>
+<p>在ssh自动登陆脚本中，我们使用 spawn ssh user_name@ip_str，fork一个子进程执行ssh登陆命令；</p>
+<h4 id="expect命令："><a href="#expect命令：" class="headerlink" title="expect命令："></a>expect命令：</h4><p>expect命令是expect解释器的关键命令，它的一般用法为 expect “string”,即期望获取到string字符串,可在在string字符串里使用 * 等通配符;</p>
+<p>string与命令行返回的信息匹配后，expect会立刻向下执行脚本；</p>
+<h4 id="set-timeout命令："><a href="#set-timeout命令：" class="headerlink" title="set timeout命令："></a>set timeout命令：</h4><p>set timeout n命令将expect命令的等待超时时间设置为n秒，在n秒内还没有获取到其期待的命令，expect 为false,脚本会继续向下执行；</p>
+<h4 id="send命令："><a href="#send命令：" class="headerlink" title="send命令："></a>send命令：</h4><p>send命令的一般用法为 send “string”,它们会我们平常输入命令一样向命令行输入一条信息，当然不要忘了在string后面添加上 \r 表示输入回车；</p>
+<h4 id="interact命令："><a href="#interact命令：" class="headerlink" title="interact命令："></a>interact命令：</h4><p>interact命令很简单，执行到此命令时，脚本fork的子进程会将操作权交给用户，允许用户与当前shell进行交互；</p>
+<h3 id="完整脚本实例"><a href="#完整脚本实例" class="headerlink" title="完整脚本实例"></a>完整脚本实例</h3><pre><code class="bash">#!/usr/bin/expect
+set timeout 5
+set passwd &quot;123456&quot;
+set pin 123456
+
+spawn sudo -S ssh username@192.***.***.***
+expect &#123;
+    &quot;(yes/no)?&quot; &#123;
+        send &quot;yes\n&quot;
+        expect &quot;password:&quot;
+        send &quot;$passwd\n&quot;
+    &#125;
+    &quot;Password:&quot; &#123;
+        send &quot;$pin\n&quot;
+        expect &quot;password:&quot;
+        send &quot;$passwd\n&quot;
+    &#125;
+    &quot;password:&quot; &#123;
+        send &quot;$passwd\n&quot;
+    &#125;
+&#125;
+interact
+</code></pre>
+<p>运行 .&#x2F;test.sh命令，一键登陆成功！</p>
+<p>简单的几个命令，，搭配起来解决了与命令行的交互问题后，很多复杂的功能也不在话下了~</p>
+<h3 id="expect脚本的一些注意事项"><a href="#expect脚本的一些注意事项" class="headerlink" title="expect脚本的一些注意事项"></a>expect脚本的一些注意事项</h3><ol>
+<li>可能不支持一些基本的shell命令，例如<code>echo</code>， 可能是因为expect解释器支持的命令有限，一般的做法是会有一个主shell文件使用bash等主流解释器，在主shell文件中调用一下对应的expect脚本，就可以用到bash命令了</li>
+<li>expect字段后面的参数支持正则匹配，并且默认区分大小写</li>
+<li>使用ssh登录功能的时候最后的interect是不可少的，不然进不去子shell，会直接执行完毕退出</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Britripe/article/details/114081200#:~:text=ubuntu%2Flinux%E8%BF%90%E8%A1%8Cshell%E8%84%9A%E6%9C%ACsudo%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%EF%BC%88%E4%BA%B2%E6%B5%8B%E5%8F%AF%E4%BB%A5%EF%BC%89%201%20%E8%BF%90%E8%A1%8C%E5%A6%82%E4%B8%8B%E4%BB%A3%E7%A0%81%E4%B8%BA%E4%BE%8B%20sudo%20apt-get%20update%202%20%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95,standard%20inputinstead%20of%20using%20the%20terminal%20device.%20">ubuntu&#x2F;linux运行shell脚本sudo自动输入密码（亲测可以）</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/f_zyj/article/details/85563926">脚本链接 ssh 自动输入密码</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhenbianshu/p/5867440.html">shell实现SSH自动登陆</a></li>
+</ol>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2023/02/01/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8css%E7%9F%A5%E8%AF%86%E7%82%B9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          一文掌握常用css知识点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/01/06/%E6%9C%AC%E5%9C%B0%E5%90%91%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">本地向云服务器上传文件</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=运行shell脚本自动输入密码 - Jake Ma&url=https://jakemama.github.io/2023/01/12/%E8%BF%90%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=运行shell脚本自动输入密码 - Jake Ma&u=https://jakemama.github.io/2023/01/12/%E8%BF%90%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=运行shell脚本自动输入密码 - Jake Ma&url=https://jakemama.github.io/2023/01/12/%E8%BF%90%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E9%89%B4%E6%9D%83/" rel="tag">互联网鉴权</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/14/%E6%95%99%E4%BD%A0%E4%BD%BF%E7%94%A8%E6%96%B0%E5%BF%85%E5%BA%94bing/">教你使用新必应bing</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/13/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%89%8D%E5%90%8E%E7%AB%AF%E9%89%B4%E6%9D%83/">一文搞懂常用前后端鉴权方式</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/10/chatGPT%E4%BC%9A%E6%98%AF%E9%93%B6%E5%BC%B9%E5%90%97/">chatGPT会是银弹吗</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/06/vue%20init%20webpack%20project%20%E8%B6%85%E6%97%B6%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">vue init webpack project 超时报错解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/02/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">一文掌握常用正则表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Jake Ma &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

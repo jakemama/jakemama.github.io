@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>本地向云服务器上传文件 | Jake Ma</title>
+
+    <meta name="description" content="马一栋的个人博客">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客 前端 程序员 frontend program">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "本地向云服务器上传文件 | Jake Ma"  />
+    <meta property="og:description" content= "马一栋的个人博客" />
+    <meta property="og:url" content="https://jakemama.github.io/2023/01/06/%E6%9C%AC%E5%9C%B0%E5%90%91%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="马一栋的个人博客" />
+    <meta name="twitter:title" content="本地向云服务器上传文件 | Jake Ma"/>
+    <meta name="twitter:description" content="马一栋的个人博客"/>
+    <script type="application/ld+json">
+        {
+            "description": "马一栋的个人博客",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2023/01/06/%E6%9C%AC%E5%9C%B0%E5%90%91%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "本地向云服务器上传文件 | Jake Ma",
+            "datePublished": "2023-01-06T06:41:01.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2023/01/06/%E6%9C%AC%E5%9C%B0%E5%90%91%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="42fac59586a27a38cc623ad379ef6337" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Jake Ma</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="tweet">
+    <article id="tweet-cle5tfxqd006rxkuq3e43exk2" class="article article-type-tweet" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+
+        <div class="article-more-info article-more-info-tweet hairline">
+
+            <div class="article-date">
+  <time datetime="2023-01-06T06:41:01.000Z" itemprop="datePublished">2023-01-06</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="通过scp本地向云服务器上传文件"><a href="#通过scp本地向云服务器上传文件" class="headerlink" title="通过scp本地向云服务器上传文件"></a>通过scp本地向云服务器上传文件</h2><pre><code>sudo scp -P 22 -r ./README.md root@********:../usr/local/development/
+</code></pre>
+<ul>
+<li>.&#x2F;REMADME.md 为你要上传的文件，也可以上传文件夹，不过还是建议压缩成包上传</li>
+<li>root@********，这部分为了是用ssh远程连接你的主机，星号是你服务器的公网地址</li>
+<li>..&#x2F;usr&#x2F;local&#x2F;development&#x2F;，你要在云服务器放文件的位置，云服务器登入后默认是root&#x2F;路径，去usr等其他文件路径要用..&#x2F;</li>
+</ul>
+
+        </div>
+
+    </div>
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2023/01/12/%E8%BF%90%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          运行shell脚本自动输入密码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/01/04/mongodump%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">mongodump备份数据记录</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=本地向云服务器上传文件 - Jake Ma&url=https://jakemama.github.io/2023/01/06/%E6%9C%AC%E5%9C%B0%E5%90%91%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=本地向云服务器上传文件 - Jake Ma&u=https://jakemama.github.io/2023/01/06/%E6%9C%AC%E5%9C%B0%E5%90%91%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=本地向云服务器上传文件 - Jake Ma&url=https://jakemama.github.io/2023/01/06/%E6%9C%AC%E5%9C%B0%E5%90%91%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E9%89%B4%E6%9D%83/" rel="tag">互联网鉴权</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/14/%E6%95%99%E4%BD%A0%E4%BD%BF%E7%94%A8%E6%96%B0%E5%BF%85%E5%BA%94bing/">教你使用新必应bing</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/13/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%89%8D%E5%90%8E%E7%AB%AF%E9%89%B4%E6%9D%83/">一文搞懂常用前后端鉴权方式</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/10/chatGPT%E4%BC%9A%E6%98%AF%E9%93%B6%E5%BC%B9%E5%90%97/">chatGPT会是银弹吗</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/06/vue%20init%20webpack%20project%20%E8%B6%85%E6%97%B6%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">vue init webpack project 超时报错解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/02/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">一文掌握常用正则表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Jake Ma &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

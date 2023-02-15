@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>一文掌握常用css知识点 | Jake Ma</title>
+
+    <meta name="description" content="&lt;p&gt;常用css知识点整理，方便复习和查询&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客 前端 程序员 frontend program">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "一文掌握常用css知识点 | Jake Ma"  />
+    <meta property="og:description" content= "&lt;p&gt;常用css知识点整理，方便复习和查询&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2023/02/01/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8css%E7%9F%A5%E8%AF%86%E7%82%B9/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;常用css知识点整理，方便复习和查询&lt;/p&gt;" />
+    <meta name="twitter:title" content="一文掌握常用css知识点 | Jake Ma"/>
+    <meta name="twitter:description" content="&lt;p&gt;常用css知识点整理，方便复习和查询&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;常用css知识点整理，方便复习和查询&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2023/02/01/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8css%E7%9F%A5%E8%AF%86%E7%82%B9/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "一文掌握常用css知识点 | Jake Ma",
+            "datePublished": "2023-02-01T06:57:40.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2023/02/01/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8css%E7%9F%A5%E8%AF%86%E7%82%B9/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="42fac59586a27a38cc623ad379ef6337" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Jake Ma</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cle5tfxqe0070xkuq60ta7v1h" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      一文掌握常用css知识点
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-01T06:57:40.000Z" itemprop="datePublished">2023-02-01</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>常用css知识点整理，方便复习和查询</p>
+<span id="more"></span>
+<h2 id="1-文字溢出处理"><a href="#1-文字溢出处理" class="headerlink" title="1.文字溢出处理"></a>1.文字溢出处理</h2><p>单行文字溢出</p>
+<pre><code class="less">&#123;
+  overflow: hidden;            // 溢出隐藏
+  text-overflow: ellipsis;      // 溢出用省略号显示
+  white-space: nowrap;         // 规定段落中的文本不进行换行
+&#125;
+</code></pre>
+<p>多行文字溢出</p>
+<pre><code class="less">&#123;
+  overflow: hidden;            // 溢出隐藏
+  text-overflow: ellipsis;     // 溢出用省略号显示
+  display:-webkit-box;         // 作为弹性伸缩盒子模型显示。
+  -webkit-box-orient:vertical; // 设置伸缩盒子的子元素排列方式：从上到下垂直排列
+  -webkit-line-clamp:3;        // 显示的行数
+&#125;
+</code></pre>
+<h2 id="2-css变量"><a href="#2-css变量" class="headerlink" title="2. css变量"></a>2. css变量</h2><p>css变量一般在:root中定义，形式为–var，在css中通过var()函数使用</p>
+<pre><code class="less">:root &#123;
+ --c-color: orange;
+&#125;
+.title &#123;
+ background-color: var(--c-color);
+&#125;
+</code></pre>
+<h2 id="3-渐变"><a href="#3-渐变" class="headerlink" title="3. 渐变"></a>3. 渐变</h2><pre><code class="less">.class &#123;
+  //渐变(方向)
+  background: linear-gradient(to right, rgba(255, 255, 255, 0),#3FB6F7,rgba(255,255,255,0));
+
+  //渐变(角度)
+  background: linear-gradient(88deg, #4DF7BF 0%, rgba(77, 247, 191, 0.26) 12%, rgba(77, 247, 191, 0) 100%);
+&#125;
+</code></pre>
+<p>边框渐变：border有个border-image的属性，类似background也有个background-image一样,通过为其设置渐变颜色后，实现的渐变，后面的数字4为x方向偏移量</p>
+<pre><code class="less">.border-grident&#123;
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  border: 4px solid;
+  border-image: linear-gradient(to right, #8f41e9, #578aef) 4;
+&#125;
+</code></pre>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230201152736.png" alt="边框渐变"></p>
+<h2 id="4-background-size：cover和contain以及100"><a href="#4-background-size：cover和contain以及100" class="headerlink" title="4. background-size：cover和contain以及100%"></a>4. background-size：cover和contain以及100%</h2><p>contain:图片放大至满足背景区域的最小边即止，当背景区域与背景图片的宽高比不一致的情况下，背景区域可能会长边下有空白覆盖不全。</p>
+<p>cover:图片放大至能满足最大变时为止，当背景区域与背景图片的宽高比不一致时，背景图片会在短边下有裁切，显示不全。</p>
+<p>百分比:可以设置两个值，第一个设置宽度，第二个设置高度。如果只设置了一个值，那么第二个值默认会被设置为auto</p>
+<h2 id="5-css伪类三角"><a href="#5-css伪类三角" class="headerlink" title="5. css伪类三角"></a>5. css伪类三角</h2><p>伪类三角利用border边框来实现，首先将一个正方形分成4个三角形</p>
+<pre><code class="less">.triangle &#123;
+    width: 0;
+    height: 0;
+    border: 100px solid;
+    border-color: orangered skyblue gold yellowgreen;
+&#125;
+</code></pre>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230201153417.png" alt="四个三角形"></p>
+<p>如果想要一个「下」三角形，则让「上」边框可见，其他边框为不可见</p>
+<pre><code class="less">.down-triangle &#123;
+    width: 0;
+    height: 0;
+    border-top: 50px solid skyblue;
+    border-right: 50px solid transparent;
+    border-left: 50px solid transparent;
+&#125;
+</code></pre>
+<p>通过调整四条border的宽度，可以实现任意形状三角形</p>
+<h2 id="6-媒体查询"><a href="#6-媒体查询" class="headerlink" title="6. 媒体查询"></a>6. 媒体查询</h2><p>首先页面头部必须有meta关于viewport的声明</p>
+<pre><code class="html">&lt;meta name=&quot;’viewport’&quot; content=&quot;”width=device-width,&quot; initial-scale=&quot;1.&quot; maximum-scale=&quot;1,user-scalable=no”&quot;/&gt;
+</code></pre>
+<p>做响应式布局的时候，以及大屏的时候很常用的，从而在不同分辨率下，实现不同的展示效果</p>
+<pre><code class="css">/* 超过1920分辨率后显示多列 */
+@media screen and (min-width:1920px) &#123;
+  .car_box.el-card &#123;
+    min-width: 450px !important;
+    width: 450px !important;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="7-vue-修改-elementUI-样式"><a href="#7-vue-修改-elementUI-样式" class="headerlink" title="7. vue 修改 elementUI 样式"></a>7. vue 修改 elementUI 样式</h2><p>vue，在修改elementui的样式真的是苦不堪言。style使用css的预处理器(less, sass, scss)的写法如下</p>
+<pre><code class="less">// 第一种/deep/
+/deep/ .test &#123;
+ ***
+&#125;
+
+// 第二种::v-deep
+::v-deep .test&#123;
+ ***
+&#125;
+</code></pre>
+<p>修改elementui中table的全部样式，下面就来一一对应的去修改下的：</p>
+<pre><code class="less">// 修改表格头部背景
+::v-deep .el-table th&#123;
+    background: orange;
+  &#125;
+
+// 修改表格行背景
+::v-deep .el-table tr&#123;
+   background: #eee;
+  &#125;
+
+// 修改斑马线表格的背景
+::v-deep .el-table--striped .el-table__body tr.el-table__row--striped td &#123;
+    background: #ccc;
+  &#125;
+
+// 修改行内线的颜色
+::v-deep .el-table td,.building-top .el-table th.is-leaf &#123;
+    border-bottom:  2px solid #eee;
+  &#125;
+
+// 修改表格最底部边框颜色和高度
+::v-deep .el-table::before&#123;
+   border-bottom:  1px solid #ccc;
+    height: 3px
+  &#125;
+
+// 修改表头字体颜色
+::v-deep .el-table thead &#123;
+    color: #ccc;
+    font-weight: 700;
+  &#125;
+
+// 修改表格内容字体颜色和字体大小：
+::v-deep .el-table&#123;
+    color: #6B91CE;
+    font-size: 14px;
+  &#125;
+
+// 修改表格无数据的时候背景，字体颜色
+
+::v-deep .el-table__empty-block&#123;
+    background: #ccc;
+  &#125;
+::v-deep .el-table__empty-text&#123;
+  color: #fff
+&#125;
+
+// 修改表格鼠标悬浮hover背景色
+
+::v-deep .el-table--enable-row-hover .el-table__body tr:hover&gt;td &#123;
+    background-color: pink;
+&#125;
+</code></pre>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2023/02/02/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          一文掌握常用正则表达式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/01/12/%E8%BF%90%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">运行shell脚本自动输入密码</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=一文掌握常用css知识点 - Jake Ma&url=https://jakemama.github.io/2023/02/01/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8css%E7%9F%A5%E8%AF%86%E7%82%B9/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=一文掌握常用css知识点 - Jake Ma&u=https://jakemama.github.io/2023/02/01/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8css%E7%9F%A5%E8%AF%86%E7%82%B9/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=一文掌握常用css知识点 - Jake Ma&url=https://jakemama.github.io/2023/02/01/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8css%E7%9F%A5%E8%AF%86%E7%82%B9/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E9%89%B4%E6%9D%83/" rel="tag">互联网鉴权</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/14/%E6%95%99%E4%BD%A0%E4%BD%BF%E7%94%A8%E6%96%B0%E5%BF%85%E5%BA%94bing/">教你使用新必应bing</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/13/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%89%8D%E5%90%8E%E7%AB%AF%E9%89%B4%E6%9D%83/">一文搞懂常用前后端鉴权方式</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/10/chatGPT%E4%BC%9A%E6%98%AF%E9%93%B6%E5%BC%B9%E5%90%97/">chatGPT会是银弹吗</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/06/vue%20init%20webpack%20project%20%E8%B6%85%E6%97%B6%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">vue init webpack project 超时报错解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/02/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">一文掌握常用正则表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Jake Ma &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
