@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>web拥有的端上性能 | Jake Ma</title>
+
+    <meta name="description" content="&lt;p&gt;首先问大家一个问题，现在有一项业务需求，这个需求使用客户端应用实现还是网页来实现你会考虑哪些因素呢？可以在评论区告诉我。&lt;/p&gt;
+&lt;p&gt;曾几何时，想到网页可能我们第一时间想到的就是一些静态页面，但是经过数十年的蓬勃发展，网页开始承接越来越复杂的需求，包括复杂的管理系统、网络直播、云游戏等能力。&lt;/p&gt;
+&lt;p&gt;但或许你仍然会认为相比可以和系统底层直接交互的原生客户端应用还是太弱了，我们可能会因为浏览器“缺失” 了某一项能力而被迫选择开发一个客户端应用。&lt;/p&gt;
+&lt;p&gt;为此 Google 启动了一个名为 Fugu 的项目，它的目标就是让开发者能够在 Web 生态中做任何事情，包括以前只有客户端应用才能做的事情。&lt;/p&gt;
+&lt;p&gt;在 Fugu 项目中， Google 为 Chrome 规划了数百项能力，如今进展已经过半，我们一起来看看浏览器现在拥有了哪些或许你还不知道的能力吧 …&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客 前端 程序员 frontend program">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "web拥有的端上性能 | Jake Ma"  />
+    <meta property="og:description" content= "&lt;p&gt;首先问大家一个问题，现在有一项业务需求，这个需求使用客户端应用实现还是网页来实现你会考虑哪些因素呢？可以在评论区告诉我。&lt;/p&gt;
+&lt;p&gt;曾几何时，想到网页可能我们第一时间想到的就是一些静态页面，但是经过数十年的蓬勃发展，网页开始承接越来越复杂的需求，包括复杂的管理系统、网络直播、云游戏等能力。&lt;/p&gt;
+&lt;p&gt;但或许你仍然会认为相比可以和系统底层直接交互的原生客户端应用还是太弱了，我们可能会因为浏览器“缺失” 了某一项能力而被迫选择开发一个客户端应用。&lt;/p&gt;
+&lt;p&gt;为此 Google 启动了一个名为 Fugu 的项目，它的目标就是让开发者能够在 Web 生态中做任何事情，包括以前只有客户端应用才能做的事情。&lt;/p&gt;
+&lt;p&gt;在 Fugu 项目中， Google 为 Chrome 规划了数百项能力，如今进展已经过半，我们一起来看看浏览器现在拥有了哪些或许你还不知道的能力吧 …&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2023/02/22/web%E6%8B%A5%E6%9C%89%E7%9A%84%E7%AB%AF%E4%B8%8A%E6%80%A7%E8%83%BD/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;首先问大家一个问题，现在有一项业务需求，这个需求使用客户端应用实现还是网页来实现你会考虑哪些因素呢？可以在评论区告诉我。&lt;/p&gt;
+&lt;p&gt;曾几何时，想到网页可能我们第一时间想到的就是一些静态页面，但是经过数十年的蓬勃发展，网页开始承接越来越复杂的需求，包括复杂的管理系统、网络直播、云游戏等能力。&lt;/p&gt;
+&lt;p&gt;但或许你仍然会认为相比可以和系统底层直接交互的原生客户端应用还是太弱了，我们可能会因为浏览器“缺失” 了某一项能力而被迫选择开发一个客户端应用。&lt;/p&gt;
+&lt;p&gt;为此 Google 启动了一个名为 Fugu 的项目，它的目标就是让开发者能够在 Web 生态中做任何事情，包括以前只有客户端应用才能做的事情。&lt;/p&gt;
+&lt;p&gt;在 Fugu 项目中， Google 为 Chrome 规划了数百项能力，如今进展已经过半，我们一起来看看浏览器现在拥有了哪些或许你还不知道的能力吧 …&lt;/p&gt;" />
+    <meta name="twitter:title" content="web拥有的端上性能 | Jake Ma"/>
+    <meta name="twitter:description" content="&lt;p&gt;首先问大家一个问题，现在有一项业务需求，这个需求使用客户端应用实现还是网页来实现你会考虑哪些因素呢？可以在评论区告诉我。&lt;/p&gt;
+&lt;p&gt;曾几何时，想到网页可能我们第一时间想到的就是一些静态页面，但是经过数十年的蓬勃发展，网页开始承接越来越复杂的需求，包括复杂的管理系统、网络直播、云游戏等能力。&lt;/p&gt;
+&lt;p&gt;但或许你仍然会认为相比可以和系统底层直接交互的原生客户端应用还是太弱了，我们可能会因为浏览器“缺失” 了某一项能力而被迫选择开发一个客户端应用。&lt;/p&gt;
+&lt;p&gt;为此 Google 启动了一个名为 Fugu 的项目，它的目标就是让开发者能够在 Web 生态中做任何事情，包括以前只有客户端应用才能做的事情。&lt;/p&gt;
+&lt;p&gt;在 Fugu 项目中， Google 为 Chrome 规划了数百项能力，如今进展已经过半，我们一起来看看浏览器现在拥有了哪些或许你还不知道的能力吧 …&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;首先问大家一个问题，现在有一项业务需求，这个需求使用客户端应用实现还是网页来实现你会考虑哪些因素呢？可以在评论区告诉我。&lt;/p&gt;
+&lt;p&gt;曾几何时，想到网页可能我们第一时间想到的就是一些静态页面，但是经过数十年的蓬勃发展，网页开始承接越来越复杂的需求，包括复杂的管理系统、网络直播、云游戏等能力。&lt;/p&gt;
+&lt;p&gt;但或许你仍然会认为相比可以和系统底层直接交互的原生客户端应用还是太弱了，我们可能会因为浏览器“缺失” 了某一项能力而被迫选择开发一个客户端应用。&lt;/p&gt;
+&lt;p&gt;为此 Google 启动了一个名为 Fugu 的项目，它的目标就是让开发者能够在 Web 生态中做任何事情，包括以前只有客户端应用才能做的事情。&lt;/p&gt;
+&lt;p&gt;在 Fugu 项目中， Google 为 Chrome 规划了数百项能力，如今进展已经过半，我们一起来看看浏览器现在拥有了哪些或许你还不知道的能力吧 …&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2023/02/22/web%E6%8B%A5%E6%9C%89%E7%9A%84%E7%AB%AF%E4%B8%8A%E6%80%A7%E8%83%BD/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "web拥有的端上性能 | Jake Ma",
+            "datePublished": "2023-02-22T08:14:23.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2023/02/22/web%E6%8B%A5%E6%9C%89%E7%9A%84%E7%AB%AF%E4%B8%8A%E6%80%A7%E8%83%BD/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="42fac59586a27a38cc623ad379ef6337" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Jake Ma</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clfrie3p10073y2ww0nc0317q" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      web拥有的端上性能
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-22T08:14:23.000Z" itemprop="datePublished">2023-02-22</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>首先问大家一个问题，现在有一项业务需求，这个需求使用客户端应用实现还是网页来实现你会考虑哪些因素呢？可以在评论区告诉我。</p>
+<p>曾几何时，想到网页可能我们第一时间想到的就是一些静态页面，但是经过数十年的蓬勃发展，网页开始承接越来越复杂的需求，包括复杂的管理系统、网络直播、云游戏等能力。</p>
+<p>但或许你仍然会认为相比可以和系统底层直接交互的原生客户端应用还是太弱了，我们可能会因为浏览器“缺失” 了某一项能力而被迫选择开发一个客户端应用。</p>
+<p>为此 Google 启动了一个名为 Fugu 的项目，它的目标就是让开发者能够在 Web 生态中做任何事情，包括以前只有客户端应用才能做的事情。</p>
+<p>在 Fugu 项目中， Google 为 Chrome 规划了数百项能力，如今进展已经过半，我们一起来看看浏览器现在拥有了哪些或许你还不知道的能力吧 …</p>
+<span id="more"></span>
+<h2 id="和蓝牙设备交互-【Chrome-56】"><a href="#和蓝牙设备交互-【Chrome-56】" class="headerlink" title="和蓝牙设备交互 【Chrome 56】"></a><strong><strong>和蓝牙设备交互 【Chrome 56】</strong></strong></h2><p><code>Web Bluetooth API</code> 为浏览器提供了连接蓝牙设备并与之交互的能力。</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222163707.png"></p>
+<p>这意味着：你的网站可以直接连接你的运动手表，查看步数、心率等数据，可以直接控制你的蓝牙音响等等。而这些能力，之前你必须要下载一个 <code>App</code> 才能实现了 …</p>
+<p>获取是否支持蓝牙连接：</p>
+<pre><code class="jsx">navigator.bluetooth.getAvailability().then((available) =&gt; &#123;
+  if (available) &#123;
+    console.log(&quot;设备支持蓝牙连接!&quot;);
+  &#125; else &#123;
+    console.log(&quot;设备不支持蓝牙&quot;);
+  &#125;
+&#125;);
+</code></pre>
+<p>连接到蓝牙设备：</p>
+<pre><code class="jsx">navigator.bluetooth.requestDevice(&#123; filters: [&#123; services: [&#39;battery_service&#39;] &#125;] &#125;)
+.then(device =&gt; &#123;
+  // 获取设备名称 [ConardLi]
+  console.log(device.name);
+
+  // 连接远程 GATT Server.
+  return device.gatt.connect();
+&#125;)
+.then(server =&gt; &#123; /* … */ &#125;)
+.catch(error =&gt; &#123; console.error(error); &#125;);
+</code></pre>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://developer.chrome.com/articles/bluetooth/">https://developer.chrome.com/articles/bluetooth/</a></p>
+<h2 id="和-USB-设备交互【Chrome-61】"><a href="#和-USB-设备交互【Chrome-61】" class="headerlink" title="和 USB 设备交互【Chrome 61】"></a><strong><strong>和 USB 设备交互【Chrome 61】</strong></strong></h2><p><code>Web USB API</code> 为浏览器提供了和 <code>USB</code> 设备进行交互的能力。</p>
+<p>说到 <code>USB</code> ，你很有可能会立即想到键盘、鼠标、音频、视频和一些存储设备。</p>
+<p>这些非标准化的 <code>USB</code> 设备通常需要硬件供应商编写特定于平台的驱动程序和 <code>SDK</code>，开发非常繁琐。</p>
+<p>如果可以在 <code>Web</code> 上和 <code>USB</code> 进行交互，这意味着硬件制造商将能够为其设备构建跨平台的 <code>JavaScript SDK</code>，这将极大简化一个 <code>SDK</code> 的开发成本！另外，通过将 <code>USB</code> 引入 <code>Web</code>，也可以使得 <code>USB</code> 更安全、更易于使用。</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222163737.png"></p>
+<p>下面是一段简单的获取 <code>USB</code> 设备的代码：</p>
+<pre><code class="jsx">navigator.usb.getDevices().then(devices =&gt; &#123;
+  devices.forEach(device =&gt; &#123;
+    console.log(device.productName);      // &quot;[ConardLi] Arduino Micro &quot;
+    console.log(device.manufacturerName); // &quot;[ConardLi] Arduino LLC&quot;
+  &#125;);
+&#125;)
+</code></pre>
+<p>你还可以在 <code>Chrome</code> 的内部页面 <code>about://device-log</code> 方便的调试 <code>USB</code> 设备：</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222163754.png"></p>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://wicg.github.io/webusb/">https://wicg.github.io/webusb/</a></p>
+<h2 id="异步剪贴板【Chrome-76】"><a href="#异步剪贴板【Chrome-76】" class="headerlink" title="异步剪贴板【Chrome 76】"></a><strong><strong>异步剪贴板【Chrome 76】</strong></strong></h2><p>在以前，我们一般使用 <code>document.execCommand()</code> 进行剪贴板交互。虽然浏览器兼容性还不错，但这种剪切和粘贴的方法有明显的缺点：剪贴板访问是同步的，只能读写 <code>DOM</code>。</p>
+<p>对于少量文本的剪贴还好，但如果剪贴内容较大，在安全粘贴内容之前，可能还需要进行耗时的清理或图像解码，浏览器可能还需要从粘贴的文档加载或内联链接资源，这种情况下用户体验就比较糟糕了。</p>
+<p><code>Asynchronous Clipboard API</code> 的出现解决了这些问题，比如我们要将一段文本复制到剪贴板，可以调用一个异步的 <code>writeText</code> 函数：</p>
+<pre><code class="jsx">async function copyPageUrl() &#123;
+  try &#123;
+    await navigator.clipboard.writeText(location.href);
+    console.log(&#39;Page URL 已赋值到剪贴板&#39;);
+  &#125; catch (err) &#123;
+    console.error(&#39;失败了～);
+  &#125;
+&#125;
+</code></pre>
+<p>从剪贴板读取数据一样也可以是异步的：</p>
+<pre><code class="jsx">async function getClipboardContents() &#123;
+  try &#123;
+    const text = await navigator.clipboard.readText();
+    console.log(&#39;粘贴文本: &#39;, text);
+  &#125; catch (err) &#123;
+    console.error(&#39;读取剪贴板文本失败: &#39;, err);
+  &#125;
+&#125;
+</code></pre>
+<p>另外，<code>document.execCommand()</code>还有一个非常明显的问题就是权限控制过于宽松了，在很多情况下我们可能会担心网站是否会私自读取我们剪贴板的信息，<code>Asynchronous Clipboard API</code>仅支持 <code>HTTPS</code>页面，另外在读取剪贴板是会向用户发送许可，这保证了网页必须在用户同意的情况下才能读取剪贴板：</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222162235.png" alt="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222162235.png"></p>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/docs/Web/API/Clipboard_API">https://developer.mozilla.org/docs/Web/API/Clipboard_API</a></p>
+<h2 id="应用安装【Chrome-80】"><a href="#应用安装【Chrome-80】" class="headerlink" title="应用安装【Chrome 80】"></a><strong><strong>应用安装【Chrome 80】</strong></strong></h2><p><code>getInstalledRelatedApps</code> 方法可以让浏览器知道某些应用程序是否已在电脑上安装了，当然目前仅限于 <code>Android、Windows</code> 或 <code>PWA</code> 应用。</p>
+<pre><code class="jsx">const relatedApps = await navigator.getInstalledRelatedApps();
+relatedApps.forEach((app) =&gt; &#123;
+// 注意只能获取到已经授权的应用，并不是所有应用
+  console.log(app.id, app.platform, app.url);
+&#125;);
+</code></pre>
+<p>想象一下你开发了一个产品的官网，在用户下载页面你可以根据应用的安装状态提示用户是下载还是更新，甚至可以直接打开应用…</p>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://github.com/WICG/get-installed-related-apps">https://github.com/WICG/get-installed-related-apps</a></p>
+<h2 id="获取联系人【Chrome-80】"><a href="#获取联系人【Chrome-80】" class="headerlink" title="获取联系人【Chrome 80】"></a><strong><strong>获取联系人【Chrome 80】</strong></strong></h2><p>在以前，能够在移动设备上访问用户的联系人一直是移动 <code>Web</code> 应用开发者最想要的功能之一，这也是促使他们必须选择开发一个 <code>App</code> 的重要原因…</p>
+<p><code>Contact Picker API</code>  为浏览器提供了获取手机联系人的能力。</p>
+<p>假如我们有一个基于 <code>Web</code> 的电子邮件客户端，可以直接使用 <code>Contact Picker API</code> 来选择电子邮件的收件人。一个基于 <code>Web</code> 的 <code>IP</code> 语音应用程序可以直接查找要拨打的电话号码。或者一些 Web 社交应用可以帮助用户发现哪些朋友已经加入了。</p>
+<p>比如，你打开一个网页游戏，他可以直接告诉你，你的好兄弟 <code>ConardLi</code> 也在玩哟，快和他一起组队来砍我吧…</p>
+<p>下面是一个简单的使用示例：</p>
+<pre><code class="jsx">const props = [&#39;name&#39;, &#39;email&#39;, &#39;tel&#39;, &#39;address&#39;, &#39;icon&#39;];
+const opts = &#123;multiple: true&#125;;
+
+try &#123;
+  const contacts = await navigator.contacts.select(props, opts);
+  handleResults(contacts);
+&#125; catch (ex) &#123;
+// 一些错误...
+&#125;
+</code></pre>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222162538.png" alt="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222162538.png"></p>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://wicg.github.io/contact-api/spec/">https://wicg.github.io/contact-api/spec/</a></p>
+<h2 id="编解码能力【Chrome-80】"><a href="#编解码能力【Chrome-80】" class="headerlink" title="编解码能力【Chrome 80】"></a><strong><strong>编解码能力【Chrome 80】</strong></strong></h2><p>在以前，浏览器提供了诸如 <code>HTMLMediaElement、WebAudio、WebRTC</code> 等实现媒体编解码器能力的 <code>API</code>，但是没有通用的方法来灵活配置和使用这些媒体编解码器。因此，在有性能差、耗电快等问题的情况下，许多 <code>Web</code> 应用还是会求助于在 <code>JavaScript</code> 或 <code>WebAssembly</code> 中实现媒体编解码器。</p>
+<p><code>WebCodecs</code> 为网页提供了对内置（软件和硬件）媒体编码器和解码器的高效访问能力。</p>
+<p>这项能力为网页直播、云游戏等对流媒体处理性能要求较高的场景下大地来了很大便利。</p>
+<p>下面是一个从视频渲染到 <code>Canvas</code> 来实现极低延迟流的示例：</p>
+<pre><code class="jsx">function onDecoderError(error) &#123; ... &#125;
+
+function streamEncodedChunks(decodeCallback) &#123; ... &#125;
+
+const canvasElement = document.getElementById(&quot;canvas&quot;);
+const canvasContext = canvas.getContext(&#39;2d&#39;, canvasOptions)
+
+function paintFrameToCanvas(videoFrame) &#123;
+  canvasContext.drawImage(frame, 0, 0);
+
+  frame.close();
+&#125;
+
+const videoDecoder = new VideoDecoder(&#123;
+  output: paintFrameToCanvas,
+  error: onDecoderError
+&#125;);
+
+videoDecoder.configure(&#123;codec: &#39;vp8&#39;&#125;).then(() =&gt; &#123;
+  streamEncodedChunks(videoDecoder.decode.bind(videoDecoder));
+&#125;).catch(() =&gt; &#123;&#125;);
+</code></pre>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://github.com/w3c/webcodecs/blob/main/explainer.md">https://github.com/w3c/webcodecs/blob/main/explainer.md</a></p>
+<h2 id="为图标添加徽章【Chrome-81】"><a href="#为图标添加徽章【Chrome-81】" class="headerlink" title="为图标添加徽章【Chrome 81】"></a><strong><strong>为图标添加徽章【Chrome 81】</strong></strong></h2><p><code>App Badging API</code> 可以让 Web 应用为图标添加一些徽章。</p>
+<p>比如一个 Web 聊天室可以在徽章上显示未读的消息数；一个 <code>Web</code> 象棋游戏可以通过标记提醒轮到你下棋了；一些长耗时的后台任务可以通过标记告诉你任务已经成功 …</p>
+<p>下面是一个简单的代码示例：</p>
+<pre><code class="jsx">// 设置徽章
+const unreadCount = 17;
+navigator.setAppBadge(unreadCount).catch((error) =&gt; &#123;
+// 异常捕获...
+&#125;);
+
+// 清除徽章
+navigator.clearAppBadge().catch((error) =&gt; &#123;
+// 异常捕获...
+&#125;);
+</code></pre>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://w3c.github.io/badging/">https://w3c.github.io/badging/</a></p>
+<h2 id="形状检测【Chrome-83】"><a href="#形状检测【Chrome-83】" class="headerlink" title="形状检测【Chrome 83】"></a><strong><strong>形状检测【Chrome 83】</strong></strong></h2><p>在以前，我们想在 <code>Web</code> 上读取一些图片上的数据是相当困难的，比如开发者想在客户端提取一些些特征来构建一个二维码阅读器，必须要依赖一个庞大的外部 <code>JavaScript</code> 库，而且性能可能很差。</p>
+<p>但是，包括 <code>Android、iOS</code> 和 <code>macOS</code> 在内的操作系统，以及相机模块中的硬件芯片，通常已经具有高性能和高度优化的特征检测器，例如 <code>Android</code> 的 <code>FaceDetector</code> 或 <code>iOS</code> 的 <code>CIDetector</code> 通用特征检测器。</p>
+<p><code>Shape Detection API</code> 通过一组 <code>JavaScript</code> 接口公开了这些实现。目前支持的功能有人脸检测、条码检测以及文字检测，这意味着我们可以在 Web 上实现下面的功能：</p>
+<ul>
+<li>购物网站可以让用户直接扫描商品条码查询商品信息；</li>
+<li>社交网站可以检测人脸面部特征，自动添加墨镜、胡子等道具；</li>
+<li>内容网站可以自动识别图片上的文本，例如餐厅菜单。</li>
+</ul>
+<p>下面是一段简单的人脸识别代码：</p>
+<pre><code class="jsx">// [ConardLi]
+const faceDetector = new FaceDetector(&#123;
+// 限制识别人脸的数量
+  maxDetectedFaces: 5,
+// 降低精度提升速度
+  fastMode: false
+&#125;);
+try &#123;
+  const faces = await faceDetector.detect(image);
+  faces.forEach(face =&gt; drawMustache(face));
+&#125; catch (e) &#123;
+  console.error(&#39;Face detection failed:&#39;, e);
+&#125;
+</code></pre>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://wicg.github.io/shape-detection-api/">https://wicg.github.io/shape-detection-api/</a></p>
+<h2 id="获取验证码【Chrome-84】"><a href="#获取验证码【Chrome-84】" class="headerlink" title="获取验证码【Chrome 84】"></a><strong><strong>获取验证码【Chrome 84】</strong></strong></h2><p>当我们在一些网站上进行注册或登录时，可能需要验证手机号。网页一般会发送一个验证码，我们需要将验证码提交到网页上来完成验证。但是切到短信后复制验证码，再回来提交整个过程是比较繁琐的。</p>
+<p><code>WebOTP API</code> 为浏览器提供了快捷读取短信验证码的能力。</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222162928.png" alt="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222162928.png"></p>
+<p>用法也非常简单，首先我们可以为 <code>input</code> 添加一个 <code>autocomplete</code> 属性：</p>
+<pre><code class="jsx">&lt;form&gt;
+  &lt;input autocomplete=&quot;one-time-code&quot; required/&gt;
+  &lt;input type=&quot;submit&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<p>然后调用 <code>navigator.credentials</code> 获取验证码信息：</p>
+<pre><code class="jsx">if (&#39;OTPCredential&#39; in window) &#123;
+  window.addEventListener(&#39;DOMContentLoaded&#39;, e =&gt; &#123;
+    const input = document.querySelector(&#39;input[autocomplete=&quot;one-time-code&quot;]&#39;);
+    if (!input) return;
+    const ac = new AbortController();
+    const form = input.closest(&#39;form&#39;);
+    if (form) &#123;
+      form.addEventListener(&#39;submit&#39;, e =&gt; &#123;
+        ac.abort();
+      &#125;);
+    &#125;
+    navigator.credentials.get(&#123;
+      otp: &#123; transport:[&#39;sms&#39;] &#125;,
+      signal: ac.signal
+    &#125;).then(otp =&gt; &#123;
+      input.value = otp.code;
+      if (form) form.submit();
+    &#125;).catch(err =&gt; &#123;
+      console.log(err);
+    &#125;);
+  &#125;);
+&#125;
+</code></pre>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://wicg.github.io/WebOTP/">https://wicg.github.io/WebOTP/</a></p>
+<h2 id="唤醒屏幕【Chrome-84】"><a href="#唤醒屏幕【Chrome-84】" class="headerlink" title="唤醒屏幕【Chrome 84】"></a><strong><strong>唤醒屏幕【Chrome 84】</strong></strong></h2><p>试想一下，当你在某个网站上看着菜谱做饭，由于长时间未操作手机自动锁屏了，你还需要去定期触碰一下手机，是不是有点头大。</p>
+<p><code>Screen Wake Lock API</code> 可体让浏览器在网页需要继续运行时防止调暗或锁定屏幕。</p>
+<p>使用方式也很简单，可以直接调用 <code>navigator.wakeLock.request()</code> 方法，返回一个 <code>WakeLockSentinel</code> 对象。</p>
+<blockquote>
+<p>据说在实施了 Screen Wake Lock API 后，美国主要烹饪网站 Betty Crocker 的用户购买意向指标增加了 300% …</p>
+</blockquote>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://w3c.github.io/screen-wake-lock">https://w3c.github.io/screen-wake-lock</a></p>
+<h2 id="文件访问【Chrome-86】"><a href="#文件访问【Chrome-86】" class="headerlink" title="文件访问【Chrome 86】"></a><strong><strong>文件访问【Chrome 86】</strong></strong></h2><p>在以前，我们只能通过 <code>&lt;input type=&quot;file&quot;&gt;</code> 在浏览器上访问文件，需要写出类似下面的代码：</p>
+<pre><code class="jsx">const openFile = async () =&gt; &#123;
+  return new Promise((resolve) =&gt; &#123;
+    const input = document.createElement(&#39;input&#39;);
+    input.type = &#39;file&#39;;
+    input.addEventListener(&#39;change&#39;, () =&gt; &#123;
+      resolve(input.files[0]);
+    &#125;);
+    input.click();
+  &#125;);
+&#125;;
+</code></pre>
+<p><code>File System Access API</code> 为浏览器提供了更好的和文件系统交互的能力：</p>
+<pre><code class="jsx">const openFile = async () =&gt; &#123;
+  try &#123;
+// Always returns an array.
+    const [handle] = await window.showOpenFilePicker();
+    return handle.getFile();
+  &#125; catch (err) &#123;
+    console.error(err.name, err.message);
+  &#125;
+&#125;;
+</code></pre>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://wicg.github.io/file-system-access/">https://wicg.github.io/file-system-access/</a></p>
+<h2 id="Web-NFC【Chrome-89】"><a href="#Web-NFC【Chrome-89】" class="headerlink" title="Web NFC【Chrome 89】"></a><strong><strong>Web NFC【Chrome 89】</strong></strong></h2><p><code>NFC</code> 代表 <code>Near Field Communications</code>，这是一种以 <code>13.56 MHz</code> 频率运行的短距离无线技术，能够在小于 <code>10</code> 厘米的距离内实现设备之间的通信，传输速率高达 <code>424 kbit/s</code>。</p>
+<p><code>Web NFC</code> 为网站提供了在靠近用户设备时读取和写入 <code>NFC</code> 标签的能力，这意味着你只需要打开一个网站就可以刷地铁进站了…</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222163122.png" alt="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222163122.png"></p>
+<p>要扫描 <code>NFC</code> 标签，首先需要实例化一个 <code>NDEFReader</code> 对象，并调用 <code>scan</code> 方法，下面是一个简单的代码示例：</p>
+<pre><code class="jsx">const ndef = new NDEFReader();
+ndef.scan().then(() =&gt; &#123;
+  console.log(&quot;扫描开始&quot;);
+  ndef.onreadingerror = () =&gt; &#123;
+    console.log(&quot;无法读取NFC数据！&quot;);
+  &#125;;
+  ndef.onreading = event =&gt; &#123;
+    console.log(&quot;NFC数据读取成功...&quot;);
+  &#125;;
+&#125;).catch(error =&gt; &#123;
+  console.log(`Error! Scan failed to start: $&#123;error&#125;.`);
+&#125;);
+</code></pre>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://wicg.github.io/file-system-access/">https://wicg.github.io/file-system-access/</a></p>
+<h2 id="人机接口设备【Chrome-89】"><a href="#人机接口设备【Chrome-89】" class="headerlink" title="人机接口设备【Chrome 89】"></a><strong>人机接口设备【Chrome 89】</strong></h2><p><code>WebHID API</code> 为浏览器提供了和人机接口设备（简称 HID）交互的能力。</p>
+<p>比如键盘、鼠标、触摸板、游戏手柄等都属于 HID 设备，<code>WebHID API</code> 提供了一系列 <code>JavaScript API</code> 来和这些设备进行交互。而在以前，你必须要有一个特定的游戏主机才可以…</p>
+<p>想象一下，以后再也不用纠结于国行外行了，因为你直接可以在网页里打开 <code>Switch</code> 游戏了…</p>
+<p>下面是一个简单的代码示例：</p>
+<pre><code class="jsx">// 在具有 Switch Joy-Con USB 供应商/产品id的设备上进行筛选。
+const filters = [
+  &#123;
+    vendorId: 0x057e,// Nintendo Co., Ltd
+    productId: 0x2006// Joy-Con Left
+  &#125;,
+  &#123;
+    vendorId: 0x057e,// Nintendo Co., Ltd
+    productId: 0x2007// Joy-Con Right
+  &#125;
+];
+
+// 提示用户选择 Joy-Con 设备。
+const [device] = await navigator.hid.requestDevice(&#123; filters &#125;);
+</code></pre>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://wicg.github.io/webhid/index.html">https://wicg.github.io/webhid/index.html</a></p>
+<h2 id="和串口设备交互【Chrome-89】"><a href="#和串口设备交互【Chrome-89】" class="headerlink" title="和串口设备交互【Chrome 89】"></a><strong>和串口设备交互【Chrome 89】</strong></h2><p>串行接口（<code>Serial port</code>），也称串行接口或串行端口，串行通信接口，COM接口，简称串口。主要用于串行式逐位数据传输。</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222163246.png" alt="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222163246.png"></p>
+<p><code>Web Serial API</code> 为网站提供了一种使用 <code>JavaScript</code> 读取和写入串行设备的方法。</p>
+<p>这样，我们的网站又能控制更多设备了，比如打印机、路由器、交换机等等。</p>
+<p>下面是一个简单的代码示例：</p>
+<pre><code class="jsx">document.querySelector(&#39;button&#39;).addEventListener(&#39;click&#39;, async () =&gt; &#123;
+// 提示用户选择串口
+  const port = await navigator.serial.requestPort();
+&#125;);
+</code></pre>
+<p>从串口读取数据：</p>
+<pre><code class="jsx">const reader = port.readable.getReader();
+
+// 监听来自串行设备的数据
+while (true) &#123;
+  const &#123; value, done &#125; = await reader.read();
+  if (done) &#123;
+    reader.releaseLock();
+    break;
+  &#125;
+  console.log(value);
+&#125;
+</code></pre>
+<p>同样的，你也可以在 <code>Chrome</code> 的 <code>about://device-log</code> 对串口设备进行调试。</p>
+<h2 id="空闲检测【Chrome-94】"><a href="#空闲检测【Chrome-94】" class="headerlink" title="空闲检测【Chrome 94】"></a><strong>空闲检测【Chrome 94】</strong></h2><p><code>Idle Detection API</code> 为网站提供了检测用户当前是否空闲（例如在一段时间内没有与键盘、鼠标、屏幕的交互）的能力。</p>
+<p>例如，一个 <code>Web</code> 聊天室应用可以让你知道你的好友当前是否在线，下面是一个空闲检测的简单示例：</p>
+<pre><code class="jsx">// [ConardLi] 创建空闲探测器
+const idleDetector = new IdleDetector();
+
+// 设置一个在用户空闲时触发的监听器
+idleDetector.addEventListener(&#39;change&#39;, () =&gt; &#123;
+  const uState = idleDetector.userState;
+  const sState = idleDetector.screenState;
+  console.log(`Idle change: $&#123;uState&#125;, $&#123;sState&#125;.`);
+&#125;);
+
+// 开始监听
+await idleDetector.start(&#123;
+  threshold: 60000,
+  signal,
+&#125;);
+</code></pre>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://wicg.github.io/idle-detection">https://wicg.github.io/idle-detection</a></p>
+<h2 id="WebTransport【Chrome-97】"><a href="#WebTransport【Chrome-97】" class="headerlink" title="WebTransport【Chrome 97】"></a><strong>WebTransport【Chrome 97】</strong></h2><p><code>WebTransport</code> 是一种新的 <code>API</code>，使用 <code>HTTP/3</code> 协议作为双向传输，为网站提供低延迟、双向、客户端-服务器消息传递能力。</p>
+<p>你可能会问和 <code>WebSockets</code> 的区别是啥？</p>
+<p><code>WebSockets</code> 的消息流特点是单一、可靠、有序，这对于某些场景的通信需求来说是很好的；但是 <code>WebTransport</code> 的数据的特点是低延迟，但不保证可靠性或排序，因为它底层使用的 <code>QUIC</code> 握手比通过 <code>TLS</code> 启动 <code>TCP</code> 更快。</p>
+<p>如果你的数据通信需要非常好的性能，但是对偶尔的丢包和排序可以容忍，比如一些网页游戏的场景，<code>WebTransport</code> 是一个更好的选择。</p>
+<p>下面是一个简单的使用示例：</p>
+<pre><code class="jsx">// 向服务器发送数据
+const writer = transport.datagrams.writable.getWriter();
+const data1 = new Uint8Array([65, 66, 67]);
+const data2 = new Uint8Array([68, 69, 70]);
+writer.write(data1);
+writer.write(data2);
+
+// 从服务器读取数据
+const reader = transport.datagrams.readable.getReader();
+while (true) &#123;
+  const &#123;value, done&#125; = await reader.read();
+  if (done) &#123;
+    break;
+  &#125;
+// 值为 Uint8Array。
+  console.log(value);
+&#125;
+</code></pre>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://wicg.github.io/web-transport/#web-transport">https://wicg.github.io/web-transport/#web-transport</a></p>
+<h2 id="多屏窗口放置【Chrome-100】"><a href="#多屏窗口放置【Chrome-100】" class="headerlink" title="多屏窗口放置【Chrome 100】"></a><strong>多屏窗口放置【Chrome 100】</strong></h2><p><code>Multi-Screen Window Placement API</code> 为网页了提供了枚举显示器并将窗口放置在特定屏幕上的能力。</p>
+<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222163409.png" alt="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230222163409.png"></p>
+<p>下面是一个简单的监听屏幕数量变化的示例：</p>
+<pre><code class="jsx">// 获取所有屏幕
+const screenDetails = await window.getScreenDetails();
+let cachedScreensLength = screenDetails.screens.length;
+// 监听屏幕变化
+screenDetails.addEventListener(&#39;screenschange&#39;, (event) =&gt; &#123;
+  if (screenDetails.screens.length !== cachedScreensLength) &#123;
+    console.log(
+      `屏幕数量从 $&#123;cachedScreensLength&#125; 变化到 $&#123;screenDetails.screens.length&#125;`,
+    );
+    cachedScreensLength = screenDetails.screens.length;
+  &#125;
+&#125;);
+</code></pre>
+<p>了解更多：<a target="_blank" rel="noopener" href="https://w3c.github.io/window-placement">https://w3c.github.io/window-placement</a></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a><strong>最后</strong></h2><p>当然，以上我提到的只是 <code>Fugu</code> 项目的很小一部分，大家感兴趣可以去 <code>Fugu</code> 官网查看更多信息：<strong>「Fugu API Tracker」</strong>（<a target="_blank" rel="noopener" href="https://fugu-tracker.web.app/#%EF%BC%89">https://fugu-tracker.web.app/#）</a></p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2023/03/13/2023%E9%9D%A2%E8%AF%95%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          2023面试面经汇总
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/02/17/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82FAT32%E3%80%81NTFS%E3%80%81exFAT/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">一文搞懂FAT32、NTFS、exFAT</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=web拥有的端上性能 - Jake Ma&url=https://jakemama.github.io/2023/02/22/web%E6%8B%A5%E6%9C%89%E7%9A%84%E7%AB%AF%E4%B8%8A%E6%80%A7%E8%83%BD/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=web拥有的端上性能 - Jake Ma&u=https://jakemama.github.io/2023/02/22/web%E6%8B%A5%E6%9C%89%E7%9A%84%E7%AB%AF%E4%B8%8A%E6%80%A7%E8%83%BD/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=web拥有的端上性能 - Jake Ma&url=https://jakemama.github.io/2023/02/22/web%E6%8B%A5%E6%9C%89%E7%9A%84%E7%AB%AF%E4%B8%8A%E6%80%A7%E8%83%BD/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E9%89%B4%E6%9D%83/" rel="tag">互联网鉴权</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/13/2023%E9%9D%A2%E8%AF%95%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/">2023面试面经汇总</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/22/web%E6%8B%A5%E6%9C%89%E7%9A%84%E7%AB%AF%E4%B8%8A%E6%80%A7%E8%83%BD/">web拥有的端上性能</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/17/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82FAT32%E3%80%81NTFS%E3%80%81exFAT/">一文搞懂FAT32、NTFS、exFAT</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/%E6%95%99%E4%BD%A0%E4%BD%BF%E7%94%A8%E6%96%B0%E5%BF%85%E5%BA%94bing/">教你使用新必应bing</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/13/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%89%8D%E5%90%8E%E7%AB%AF%E9%89%B4%E6%9D%83/">一文搞懂常用前后端鉴权方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Jake Ma &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
