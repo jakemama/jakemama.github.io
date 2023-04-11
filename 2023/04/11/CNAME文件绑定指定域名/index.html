@@ -7,12 +7,47 @@
     <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
 
     
-    <title>Category | 后端 | Jake Ma</title>
+    <title>CNAME文件绑定指定域名 | Jake Ma</title>
 
     <meta name="description" content="马一栋的个人博客">
     <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客 前端 程序员 frontend program">
 
     
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "CNAME文件绑定指定域名 | Jake Ma"  />
+    <meta property="og:description" content= "马一栋的个人博客" />
+    <meta property="og:url" content="https://jakemama.github.io/2023/04/11/CNAME%E6%96%87%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%8C%87%E5%AE%9A%E5%9F%9F%E5%90%8D/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="马一栋的个人博客" />
+    <meta name="twitter:title" content="CNAME文件绑定指定域名 | Jake Ma"/>
+    <meta name="twitter:description" content="马一栋的个人博客"/>
+    <script type="application/ld+json">
+        {
+            "description": "马一栋的个人博客",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2023/04/11/CNAME%E6%96%87%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%8C%87%E5%AE%9A%E5%9F%9F%E5%90%8D/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "CNAME文件绑定指定域名 | Jake Ma",
+            "datePublished": "2023-04-11T09:35:32.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2023/04/11/CNAME%E6%96%87%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%8C%87%E5%AE%9A%E5%9F%9F%E5%90%8D/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
 
 
 
@@ -44,7 +79,7 @@
 
 
     <script>
-        window.isPost = false
+        window.isPost = true
         window.aomori = {
             
             
@@ -130,92 +165,102 @@
         <div class="main">
             <section class="inner">
                 <section class="inner-main">
-                    
+                    <div class="tweet">
+    <article id="tweet-clgcd5pjx007k9quq71ht7bxp" class="article article-type-tweet" itemscope
+    itemprop="blogPost">
 
-    
-    
-    
-    
-    <section class="archives-wrap">
-        <div class="archive-year-wrap">
-        <a href="/archives/2023" class="archive-year">2023</a>
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+
+        <div class="article-more-info article-more-info-tweet hairline">
+
+            <div class="article-date">
+  <time datetime="2023-04-11T09:35:32.000Z" itemprop="datePublished">2023-04-11</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+            </div>
+            
+
+            
+
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-tweet">
-  
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/06/%E6%9C%AC%E5%9C%B0%E5%90%91%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">本地向云服务器上传文件</a>
-    </h1>
-  
 
-</article>
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>利用hexo进行github page的页面搭建的时候，一般需要在项目的根目录创建一个<code>CNAME</code>文件，当github page进行部署的时候会自动访问这个文件，并绑定该域名的映射。</p>
+<p>例如我的博客网站的默认网址是下面这种，一般如果你用<code>hexo + GitHub page</code>搭建的话，没有进行特殊操作，一般都这这种链接</p>
+<pre><code>https://jakemama.github.io
+</code></pre>
+<p>之后，在项目根目录新建一个<code>CNAME</code>文件，里面填上你买好的域名</p>
+<pre><code>jakema.com.cn
+</code></pre>
+<p>之后进行<code>hexo deploy</code>的时候就能把<code>CNAME</code>文件带上去了，就会自动绑定该域名。</p>
+<p>但是如果你用的是<code>hexo</code>来搭建的，使用<code>hexo g</code>会重新生成<code>public</code>文件夹，这是你的<code>CNAME</code>可能会丢失</p>
+<p>建议<code>CNAME</code>文件可以放在<code>source</code>文件夹下面，就可以了</p>
 
-    
-    
-    <article class="archive-article archive-type-post">
-  
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/04/mongodump%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95/">mongodump备份数据记录</a>
-    </h1>
-  
-
-</article>
-
-    
-    
-    
-        </div></section>
-    
-    
-    <section class="archives-wrap">
-        <div class="archive-year-wrap">
-        <a href="/archives/2022" class="archive-year">2022</a>
         </div>
-        <div class="archives">
+
+    </div>
+
     
-    <article class="archive-article archive-type-post">
+
+    
+<nav class="article-nav">
   
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/01/docker%E9%95%9C%E5%83%8F%E5%88%B6%E4%BD%9C%E5%B9%B6%E9%83%A8%E7%BD%B2%E4%B8%8A%E4%BA%91/">docker镜像制作并部署上云</a>
-    </h1>
+    <a href="/2023/03/13/2023%E9%9D%A2%E8%AF%95%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">2023面试面经汇总</div>
+    </a>
   
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=CNAME文件绑定指定域名 - Jake Ma&url=https://jakemama.github.io/2023/04/11/CNAME%E6%96%87%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%8C%87%E5%AE%9A%E5%9F%9F%E5%90%8D/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=CNAME文件绑定指定域名 - Jake Ma&u=https://jakemama.github.io/2023/04/11/CNAME%E6%96%87%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%8C%87%E5%AE%9A%E5%9F%9F%E5%90%8D/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=CNAME文件绑定指定域名 - Jake Ma&url=https://jakemama.github.io/2023/04/11/CNAME%E6%96%87%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%8C%87%E5%AE%9A%E5%9F%9F%E5%90%8D/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
 
 </article>
 
-    
-    
-    <article class="archive-article archive-type-post">
-  
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/28/node%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/">node前置知识点</a>
-    </h1>
-  
-
-</article>
-
-    
-    
-    <article class="archive-article archive-type-post">
-  
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/28/docker%E5%AE%B9%E5%99%A8%E6%97%B6%E5%8C%BA%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/">docker容器时区错误问题</a>
-    </h1>
-  
-
-</article>
-
-
-    </div></section>
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+</div>
                 </section>
             </section>
 
