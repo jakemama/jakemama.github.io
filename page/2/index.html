@@ -155,7 +155,59 @@
   
     
       <article
-id="post-chatGPT会是银弹吗"
+  id="tweet-CNAME文件绑定指定域名"
+  class="article article-type-tweet"
+>
+
+    <div class="article-tweet article-type-tweet-inner">
+
+        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
+
+        <div class="article-tweet-content post-inner-html">
+            
+                <p>利用hexo进行github page的页面搭建的时候，一般需要在项目的根目录创建一个<code>CNAME</code>文件，当github page进行部署的时候会自动访问这个文件，并绑定该域名的映射。</p>
+<p>例如我的博客网站的默认网址是下面这种，一般如果你用<code>hexo + GitHub page</code>搭建的话，没有进行特殊操作，一般都这这种链接</p>
+<pre><code>https://jakemama.github.io
+</code></pre>
+<p>之后，在项目根目录新建一个<code>CNAME</code>文件，里面填上你买好的域名</p>
+<pre><code>jakema.com.cn
+</code></pre>
+<p>之后进行<code>hexo deploy</code>的时候就能把<code>CNAME</code>文件带上去了，就会自动绑定该域名。</p>
+<p>但是如果你用的是<code>hexo</code>来搭建的，使用<code>hexo g</code>会重新生成<code>public</code>文件夹，这是你的<code>CNAME</code>可能会丢失</p>
+<p>建议<code>CNAME</code>文件可以放在<code>source</code>文件夹下面，就可以了</p>
+
+            
+        </div>
+
+        <footer class="article-footer">
+            <a class="article-footer-common" href="/2023/04/11/CNAME%E6%96%87%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%8C%87%E5%AE%9A%E5%9F%9F%E5%90%8D/">评论</a>
+            <div class="article-more-info">
+            <div class="article-date">
+  <time datetime="2023-04-11T09:35:32.000Z" itemprop="datePublished">2023-04-11</time>
+</div>
+            
+            
+                <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+                </div>
+            
+            </div>
+        </footer>
+
+        <div class="article-badge">
+            
+            
+        </div>
+
+    </div>
+
+</article>
+
+    
+  
+    
+      <article
+id="post-2023面试面经汇总"
 class="article article-type-post"
 >
 
@@ -166,12 +218,11 @@ class="article article-type-post"
 
     <div class="article-body">
     <header class="article-title">
-        <a href="/2023/02/10/chatGPT%E4%BC%9A%E6%98%AF%E9%93%B6%E5%BC%B9%E5%90%97/">chatGPT会是银弹吗</a>
+        <a href="/2023/03/13/2023%E9%9D%A2%E8%AF%95%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/">2023面试面经汇总</a>
     </header>
     <div class="article-entry post-inner-html">
         
-        <p>chatGP最近火的一塌糊涂，它通过语言生成技术和自然语言处理能力，帮助用户快速解决问题并生成内容。目前，这款工具现在已经拥有超过一亿的活跃用户，并且因其高效率和易用性而受到了广大用户的好评。</p>
-<p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20230210150919.png" alt="创作"></p>
+        <p>2023面试题目及知识点汇总</p>
         
     </div>
     </div>
@@ -186,7 +237,166 @@ class="article article-type-post"
 <footer class="article-footer">
     <div class="article-more-info">
     <div class="article-date">
-  <time datetime="2023-02-10T07:49:18.000Z" itemprop="datePublished">2023-02-10</time>
+  <time datetime="2023-03-13T06:22:12.000Z" itemprop="datePublished">2023-03-13</time>
+</div>
+    
+        <div class="article-category">
+        <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+        </div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+    
+      <article
+id="post-web拥有的端上性能"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/2023/02/22/web%E6%8B%A5%E6%9C%89%E7%9A%84%E7%AB%AF%E4%B8%8A%E6%80%A7%E8%83%BD/">web拥有的端上性能</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <p>首先问大家一个问题，现在有一项业务需求，这个需求使用客户端应用实现还是网页来实现你会考虑哪些因素呢？可以在评论区告诉我。</p>
+<p>曾几何时，想到网页可能我们第一时间想到的就是一些静态页面，但是经过数十年的蓬勃发展，网页开始承接越来越复杂的需求，包括复杂的管理系统、网络直播、云游戏等能力。</p>
+<p>但或许你仍然会认为相比可以和系统底层直接交互的原生客户端应用还是太弱了，我们可能会因为浏览器“缺失” 了某一项能力而被迫选择开发一个客户端应用。</p>
+<p>为此 Google 启动了一个名为 Fugu 的项目，它的目标就是让开发者能够在 Web 生态中做任何事情，包括以前只有客户端应用才能做的事情。</p>
+<p>在 Fugu 项目中， Google 为 Chrome 规划了数百项能力，如今进展已经过半，我们一起来看看浏览器现在拥有了哪些或许你还不知道的能力吧 …</p>
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2023-02-22T08:14:23.000Z" itemprop="datePublished">2023-02-22</time>
+</div>
+    
+        <div class="article-category">
+        <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+        </div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+    
+      <article
+id="post-一文搞懂FAT32、NTFS、exFAT"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/2023/02/17/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82FAT32%E3%80%81NTFS%E3%80%81exFAT/">一文搞懂FAT32、NTFS、exFAT</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <p>不管是U盘，还是ssd还是机械硬盘在格式化的时候都会有三种格式分别是FAT32、NTFS和exFAT。但是我们怎么选择适合我们自己的要求来格式化呢？我们先来看看他们的区别吧！</p>
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2023-02-17T10:18:25.000Z" itemprop="datePublished">2023-02-17</time>
+</div>
+    
+        <div class="article-category">
+        <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+        </div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+    
+      <article
+id="post-教你使用新必应bing"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/2023/02/14/%E6%95%99%E4%BD%A0%E4%BD%BF%E7%94%A8%E6%96%B0%E5%BF%85%E5%BA%94bing/">教你使用新必应bing</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <p>巨头们的AI战愈演愈烈起来。在谷歌公布其 ChatGPT 竞品<a target="_blank" rel="noopener" href="https://www.ednchina.com/news/a10725.html">Bard</a>后的第二天，微软就官宣了两款新的 AI 产品：基于下一代 OpenAI 大型语言模型上的新版 Bing 搜索引擎，号称“比 ChatGPT 更强大”，以及基于 AI 功能的改进版 Edge 网络浏览器。</p>
+<p>微软表示，为新 Bing 提供支持的下一代大型语言模型 (LLM) 是专门为搜索定制的。它比 ChatGPT 或 ChatGPT 背后的 LLM GPT-3.5 更快、更准确、“更有能力”。</p>
+<p>快来和我一起来申请感受新时代吧！</p>
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2023-02-14T08:52:24.000Z" itemprop="datePublished">2023-02-14</time>
 </div>
     
         <div class="article-category">
@@ -207,7 +417,7 @@ class="article article-type-post"
   
     
       <article
-id="post-vue init webpack project 超时报错解决方案"
+id="post-一文搞懂前后端鉴权"
 class="article article-type-post"
 >
 
@@ -218,16 +428,14 @@ class="article article-type-post"
 
     <div class="article-body">
     <header class="article-title">
-        <a href="/2023/02/06/vue%20init%20webpack%20project%20%E8%B6%85%E6%97%B6%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">vue init webpack project 超时报错解决方案</a>
+        <a href="/2023/02/13/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%89%8D%E5%90%8E%E7%AB%AF%E9%89%B4%E6%9D%83/">一文搞懂常用前后端鉴权方式</a>
     </header>
     <div class="article-entry post-inner-html">
         
-        <h2 id="报错代码："><a href="#报错代码：" class="headerlink" title="报错代码："></a>报错代码：</h2><p>初始化脚手架时命令：</p>
-<pre><code class="javascript">vue init webpack-simple project
-</code></pre>
-<p>错误代码如下：</p>
-<pre><code class="javascript">vue-cli · Failed to download repo vuejs-templates/webpack: connect ETIMEDOUT 192.30.253.112:443
-</code></pre>
+        <p>还记得之前在面试的时候，有一位面试官就问了，关于前端鉴权这块，<code>Token、Cookie、Session、JWT、单点登录</code>是什么？有什么作用？你一般是怎么做的？以及你是怎么存储的呢？那你又是怎么保证 <code>它</code> 的安全的呢？</p>
+<p>一顿连问下来，我是焦头又烂额，欲言而又止…….</p>
+<p>其实鉴权的方法有很多，下面我总结了常用的 <code>10种鉴权方法</code>，那么哪一种是最适合你的系统呢？哪一种又最安全呢？</p>
+<p>那就让我们从下文慢慢探索寻找答案吧 ~</p>
         
     </div>
     </div>
@@ -242,7 +450,7 @@ class="article article-type-post"
 <footer class="article-footer">
     <div class="article-more-info">
     <div class="article-date">
-  <time datetime="2023-02-06T10:57:12.000Z" itemprop="datePublished">2023-02-06</time>
+  <time datetime="2023-02-13T04:42:26.000Z" itemprop="datePublished">2023-02-13</time>
 </div>
     
         <div class="article-category">
@@ -251,225 +459,11 @@ class="article article-type-post"
     
     
         <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E9%89%B4%E6%9D%83/" rel="tag">互联网鉴权</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
         </div>
     
     </div>
 </footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-一文掌握常用正则表达式"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2023/02/02/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">一文掌握常用正则表达式</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <p>正则表达式知识点汇总，一文让你搞懂正则，从此不怕</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2023-02-02T06:42:02.000Z" itemprop="datePublished">2023-02-02</time>
-</div>
-    
-        <div class="article-category">
-        <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-        </div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-一文掌握常用css知识点"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2023/02/01/%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8css%E7%9F%A5%E8%AF%86%E7%82%B9/">一文掌握常用css知识点</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <p>常用css知识点整理，方便复习和查询</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2023-02-01T06:57:40.000Z" itemprop="datePublished">2023-02-01</time>
-</div>
-    
-        <div class="article-category">
-        <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-        </div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-运行shell脚本自动输入密码"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2023/01/12/%E8%BF%90%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81/">运行shell脚本自动输入密码</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <p>最近因为在研究云服务器相关的部署问题，所以会经常连接远程服务器的时候输入密码，这也算是一个机械化操作，所以就想着写个shell脚本，这样可以一键执行一系列操作，提升开发效率。</p>
-<p>不过在这中间遇到一个问题，就是如何添加一些交互动作，例如密码的输入或者选项的选择，这样可以让shell脚本更加强大和便捷。</p>
-<p>目前实现方法主要有三种</p>
-<ol>
-<li>使用管道（上一个命令的 stdout 接到下一个命令的 stdin）</li>
-<li>使用文本块输入重定向</li>
-<li>使用 expect 脚本（使用的是expect解释器，不是bash了）</li>
-</ol>
-<p>下面进行详细分析</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2023-01-12T08:44:20.000Z" itemprop="datePublished">2023-01-12</time>
-</div>
-    
-        <div class="article-category">
-        <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-        </div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-本地向云服务器上传文件"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h2 id="通过scp本地向云服务器上传文件"><a href="#通过scp本地向云服务器上传文件" class="headerlink" title="通过scp本地向云服务器上传文件"></a>通过scp本地向云服务器上传文件</h2><pre><code>sudo scp -P 22 -r ./README.md root@********:../usr/local/development/
-</code></pre>
-<ul>
-<li>.&#x2F;REMADME.md 为你要上传的文件，也可以上传文件夹，不过还是建议压缩成包上传</li>
-<li>root@********，这部分为了是用ssh远程连接你的主机，星号是你服务器的公网地址</li>
-<li>..&#x2F;usr&#x2F;local&#x2F;development&#x2F;，你要在云服务器放文件的位置，云服务器登入后默认是root&#x2F;路径，去usr等其他文件路径要用..&#x2F;</li>
-</ul>
-
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2023/01/06/%E6%9C%AC%E5%9C%B0%E5%90%91%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2023-01-06T06:41:01.000Z" itemprop="datePublished">2023-01-06</time>
-</div>
-            
-                <div class="article-category">
-                <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
-                </div>
-            
-            
-                <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-                </div>
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
 
 </article>
 
@@ -478,7 +472,7 @@ class="article article-type-post"
 
   
     <nav class="pagination">
-        <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/">Next</a>
+        <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/">Next</a>
     </nav>
   
 </div>
@@ -509,7 +503,7 @@ class="article article-type-post"
   <div class="widget-wrap widget-cate">
     <div class="widget-title"><span>Categories</span></div>
     <div class="widget-inner">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%9B%B8%E5%85%B3/">AI相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%A2%E6%88%B7%E7%AB%AF/">客户端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
     </div>
   </div>
 
@@ -519,7 +513,7 @@ class="article article-type-post"
   <div class="widget-wrap widget-tags">
     <div class="widget-title"><span>Tags</span></div>
     <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E9%89%B4%E6%9D%83/" rel="tag">互联网鉴权</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS/" rel="tag">IOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prompt/" rel="tag">prompt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uniapp/" rel="tag">uniapp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E9%89%B4%E6%9D%83/" rel="tag">互联网鉴权</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9C%E7%A8%8B%E5%8A%9E%E5%85%AC/" rel="tag">远程办公</a></li></ul>
     </div>
   </div>
 
@@ -532,23 +526,23 @@ class="article article-type-post"
       <ul>
         
           <li>
-            <a href="/2023/04/11/CNAME%E6%96%87%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%8C%87%E5%AE%9A%E5%9F%9F%E5%90%8D/">CNAME文件绑定指定域名</a>
+            <a href="/2023/04/26/windows%E5%88%87%E6%8D%A2%E7%9B%98%E7%AC%A6/">windows切换盘符</a>
           </li>
         
           <li>
-            <a href="/2023/03/13/2023%E9%9D%A2%E8%AF%95%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/">2023面试面经汇总</a>
+            <a href="/2023/04/25/MacOS%E5%88%B6%E4%BD%9C%E8%BD%AF%E4%BB%B6%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/">MacOS制作软件签名证书（M1 Pro芯片）</a>
           </li>
         
           <li>
-            <a href="/2023/02/22/web%E6%8B%A5%E6%9C%89%E7%9A%84%E7%AB%AF%E4%B8%8A%E6%80%A7%E8%83%BD/">web拥有的端上性能</a>
+            <a href="/2023/04/23/uniapp%E4%B8%80%E9%94%AE%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD/">uniapp一键登录功能</a>
           </li>
         
           <li>
-            <a href="/2023/02/17/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82FAT32%E3%80%81NTFS%E3%80%81exFAT/">一文搞懂FAT32、NTFS、exFAT</a>
+            <a href="/2023/04/23/git%E4%BB%A3%E7%A0%81%E5%A4%A7%E6%94%B9%E7%9A%84%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/">git代码大改的处理办法</a>
           </li>
         
           <li>
-            <a href="/2023/02/14/%E6%95%99%E4%BD%A0%E4%BD%BF%E7%94%A8%E6%96%B0%E5%BF%85%E5%BA%94bing/">教你使用新必应bing</a>
+            <a href="/2023/04/18/%E4%BD%BF%E7%94%A8chatgpt%E7%94%9F%E6%88%90%E7%9F%AD%E8%A7%86%E9%A2%91%E6%96%87%E6%A1%88/">使用chatgpt生成短视频文案</a>
           </li>
         
       </ul>

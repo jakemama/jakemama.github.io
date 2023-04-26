@@ -155,7 +155,7 @@
   
     
       <article
-id="post-web性能优化"
+id="post-packagejson配置解析"
 class="article article-type-post"
 >
 
@@ -166,12 +166,11 @@ class="article article-type-post"
 
     <div class="article-body">
     <header class="article-title">
-        <a href="/2022/09/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">web性能优化</a>
+        <a href="/2022/10/31/packagejson%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90/">packagejson配置解析</a>
     </header>
     <div class="article-entry post-inner-html">
         
-        <p>前端的性能优化的核心其实就是：<strong>资源更快的加载速度、视图更快的渲染&#x2F;交互速度</strong>。</p>
-<p>简单来说，主要是<strong>网络层面</strong>和<strong>浏览器层面</strong>的优化</p>
+        <p>package.json字段解析</p>
         
     </div>
     </div>
@@ -186,7 +185,7 @@ class="article article-type-post"
 <footer class="article-footer">
     <div class="article-more-info">
     <div class="article-date">
-  <time datetime="2022-09-23T03:40:07.000Z" itemprop="datePublished">2022-09-23</time>
+  <time datetime="2022-10-31T07:37:20.000Z" itemprop="datePublished">2022-10-31</time>
 </div>
     
         <div class="article-category">
@@ -207,7 +206,7 @@ class="article article-type-post"
   
     
       <article
-id="post-利用puppeteer实现路由器自动定时重启"
+id="post-charles移动端抓https包"
 class="article article-type-post"
 >
 
@@ -218,11 +217,11 @@ class="article article-type-post"
 
     <div class="article-body">
     <header class="article-title">
-        <a href="/2022/09/15/%E5%88%A9%E7%94%A8puppeteer%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E5%99%A8%E8%87%AA%E5%8A%A8%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF/">利用puppeteer实现路由器自动定时重启</a>
+        <a href="/2022/10/28/charles%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%8A%93https%E5%8C%85/">charles移动端抓https包</a>
     </header>
     <div class="article-entry post-inner-html">
         
-        <p>家里的路由网非常差，有次请了师傅来看，交了我如何<a href="2022-08_%E5%88%A4%E6%96%AD%E8%B7%AF%E7%94%B1%E5%99%A8%E6%8A%A5%E5%BA%9F%E6%A0%87%E5%87%86.md">登陆路由器的管理员界面</a>，经过我的观察，管理员页面可以控制路由器的重启，自己手动试了一下，重启之后网络确实表现的好一点，于是打算写个脚本来定时自动重启路由器，这样就不用操心了。</p>
+        <h1 id="1-Mac安装Charles根证书"><a href="#1-Mac安装Charles根证书" class="headerlink" title="1.Mac安装Charles根证书"></a>1.Mac安装Charles根证书</h1><p><img src="https://ant-blogs-img.oss-cn-beijing.aliyuncs.com/img/20221028160557.png"></p>
         
     </div>
     </div>
@@ -237,7 +236,7 @@ class="article article-type-post"
 <footer class="article-footer">
     <div class="article-more-info">
     <div class="article-date">
-  <time datetime="2022-09-15T02:08:22.000Z" itemprop="datePublished">2022-09-15</time>
+  <time datetime="2022-10-28T07:55:09.000Z" itemprop="datePublished">2022-10-28</time>
 </div>
     
         <div class="article-category">
@@ -246,7 +245,7 @@ class="article article-type-post"
     
     
         <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
         </div>
     
     </div>
@@ -258,7 +257,7 @@ class="article article-type-post"
   
     
       <article
-id="post-git常用操作"
+id="post-node和koa实现文件下载"
 class="article article-type-post"
 >
 
@@ -269,11 +268,138 @@ class="article article-type-post"
 
     <div class="article-body">
     <header class="article-title">
-        <a href="/2022/09/13/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">git常用操作</a>
+        <a href="/2022/10/21/node%E5%92%8Ckoa%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">node和koa实现文件下载</a>
     </header>
     <div class="article-entry post-inner-html">
         
-        <p>记录一些常用的git操作</p>
+        <span id="more"></span>
+<h1 id="简单下载"><a href="#简单下载" class="headerlink" title="简单下载"></a>简单下载</h1><p>最简单的情况就是服务器上文件系统已经存在了某个文件，客户端请求下载直接把文件读了吐回去即可：</p>
+<pre><code class="js">import Koa from &#39;koa&#39;;
+import Router from &#39;koa-router&#39;;
+import * as fs from &#39;fs/promises&#39;;
+
+const app = new Koa();
+const router = new Router();
+
+router.get(&#39;/download/simple&#39;, async (ctx) =&gt; &#123;
+  const file = await fs.readFile(`$&#123;__dirname&#125;/1.txt`, &#39;utf-8&#39;);
+  ctx.set(&#123;
+    &#39;Content-Disposition&#39;: `attachment; filename=1.txt`,
+  &#125;);
+  ctx.body = file;
+&#125;);
+
+app.use(router.routes());
+app.listen(80);
+</code></pre>
+<blockquote>
+<p>设置 Content-Disposition 头部为 attachment 是关键，告诉浏览器应该下载这个文件。</p>
+</blockquote>
+<h1 id="流式下载"><a href="#流式下载" class="headerlink" title="流式下载"></a>流式下载</h1><p>简单下载在碰到大文件的情景就不够用了，因为 Node 无法将大文件一次性读取到进程内存里。这时候用流来解决：</p>
+<pre><code class="js">router.get(&#39;/download/stream&#39;, async (ctx) =&gt; &#123;
+  const file = fs.createReadStream(`$&#123;__dirname&#125;/1.txt`);
+  ctx.set(&#123;
+    &#39;Content-Disposition&#39;: `attachment; filename=1.txt`,
+  &#125;);
+  ctx.body = file;
+&#125;);
+</code></pre>
+<blockquote>
+<p>此例子不设置 Content-Disposition 头部也是会下载的，因为 Content-Type 被设置为了 application&#x2F;octet-stream，浏览器认为其是一个二进制流文件所以默认下载处理了。</p>
+</blockquote>
+<h1 id="进度显示"><a href="#进度显示" class="headerlink" title="进度显示"></a>进度显示</h1><p>当下载的文件特别大时，上个例子 Content-Length 正确设置时浏览器下载条里就能正常显示进度了，为了方便我们使用程序模拟一下：</p>
+<pre><code class="js">router.get(&#39;/download/progress&#39;, async (ctx) =&gt; &#123;
+  const &#123; enable &#125; = ctx.query;
+  const buffer = await fsp.readFile(`$&#123;__dirname&#125;/1.txt`);
+  const stream = new PassThrough();
+  const l = buffer.length;
+  const count = 4;
+  const size = Math.floor(l / count);
+  const writeQuarter = (i = 0) =&gt; &#123;
+    const start = i * size;
+    const end = i === count - 1 ? l : (i + 1) * size;
+    stream.write(buffer.slice(start, end));
+
+    if (end === l) &#123;
+      stream.end();
+    &#125; else &#123;
+      setTimeout(() =&gt; writeQuarter(i + 1), 3000);
+    &#125;
+  &#125;;
+
+  if (!!enable) &#123;
+    ctx.set(&#123;
+      &#39;Content-Length&#39;: `$&#123;l&#125;`,
+    &#125;);
+  &#125;
+
+  ctx.set(&#123;
+    &#39;Content-Type&#39;: &#39;plain/txt&#39;,
+    &#39;Content-Disposition&#39;: `attachment; filename=1.txt`,
+    Connection: &#39;keep-alive&#39;,
+  &#125;);
+  ctx.body = stream;
+  writeQuarter();
+&#125;);
+</code></pre>
+<blockquote>
+<p>这里利用了 PassThrough 流来替代 fs.createReadStream，故 Koa 不再知道文件大小和类型，并将文件分为 4 份，每份间隔 3 秒发送来模拟大文件下载。<br>当参数 enable 为真时，设置了 Content-Length 则会显示进度 (剩余时间），否则不显示</p>
+</blockquote>
+<h1 id="断点续传"><a href="#断点续传" class="headerlink" title="断点续传"></a>断点续传</h1><p>下载文件特别大时，常常也会因为网络不稳定导致下载中途断开而失败，这时候可以考虑支持断点续传：</p>
+<pre><code class="js">function getStartPos(range = &#39;&#39;) &#123;
+  var startPos = 0;
+  if (typeof range === &#39;string&#39;) &#123;
+    var matches = /^bytes=([0-9]+)-$/.exec(range);
+    if (matches) &#123;
+      startPos = Number(matches[1]);
+    &#125;
+  &#125;
+  return startPos;
+&#125;
+
+router.get(&#39;/download/partial&#39;, async (ctx) =&gt; &#123;
+  const range = ctx.get(&#39;range&#39;);
+  const start = getStartPos(range);
+  const stat = await fsp.stat(`$&#123;__dirname&#125;/1.txt`);
+  const stream = fs.createReadStream(`$&#123;__dirname&#125;/1.txt`, &#123;
+    start,
+    highWaterMark: Math.ceil((stat.size - start) / 4),
+  &#125;);
+
+  stream.on(&#39;data&#39;, (chunk) =&gt; &#123;
+    console.log(`Readed $&#123;chunk.length&#125; bytes of data.`);
+    stream.pause();
+    setTimeout(() =&gt; &#123;
+      stream.resume();
+    &#125;, 3000);
+  &#125;);
+
+  console.log(`Start Pos: $&#123;start&#125;.`);
+  if (start === 0) &#123;
+    ctx.status = 200;
+    ctx.set(&#123;
+      &#39;Accept-Ranges&#39;: &#39;bytes&#39;,
+      &#39;Content-Length&#39;: `$&#123;stat.size&#125;`,
+    &#125;);
+  &#125; else &#123;
+    ctx.status = 206;
+    ctx.set(&#123;
+      &#39;Content-Range&#39;: `bytes $&#123;start&#125;-$&#123;stat.size - 1&#125;/$&#123;stat.size&#125;`,
+    &#125;);
+  &#125;
+
+  ctx.set(&#123;
+    &#39;Content-Type&#39;: &#39;application/octet-stream&#39;,
+    &#39;Content-Disposition&#39;: `attachment; filename=1.txt`,
+    Connection: &#39;keep-alive&#39;,
+  &#125;);
+  ctx.body = stream;
+&#125;);
+</code></pre>
+<blockquote>
+<p>（Chrome 默认下载工具不支持断点续传）</p>
+</blockquote>
+
         
     </div>
     </div>
@@ -288,7 +414,7 @@ class="article article-type-post"
 <footer class="article-footer">
     <div class="article-more-info">
     <div class="article-date">
-  <time datetime="2022-09-13T04:48:08.000Z" itemprop="datePublished">2022-09-13</time>
+  <time datetime="2022-10-21T08:28:06.000Z" itemprop="datePublished">2022-10-21</time>
 </div>
     
         <div class="article-category">
@@ -309,7 +435,7 @@ class="article article-type-post"
   
     
       <article
-id="post-判断路由器报废标准"
+id="post-js常用工具函数"
 class="article article-type-post"
 >
 
@@ -320,12 +446,11 @@ class="article article-type-post"
 
     <div class="article-body">
     <header class="article-title">
-        <a href="/2022/08/15/%E5%88%A4%E6%96%AD%E8%B7%AF%E7%94%B1%E5%99%A8%E6%8A%A5%E5%BA%9F%E6%A0%87%E5%87%86/">判断调制解调器报废标准</a>
+        <a href="/2022/10/20/js%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/">js常用工具函数</a>
     </header>
     <div class="article-entry post-inner-html">
         
-        <p>逮着来家里修路由器的师傅一通问</p>
-<p>活到老学到老</p>
+        <p>常用的js工具函数汇总</p>
         
     </div>
     </div>
@@ -340,61 +465,7 @@ class="article article-type-post"
 <footer class="article-footer">
     <div class="article-more-info">
     <div class="article-date">
-  <time datetime="2022-08-15T08:24:36.000Z" itemprop="datePublished">2022-08-15</time>
-</div>
-    
-        <div class="article-category">
-        <a class="article-category-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a>
-        </div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-个人博客站点收录Google"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/08/15/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E6%94%B6%E5%BD%95Google/">个人博客站点收录Google</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <p>在自己的博客写了好久，确实一直纳闷为什么网站的访问量那么低。</p>
-<p>google自己的文章也搜不到。自己google了一下，好家伙，原来是搜索引擎没有收录自己的站点。</p>
-<p>另外因为网站会有一些敏感内容，我也不去百度凑热闹了。仅限google收录，不过两者基本流程其实差不多</p>
-<p>博客站点利用hexo + github pages 搭建</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-08-15T03:16:21.000Z" itemprop="datePublished">2022-08-15</time>
+  <time datetime="2022-10-20T08:35:34.000Z" itemprop="datePublished">2022-10-20</time>
 </div>
     
         <div class="article-category">
@@ -415,7 +486,7 @@ class="article article-type-post"
   
     
       <article
-id="post-pixi疑难杂症汇总"
+id="post-prettier配置文件解析"
 class="article article-type-post"
 >
 
@@ -426,12 +497,11 @@ class="article article-type-post"
 
     <div class="article-body">
     <header class="article-title">
-        <a href="/2022/08/03/pixi%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E6%B1%87%E6%80%BB/">pixi疑难杂症汇总</a>
+        <a href="/2022/10/11/prettier%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90/">prettier配置文件解析</a>
     </header>
     <div class="article-entry post-inner-html">
         
-        <p>这段时间在忙一个七夕活动游戏的项目，技术栈基于gsap + pixi.js + ts + vue</p>
-<p>因为算是第一次用pixi和gsap来做项目，踩了不少坑。特此记录整理一下。</p>
+        <p>.prettierrc.json 配置字段解析</p>
         
     </div>
     </div>
@@ -446,7 +516,7 @@ class="article article-type-post"
 <footer class="article-footer">
     <div class="article-more-info">
     <div class="article-date">
-  <time datetime="2022-08-03T10:51:47.000Z" itemprop="datePublished">2022-08-03</time>
+  <time datetime="2022-10-11T02:53:54.000Z" itemprop="datePublished">2022-10-11</time>
 </div>
     
         <div class="article-category">
@@ -455,7 +525,58 @@ class="article article-type-post"
     
     
         <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+    
+      <article
+id="post-tsconfig字段解析"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/2022/10/10/tsconfig%E5%AD%97%E6%AE%B5%E8%A7%A3%E6%9E%90/">tsconfig字段解析</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <p>tsconfig.json 的配置项解析</p>
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2022-10-10T09:45:42.000Z" itemprop="datePublished">2022-10-10</time>
+</div>
+    
+        <div class="article-category">
+        <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+        </div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
         </div>
     
     </div>
@@ -468,7 +589,7 @@ class="article article-type-post"
 
   
     <nav class="pagination">
-        <a class="extend prev" rel="prev" href="/page/4/">Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/">Next</a>
+        <a class="extend prev" rel="prev" href="/page/4/">Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/6/">Next</a>
     </nav>
   
 </div>
@@ -499,7 +620,7 @@ class="article article-type-post"
   <div class="widget-wrap widget-cate">
     <div class="widget-title"><span>Categories</span></div>
     <div class="widget-inner">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%9B%B8%E5%85%B3/">AI相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%A2%E6%88%B7%E7%AB%AF/">客户端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
     </div>
   </div>
 
@@ -509,7 +630,7 @@ class="article article-type-post"
   <div class="widget-wrap widget-tags">
     <div class="widget-title"><span>Tags</span></div>
     <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E9%89%B4%E6%9D%83/" rel="tag">互联网鉴权</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS/" rel="tag">IOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prompt/" rel="tag">prompt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uniapp/" rel="tag">uniapp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E9%89%B4%E6%9D%83/" rel="tag">互联网鉴权</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9C%E7%A8%8B%E5%8A%9E%E5%85%AC/" rel="tag">远程办公</a></li></ul>
     </div>
   </div>
 
@@ -522,23 +643,23 @@ class="article article-type-post"
       <ul>
         
           <li>
-            <a href="/2023/04/11/CNAME%E6%96%87%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%8C%87%E5%AE%9A%E5%9F%9F%E5%90%8D/">CNAME文件绑定指定域名</a>
+            <a href="/2023/04/26/windows%E5%88%87%E6%8D%A2%E7%9B%98%E7%AC%A6/">windows切换盘符</a>
           </li>
         
           <li>
-            <a href="/2023/03/13/2023%E9%9D%A2%E8%AF%95%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB/">2023面试面经汇总</a>
+            <a href="/2023/04/25/MacOS%E5%88%B6%E4%BD%9C%E8%BD%AF%E4%BB%B6%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/">MacOS制作软件签名证书（M1 Pro芯片）</a>
           </li>
         
           <li>
-            <a href="/2023/02/22/web%E6%8B%A5%E6%9C%89%E7%9A%84%E7%AB%AF%E4%B8%8A%E6%80%A7%E8%83%BD/">web拥有的端上性能</a>
+            <a href="/2023/04/23/uniapp%E4%B8%80%E9%94%AE%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD/">uniapp一键登录功能</a>
           </li>
         
           <li>
-            <a href="/2023/02/17/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82FAT32%E3%80%81NTFS%E3%80%81exFAT/">一文搞懂FAT32、NTFS、exFAT</a>
+            <a href="/2023/04/23/git%E4%BB%A3%E7%A0%81%E5%A4%A7%E6%94%B9%E7%9A%84%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/">git代码大改的处理办法</a>
           </li>
         
           <li>
-            <a href="/2023/02/14/%E6%95%99%E4%BD%A0%E4%BD%BF%E7%94%A8%E6%96%B0%E5%BF%85%E5%BA%94bing/">教你使用新必应bing</a>
+            <a href="/2023/04/18/%E4%BD%BF%E7%94%A8chatgpt%E7%94%9F%E6%88%90%E7%9F%AD%E8%A7%86%E9%A2%91%E6%96%87%E6%A1%88/">使用chatgpt生成短视频文案</a>
           </li>
         
       </ul>
