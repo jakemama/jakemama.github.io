@@ -155,6 +155,178 @@
   
     
       <article
+id="post-nginx升级"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/2023/07/24/nginx%E5%8D%87%E7%BA%A7/">nginx升级（非平滑升级）</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <h1 id="下载新版本nginx压缩包"><a href="#下载新版本nginx压缩包" class="headerlink" title="下载新版本nginx压缩包"></a>下载新版本nginx压缩包</h1><pre><code class="shell">wget http://nginx.org/download/nginx-1.24.0.tar.gz
+
+tar -zxvf nginx-1.24.0.tar.gz
+</code></pre>
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2023-07-24T04:14:07.000Z" itemprop="datePublished">2023-07-24</time>
+</div>
+    
+        <div class="article-category">
+        <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+        </div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+    
+      <article
+id="post-nginx报错缺少依赖"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/2023/07/24/nginx%E6%8A%A5%E9%94%99%E7%BC%BA%E5%B0%91%E4%BE%9D%E8%B5%96/">nginx报错缺少依赖</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <p>运行<code>make</code>命令，提示<code>make: *** No rule to make target build&#39;, needed bydefault’. Stop</code></p>
+<p>一般是缺少相关依赖包，运行如下命令安装gcc环境，pcre、zlib、openssl， 这些是解压包、ssl相关的依赖。</p>
+<pre><code class="shell">yum -y install gcc-c++ 
+
+yum -y install pcre pcre-devel
+yum -y install zlib zlib-devel
+yum -y install openssl openssl-devel  
+</code></pre>
+<p>然后再次运行configure构建makefile文件，再次执行make。</p>
+
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2023-07-24T03:58:22.000Z" itemprop="datePublished">2023-07-24</time>
+</div>
+    
+        <div class="article-category">
+        <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+        </div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+    
+      <article
+id="post-nginx报错缺少memory zone"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/2023/07/24/nginx%E6%8A%A5%E9%94%99%E7%BC%BA%E5%B0%91memory%20zone/">nginx: [emerg] zero size shared memory zone “perip”</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <p>运行环境：centos7</p>
+<p>运行<code>nginx -t</code>，检查nginx的配置文件是否正确，出现一条报错信息：</p>
+<pre><code class="shell">[root@web01 conf.d]# nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: [emerg] zero size shared memory zone &quot;perip&quot;
+nginx: configuration file /etc/nginx/nginx.conf test failed
+</code></pre>
+<p>提示nginx: [emerg] zero size shared memory zone “one”，名称为one大小的共享内存空间zene没有。</p>
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2023-07-24T03:34:08.000Z" itemprop="datePublished">2023-07-24</time>
+</div>
+    
+        <div class="article-category">
+        <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+        </div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+    
+      <article
 id="post-从零开始安装nginx"
 class="article article-type-post"
 >
@@ -303,148 +475,10 @@ class="article article-type-post"
 
     
   
-    
-      <article
-  id="tweet-获取iframe元素方法"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <p>使用getElementsByClassName获取不到iframe，要使用getElementById获取到iframe</p>
-
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2023/05/07/%E8%8E%B7%E5%8F%96iframe%E5%85%83%E7%B4%A0%E6%96%B9%E6%B3%95/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2023-05-07T07:49:31.000Z" itemprop="datePublished">2023-05-07</time>
-</div>
-            
-            
-                <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-                </div>
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-windows切换盘符"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <p>windows在cmd命令行中切换盘符，例如从C盘切换到D盘，直接执行<code>cd D:</code>是不行的，需要加上<code>/d</code>才可以，比如<code>cd /d D:</code></p>
-
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2023/04/26/windows%E5%88%87%E6%8D%A2%E7%9B%98%E7%AC%A6/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2023-04-26T01:22:46.000Z" itemprop="datePublished">2023-04-26</time>
-</div>
-            
-            
-                <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-                </div>
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-MacOS制作软件签名证书"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2023/04/25/MacOS%E5%88%B6%E4%BD%9C%E8%BD%AF%E4%BB%B6%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/">MacOS制作软件签名证书（M1 Pro芯片）</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <p>软件的发布打包需要使用签名证书，一般打包平台（例如uniapp）会提供公共测试版本证书，方便测试，但是使用这类证书的软件应用不能上架各大软件商店。这个时候还是需要自己制作签名证书。</p>
-<p>另外，一些文章写的时间比较老，使用的是intel芯片，此次文章中是基于M1 Pro芯片实现的，对于apple自研芯片应该都有参考意义。</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2023-04-25T08:42:26.000Z" itemprop="datePublished">2023-04-25</time>
-</div>
-    
-        <div class="article-category">
-        <a class="article-category-link" href="/categories/%E5%AE%A2%E6%88%B7%E7%AB%AF/">客户端</a>
-        </div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS/" rel="tag">IOS</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
 
   
     <nav class="pagination">
-        <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/">Next</a>
+        <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/3/">Next</a>
     </nav>
   
 </div>
@@ -498,23 +532,23 @@ class="article article-type-post"
       <ul>
         
           <li>
+            <a href="/2023/11/06/%E6%B5%8F%E8%A7%88%E5%99%A8DevTools%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">浏览器DevTools使用技巧</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/03/%E5%9B%BE%E7%89%87img%E5%BA%95%E9%83%A8%E7%99%BD%E8%BE%B9bug/">图片img底部白边bug</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/27/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%BA%93%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">前端常用工具库和解决方案</a>
+          </li>
+        
+          <li>
             <a href="/2023/08/16/%E4%BD%BF%E7%94%A8lodash%E7%9A%84throttle%E5%87%BD%E6%95%B0%E4%BC%9A%E8%A7%A6%E5%8F%91%E4%B8%A4%E6%AC%A1/">使用lodash的throttle函数会触发两次</a>
           </li>
         
           <li>
             <a href="/2023/08/14/export%E4%B8%8Emodule-export/">export与module.export</a>
-          </li>
-        
-          <li>
-            <a href="/2023/08/02/%E6%95%B0%E7%BB%84foreach%E6%96%B9%E6%B3%95%E4%B8%8D%E6%94%AF%E6%8C%81async-await/">数组foreach方法不支持async/await</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/24/nginx%E5%8D%87%E7%BA%A7/">nginx升级（非平滑升级）</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/24/nginx%E6%8A%A5%E9%94%99%E7%BC%BA%E5%B0%91%E4%BE%9D%E8%B5%96/">nginx报错缺少依赖</a>
           </li>
         
       </ul>

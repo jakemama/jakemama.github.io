@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="e10lZLZCvqy3sd9xN2geXQVn0vLio96zR92M4L7Vn0o" />
+
+    
+    <title>前端常用工具库和解决方案 | Jake Ma</title>
+
+    <meta name="description" content="&lt;p&gt;根据工作中遇到的场景总结了一些JavaScript中常用的工具库和解决方案&lt;/p&gt;">
+    <meta name="keywords" content="Ant-Thinker JakeMa 马一栋 博客  个人博客 前端 程序员 frontend program">
+
+    
+
+    <meta property="og:locale" content="cn,ja,default" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "前端常用工具库和解决方案 | Jake Ma"  />
+    <meta property="og:description" content= "&lt;p&gt;根据工作中遇到的场景总结了一些JavaScript中常用的工具库和解决方案&lt;/p&gt;" />
+    <meta property="og:url" content="https://jakemama.github.io/2023/09/27/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%BA%93%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="JakeMa" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;根据工作中遇到的场景总结了一些JavaScript中常用的工具库和解决方案&lt;/p&gt;" />
+    <meta name="twitter:title" content="前端常用工具库和解决方案 | Jake Ma"/>
+    <meta name="twitter:description" content="&lt;p&gt;根据工作中遇到的场景总结了一些JavaScript中常用的工具库和解决方案&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;根据工作中遇到的场景总结了一些JavaScript中常用的工具库和解决方案&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "JakeMa" },
+            "@type": "BlogPosting",
+            "url": "https://jakemama.github.io/2023/09/27/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%BA%93%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jakemama.github.ioundefined"
+            },
+            "name": "JakeMa"
+            },
+            "headline": "前端常用工具库和解决方案 | Jake Ma",
+            "datePublished": "2023-09-27T13:44:14.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jakemama.github.io/2023/09/27/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%BA%93%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="96795YLOVI" data-api-key="42fac59586a27a38cc623ad379ef6337" data-index-name="hexo">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Jake Ma</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/photography">照片墙</a>
+                
+                <a href="/plan">年度计划</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/jakemama">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/photography">照片墙</a>
+                    
+                    <a href="/plan">年度计划</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clopod1vx0096djuqbu4bh1m4" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      前端常用工具库和解决方案
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-09-27T13:44:14.000Z" itemprop="datePublished">2023-09-27</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>根据工作中遇到的场景总结了一些JavaScript中常用的工具库和解决方案</p>
+<span id="more"></span>
+
+<h2 id="前端常用库、方案"><a href="#前端常用库、方案" class="headerlink" title="前端常用库、方案"></a>前端常用库、方案</h2><ol>
+<li>字符串、数字、数组、对象的各种常用方法：loadsh</li>
+<li>关于时间日期处理的一切：moment.js（时间格式化、计算时间差）、day.js、date-fans（支持按需引入，函数式编程）</li>
+<li>Excel操作相关：xlsx（json与excel互相转换）、xlsx-populate（excel各种操作，支持样式改变）</li>
+<li>vue项目国际化配置：vue-i18n</li>
+<li>模拟数据：Mockjs：模拟数据接口返回，可以用在浏览器环境和node端，支持自定义扩展（升级版接口管理工具rap2，json schema，实现原理其实就是模板语法）</li>
+<li>node：前端工程化，中间层，ssr渲染，协作链接（BackstopJS UI自动化回测、DocLever或Rap2搭建API平台、提供日志）</li>
+<li>代码风格：ESLint、Prettier</li>
+<li>函数式编程：Ramda.js：</li>
+<li>easel.js：canvas api js化操作</li>
+<li>YUIdoc：根据jsdoc风格的注释生成文档</li>
+<li>Echart.js、D3.js：可视化工具库。D3.js偏低层</li>
+<li>snap.svg：svg操作库，类似jquery</li>
+<li>网页版PPT：Impress.js，Reveal.js</li>
+<li>动画：Velocity.js（js复杂动画），animate.css（css简单动画）</li>
+<li>缓动函数：tween.js，jQuery Easing Plugin（velocity.js）</li>
+<li>语音信号处理：Recoeder.js</li>
+<li>流媒体播放器：video.js和官方扩展插件（在浏览器中播放不同格式），ffmpeg（多媒体处理模块，可以转换容器格式、通过添加参数的形式来改变流媒体的编解码方式，利用WebAssembly技术在浏览器中使用），Media Source Extension（浏览器用于支持多媒体播放的API），Bento4（提供的mp4info可以获取mp4的详细编码信息），jsmpeg.js（如果MediaSource不支持音频或视频的编解码算法，可以在服务端利用ffmpeg等工具将音频和视频的编解码格式转换为MediaSource能够支持的格式。另一种方式脱离了MSE技术，要根据现有编解码格式规范自己来编写解码程序）</li>
+<li>命令行制作工具：Commander.js（Git风格命令行工具，“主命令+子命令+参数”）和Inquirer.js（使用问答的模式来收集命令参数）</li>
+<li>shell脚本：shell.js （Shelljs，是基于node API实现的可以在Windows、Linux和Mac OS三大系统中使用的Shell工具）</li>
+<li>Windows跨平台工具：Cmder（命令行强化），cross-env（跨平台设置环境变量），MobaXterm（增强版windows终端）</li>
+<li>进程守护工具：pm2</li>
+<li>ssh连接：node-ssh（promise封装，更通用的ssh2模块）</li>
+<li>压缩包：archiver.js（promise封装）</li>
+<li>跨平台：基于Cordova的lonic框架，RN框架（适合团队合作，需要原生专家参与），小程序</li>
+<li>二进制消息格式：protobuf.js（消息体积更小，更通用）</li>
+<li>控制反转：Inversify.js</li>
+<li>游戏开发：CreateJS，Phaser（游戏开发框架）、Egret（白鹭）、微信小游戏<ol>
+<li>PreloadJS（预加载资源）</li>
+<li>SoundJS（音频资源的加载和播放）</li>
+</ol>
+</li>
+<li>物理引擎：matter.js、p2.js</li>
+<li>神经网络：brian.js、TensorFlow.js（深度学习框架）</li>
+<li>物联网：Johnny-Five</li>
+</ol>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2023/11/03/%E5%9B%BE%E7%89%87img%E5%BA%95%E9%83%A8%E7%99%BD%E8%BE%B9bug/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          图片img底部白边bug
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/08/16/%E4%BD%BF%E7%94%A8lodash%E7%9A%84throttle%E5%87%BD%E6%95%B0%E4%BC%9A%E8%A7%A6%E5%8F%91%E4%B8%A4%E6%AC%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">使用lodash的throttle函数会触发两次</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=前端常用工具库和解决方案 - Jake Ma&url=https://jakemama.github.io/2023/09/27/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%BA%93%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=前端常用工具库和解决方案 - Jake Ma&u=https://jakemama.github.io/2023/09/27/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%BA%93%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=前端常用工具库和解决方案 - Jake Ma&url=https://jakemama.github.io/2023/09/27/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%BA%93%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%9B%B8%E5%85%B3/">AI相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%85%A8/">安全</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%A2%E6%88%B7%E7%AB%AF/">客户端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS/" rel="tag">IOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/" rel="tag">lodash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixi-js/" rel="tag">pixi.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prompt/" rel="tag">prompt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/" rel="tag">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uniapp/" rel="tag">uniapp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E9%89%B4%E6%9D%83/" rel="tag">互联网鉴权</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9C%E7%A8%8B%E5%8A%9E%E5%85%AC/" rel="tag">远程办公</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/06/%E6%B5%8F%E8%A7%88%E5%99%A8DevTools%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">浏览器DevTools使用技巧</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/03/%E5%9B%BE%E7%89%87img%E5%BA%95%E9%83%A8%E7%99%BD%E8%BE%B9bug/">图片img底部白边bug</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/27/%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%BA%93%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">前端常用工具库和解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/16/%E4%BD%BF%E7%94%A8lodash%E7%9A%84throttle%E5%87%BD%E6%95%B0%E4%BC%9A%E8%A7%A6%E5%8F%91%E4%B8%A4%E6%AC%A1/">使用lodash的throttle函数会触发两次</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/14/export%E4%B8%8Emodule-export/">export与module.export</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Jake Ma &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG4NENLKCQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NG4NENLKCQ');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
