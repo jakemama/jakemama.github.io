@@ -171,7 +171,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-clopod1vf004sdjuq273uhri0" class="article article-type-post" itemscope
+    <article id="post-cm6xq1d5t004xn5uq730hfkiq" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -247,8 +247,24 @@
 </ul>
 </li>
 <li>首字节达到时间（Time to First Byte，TTFB）<ul>
-<li>指的是浏览器开始收到服务器响应数据的时间（后台处理时间 + 重定向时间），是反映服务端响应速度的重要指标</li>
-<li>TTFB 时间如果超过 500ms，用户在打开网页的时就会感觉到明显的等待</li>
+<li>指的是浏览器开始收到服务器响应数据的时间（后台处理时间Server RT + 1个RTT），是反映<strong>服务端响应速度</strong>的重要指标。</li>
+<li>页面的体积对TTFB基本上是没有影响的，回传的HTTP报文太大不会导致首字节传输耗时明显增加。</li>
+<li>TTFB 时间如果超过 500ms，用户在打开网页的时就会感觉到明显的等待。但gzip内容，以及缓冲一定的内容再开始传输等，TTFB会变长，但是用户体验会变短，所以TTFB也不是越短越好。</li>
+<li>如何优化TTFB时间<ul>
+<li>减少请求的传输量：避免在请求中携带过多的无用信息使TCP包被拆成多个（例如，发送Cookie或body很大的POST请求会更加耗时），因为服务器端都需要完整接收客户端的请求传输后才能做出响应并返回</li>
+<li>减少服务器端的处理时间：<ul>
+<li>需要尽可能优化服务器端的处理逻辑，如增加缓存、优化慢SQL、并行化网络请求等；</li>
+<li>另一方面，是流式渲染，即让服务器端先返回可渲染的内容，再流式地返回更多耗时的内容完成后续渲染。（在Response Header中增加Transfer-Encoding:chunked）</li>
+</ul>
+</li>
+<li>减少RTT：增加服务器节点，增加CDN节点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RTT，即往返时延<ul>
+<li>指的是从发送端发送数据开始，到发送端收到来自接收端的确认的时间，即一来一回的时间。一般来说，这个时间由物理距离、网络传输路径等决定。</li>
+<li>ping一下得到的就是RTT</li>
 </ul>
 </li>
 </ul>
@@ -762,7 +778,7 @@ self.onmessage = function(event)&#123;
     <!-- 开源不易，请勿删除 -->
     <div class="footer-wrap">
         <div class="footer-inner"> 
-            Jake Ma &copy; 2023<br>
+            Jake Ma &copy; 2025<br>
             Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
         </div>
     </div>

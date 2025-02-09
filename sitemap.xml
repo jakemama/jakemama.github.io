@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jakemama.github.io/CV/index.html</loc>
+    
+    <lastmod>2025-01-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jakemama.github.io/2022/09/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</loc>
     
-    <lastmod>2023-11-06</lastmod>
+    <lastmod>2023-12-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -12,15 +21,6 @@
   
   <url>
     <loc>https://jakemama.github.io/2023/11/06/%E6%B5%8F%E8%A7%88%E5%99%A8DevTools%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
-    
-    <lastmod>2023-11-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/CV/index.html</loc>
     
     <lastmod>2023-11-06</lastmod>
     
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2023/02/10/chatGPT%E4%BC%9A%E6%98%AF%E9%93%B6%E5%BC%B9%E5%90%97/</loc>
+    <loc>https://jakemama.github.io/2023/02/06/vue%20init%20webpack%20project%20%E8%B6%85%E6%97%B6%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     
     <lastmod>2023-02-15</lastmod>
     
@@ -281,7 +281,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2023/02/06/vue%20init%20webpack%20project%20%E8%B6%85%E6%97%B6%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <loc>https://jakemama.github.io/2023/02/10/chatGPT%E4%BC%9A%E6%98%AF%E9%93%B6%E5%BC%B9%E5%90%97/</loc>
     
     <lastmod>2023-02-15</lastmod>
     
@@ -416,7 +416,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/09/15/%E5%88%A9%E7%94%A8puppeteer%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E5%99%A8%E8%87%AA%E5%8A%A8%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF/</loc>
+    <loc>https://jakemama.github.io/2022/08/15/%E5%88%A4%E6%96%AD%E8%B7%AF%E7%94%B1%E5%99%A8%E6%8A%A5%E5%BA%9F%E6%A0%87%E5%87%86/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -425,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/08/15/%E5%88%A4%E6%96%AD%E8%B7%AF%E7%94%B1%E5%99%A8%E6%8A%A5%E5%BA%9F%E6%A0%87%E5%87%86/</loc>
+    <loc>https://jakemama.github.io/2022/09/15/%E5%88%A9%E7%94%A8puppeteer%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E5%99%A8%E8%87%AA%E5%8A%A8%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -452,15 +452,6 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/10/21/node%E5%92%8Ckoa%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</loc>
-    
-    <lastmod>2022-11-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jakemama.github.io/2022/10/31/packagejson%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90/</loc>
     
     <lastmod>2022-11-08</lastmod>
@@ -479,7 +470,25 @@
   </url>
   
   <url>
+    <loc>https://jakemama.github.io/2022/10/21/node%E5%92%8Ckoa%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</loc>
+    
+    <lastmod>2022-11-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jakemama.github.io/2022/10/10/tsconfig%E5%AD%97%E6%AE%B5%E8%A7%A3%E6%9E%90/</loc>
+    
+    <lastmod>2022-11-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jakemama.github.io/2022/07/18/JSON%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -506,25 +515,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/07/18/JSON%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2022-11-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jakemama.github.io/2022/07/01/javascript%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87%E5%B0%BA%E5%AF%B8%E5%92%8C%E5%AD%97%E8%8A%82%E5%A4%A7%E5%B0%8F/</loc>
-    
-    <lastmod>2022-11-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/2022/07/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS%E4%B8%AD/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -551,6 +542,15 @@
   </url>
   
   <url>
+    <loc>https://jakemama.github.io/2022/07/17/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS%E4%B8%AD/</loc>
+    
+    <lastmod>2022-11-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jakemama.github.io/2022/07/13/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1%E6%8A%80%E6%9C%AF%E7%9A%844%E4%B8%AA%E9%87%8D%E8%A6%81%E5%8F%82%E6%95%B0/</loc>
     
     <lastmod>2022-11-08</lastmod>
@@ -560,7 +560,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/08/03/pixi%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E6%B1%87%E6%80%BB/</loc>
+    <loc>https://jakemama.github.io/2022/08/03/pixi%E5%9F%BA%E7%A1%80/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -569,7 +569,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/08/03/pixi%E5%9F%BA%E7%A1%80/</loc>
+    <loc>https://jakemama.github.io/2022/08/03/pixi%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E6%B1%87%E6%80%BB/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -596,6 +596,15 @@
   </url>
   
   <url>
+    <loc>https://jakemama.github.io/2022/05/14/%E8%87%AA%E7%94%B1%E4%B8%BB%E4%B9%89%E5%90%B8%E6%AF%92%E8%A7%82/</loc>
+    
+    <lastmod>2022-11-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jakemama.github.io/2022/05/12/%E8%AE%BA%E9%AB%98%E7%AD%89%E6%94%B6%E5%85%A5%E5%9B%BD%E5%AE%B6%E9%99%B7%E9%98%B1/</loc>
     
     <lastmod>2022-11-08</lastmod>
@@ -606,24 +615,6 @@
   
   <url>
     <loc>https://jakemama.github.io/2022/05/13/%E9%9A%8B%E7%82%80%E5%B8%9D%E7%9A%84%E5%BF%83%E7%90%86%E5%AD%A6/</loc>
-    
-    <lastmod>2022-11-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/2022/05/14/%E8%87%AA%E7%94%B1%E4%B8%BB%E4%B9%89%E5%90%B8%E6%AF%92%E8%A7%82/</loc>
-    
-    <lastmod>2022-11-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/2022/06/29/vue3%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -650,7 +641,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/06/17/%E5%BD%93%E3%80%8C%E5%A4%AA%E9%BA%BB%E7%83%A6%E4%BA%86%E3%80%8D%E6%88%90%E4%B8%BA%E5%80%9F%E5%8F%A3/</loc>
+    <loc>https://jakemama.github.io/2022/06/29/vue3%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%89%8D%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -668,7 +659,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/05/18/%E4%BB%80%E4%B9%88%E6%98%AF%E5%B7%A6%E7%BF%BC%E5%92%8C%E5%8F%B3%E7%BF%BC/</loc>
+    <loc>https://jakemama.github.io/2022/06/17/%E5%BD%93%E3%80%8C%E5%A4%AA%E9%BA%BB%E7%83%A6%E4%BA%86%E3%80%8D%E6%88%90%E4%B8%BA%E5%80%9F%E5%8F%A3/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -677,7 +668,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/05/12/%E5%A4%96%E8%97%A9%E7%9A%84%E5%A5%A5%E7%A7%98/</loc>
+    <loc>https://jakemama.github.io/2022/05/18/%E4%BB%80%E4%B9%88%E6%98%AF%E5%B7%A6%E7%BF%BC%E5%92%8C%E5%8F%B3%E7%BF%BC/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -695,7 +686,34 @@
   </url>
   
   <url>
+    <loc>https://jakemama.github.io/2022/05/12/%E5%A4%96%E8%97%A9%E7%9A%84%E5%A5%A5%E7%A7%98/</loc>
+    
+    <lastmod>2022-11-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jakemama.github.io/2022/05/11/%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E6%83%85%E7%BB%AA%E5%8C%96%E6%80%9D%E8%80%83/</loc>
+    
+    <lastmod>2022-11-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jakemama.github.io/2022/05/06/%E5%A6%82%E6%9E%9C%E7%9C%9F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    
+    <lastmod>2022-11-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jakemama.github.io/2022/05/12/%E6%88%91%E5%AF%B9%E4%BA%BA%E5%8F%A3%E5%AD%A6%E7%9A%84%E7%B2%97%E6%B5%85%E7%90%86%E8%A7%A3/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -722,34 +740,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/05/12/%E6%88%91%E5%AF%B9%E4%BA%BA%E5%8F%A3%E5%AD%A6%E7%9A%84%E7%B2%97%E6%B5%85%E7%90%86%E8%A7%A3/</loc>
-    
-    <lastmod>2022-11-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/2022/05/11/%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E6%83%85%E7%BB%AA%E5%8C%96%E6%80%9D%E8%80%83/</loc>
-    
-    <lastmod>2022-11-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jakemama.github.io/2022/05/22/%E7%9C%8B%E7%8E%B0%E4%BB%A3%E5%8F%8D%E6%B8%B8%E5%87%BB%E4%BD%9C%E6%88%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%84%9F%E5%8F%97/</loc>
-    
-    <lastmod>2022-11-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/2022/04/22/%E7%94%9F%E4%BA%A7%E4%B8%8E%E6%8A%A2%E5%8A%AB/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -767,7 +758,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/04/24/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%AC%E4%B8%89%E5%AE%9A%E5%BE%8B/</loc>
+    <loc>https://jakemama.github.io/2022/04/22/%E7%94%9F%E4%BA%A7%E4%B8%8E%E6%8A%A2%E5%8A%AB/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -777,6 +768,24 @@
   
   <url>
     <loc>https://jakemama.github.io/2022/04/22/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%AC%E4%B8%80%E5%AE%9A%E5%BE%8B/</loc>
+    
+    <lastmod>2022-11-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jakemama.github.io/2022/04/24/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%AC%E4%B8%89%E5%AE%9A%E5%BE%8B/</loc>
+    
+    <lastmod>2022-11-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jakemama.github.io/2022/04/24/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%AE%9A%E5%BE%8B/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -803,15 +812,6 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/04/24/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%AE%9A%E5%BE%8B/</loc>
-    
-    <lastmod>2022-11-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jakemama.github.io/2022/05/11/%E4%B8%80%E6%88%98%EF%BC%9A%E6%AC%A7%E6%B4%B2%E5%8D%81%E4%B8%AA%E6%84%8F%E6%83%B3%E4%B8%8D%E5%88%B0/</loc>
     
     <lastmod>2022-11-08</lastmod>
@@ -822,6 +822,15 @@
   
   <url>
     <loc>https://jakemama.github.io/2022/04/29/%E4%B8%80%E5%88%80%E5%88%87%E7%9A%84%E5%86%85%E5%9C%A8%E9%80%BB%E8%BE%91/</loc>
+    
+    <lastmod>2022-11-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jakemama.github.io/2022/04/25/%E4%B8%87%E4%B8%96%E4%B8%8D%E7%A7%BB%E7%9A%84%E8%B4%A2%E5%AF%8C/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -857,7 +866,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/04/25/%E4%B8%87%E4%B8%96%E4%B8%8D%E7%A7%BB%E7%9A%84%E8%B4%A2%E5%AF%8C/</loc>
+    <loc>https://jakemama.github.io/2022/04/25/%E5%9B%9E%E6%8A%A5%E7%8E%87%E7%9A%84%E8%AF%AF%E8%A7%A3/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -866,7 +875,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/04/25/%E5%9B%9E%E6%8A%A5%E7%8E%87%E7%9A%84%E8%AF%AF%E8%A7%A3/</loc>
+    <loc>https://jakemama.github.io/2022/04/22/%E6%94%BF%E6%B2%BB%E5%AD%A6%E7%AC%AC%E4%B8%80%E5%AE%9A%E5%BE%8B/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -893,7 +902,7 @@
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/2022/04/22/%E6%94%BF%E6%B2%BB%E5%AD%A6%E7%AC%AC%E4%B8%80%E5%AE%9A%E5%BE%8B/</loc>
+    <loc>https://jakemama.github.io/2022/03/28/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -912,15 +921,6 @@
   
   <url>
     <loc>https://jakemama.github.io/2022/03/28/node%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
-    
-    <lastmod>2022-11-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/2022/03/28/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2022-11-08</lastmod>
     
@@ -985,7 +985,7 @@
 
   <url>
     <loc>https://jakemama.github.io/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -993,189 +993,189 @@
   
   <url>
     <loc>https://jakemama.github.io/tags/bug/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/docker/</loc>
-    <lastmod>2023-11-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-11-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/tags/node/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/mysql/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jakemama.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2025-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jakemama.github.io/tags/node/</loc>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/webpack/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/Android/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/%E7%BF%BB%E8%AF%91/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/%E8%BD%AC%E8%BD%BD/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/mqtt/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/pixi-js/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/puppeteer/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/%E6%95%88%E7%8E%87/</loc>
-    <lastmod>2023-11-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/vue/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jakemama.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/css/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/%E4%BA%92%E8%81%94%E7%BD%91%E9%89%B4%E6%9D%83/</loc>
-    <lastmod>2023-11-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/tags/uniapp/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/IOS/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jakemama.github.io/tags/nginx/</loc>
-    <lastmod>2023-11-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/tags/%E8%BF%9C%E7%A8%8B%E5%8A%9E%E5%85%AC/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <loc>https://jakemama.github.io/tags/uniapp/</loc>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/prompt/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jakemama.github.io/tags/%E8%BF%9C%E7%A8%8B%E5%8A%9E%E5%85%AC/</loc>
+    <lastmod>2025-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jakemama.github.io/tags/nginx/</loc>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/JavaScript/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/tags/lodash/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -1184,56 +1184,56 @@
   
   <url>
     <loc>https://jakemama.github.io/categories/%E5%90%8E%E7%AB%AF/</loc>
-    <lastmod>2023-11-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jakemama.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jakemama.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/categories/%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/categories/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/categories/%E7%89%A9%E8%81%94%E7%BD%91/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/categories/%E5%AE%A2%E6%88%B7%E7%AB%AF/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jakemama.github.io/categories/AI%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2023-11-08</lastmod>
+    <lastmod>2025-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
