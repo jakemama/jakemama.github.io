@@ -151,6 +151,60 @@
   
     
       <article
+  id="tweet-docker安装失败"
+  class="article article-type-tweet"
+>
+
+    <div class="article-tweet article-type-tweet-inner">
+
+        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
+
+        <div class="article-tweet-content post-inner-html">
+            
+                <h1 id="macOS安装docker-desktop-版失败"><a href="#macOS安装docker-desktop-版失败" class="headerlink" title="macOS安装docker desktop 版失败"></a>macOS安装docker desktop 版失败</h1><p>环境：macOS &#x2F; M1 Pro</p>
+<p>从官网下载最新的dmg，安装docker desktop时，提示错误信息：</p>
+<pre><code class="bash">installing vmnetd: retrieving vmnetd version from /Library/LaunchDaemons/com.docker.vmnetd.plist: reading plist /Library/LaunchDaemons/com.docker.vmnetd.plist: open /Library/LaunchDaemons/com.docker.vmnetd.plist: no such file or directory
+</code></pre>
+<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>运行一下brew命令</p>
+<pre><code class="bash">brew install --cask docker
+</code></pre>
+<p>重新运行下载下来的dmg安装包，问题就解决了</p>
+
+            
+        </div>
+
+        <footer class="article-footer">
+            <a class="article-footer-common" href="/2025/03/07/docker%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5/">评论</a>
+            <div class="article-more-info">
+            <div class="article-date">
+  <time datetime="2025-03-07T09:49:51.000Z" itemprop="datePublished">2025-03-07</time>
+</div>
+            
+                <div class="article-category">
+                <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                </div>
+            
+            
+                <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+                </div>
+            
+            </div>
+        </footer>
+
+        <div class="article-badge">
+            
+            
+        </div>
+
+    </div>
+
+</article>
+
+    
+  
+    
+      <article
   id="tweet-node进程内存溢出"
   class="article article-type-tweet"
 >
@@ -443,62 +497,6 @@ class="article article-type-post"
 
     
   
-    
-      <article
-id="post-图片img底部白边bug"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2023/11/03/%E5%9B%BE%E7%89%87img%E5%BA%95%E9%83%A8%E7%99%BD%E8%BE%B9bug/">图片img底部白边bug</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <p>常见于直接使用img标签的图片导致的图片底部白边问题</p>
-<ol>
-<li>将父元素的字体大小设置为0</li>
-<li>将img的display设置为block</li>
-</ol>
-
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2023-11-03T10:26:42.000Z" itemprop="datePublished">2023-11-03</time>
-</div>
-    
-        <div class="article-category">
-        <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-        </div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bug/" rel="tag">bug</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
 
   
     <nav class="pagination">
@@ -556,6 +554,10 @@ class="article article-type-post"
       <ul>
         
           <li>
+            <a href="/2025/03/07/docker%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5/">docker安装失败</a>
+          </li>
+        
+          <li>
             <a href="/2025/03/07/node%E8%BF%9B%E7%A8%8B%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/">node进程内存溢出</a>
           </li>
         
@@ -569,10 +571,6 @@ class="article article-type-post"
         
           <li>
             <a href="/2025/02/25/scss%E6%8A%A5%E9%94%99import%E5%8D%B3%E5%B0%86%E5%BA%9F%E5%BC%83/">scss报错Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0</a>
-          </li>
-        
-          <li>
-            <a href="/2023/11/06/%E6%B5%8F%E8%A7%88%E5%99%A8DevTools%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">浏览器DevTools使用技巧</a>
           </li>
         
       </ul>
