@@ -166,7 +166,8 @@ class="article article-type-post"
     </header>
     <div class="article-entry post-inner-html">
         
-        <h2 id="报错详情"><a href="#报错详情" class="headerlink" title="报错详情"></a>报错详情</h2><p>项目启动过程中显示报错</p>
+        <h2 id="报错详情"><a href="#报错详情" class="headerlink" title="报错详情"></a>报错详情</h2><p>macOS系统，M1 Pro芯片，node版本20.9.0，vue版本3，项目中引入的node依赖文件是fsevents</p>
+<p>项目启动过程中显示报错</p>
 <pre><code class="bash">[ERROR] No loader is configured for &quot;.node&quot; files: node_modules/fsevents/fsevents.node
 </code></pre>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>修改项目中.&#x2F;node_modules&#x2F;fsevents&#x2F;fsevents.js 文件</p>
@@ -175,7 +176,13 @@ const Native = require(&quot;./fsevents.node&quot;)
 //更改为
 const Native = window.require(&quot;./fsevents.node&quot;)
 </code></pre>
-<h2 id="举一反三"><a href="#举一反三" class="headerlink" title="举一反三"></a>举一反三</h2><p>对于这种「.node」文件的引入报错，基本都可以这样修改，将「require」改为「windows.require」即可正常引入</p>
+<h2 id="举一反三"><a href="#举一反三" class="headerlink" title="举一反三"></a>举一反三</h2><p>对于这种「.node」文件的引入报错，基本都可以这样修改，将「require」改为「window.require」即可正常引入</p>
+<h2 id="后期补充"><a href="#后期补充" class="headerlink" title="后期补充"></a>后期补充</h2><p>该方法并不是万能的，我又找到了一种方法，当上面添加「window」的方法不能用的时候，可以在「vite.config.js」中添加如下配置:</p>
+<pre><code class="js">// vite.config.js
+optimizeDeps: &#123;
+    exclude: [&quot;fsevents&quot;],
+  &#125;,
+</code></pre>
 
         
     </div>
